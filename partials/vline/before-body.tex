@@ -1,0 +1,17 @@
+
+\newcommand{\cls}{$documentclass$}
+
+\ifthenelse{\equal{\cls}{scrbook}}
+  {% True case
+  \begin{frontmatter}
+  \begin{titlepage}
+  $_titlepage.tex()$
+  \end{titlepage}
+  \end{frontmatter}
+  }
+  {% false case
+  \begin{titlepage}
+  $_titlepage.tex()$
+  \end{titlepage}
+  }
+  
