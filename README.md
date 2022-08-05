@@ -2,6 +2,13 @@
 
 This template makes a custom title page. It only works with `scrbook` and `srcartcl` document classes at the moment. Some of the title pages are inspired from [Latex Templates](http://www.latextemplates.com/cat/title-pages#google_vignette).
 
+## How to use
+
+1. Clone the repo (or grab all the files)
+2. Open one of two files and render
+  * start with `article.qmd` for a single qmd document. Open it in RStudio and click Render.
+  * NOT DONE YET: start with `_quarto.yml` for a Quarto project
+
 ## How it works
 
 -   Defines titlepage (scrartcl) or frontmatter (scrbook) via a pandoc template in `partials/<name>/before-body.tex`.
