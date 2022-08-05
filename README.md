@@ -1,9 +1,9 @@
 # quarto_titlepages
 
-This template makes a custom title page. It only works with `scrbook` and `srcartcl` document classes at the moment. Some of the title pages are inspired from [Latex Templates](http://www.latextemplates.com/cat/title-pages#google_vignette).
+This template makes a custom title page. It only works with `scrbook` and `srcartcl` document classes at the moment. Some of the title pages are inspired from [Latex Templates](http://www.latextemplates.com/cat/title-pages#google_vignette). Click [here](https://github.com/nmfs-opensci/quarto_titlepages/blob/e1384fabc59772a1211a693eca7b6490c68f9939/article.pdf) (or on `article.pdf` in repo) to see the output.
 
 |                                    vline                                    | another one | and another |
-|:---------------------------------------------------------------------------:|:-----------:|:-----------:|
+|:---------------------------------------------:|:-----------:|:-----------:|
 | ![](images/paste-8756BCE1.png){style="border: 5px solid #555;" width="90%"} | In Progress | In Progress |
 
 ## How to use
