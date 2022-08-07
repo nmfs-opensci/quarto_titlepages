@@ -26,9 +26,9 @@ This template makes a custom title page. It only works with `scrbook` and `srcar
       pdf:
         documentclass: scrartcl 
         number-sections: true
-        template-partials: ["partials/vline_article/before-body.tex"]
+        template-partials: ["partials/vline/before-body.tex"]
         include-in-header: 
-          - partials/vline_book/in-header.tex
+          - partials/vline/in-header.tex
         toc: true
         lof: true
         lot: true
