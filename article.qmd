@@ -8,7 +8,7 @@ author:
         department: Department of YYY
   - name: Eva Nováková
     affiliations:
-      - name: University of XXX
+      - name: University of ABC
         department: Department of YYY
   - name: Matti Meikäläinen
     affiliations:
@@ -21,10 +21,10 @@ format:
     documentclass: scrartcl
     number-sections: true
     template-partials:
-      - "partials/vline/before-body.tex"
-      - "partials/vline/_titlepage.tex" 
+      - "partials/vline/template/before-body.tex"
+      - "partials/vline/template/_titlepage.tex" 
     include-in-header: 
-      - partials/vline/in-header.tex
+      - "partials/vline/static/in-header.tex"
     toc: true
     lof: true
     lot: true
@@ -101,7 +101,7 @@ See @tbl-numbers.
 
 LaTeX is great at typesetting mathematics:
 
-Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let 
+Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
 
 $$
 S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
