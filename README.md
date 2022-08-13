@@ -18,9 +18,9 @@ This template makes a custom title page using the information in the YAML (from 
 
 ## How it works
 
--   Defines titlepage (scrartcl) or frontmatter (scrbook) via a pandoc template in `partials/<name>/before-body.tex`.
+-   Defines titlepage or frontmatter  via a pandoc template in `before-body.tex`.
 -   Passes that template in via `template-partials`. This is needed so that you can reference the YAML variables, things like `author`.
--   Specifies the extra things (packages) that are needed for the LaTeX header in `partials/in-header.tex`.
+-   Specifies the extra things (packages) that are needed for the LaTeX header in `in-header.tex`.
 
 ## The YAML
 
