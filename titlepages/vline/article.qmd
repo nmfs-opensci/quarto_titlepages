@@ -7,18 +7,21 @@ author:
       - name: Minnesota Department of Natural Resources
         address: 500 Lafayette Road Saint Paul, MN 55155
       - name: University of Minnesota
-        department: Department of Fisheries, Wildlife and Conservation Biology
+        department: Department of Mathematics
   - name: Eva Nováková
     affiliations:
       - name: Czech University of Life Sciences Prague
         address: Kamýcká 129, 165 00 Praha-Suchdol, Czechia
   - name: Matti Meikäläinen
-    email: test@jy.fi
+    email: matti@jy.fi
     affiliations:
       - name: University of Jyväskylä
         department: Department of Biological and Environmental Science
         address: P.O. Box 35, FI-40014 University of Jyväskylä, Finland
   - name: Ashok Kumar
+    affiliations:
+      - name: University of Minnesota
+        department: Department of Mathematics
 cover: logo.png
 editor: visual
 format:
@@ -26,10 +29,10 @@ format:
     documentclass: scrbook
     number-sections: true
     template-partials:
-      - "titlepages/vline/template/before-body.tex"
-      - "titlepages/vline/template/_titlepage.tex" 
+      - "template/before-body.tex"
+      - "template/_titlepage.tex" 
     include-in-header: 
-      - "titlepages/vline/template/in-header.tex"
+      - "template/in-header.tex"
     toc: true
     lof: true
     lot: true
@@ -39,72 +42,15 @@ bibliography: references.bib
 
 # Introduction
 
-This uses template partials to use the YAML in your qmd to make a custom title-page. See `article-static.qmd` for how to make a static title page if you don't want to mess around with templating.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor velit. Fusce accumsan ultrices fringilla. Praesent  sed odio mi. Mauris non ligula turpis. Duis posuere lacus nec diam  interdum dictum suscipit magna molestie. Vestibulum nibh dolor,  interdum eget rhoncus ut, sodales eget justo. Morbi blandit lorem  sit amet nulla egestas aliquam. Nunc pharetra est at nibh ullamcorper  in commodo erat dignissim. Cras et suscipit enim.
 
-## How it works
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. 
 
--   Defines titlepage (scrartcl) or frontmatter (scrbook) via a pandoc template in `partials/<name>/before-body.tex`.
--   Passes that template in via `template-partials`. This is needed so that you can reference the YAML variables, things like `author`.
--   Specifies the extra things (packages) that are needed for the LaTeX header in `partials/<name>/in-header.tex`.
+Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 
-## The YAML
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\
 
-    format:
-      pdf:
-        documentclass: scrartcl 
-        number-sections: true
-        template-partials: ["partials/vline/before-body.tex"]
-        include-in-header: 
-          - partials/vline/in-header.tex
-        toc: true
-        lof: true
-        lot: true
-
-What is going on:
-
-LaTeX document class affects the look; For now just `scrartcl` or `srcbook`
-
-        documentclass: scrartcl
-
-Articles generally don't have `#` (header 1) but instead just use `##` (header 2). If you use, `#` (header 1) in `scrartcl`, then you need to set
-
-        number-sections: true 
-
-so the numbering isn't whack.
-
-This is the custom title page stuff. Change the directory to the titlepage you want. So like change `vline` to another directory in the `partials` directory.
-
-        template-partials: ["partials/vline/before-body.tex"]
-        include-in-header: 
-          - partials/vline/in-header.tex
-
-Next bit indicates if you want table of contents (toc), list of fig (lof), or list of tables (lot).
-
-        toc: true
-        lof: true
-        lot: true
-
-If you want a logo on the title page, pass in `cover`
-
-        cover: logo.png
-
-# Materials and Methods
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
-
-## Sectioning commands
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
-
-Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
-
-Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu, fermentum sem.
-
-# Results
-
-See @tbl-numbers.
-
-LaTeX is great at typesetting mathematics:
+## Supporting theory
 
 Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
 
@@ -115,35 +61,24 @@ $$ {#eq-clt}
 
 denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$. Thus concludes the explanation about @eq-clt.
 
-You can make lists with automatic numbering ...
+# Materials and Methods
 
-1.  Like this,
-2.  and like this.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. 
 
-...or bullet points ...
+## Study area
 
--   Like this,
--   and like this.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. 
 
-...or with words and descriptions ...
+![the study area](logo.png){#fig-logo}
 
-Word
+See @fig-logo for a picture of the study area. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 
-:   Definition
+Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
 
-Concept
+# Results
 
-:   Explanation
+See @tbl-numbers for the table of results. Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu, fermentum sem.
 
-Idea
-
-:   Text
-
-An example quotation:
-
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\
-
-## Figures and Tables
 
 | Thing | Value |
 |:------|------:|
@@ -154,9 +89,10 @@ An example quotation:
 
 : Table of numbers. {#tbl-numbers}
 
+
 # Discussion
 
-Lorem ipsum dolor sit amet, @tbl-numbers, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
+Lorem ipsum dolor sit amet, @tbl-numbers, consectetur adipiscing elit. @knuth84 and all things LaTeX. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 
 Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
 

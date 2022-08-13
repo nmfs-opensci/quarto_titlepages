@@ -1,0 +1,39 @@
+The files that appear in the template-partials: line of the YAML are Pandoc Templates with LaTeX
+Pandoc templating https://pandoc.org/MANUAL.html#templates
+
+$-- is a Pandoc comment
+% is a LaTeX comment
+
+If I want to comment out a line, I use both though maybe $-- works
+% $-- $if(subtitle)$ ... $endif$
+
+Some examples
+
+$if(subtitle)$ ... $endif$
+
+Here subtitle is true if the YAML has "subtitle: " and false otherwise
+
+$subtitle$ (with $..$) is the value of subtitle in the YAML
+
+$if(subtitle)${\large\textit{$subtitle$}}$endif$ 
+prints the subtitle in large text. \large is LaTeX
+
+$if(by-author/allbutlast)$ means if there is more than one author
+since if there is only one author then there is no "allbutlast" value
+
+$if(by-author/last)$ test if there is a last author. If there is at least one author, this will be true.
+
+$for(by-author)$%
+{\large{$by-author.name.literal$}}$sep${\large{ AND }}
+$endfor$%
+would do a for look across all the authors and print the author name. The $sep$ bit says what to put between the names. In this case it would be AND.
+
+Magically the template can number the author affiliations. I don't how this works.
+
+$for(by-author)$
+{\large{$by-author.name.literal$}}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
+$sep$, %
+$endfor$
+
+This is assigning a number to each affiliation name and then it assigns the right one.
+
