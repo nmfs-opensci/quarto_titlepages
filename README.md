@@ -1,4 +1,4 @@
-# quarto_titlepages
+# quarto_titlepages <a href="https://github.com/nmfs-opensci/quarto_titlepages"><img align="right" src="https://raw.githubusercontent.com/nmfs-opensci/assets/main/images/GitHub-Mark-32px.png"/></a>
 
 This work is based on this section of the Quarto manual <https://quarto.org/docs/journals/templates.html#replacing-partials> To see the LaTeX templates that Quarto is using start here: <https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/template.tex>
 
