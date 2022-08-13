@@ -36,9 +36,9 @@ This template makes a custom title page. The default document classes in Quarto 
         lof: true
         lot: true
 
-What is going on:
+## What is going on:
 
-LaTeX document class affects the look; For now just `scrartcl` or `srcbook`
+LaTeX document class affects the look;  `scrartcl` or `srcbook` are the Quarto defaults. The `cls` folder has a few more in it.
 
         documentclass: scrartcl
 
@@ -59,3 +59,10 @@ Next bit indicates if you want table of contents (toc), list of fig (lof), or li
         toc: true
         lof: true
         lot: true
+
+## Approach I took
+
+There are 2 approaches that I considered.
+
+1. Use the `title.tex` partial (which defines things like title and author) and then redefine the `\maketitle` command. Google and you'll find examples. I find `\maketitle` really irritating and is a constant headache to make custom title pages. But maybe you love it; in which case, try that approach.
+2. Use `before-body.tex` partial to get rid of the `\maketitle` call and use my own `\begin{frontmatter}...\end{frontmatter}` section. I find this much more straightforward for creating custom titlepages. So that's the approach I took.
