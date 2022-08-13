@@ -16,6 +16,13 @@ This template makes a custom title page using the information in the YAML (from 
 3.  Pick a titlepage, eg. `vline`
 4.  Open `article.qmd` in that folder and render it.
 
+## How to modify to make your own title page
+
+* **Modifying Pandoc templates sounds like fun!!** Start modifying the files in the `template` folder in one of the titlepage examples. 
+* **Are you kidding me? No way! I have a static title page and I want to use that.** Go to the `static` folder and modify there. 
+
+What's the difference? They both are being listed in template-partials in the YAML. `static` is using a static title page. It is not using the values from the YAML at all. `before-body.tex` needs to be listed in template-partials to override the template that Quarto (and Pandoc) uses.
+
 ## How it works
 
 -   Defines titlepage or frontmatter  via a pandoc template in `before-body.tex`.
