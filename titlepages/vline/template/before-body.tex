@@ -1,17 +1,13 @@
-
-\newcommand{\cls}{$documentclass$}
-
-\ifthenelse{\equal{\cls}{scrbook}}
-  {% True case
+$if(has-frontmatter)$
   \begin{frontmatter}
   \begin{titlepage}
   $_titlepage.tex()$
   \end{titlepage}
   \end{frontmatter}
-  }
-  {% false case
+$else$
   \begin{titlepage}
   $_titlepage.tex()$
   \end{titlepage}
-  }
+$endif$
+
   
