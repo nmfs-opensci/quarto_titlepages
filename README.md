@@ -1,6 +1,7 @@
 # quarto_titlepages
 
 This work is based on this section of the Quarto manual https://quarto.org/docs/journals/templates.html#replacing-partials
+To see the LaTeX templates that Quarto is using start here: https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/template.tex
 
 This template makes a custom title page. It only works with `scrbook` and `srcartcl` document classes at the moment. Some of the title pages are inspired from [Latex Templates](http://www.latextemplates.com/cat/title-pages#google_vignette). Click [here](https://github.com/nmfs-opensci/quarto_titlepages/blob/e1384fabc59772a1211a693eca7b6490c68f9939/article.pdf) (or on `article.pdf` in repo) to see the output.
 
