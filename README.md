@@ -7,15 +7,14 @@ This template makes a custom title page using the information in the YAML (from 
 
 |                                    vline                                    | another one | and another |
 |:---------------------------------------------:|:-----------:|:-----------:|
-| ![](images/paste-8756BCE1.png){style="border: 5px solid #555;" width="90%"} | In Progress | In Progress |
+| ![](images/paste-B5AF478C.png) | In Progress | In Progress |
 
 ## How to use
 
 1.  Clone the repo (or grab all the files)
-2.  Open one of two files and render
-
--   start with `article.qmd` for a single qmd document. Open it in RStudio and click Render.
--   NOT DONE YET: start with `_quarto.yml` for a Quarto project
+2.  Open the `titlepages` folder
+3.  Pick a titlepage, eg. `vline`
+4.  Open `article.qmd` in that folder and render it.
 
 ## How it works
 
@@ -48,11 +47,13 @@ Articles generally don't have `#` (header 1) but instead just use `##` (header 2
 
 so the numbering isn't whack.
 
-This is the custom title page stuff. Change the directory to the titlepage you want. So like change `vline_article` to `vline_book`. You need to match `scrartcl` to `vline_article` and `scrbook` to `vline_book`.
+This is the custom title page stuff. Change the directory to the titlepage you want.
 
-        template-partials: ["partials/vline_article/before-body.tex"]
+        template-partials:
+          - "titlepages/vline/template/before-body.tex"
+          - "titlepages/vline/template/_titlepage.tex" 
         include-in-header: 
-          - partials/vline_book/in-header.tex
+          - "titlepages/vline/template/in-header.tex"
 
 Next bit indicates if you want table of contents (toc), list of fig (lof), or list of tables (lot).
 
