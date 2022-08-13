@@ -1,28 +1,8 @@
 ---
-title: The SocioEconomic Aspects of Stock Assessments
-subtitle: Recommendations for Increasing Assessment Accuracy and Improving Management Advice
+title: Not used
+subtitle: Not used
 author:
-  - name: Jane Doe
-    affiliations:
-      - name: Minnesota Department of Natural Resources
-        address: 500 Lafayette Road Saint Paul, MN 55155
-      - name: University of Minnesota
-        department: Department of Mathematics
-  - name: Eva Nováková
-    affiliations:
-      - name: Czech University of Life Sciences Prague
-        address: Kamýcká 129, 165 00 Praha-Suchdol, Czechia
-  - name: Matti Meikäläinen
-    email: matti@jy.fi
-    affiliations:
-      - name: University of Jyväskylä
-        department: Department of Biological and Environmental Science
-        address: P.O. Box 35, FI-40014 University of Jyväskylä, Finland
-  - name: Ashok Kumar
-    affiliations:
-      - name: University of Minnesota
-        department: Department of Mathematics
-cover: logo.png
+  - name: Not used
 editor: visual
 format:
   pdf:
