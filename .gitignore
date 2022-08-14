@@ -37,3 +37,6 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+.DS_Store
+titlepages/.DS_Store
+titlepages/bg-image/.DS_Store
