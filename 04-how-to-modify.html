@@ -149,7 +149,7 @@ ul.task-list{list-style: none;}
   <li><a href="#modifying-pandoc-templates-sounds-like-fun" id="toc-modifying-pandoc-templates-sounds-like-fun" class="nav-link" data-scroll-target="#modifying-pandoc-templates-sounds-like-fun">Modifying Pandoc templates sounds like fun!!</a></li>
   <li><a href="#are-you-kidding-me" id="toc-are-you-kidding-me" class="nav-link" data-scroll-target="#are-you-kidding-me">Are you kidding me?</a></li>
   <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works</a></li>
-  <li><a href="#the-yaml" id="toc-the-yaml" class="nav-link" data-scroll-target="#the-yaml">The YAML</a></li>
+  <li><a href="#the-yaml---example" id="toc-the-yaml---example" class="nav-link" data-scroll-target="#the-yaml---example">The YAML - example</a></li>
   <li><a href="#what-is-going-on" id="toc-what-is-going-on" class="nav-link" data-scroll-target="#what-is-going-on">What is going on:</a></li>
   </ul></li>
   </ul>
@@ -164,13 +164,13 @@ ul.task-list{list-style: none;}
 <h1>How to modify</h1>
 <section id="modifying-pandoc-templates-sounds-like-fun" class="level2">
 <h2 class="anchored" data-anchor-id="modifying-pandoc-templates-sounds-like-fun">Modifying Pandoc templates sounds like fun!!</h2>
-<p>Start modifying the files in the <code>template</code> folder in one of the titlepage examples other than <code>static</code>.</p>
+<p>Start modifying the files in one of the template title pages. Currently this is <code>vline</code> and <code>bg-image</code>.</p>
 </section>
 <section id="are-you-kidding-me" class="level2">
 <h2 class="anchored" data-anchor-id="are-you-kidding-me">Are you kidding me?</h2>
 <p><strong>No way! I have a static title page and I want to use that.</strong></p>
-<p>Go to the <code>static</code> folder and modify there.</p>
-<p>What’s the difference? They both are being listed in template-partials in the YAML. <code>static</code> is using a static title page. It is not using the values from the YAML at all. <code>before-body.tex</code> needs to be listed in template-partials to override the template that Quarto (and Pandoc) uses.</p>
+<p>Go to one of the static examples (end in <code>-static</code>) and modify there.</p>
+<p>What’s the difference? They both are being listed in template-partials in the YAML. <code>-static</code> is using a static title page. It is not using the values from the YAML at all. However <code>before-body.tex</code> still needs to be listed in template-partials to override the template that Quarto (and Pandoc) uses.</p>
 </section>
 <section id="how-it-works" class="level2">
 <h2 class="anchored" data-anchor-id="how-it-works">How it works</h2>
@@ -180,32 +180,34 @@ ul.task-list{list-style: none;}
 <li>Specifies the extra things (packages) that are needed for the LaTeX header in <code>in-header.tex</code>.</li>
 </ul>
 </section>
-<section id="the-yaml" class="level2">
-<h2 class="anchored" data-anchor-id="the-yaml">The YAML</h2>
+<section id="the-yaml---example" class="level2">
+<h2 class="anchored" data-anchor-id="the-yaml---example">The YAML - example</h2>
 <pre><code>format:
   pdf:
     documentclass: scrartcl 
     number-sections: true
-    template-partials: ["partials/vline/before-body.tex"]
+    template-partials:
+      - "before-body.tex"
+      - "_titlepage.tex" 
     include-in-header: 
-      - partials/vline/in-header.tex
+      - "in-header.tex"
     toc: true
     lof: true
     lot: true</code></pre>
 </section>
 <section id="what-is-going-on" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-going-on">What is going on:</h2>
-<p>LaTeX document class affects the look; <code>scrartcl</code> or <code>srcbook</code> are the Quarto defaults. The <code>cls</code> folder has a few more in it.</p>
+<p>LaTeX document class affects the look; <code>scrartcl</code> or <code>srcbook</code> are the Quarto defaults. The <code>cls</code> folder in the repo has a few more in it.</p>
 <pre><code>    documentclass: scrartcl</code></pre>
 <p>Articles generally don’t have <code>#</code> (header 1) but instead just use <code>##</code> (header 2). If you use, <code>#</code> (header 1) in <code>scrartcl</code>, then you need to set</p>
 <pre><code>    number-sections: true </code></pre>
 <p>so the numbering isn’t whack.</p>
 <p>This is the custom title page stuff. Change the directory to the titlepage you want.</p>
 <pre><code>    template-partials:
-      - "titlepages/vline/template/before-body.tex"
-      - "titlepages/vline/template/_titlepage.tex" 
+      - "before-body.tex"
+      - "_titlepage.tex" 
     include-in-header: 
-      - "titlepages/vline/template/in-header.tex"</code></pre>
+      - "in-header.tex"</code></pre>
 <p>Next bit indicates if you want table of contents (toc), list of fig (lof), or list of tables (lot).</p>
 <pre><code>    toc: true
     lof: true
