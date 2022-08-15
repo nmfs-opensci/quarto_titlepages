@@ -1,0 +1,5 @@
+# Title page gallery
+
+|                                                               vline (template)                                                                |                                                            classic lined (static)                                                             |                                                               academic (static)                                                               |      bg-image (template)       |
+|:-------------------:|:----------------:|:----------------:|:-------------:|
+| <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-CC55A28D.png"><img src="./images/paste-CC55A28D.png" width="200"/></a> | <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-309BEAEA.png"><img src="./images/paste-309BEAEA.png" width="200"/></a> | <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-CD5ECC9C.png"><img src="./images/paste-CD5ECC9C.png" width="200"/></a> | <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-782C7459.png"><img src="./images/paste-782C7459.png" width="200"/></a> |

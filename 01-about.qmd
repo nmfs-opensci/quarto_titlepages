@@ -1,0 +1,26 @@
+# About
+
+This work is based on this section of the Quarto manual <https://quarto.org/docs/journals/templates.html#replacing-partials> To see the LaTeX templates that Quarto is using start here: <https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/template.tex>
+
+This template makes a custom title page using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a Quarto book). The default document classes in Quarto are `scrbook` and `srcartcl`. There are some other classes in the `cls` folder (krantz, svmono, elsevier) and this works with those too. The static title pages are inspired from [Latex Templates](http://www.latextemplates.com/cat/title-pages#google_vignette). Click [here](https://github.com/nmfs-opensci/quarto_titlepages/titlepages/bg-image/article.pdf) to see an example output from the bg-image title page.
+
+Here is a preview of each of the templates:
+
+::: panel-tabset
+### vline
+
+![](images/vline.png){.border fig-alt="Screenshot of vline title page. Page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}
+
+### bg-image
+
+![](images/bg-image.png){.border fig-alt="Screenshot of bg-image title page. Page has a background image in the top left with title, subtitle, authors and affiliations below. There is a logo towards the bottom followed by address."}
+
+### academic-static
+
+![](images/academic-static.png){.border fig-alt="Screenshot of academic-static title page. Page has institution name centered at top with the title centered between two horizontal lines. The two authors are on the same level on left and right."}
+
+### classic-lined-static
+
+![](images/classic-lined-static.png){.border fig-alt="Screenshot of classic-lined-static title page. Page has double horizontal lines at the top and bottom. The title is red, centered and at top. One author is in caps and below the title. There is a small logo at the bottom."}
+
+

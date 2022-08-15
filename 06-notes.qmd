@@ -1,0 +1,30 @@
+# Notes
+
+Some comments on my approach and why I did things the way I did.
+
+## \maketitle
+
+It is very common to use `\maketitle`. When you customize a title page, you redefine this. I personnally find that approach more difficult than necessary. If I were writing a document class (cls), sure I'd use that but for of my work, I just find that more work than necessary.
+
+Instead I find it easier to include `\begin{title}....\end{title}` directly and not use `\maketitle` at all. Background: within the documentclass (required for a LaTeX document), there will be a definitian of `\maketitle`, a shortcut for a `\begin{title}....\end{title}` definition that specifies the look of the title page for that document class. Typically you'll see this at the start of a LaTeX doc:
+```
+\begin{document}
+\maketitle
+```
+To figure out what the `\maketitle` code is, you have to dig into the document class. The document class is specified by a `.cls` file which you might not have access to. For example, the `srcbook.cls` document class used by Quarto is somewhere in the Quarto files. And in any case, document class files are hard to wade through. So instead one redefines `\maketitle` in ones header (the part before `\begin{document}`).
+
+But for Quarto, the `\maketitle` call is in the `before-body.tex` partial. So I can just pass in my own `before-body.tex`.
+
+## authblk and authors
+
+The authblk package (LaTeX) is very popular for defining the authors and affilliations for title pages. It has a lot of helper functions for defining `\author`, which is a short-cut for a bunch of code to format an author list. If you look in the default `title.tex` [partial](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/title.tex), you see `\author` being defined. That looks like the generic LaTeX `\author` definition to me.
+
+If we look at the `title.tex` template in the [quarto journals bj template](https://github.com/quarto-journals/biophysical-journal/blob/main/_extensions/bj/partials/title.tex), it looks like they are using the authblk LaTeX package which has `\author[1]` and `\affil` like things.
+
+The problem I have with using authblk, is that when recreating a government report title page, it's not like I get to choose how the page looks. It has to look a very particular way. So I then need to learn how to alter the authblk defaults to get the author and affiliation looks that I need. Rather than fighting authblk to get what I want, I found it easier just to create the title page manually.
+
+Once you have a handle on Pandoc template code, it is not hard to create things like
+```
+author^1, author^1,2, author^3 and author^1
+```
+using a for loop in Pandoc. See the chapter on Pandoc templates.

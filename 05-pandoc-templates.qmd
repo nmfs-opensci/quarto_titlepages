@@ -1,3 +1,5 @@
+# Pandoc template help
+
 The files that appear in the template-partials: line of the YAML are Pandoc Templates with LaTeX
 Pandoc templating https://pandoc.org/MANUAL.html#templates
 
