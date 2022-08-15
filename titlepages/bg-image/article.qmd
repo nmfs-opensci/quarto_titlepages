@@ -1,6 +1,6 @@
 ---
-title: quarto_titlepages&#58; templates for custom  title pages
-subtitle: Template partials and instructions for creating beautiful title pages for many LaTeX document classes
+title: "[quarto_titlepages](https://nmfs-opensci.github.io/quarto_titlepages/)&#58; templates for custom  title pages"
+subtitle: Template partials and instructions for creating beautiful title pages for many LaTeX documents [https://nmfs-opensci.github.io/quarto_titlepages/](https://nmfs-opensci.github.io/quarto_titlepages/)
 author:
   - name: Jane Doe
     affiliations:
