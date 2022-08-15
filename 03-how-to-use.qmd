@@ -1,10 +1,10 @@
 # How to use  {#sec-howtouse}
 
-1.  Go to the GitHub repository https://github.com/nmfs-opensci/quarto_titlepages
+1.  Go to [https://github.com/nmfs-opensci/quarto_titlepages](https://github.com/nmfs-opensci/quarto_titlepages)
 1.  Open the `titlepages` folder
 2.  Pick a title page, eg. `vline` or `bg-image`
-3.  Download (or copy) the `before-body.tex`, `_titlepage.tex`, and `in-header.tex` files.
-4.  You can download `article.qmd` if you want an example qmd to run.
+3.  Download (or copy) the `before-body.tex`, `_titlepage.tex`, and `in-header.tex` files. *How?* Clone the repo or click on "raw" and copy and paste the code into your own file.
+4.  You can download (or copy) `article.qmd` if you want an example qmd to run.
 
 In the YAML of your qmd document or `index.qmd` file for a Quarto book project, add this to the PDF format section:
 
