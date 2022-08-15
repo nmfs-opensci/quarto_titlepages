@@ -1,6 +1,6 @@
 ---
-title: The SocioEconomic Aspects of Stock Assessments
-subtitle: Recommendations for Increasing Assessment Accuracy and Improving Management Advice
+title: quarto_titlepages&#58; templates for custom  title pages
+subtitle: Template partials and instructions for creating beautiful title pages for many LaTeX document classes
 author:
   - name: Jane Doe
     affiliations:
@@ -53,7 +53,9 @@ bibliography: references.bib
 
 # Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor velit. Fusce accumsan ultrices fringilla. Praesent sed odio mi. Mauris non ligula turpis. Duis posuere lacus nec diam interdum dictum suscipit magna molestie. Vestibulum nibh dolor, interdum eget rhoncus ut, sodales eget justo. Morbi blandit lorem sit amet nulla egestas aliquam. Nunc pharetra est at nibh ullamcorper in commodo erat dignissim. Cras et suscipit enim.
+[quarto_titlepages](https://nmfs-opensci.github.io/quarto_titlepages) shows you how to use Quarto template partials, which you can pass in via the YAML, to easy create custom title pages for PDF documents. Does not require installation of anything. Simply download (or copy) three `.tex` files and add them to your YAML.  Full instructions at the link above.
+
+The rest of this document is a demo. Go to the link for the documentation. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor velit. Fusce accumsan ultrices fringilla. Praesent sed odio mi. Mauris non ligula turpis. Duis posuere lacus nec diam interdum dictum suscipit magna molestie. Vestibulum nibh dolor, interdum eget rhoncus ut, sodales eget justo. Morbi blandit lorem sit amet nulla egestas aliquam. Nunc pharetra est at nibh ullamcorper in commodo erat dignissim. Cras et suscipit enim.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget.
 
