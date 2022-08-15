@@ -202,7 +202,7 @@ ul.task-list{list-style: none;}
 <p>Articles generally don’t have <code>#</code> (header 1) but instead just use <code>##</code> (header 2). If you use, <code>#</code> (header 1) in <code>scrartcl</code>, then you need to set</p>
 <pre><code>    number-sections: true </code></pre>
 <p>so the numbering isn’t whack.</p>
-<p>This is the custom title page stuff. Change the directory to the titlepage you want.</p>
+<p>This is the custom title page stuff. You don’t need to have the <code>.tex</code> files in the base directory. Often these files are stored in a <code>tex</code> or <code>partials</code> directory. If you do that, add the directory to the file, e.g.&nbsp;<code>partials/before-body.tex</code>.</p>
 <pre><code>    template-partials:
       - "before-body.tex"
       - "_titlepage.tex" 
