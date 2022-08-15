@@ -28,6 +28,6 @@ If you use authblk in your titlepage, you will need to write your `\author` and 
 
 ## More notes
 
-See the [notes chapter](@sec-notes) for some notes I took along the way.
+See the [notes chapter](07-notes.html) for some notes I took along the way.
 
 

@@ -15,10 +15,10 @@ format:
     documentclass: scrartcl
     number-sections: true
     template-partials:
-      - "template/before-body.tex"
-      - "template/_titlepage.tex" 
+      - "before-body.tex"
+      - "_titlepage.tex" 
     include-in-header: 
-      - "template/in-header.tex"
+      - "in-header.tex"
     toc: true
     lof: true
     lot: true
@@ -36,7 +36,7 @@ For `scrbook` document class, these class options will make the page margins the
 Nothing special.
 
 <pre>
-{{< include titlepages/vline/template/before-body.tex >}}
+{{< include titlepages/vline/before-body.tex >}}
 </pre>
 
 ### `in-header.tex`
@@ -44,7 +44,7 @@ Nothing special.
 Nothing special. I use `babel` to allow the Czech diacritics.
 
 <pre>
-{{< include titlepages/vline/template/in-header.tex >}}
+{{< include titlepages/vline/in-header.tex >}}
 </pre>
 
 ### `_titlepage.tex`
@@ -52,7 +52,7 @@ Nothing special. I use `babel` to allow the Czech diacritics.
 Here is where all the work is done.
 
 <pre>
-{{< include titlepages/vline/template/_titlepage.tex >}}
+{{< include titlepages/vline/_titlepage.tex >}}
 </pre>
 
 
@@ -77,10 +77,10 @@ format:
     documentclass: scrartcl
     number-sections: true
     template-partials:
-      - "template/before-body.tex"
-      - "template/_titlepage.tex" 
+      - "before-body.tex"
+      - "_titlepage.tex" 
     include-in-header: 
-      - "template/in-header.tex"
+      - "in-header.tex"
     toc: true
     lof: true
     lot: true
@@ -106,7 +106,7 @@ For `scrbook` document class, these class options will make the page margins the
 Nothing special.
 
 <pre>
-{{< include titlepages/bg-image/template/before-body.tex >}}
+{{< include titlepages/bg-image/before-body.tex >}}
 </pre>
 
 ### `in-header.tex`
@@ -114,7 +114,7 @@ Nothing special.
 Nothing special. I use `babel` to allow the Czech diacritics.
 
 <pre>
-{{< include titlepages/bg-image/template/in-header.tex >}}
+{{< include titlepages/bg-image/in-header.tex >}}
 </pre>
 
 ### `_titlepage.tex`
@@ -122,6 +122,6 @@ Nothing special. I use `babel` to allow the Czech diacritics.
 Here is where all the work is done.
 
 <pre>
-{{< include titlepages/bg-image/template/_titlepage.tex >}}
+{{< include titlepages/bg-image/_titlepage.tex >}}
 </pre>
 
