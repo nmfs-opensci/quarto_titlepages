@@ -2,15 +2,15 @@
 
 ## Modifying Pandoc templates sounds like fun!!
 
-Start modifying the files in the `template` folder in one of the titlepage examples other than `static`.
+Start modifying the files in one of the template title pages. Currently this is `vline` and `bg-image`.
 
 ## Are you kidding me? 
 
 **No way! I have a static title page and I want to use that.** 
 
-Go to the `static` folder and modify there.
+Go to one of the static examples (end in `-static`) and modify there.
 
-What's the difference? They both are being listed in template-partials in the YAML. `static` is using a static title page. It is not using the values from the YAML at all. `before-body.tex` needs to be listed in template-partials to override the template that Quarto (and Pandoc) uses.
+What's the difference? They both are being listed in template-partials in the YAML. `-static` is using a static title page. It is not using the values from the YAML at all. However `before-body.tex` still needs to be listed in template-partials to override the template that Quarto (and Pandoc) uses.
 
 ## How it works
 
@@ -18,22 +18,24 @@ What's the difference? They both are being listed in template-partials in the YA
 -   Passes that template in via `template-partials`. This is needed so that you can reference the YAML variables, things like `author`.
 -   Specifies the extra things (packages) that are needed for the LaTeX header in `in-header.tex`.
 
-## The YAML
+## The YAML - example
 
     format:
       pdf:
         documentclass: scrartcl 
         number-sections: true
-        template-partials: ["partials/vline/before-body.tex"]
+        template-partials:
+          - "before-body.tex"
+          - "_titlepage.tex" 
         include-in-header: 
-          - partials/vline/in-header.tex
+          - "in-header.tex"
         toc: true
         lof: true
         lot: true
 
 ## What is going on:
 
-LaTeX document class affects the look; `scrartcl` or `srcbook` are the Quarto defaults. The `cls` folder has a few more in it.
+LaTeX document class affects the look; `scrartcl` or `srcbook` are the Quarto defaults. The `cls` folder in the repo has a few more in it.
 
         documentclass: scrartcl
 
@@ -46,10 +48,10 @@ so the numbering isn't whack.
 This is the custom title page stuff. Change the directory to the titlepage you want.
 
         template-partials:
-          - "titlepages/vline/template/before-body.tex"
-          - "titlepages/vline/template/_titlepage.tex" 
+          - "before-body.tex"
+          - "_titlepage.tex" 
         include-in-header: 
-          - "titlepages/vline/template/in-header.tex"
+          - "in-header.tex"
 
 Next bit indicates if you want table of contents (toc), list of fig (lof), or list of tables (lot).
 

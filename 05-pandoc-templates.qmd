@@ -1,17 +1,19 @@
 # Pandoc template help
 
 The files that appear in the template-partials: line of the YAML are Pandoc Templates with LaTeX
-Pandoc templating https://pandoc.org/MANUAL.html#templates
+Pandoc templating [](https://pandoc.org/MANUAL.html#templates)
 
 `$--` is a Pandoc comment
 `%` is a LaTeX comment
 
-If I want to comment out a line, I use both though maybe `$--` works
+## Comments
+
+If I want to comment out a line, I use both though maybe `$--` works.
 ```
 % $-- $if(subtitle)$ ... $endif$
 ```
 
-## Some examples
+## If statements
 
 ```
 $if(subtitle)$ ... $endif$
@@ -31,14 +33,19 @@ since if there is only one author then there is no "allbutlast" value
 
 `$if(by-author/last)$` tests if there is a last author. If there is at least one author, this will be true.
 
+## for loops
+
 ```
 $for(by-author)$%
 {\large{$by-author.name.literal$}}$sep${\large{ AND }}
 $endfor$%
 ```
-This is a for look across all the authors and prints each author name. The `$sep$` bit says what to put between the names. In this case it would be AND. So `Jane Doe AND Ashkar Kumar`
 
-Magically the template can number the author affiliations and will figure the duplicates.
+This is a for loop across all the authors and prints each author name. The `$sep$` bit says what to put between the names. In this case it would be AND. So `Jane Doe AND Ashkar Kumar`
+
+## Number appearances
+
+The Pandoc template can number the author affiliations and will figure the duplicates.
 
 ```
 $for(by-author)$%
