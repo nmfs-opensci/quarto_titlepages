@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages – how-to-use</title>
+<title>quarto titlepages – notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,8 +24,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-how-to-modify.html" rel="next">
-<link href="./01-about.html" rel="prev">
+<link href="./06-latex.html" rel="prev">
 <link href="./https://raw.githubusercontent.com/nmfs-opensci/assets/main/favicon/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -107,7 +106,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-how-to-use.html" class="sidebar-item-text sidebar-link active">How to use</a>
+  <a href="./03-how-to-use.html" class="sidebar-item-text sidebar-link">How to use</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -132,7 +131,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  <a href="./07-notes.html" class="sidebar-item-text sidebar-link active">Notes</a>
   </div>
 </li>
     </ul>
@@ -144,71 +143,36 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-howtouse" id="toc-sec-howtouse" class="nav-link active" data-scroll-target="#sec-howtouse">How to use</a>
+  <li><a href="#sec-notes" id="toc-sec-notes" class="nav-link active" data-scroll-target="#sec-notes">Notes</a>
   <ul class="collapse">
-  <li><a href="#article-class-scrartcl" id="toc-article-class-scrartcl" class="nav-link" data-scroll-target="#article-class-scrartcl">Article class <code>scrartcl</code></a></li>
-  <li><a href="#book-class-scrbook" id="toc-book-class-scrbook" class="nav-link" data-scroll-target="#book-class-scrbook">Book class <code>scrbook</code></a></li>
-  <li><a href="#how-do-i-add-a-table-of-contents" id="toc-how-do-i-add-a-table-of-contents" class="nav-link" data-scroll-target="#how-do-i-add-a-table-of-contents">How do I add a table of contents</a></li>
+  <li><a href="#authblk-and-authors" id="toc-authblk-and-authors" class="nav-link" data-scroll-target="#authblk-and-authors">authblk and authors</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/03-how-to-use.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/03-how-to-use.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/07-notes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/07-notes.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="sec-howtouse" class="level1">
-<h1>How to use</h1>
-<ol type="1">
-<li>Go to the GitHub repository https://github.com/nmfs-opensci/quarto_titlepages</li>
-<li>Open the <code>titlepages</code> folder</li>
-<li>Pick a title page, eg. <code>vline</code> or <code>bg-image</code></li>
-<li>Download (or copy) the <code>before-body.tex</code>, <code>_titlepage.tex</code>, and <code>in-header.tex</code> files.</li>
-<li>You can download <code>article.qmd</code> if you want an example qmd to run.</li>
-</ol>
-<p>In the YAML of your qmd document or <code>index.qmd</code> file for a Quarto book project, add this to the PDF format section:</p>
-<section id="article-class-scrartcl" class="level2">
-<h2 class="anchored" data-anchor-id="article-class-scrartcl">Article class <code>scrartcl</code></h2>
-<p>Adding <code>number-sections: true</code> will number the chapters and sections. Remove if you don’t want that.</p>
-<pre><code>format:
-  pdf:
-    documentclass: scrartcl
-    number-sections: true
-    template-partials:
-      - "before-body.tex"
-      - "_titlepage.tex" 
-    include-in-header: 
-      - "in-header.tex"</code></pre>
-</section>
-<section id="book-class-scrbook" class="level2">
-<h2 class="anchored" data-anchor-id="book-class-scrbook">Book class <code>scrbook</code></h2>
-<p>The class option “onepage” makes the margins of the even and odd pages the same. The class option “openany” allows chapters and parts to start on even or odd pages; the default is to only start chapters and parts on odd pages.</p>
-<pre><code>format:
-  pdf:
-    documentclass: scrbook
-    classoption: ["onepage", "openany"]
-    template-partials:
-      - "template/before-body.tex"
-      - "template/_titlepage.tex" 
-    include-in-header: 
-      - "template/in-header.tex"</code></pre>
-</section>
-<section id="how-do-i-add-a-table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="how-do-i-add-a-table-of-contents">How do I add a table of contents</h2>
-<p>You can add a table of contents (<code>toc: true</code>), list of figures (<code>lof: true</code>) and list of tables (<code>lot: true</code>). The depth of the TOC is specified with <code>toc-depth</code>. Example:</p>
-<pre><code>format:
-  pdf:
-    documentclass: scrartcl
-    template-partials:
-      - "before-body.tex"
-      - "_titlepage.tex" 
-    include-in-header: 
-      - "in-header.tex"
-    toc: true
-    toc-depth: 3
-    lof: true
-    lot: true</code></pre>
+<section id="sec-notes" class="level1">
+<h1>Notes</h1>
+<p>Some comments on my approach and why I did things the way I did.</p>
+##
+<p>It is very common to use <code>\maketitle</code>. When you customize a title page, you redefine this. I personnally find that approach more difficult than necessary. If I were writing a document class (cls), sure I’d use that but for of my work, I just find that more work than necessary.</p>
+<p>Instead I find it easier to include <code>\begin{titlepage}....\end{titlepage}</code> directly and not use <code>\maketitle</code> at all. Background: within the documentclass (required for a LaTeX document), there will be a definitian of <code>\maketitle</code>, a shortcut for a <code>\begin{title}....\end{title}</code> definition that specifies the look of the title page for that document class. Typically you’ll see this at the start of a LaTeX doc:</p>
+<pre><code>\begin{document}
+\maketitle</code></pre>
+<p>To figure out what the <code>\maketitle</code> code is, you have to dig into the document class. The document class is specified by a <code>.cls</code> file which you might not have access to. For example, the <code>srcbook.cls</code> document class used by Quarto is somewhere in the Quarto files. And in any case, document class files are hard to wade through. So instead one redefines <code>\maketitle</code> in ones header (the part before <code>\begin{document}</code>).</p>
+<p>But for Quarto, the <code>\maketitle</code> call is in the <code>before-body.tex</code> partial. So I can just pass in my own <code>before-body.tex</code>.</p>
+<section id="authblk-and-authors" class="level2">
+<h2 class="anchored" data-anchor-id="authblk-and-authors">authblk and authors</h2>
+<p>The authblk package (LaTeX) is very popular for defining the authors and affilliations for title pages. It has a lot of helper functions for defining <code>\author</code>, which is a short-cut for a bunch of code to format an author list. If you look in the default <code>title.tex</code> <a href="https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/title.tex">partial</a>, you see <code>\author</code> being defined. That looks like the generic LaTeX <code>\author</code> definition to me.</p>
+<p>If we look at the <code>title.tex</code> template in the <a href="https://github.com/quarto-journals/biophysical-journal/blob/main/_extensions/bj/partials/title.tex">quarto journals bj template</a>, it looks like they are using the authblk LaTeX package which has <code>\author[1]</code> and <code>\affil</code> like things.</p>
+<p>The problem I have with using authblk, is that when recreating a government report title page, it’s not like I get to choose how the page looks. It has to look a very particular way. So I then need to learn how to alter the authblk defaults to get the author and affiliation looks that I need. Rather than fighting authblk to get what I want, I found it easier just to create the title page manually.</p>
+<p>Once you have a handle on Pandoc template code, it is not hard to create things like</p>
+<pre><code>author^1, author^1,2, author^3 and author^1</code></pre>
+<p>using a for loop in Pandoc. See the chapter on Pandoc templates.</p>
 
 
 </section>
@@ -417,14 +381,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-about.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About</span>
+      <a href="./06-latex.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">LaTeX structure</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-how-to-modify.html" class="pagination-link">
-        <span class="nav-page-text">How to modify</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -24,7 +24,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./06-notes.html" rel="next">
+<link href="./06-latex.html" rel="next">
 <link href="./02-titlepages.html" rel="prev">
 <link href="./https://raw.githubusercontent.com/nmfs-opensci/assets/main/favicon/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -58,7 +58,6 @@ ul.task-list{list-style: none;}
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -128,7 +127,12 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  <a href="./06-latex.html" class="sidebar-item-text sidebar-link">LaTeX structure</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-notes.html" class="sidebar-item-text sidebar-link">Notes</a>
   </div>
 </li>
     </ul>
@@ -140,9 +144,12 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pandoc-template-help" id="toc-pandoc-template-help" class="nav-link active" data-scroll-target="#pandoc-template-help">Pandoc template help</a></li>
+  <li><a href="#pandoc-template-help" id="toc-pandoc-template-help" class="nav-link active" data-scroll-target="#pandoc-template-help">Pandoc template help</a>
+  <ul class="collapse">
+  <li><a href="#some-examples" id="toc-some-examples" class="nav-link" data-scroll-target="#some-examples">Some examples</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensi/quarto_titlepages/edit/main/05-pandoc-templates.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensi/quarto_titlepages/blob/main/05-pandoc-templates.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensi/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/05-pandoc-templates.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/05-pandoc-templates.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -152,21 +159,34 @@ ul.task-list{list-style: none;}
 <section id="pandoc-template-help" class="level1">
 <h1>Pandoc template help</h1>
 <p>The files that appear in the template-partials: line of the YAML are Pandoc Templates with LaTeX Pandoc templating https://pandoc.org/MANUAL.html#templates</p>
-<p>$– is a Pandoc comment % is a LaTeX comment</p>
-<p>If I want to comment out a line, I use both though maybe $– works % $– <span class="math inline">\(if(subtitle)\)</span> … <span class="math inline">\(endif\)</span></p>
-<p>Some examples</p>
-<p><span class="math inline">\(if(subtitle)\)</span> … <span class="math inline">\(endif\)</span></p>
-<p>Here subtitle is true if the YAML has “subtitle:” and false otherwise</p>
-<p><span class="math inline">\(subtitle\)</span> (with <span class="math inline">\(..\)</span>) is the value of subtitle in the YAML</p>
-<p><span class="math inline">\(if(subtitle)\)</span>{}<span class="math inline">\(endif\)</span> prints the subtitle in large text. is LaTeX</p>
-<p><span class="math inline">\(if(by-author/allbutlast)\)</span> means if there is more than one author since if there is only one author then there is no “allbutlast” value</p>
-<p><span class="math inline">\(if(by-author/last)\)</span> test if there is a last author. If there is at least one author, this will be true.</p>
-<p><span class="math inline">\(for(by-author)\)</span>% {{<span class="math inline">\(by-author.name.literal\)</span>}}<span class="math inline">\(sep\)</span>{{ AND }} <span class="math inline">\(endfor\)</span>% would do a for look across all the authors and print the author name. The <span class="math inline">\(sep\)</span> bit says what to put between the names. In this case it would be AND.</p>
-<p>Magically the template can number the author affiliations. I don’t how this works.</p>
-<p><span class="math inline">\(for(by-author)\)</span> {{<span class="math inline">\(by-author.name.literal\)</span>}}<span class="math inline">\(for(by-author.affiliations)\)</span>{}<span class="math inline">\(sep\)</span><span class="math inline">\(endfor\)</span>% <span class="math inline">\(sep\)</span>, % <span class="math inline">\(endfor\)</span></p>
-<p>This is assigning a number to each affiliation name and then it assigns the right one.</p>
+<p><code>$--</code> is a Pandoc comment <code>%</code> is a LaTeX comment</p>
+<p>If I want to comment out a line, I use both though maybe <code>$--</code> works</p>
+<pre><code>% $-- $if(subtitle)$ ... $endif$</code></pre>
+<section id="some-examples" class="level2">
+<h2 class="anchored" data-anchor-id="some-examples">Some examples</h2>
+<pre><code>$if(subtitle)$ ... $endif$</code></pre>
+<p>Here <code>subtitle</code> is true if the YAML has “subtitle:” and false otherwise</p>
+<p><code>$subtitle$</code> (with <code>$..$</code>) is the value of subtitle in the YAML</p>
+<pre><code>$if(subtitle)${\large\textit{$subtitle$}}$endif$ </code></pre>
+<p>prints the subtitle in large text. <code>\large</code> is LaTeX</p>
+<p><code>$if(by-author/allbutlast)$</code> means if there is more than one author since if there is only one author then there is no “allbutlast” value</p>
+<p><code>$if(by-author/last)$</code> tests if there is a last author. If there is at least one author, this will be true.</p>
+<pre><code>$for(by-author)$%
+{\large{$by-author.name.literal$}}$sep${\large{ AND }}
+$endfor$%</code></pre>
+<p>This is a for look across all the authors and prints each author name. The <code>$sep$</code> bit says what to put between the names. In this case it would be AND. So <code>Jane Doe AND Ashkar Kumar</code></p>
+<p>Magically the template can number the author affiliations and will figure the duplicates.</p>
+<pre><code>$for(by-author)$%
+{\large{$by-author.name.literal$}}%
+$for(by-author.affiliations)$%
+{\textsuperscript{$it.number$}}$sep$\textsuperscript{,}%
+$endfor$%
+$sep$, %
+$endfor$</code></pre>
+<p>This is assigning a number to each affiliation name and then adds it as a superscript to the author name. It will figure out the duplicates.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -377,8 +397,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06-notes.html" class="pagination-link">
-        <span class="nav-page-text">Notes</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-latex.html" class="pagination-link">
+        <span class="nav-page-text">LaTeX structure</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -127,7 +127,12 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  <a href="./06-latex.html" class="sidebar-item-text sidebar-link">LaTeX structure</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-notes.html" class="sidebar-item-text sidebar-link">Notes</a>
   </div>
 </li>
     </ul>
@@ -147,7 +152,7 @@ ul.task-list{list-style: none;}
   <li><a href="#more-notes" id="toc-more-notes" class="nav-link" data-scroll-target="#more-notes">More notes</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensi/quarto_titlepages/edit/main/01-about.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensi/quarto_titlepages/blob/main/01-about.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensi/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/01-about.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/01-about.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -160,8 +165,8 @@ ul.task-list{list-style: none;}
 <p>This template makes a custom title page using the information in the YAML (from the <code>xyz.qmd</code> for an single doc and from <code>index.qmd</code> for a Quarto book). The default document classes in Quarto are <code>scrbook</code> and <code>srcartcl</code>, but these templates work for other document classes too. There are some other classes in the <code>cls</code> folder (krantz, svmono, elsevier). The static title pages are inspired from <a href="http://www.latextemplates.com/cat/title-pages#google_vignette">Latex Templates</a>.</p>
 <section id="audience" class="level2">
 <h2 class="anchored" data-anchor-id="audience">Audience</h2>
-<p>This is written assuming you are a LaTeX user and thus we have shared ways of doing things. We already know how to do what we want in LaTeX, but we need to figure out how to tell Quarto to do what we want. See the chapter on LaTeX document structure if you are unfamiliar with LaTeX document structure skim that chapter so you know what I am talking about when I reference parts of a LaTeX document.</p>
-<p>Quarto has included a variety of YAML options so that you can alter your LaTeX document by passing in things like fontenc package options or geometry options in the YAML. I largely ignore all that and just pass in the header file I want. As a LaTeX user, I find all those YAML options confusing and I spend hours digging through the Quarto source code to figure out exactly how they are using the YAML options.</p>
+<p>This is written assuming you are a LaTeX user and thus already know how to do what you want in LaTeX, but you need to figure out how to tell Quarto to do what you want. Skim the chapter on LaTeX document structure if you are unfamiliar with LaTeX so you know what I am talking about when I reference parts of a LaTeX document.</p>
+<p>Quarto has included a variety of YAML options so that you can use to alter your LaTeX document by passing in things like fontenc package options or geometry options in the YAML. I largely ignore all that and just pass in the header file I want. As a LaTeX user, I find all those YAML options confusing and I spend hours digging through the Quarto source code to figure out exactly how they are using the YAML options.</p>
 <p>That said, for quarto_titlepages, I am mainly just swapping out the <code>before-body.tex</code> partial (the part that specs the title and front matter) and adding stuff to the header (before <code>begin{document}</code>).</p>
 </section>
 <section id="approach-i-took" class="level2">
@@ -175,11 +180,11 @@ ul.task-list{list-style: none;}
 <section id="author-lists" class="level2">
 <h2 class="anchored" data-anchor-id="author-lists">Author lists</h2>
 <p>When recreating a government report title page, I don’t get to choose how the page looks. It has to look a very particular way. I find it easiest to just create that look manually rather than trying to figure out how to get the authblk LaTeX package to do what I want. authblk is a widely used LaTeX package which has helper functions for creating author lists along with affiliations.</p>
-<p>If you use authblk in your titlepage, you will need to write your <code>\author</code> and <code>affil</code> definitions in <code>title.tex</code> and then you can use those in <code>before-body.tex</code> in your <code>\begin{title}...\end{title}</code> code.</p>
+<p>If you use authblk in your titlepage, you will need to write your <code>\author</code> and <code>affil</code> definitions in <code>title.tex</code> and then you can use those in <code>before-body.tex</code> in your <code>\begin{titlepage}...\end{titlepage}</code> code.</p>
 </section>
 <section id="more-notes" class="level2">
 <h2 class="anchored" data-anchor-id="more-notes">More notes</h2>
-<p>See the notes chapter for some notes I took along the way.</p>
+<p>See the <a href="@sec-notes">notes chapter</a> for some notes I took along the way.</p>
 
 
 </section>

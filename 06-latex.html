@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages – how-to-use</title>
+<title>quarto titlepages – latex</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,8 +24,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-how-to-modify.html" rel="next">
-<link href="./01-about.html" rel="prev">
+<link href="./07-notes.html" rel="next">
+<link href="./05-pandoc-templates.html" rel="prev">
 <link href="./https://raw.githubusercontent.com/nmfs-opensci/assets/main/favicon/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -107,7 +107,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-how-to-use.html" class="sidebar-item-text sidebar-link active">How to use</a>
+  <a href="./03-how-to-use.html" class="sidebar-item-text sidebar-link">How to use</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -127,7 +127,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-latex.html" class="sidebar-item-text sidebar-link">LaTeX structure</a>
+  <a href="./06-latex.html" class="sidebar-item-text sidebar-link active">LaTeX structure</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -144,71 +144,138 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-howtouse" id="toc-sec-howtouse" class="nav-link active" data-scroll-target="#sec-howtouse">How to use</a>
+  <li><a href="#sec-latex" id="toc-sec-latex" class="nav-link active" data-scroll-target="#sec-latex">LaTeX structure</a>
   <ul class="collapse">
-  <li><a href="#article-class-scrartcl" id="toc-article-class-scrartcl" class="nav-link" data-scroll-target="#article-class-scrartcl">Article class <code>scrartcl</code></a></li>
-  <li><a href="#book-class-scrbook" id="toc-book-class-scrbook" class="nav-link" data-scroll-target="#book-class-scrbook">Book class <code>scrbook</code></a></li>
-  <li><a href="#how-do-i-add-a-table-of-contents" id="toc-how-do-i-add-a-table-of-contents" class="nav-link" data-scroll-target="#how-do-i-add-a-table-of-contents">How do I add a table of contents</a></li>
+  <li><a href="#document-class" id="toc-document-class" class="nav-link" data-scroll-target="#document-class">document class</a></li>
+  <li><a href="#include-in-header-static" id="toc-include-in-header-static" class="nav-link" data-scroll-target="#include-in-header-static">include-in-header (static)</a></li>
+  <li><a href="#title.tex-template" id="toc-title.tex-template" class="nav-link" data-scroll-target="#title.tex-template"><code>title.tex</code> (template)</a></li>
+  <li><a href="#before-body.tex-template" id="toc-before-body.tex-template" class="nav-link" data-scroll-target="#before-body.tex-template"><code>before-body.tex</code> (template)</a></li>
+  <li><a href="#frontmatter" id="toc-frontmatter" class="nav-link" data-scroll-target="#frontmatter">frontmatter</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">troubleshooting</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/03-how-to-use.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/03-how-to-use.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/06-latex.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/06-latex.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="sec-howtouse" class="level1">
-<h1>How to use</h1>
-<ol type="1">
-<li>Go to the GitHub repository https://github.com/nmfs-opensci/quarto_titlepages</li>
-<li>Open the <code>titlepages</code> folder</li>
-<li>Pick a title page, eg. <code>vline</code> or <code>bg-image</code></li>
-<li>Download (or copy) the <code>before-body.tex</code>, <code>_titlepage.tex</code>, and <code>in-header.tex</code> files.</li>
-<li>You can download <code>article.qmd</code> if you want an example qmd to run.</li>
-</ol>
-<p>In the YAML of your qmd document or <code>index.qmd</code> file for a Quarto book project, add this to the PDF format section:</p>
-<section id="article-class-scrartcl" class="level2">
-<h2 class="anchored" data-anchor-id="article-class-scrartcl">Article class <code>scrartcl</code></h2>
-<p>Adding <code>number-sections: true</code> will number the chapters and sections. Remove if you don’t want that.</p>
-<pre><code>format:
-  pdf:
-    documentclass: scrartcl
-    number-sections: true
-    template-partials:
-      - "before-body.tex"
-      - "_titlepage.tex" 
-    include-in-header: 
-      - "in-header.tex"</code></pre>
+<section id="sec-latex" class="level1">
+<h1>LaTeX structure</h1>
+<p>For the purposes of quarto_titlepages, this is all you need to know.</p>
+<pre><code>\documentclass[&lt;&lt;&lt;classoption&gt;&gt;&gt;]{&lt;&lt;&lt;document class&gt;&gt;&gt;}
+
+&lt;&lt;&lt;include-in-header static&gt;&gt;&gt;
+
+&lt;&lt;&lt;title.tex template&gt;&gt;&gt;
+
+\begin{document}
+
+&lt;&lt;&lt;before-body.tex template&gt;&gt;&gt;
+
+ALL YOUR CONTENT
+
+\end{document}</code></pre>
+<section id="document-class" class="level2">
+<h2 class="anchored" data-anchor-id="document-class">document class</h2>
+<p>This specifies the look of your PDF. It is specified by a <code>.cls</code> file. Quarto uses by default <code>scrartcl</code> and <code>scrbook</code>. If you want to customize a document class, you can start with class options. You’ll need to dig into the CTAN documentation to see what is available: <a href="https://www.ctan.org/pkg/scrbook">scrbook</a> and <a href="https://www.ctan.org/pkg/scrartcl">srcartcl</a>.</p>
+<pre><code>    documentclass: scrbook
+    classoption: ["onepage", "openany"]</code></pre>
 </section>
-<section id="book-class-scrbook" class="level2">
-<h2 class="anchored" data-anchor-id="book-class-scrbook">Book class <code>scrbook</code></h2>
-<p>The class option “onepage” makes the margins of the even and odd pages the same. The class option “openany” allows chapters and parts to start on even or odd pages; the default is to only start chapters and parts on odd pages.</p>
-<pre><code>format:
-  pdf:
-    documentclass: scrbook
-    classoption: ["onepage", "openany"]
-    template-partials:
-      - "template/before-body.tex"
-      - "template/_titlepage.tex" 
-    include-in-header: 
-      - "template/in-header.tex"</code></pre>
+<section id="include-in-header-static" class="level2">
+<h2 class="anchored" data-anchor-id="include-in-header-static">include-in-header (static)</h2>
+<p>This is static LaTeX. Static means it doesn’t using any variable from your YAML. It is just plain LaTeX. Headers on LaTeX documents are used to specify extra packages to use and define or redefine commands. It can get pretty complex. But quarto_title pages, we really don’t need much. I used the babel package for some diacritic (accents on letters) and the hyphenat package to stop titles from being hyphenated.</p>
 </section>
-<section id="how-do-i-add-a-table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="how-do-i-add-a-table-of-contents">How do I add a table of contents</h2>
-<p>You can add a table of contents (<code>toc: true</code>), list of figures (<code>lof: true</code>) and list of tables (<code>lot: true</code>). The depth of the TOC is specified with <code>toc-depth</code>. Example:</p>
-<pre><code>format:
-  pdf:
-    documentclass: scrartcl
-    template-partials:
-      - "before-body.tex"
-      - "_titlepage.tex" 
-    include-in-header: 
-      - "in-header.tex"
-    toc: true
-    toc-depth: 3
-    lof: true
-    lot: true</code></pre>
+<section id="title.tex-template" class="level2">
+<h2 class="anchored" data-anchor-id="title.tex-template"><code>title.tex</code> (template)</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>quarto_titlepages does not use title.tex</strong> I include this section because defining authors using <code>\author{}</code> is ubiquitous in LaTeX, so you should know a) what it is and b) what to do if you want to use it. <em>Why doesn’t quarto_titlepages use it?</em> Because the standard LaTeX title pages are nothing like the title pages I need for government reports. I would in a constant fight against the pre-defined <code>\author</code> function or the authblk package functions if I used it.</p>
+</div>
+</div>
+<p>Pandoc allows you to use a Pandoc template (meaning you can uses variables in your YAML). To that you can use <code>title.tex</code>. Despite the name, it is not restricted to using for the title. It is just that that is how Pandoc uses it.</p>
+<p><strong>title</strong></p>
+<p>You might see title defined here like so.</p>
+<pre><code>\title{Here is the title.}</code></pre>
+<p><code>\title</code> is a function and <code>{..}</code> is the argument for it. Later, after <code>\begin{document}</code>, we can use <code>\title</code> to output a title. The formating is defined in the <code>\title</code> definition in the document class cls file.</p>
+<p><strong>authors</strong></p>
+<p>If you are going to use <code>\author</code> or the authblk package to help you generate your author list on your title page, this is where you do that. Here is a really common <code>\author</code> specification for a LaTeX document.</p>
+<p>Example from Pandoc <code>title.tex</code></p>
+<pre><code>\author{$for(author)$$author$$sep$ \and $endfor$}</code></pre>
+<p>The is going to put, for example, the following LaTeX in the document:</p>
+<pre><code>\author{Jane Doe \and Ashok Kumar \and Matti Meikäläinen}</code></pre>
+<p>It gets the names from <code>author:</code> in the YAML.</p>
+<p><code>\author</code> is essentially a function in LaTeX and the bit in <code>{...}</code> is the arguments. The document class (the cls file) has the code to process define the <code>\author</code> function using those arguments (the names). Later, after <code>\begin{document}</code>, we can use <code>\author</code> to call the author function and it will output a formatted list of the author names.</p>
+<p><strong>authblk package</strong></p>
+<p>We also typically have author affiliations that we want to print. The authblk package helps with that.</p>
+<p>It modifies the <code>\author</code> function to have a number for the affiliation. So <code>\author[1]{author name 1}</code> and has a <code>\affil[#]{affiliation}</code> function to define the affiliation 1. So you would see something like this</p>
+<pre><code>\author[1]{Junli Liu}
+\author[2]{James Rowe}
+\author[3]{Keith Lindsey}
+\affil[1]{address one}
+\affil[2]{address two}
+\affil[3]{address three}</code></pre>
+</section>
+<section id="before-body.tex-template" class="level2">
+<h2 class="anchored" data-anchor-id="before-body.tex-template"><code>before-body.tex</code> (template)</h2>
+<p>This is where the command to make a title page is issued. Typically, you will see <code>\maketitle</code> called. <code>\maketitle</code> is a function defined in the document class cls file and specifies how the title page looks.</p>
+<pre><code>\begin{document}
+
+\maketitle
+
+ALL YOUR CONTENT
+
+\end{document}</code></pre>
+<p>But we don’t have to use <code>\maketitle</code> at all. We can define our own title page. <strong>This is the approach quarto_titlepages uses</strong>.</p>
+<pre><code>\begin{titlepage}
+
+&lt;&lt;&lt; Code for your title page &gt;&gt;&gt;
+
+\end{titlepage}</code></pre>
+<p>For example, (the MWE from the base LaTeX installation):</p>
+<pre><code>\begin{titlepage}
+    \centering
+    \includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
+    {\scshape\Jacksonville State University \par}
+    \vspace{1cm}
+    {\scshape\Large Final year project\par}
+    \vspace{1.5cm}
+    {\huge\bfseries Pigeons love doves\par}
+    \vspace{2cm}
+    {\Large\itshape John Birdwatch\par}
+    \vfill
+    supervised by\par
+    Dr.~Mark \textsc{Brown}
+
+    \vfill
+
+% Bottom of the page
+    {\large \today\par}
+\end{titlepage}</code></pre>
+</section>
+<section id="frontmatter" class="level2">
+<h2 class="anchored" data-anchor-id="frontmatter">frontmatter</h2>
+<p>In a book document class, the title page is created using <code>\frontmatter</code> (again that’s a function). If that is the case, you need to define the frontmatter otherwise the frontmatter (with title page) from the class definition will be used. So you have to use</p>
+<pre><code>\begin{frontmatter}
+\begin{titlepage}
+&lt;&lt;&lt; Code for our title page &gt;&gt;&gt;
+\end{titlepage}
+\end{frontmatter}</code></pre>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">troubleshooting</h2>
+<ul>
+<li>The most common problem I have is that LaTeX wants a empty line feed (carriage return) at the end of my <code>_titlepage.tex</code> code. I often forget and then it complains that <code>\begin{titlepage}</code> did not end.</li>
+</ul>
 
 
 </section>
@@ -417,13 +484,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-about.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About</span>
+      <a href="./05-pandoc-templates.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Help with Pandoc</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-how-to-modify.html" class="pagination-link">
-        <span class="nav-page-text">How to modify</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-notes.html" class="pagination-link">
+        <span class="nav-page-text">Notes</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
