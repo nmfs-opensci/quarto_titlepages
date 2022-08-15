@@ -29,6 +29,7 @@ editor: visual
 format:
   pdf:
     documentclass: scrbook
+    classoption: ["onepage", "openany"]
     number-sections: true
     template-partials:
       - "template/before-body.tex"
@@ -38,7 +39,11 @@ format:
     toc: true
     lof: true
     lot: true
-    titlepage-margins: ["1in", "1in", "1in", "1in"]
+    titlepage-geometry: 
+      - top=3in
+      - bottom=1in
+      - right=1in
+      - left=1in
     title-bg-image: "images/corner-bg.png"
     title-bg-location: "UL"
     title-bg-size: 0.5

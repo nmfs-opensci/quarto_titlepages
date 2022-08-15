@@ -2,12 +2,9 @@
 % Pandoc templating https://pandoc.org/MANUAL.html#templates
 % See the README for help
 
-$if(titlepage-margins)$
-\newgeometry{margin=1in}
-$else$
-\newgeometry{top=3in,bottom=1in,right=1in,left=1in}
+$if(titlepage-geometry)$
+\newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
 $endif$
-\newgeometry{top=3in,bottom=1in,right=1in,left=1in}
 \begin{minipage}[b][\textheight][s]{\textwidth}
 \raggedright
 
@@ -107,4 +104,6 @@ DENMARK\newline
 December 2025
 
 \end{minipage}
+$if(titlepage-geometry)$
 \restoregeometry
+$endif$
