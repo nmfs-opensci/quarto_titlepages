@@ -1,5 +1,127 @@
-# Title page gallery
+# Title pages
 
-|                                                               vline (template)                                                                |                                                            classic lined (static)                                                             |                                                               academic (static)                                                               |      bg-image (template)       |
-|:-------------------:|:----------------:|:----------------:|:-------------:|
-| <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-CC55A28D.png"><img src="./images/paste-CC55A28D.png" width="200"/></a> | <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-309BEAEA.png"><img src="./images/paste-309BEAEA.png" width="200"/></a> | <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-CD5ECC9C.png"><img src="./images/paste-CD5ECC9C.png" width="200"/></a> | <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-782C7459.png"><img src="./images/paste-782C7459.png" width="200"/></a> |
+**The YAML** This appears at the top of `article.qmd` for a single qmd or `index.qmd` for a Quarto book project (multiple qmd for a book). This just shows the PDF format specification.
+
+
+## vline
+
+### The YAML
+
+For `scrartcl` use `number-sections: true` so the section numbers aren't messed up.
+
+```
+format:
+  pdf:
+    documentclass: scrartcl
+    number-sections: true
+    template-partials:
+      - "template/before-body.tex"
+      - "template/_titlepage.tex" 
+    include-in-header: 
+      - "template/in-header.tex"
+    toc: true
+    lof: true
+    lot: true
+```
+
+For `scrbook` document class, these class options will make the page margins the same on even and odd pages and allow chapters and parts to start on either even or odd pages.
+
+```
+    documentclass: scrbook
+    classoption: ["onepage", "openany"]
+```
+
+### `before-body.tex`
+
+Nothing special.
+
+<pre>
+{{< include titlepages/vline/template/before-body.tex >}}
+</pre>
+
+### `in-header.tex`
+
+Nothing special. I use `babel` to allow the Czech diacritics.
+
+<pre>
+{{< include titlepages/vline/template/in-header.tex >}}
+</pre>
+
+### `_titlepage.tex`
+
+Here is where all the work is done.
+
+<pre>
+{{< include titlepages/vline/template/_titlepage.tex >}}
+</pre>
+
+
+## bg-image
+
+I added some custom YAML variables because we need the title page background image and depending on how big that is, we need to move the title page up or down.
+
+* `titlepage-geometry` This specifies the margins for the geometry call used in the title page. Change the margins to move the title page around so it doesn't overlap your background image. Default is whatever the other pages use (which depends on document class and whatever custom geometry you specified.)
+* `title-bg-location` can be UL (upper left), UR (upper right), LR (lower right) or LL (lower left). 
+* `title-bg-size` how much of the page width is used by the background image. A number between 0 and 1. Default is 0.5.
+
+The [wallpaper LaTeX package](https://ctan.org/pkg/wallpaper?lang=en) is used to put the background image on the title page. 
+```
+\This$title-bg-location$CornerWallPaper{$title-bg-size$}{$title-bg-image$}
+```
+
+### The YAML
+
+```
+format:
+  pdf:
+    documentclass: scrartcl
+    number-sections: true
+    template-partials:
+      - "template/before-body.tex"
+      - "template/_titlepage.tex" 
+    include-in-header: 
+      - "template/in-header.tex"
+    toc: true
+    lof: true
+    lot: true
+    titlepage-geometry: 
+      - top=3in
+      - bottom=1in
+      - right=1in
+      - left=1in
+    title-bg-image: "images/corner-bg.png"
+    title-bg-location: "UL"
+    title-bg-size: 0.5
+```
+
+For `scrbook` document class, these class options will make the page margins the same on even and odd pages and allow chapters and parts to start on either even or odd pages.
+
+```
+    documentclass: scrbook
+    classoption: ["onepage", "openany"]
+```
+
+### `before-body.tex`
+
+Nothing special.
+
+<pre>
+{{< include titlepages/bg-image/template/before-body.tex >}}
+</pre>
+
+### `in-header.tex`
+
+Nothing special. I use `babel` to allow the Czech diacritics.
+
+<pre>
+{{< include titlepages/bg-image/template/in-header.tex >}}
+</pre>
+
+### `_titlepage.tex`
+
+Here is where all the work is done.
+
+<pre>
+{{< include titlepages/bg-image/template/_titlepage.tex >}}
+</pre>
+

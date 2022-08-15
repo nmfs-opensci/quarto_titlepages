@@ -35,14 +35,14 @@ website:
         text: Home
       - href: 01-about.qmd
         text: About
-      - href: 02-titlepages.qmd
-        text: Title pages
-      - section: 03-how-to-use.qmd
+      - href: 03-how-to-use.qmd
         text: How to use
       - href: 04-how-to-modify.qmd
         text: How to modify
+      - href: 02-titlepages.qmd
+        text: Source code
       - href: 05-pandoc-templates.qmd
-        text: Pandoc templates
+        text: Help with Pandoc
       - href: 06-notes.qmd
         text: Notes
 

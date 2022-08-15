@@ -1,9 +1,14 @@
 # How to modify
 
-## How to modify to make your own title page
+## Modifying Pandoc templates sounds like fun!!
 
--   **Modifying Pandoc templates sounds like fun!!** Start modifying the files in the `template` folder in one of the titlepage examples other than `static`.
--   **Are you kidding me? No way! I have a static title page and I want to use that.** Go to the `static` folder and modify there.
+Start modifying the files in the `template` folder in one of the titlepage examples other than `static`.
+
+## Are you kidding me? 
+
+**No way! I have a static title page and I want to use that.** 
+
+Go to the `static` folder and modify there.
 
 What's the difference? They both are being listed in template-partials in the YAML. `static` is using a static title page. It is not using the values from the YAML at all. `before-body.tex` needs to be listed in template-partials to override the template that Quarto (and Pandoc) uses.
 
