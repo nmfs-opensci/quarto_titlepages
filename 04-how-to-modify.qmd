@@ -45,7 +45,7 @@ Articles generally don't have `#` (header 1) but instead just use `##` (header 2
 
 so the numbering isn't whack.
 
-This is the custom title page stuff. Change the directory to the titlepage you want.
+This is the custom title page stuff. You don't need to have the `.tex` files in the base directory. Often these files are stored in a `tex` or `partials` directory. If you do that, add the directory to the file, e.g. `partials/before-body.tex`.
 
         template-partials:
           - "before-body.tex"
