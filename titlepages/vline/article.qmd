@@ -23,16 +23,16 @@ author:
       - name: University of Minnesota
         department: Department of Mathematics
 cover: logo.png
-editor: visual
+editor: source
 format:
   pdf:
     documentclass: scrbook
-    number-sections: true
+    classoption: ["onepage", "openany"]
     template-partials:
-      - "template/before-body.tex"
-      - "template/_titlepage.tex" 
+      - "before-body.tex"
+      - "_titlepage.tex" 
     include-in-header: 
-      - "template/in-header.tex"
+      - "in-header.tex"
     toc: true
     lof: true
     lot: true
@@ -42,9 +42,9 @@ bibliography: references.bib
 
 # Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor velit. Fusce accumsan ultrices fringilla. Praesent  sed odio mi. Mauris non ligula turpis. Duis posuere lacus nec diam  interdum dictum suscipit magna molestie. Vestibulum nibh dolor,  interdum eget rhoncus ut, sodales eget justo. Morbi blandit lorem  sit amet nulla egestas aliquam. Nunc pharetra est at nibh ullamcorper  in commodo erat dignissim. Cras et suscipit enim.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor velit. Fusce accumsan ultrices fringilla. Praesent sed odio mi. Mauris non ligula turpis. Duis posuere lacus nec diam interdum dictum suscipit magna molestie. Vestibulum nibh dolor, interdum eget rhoncus ut, sodales eget justo. Morbi blandit lorem sit amet nulla egestas aliquam. Nunc pharetra est at nibh ullamcorper in commodo erat dignissim. Cras et suscipit enim.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget.
 
 Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 
@@ -63,11 +63,11 @@ denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{
 
 # Materials and Methods
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget.
 
 ## Study area
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat.
 
 ![the study area](logo.png){#fig-logo}
 
@@ -79,7 +79,6 @@ Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ult
 
 See @tbl-numbers for the table of results. Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu, fermentum sem.
 
-
 | Thing | Value |
 |:------|------:|
 | A 42  |    18 |
@@ -88,7 +87,6 @@ See @tbl-numbers for the table of results. Phasellus quis orci nec erat suscipit
 | D 99  |    24 |
 
 : Table of numbers. {#tbl-numbers}
-
 
 # Discussion
 
