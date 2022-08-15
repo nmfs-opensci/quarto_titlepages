@@ -24,4 +24,8 @@ page-layout: full
 
 ![](images/classic-lined-static.png){.border fig-alt="Screenshot of classic-lined-static title page. Page has double horizontal lines at the top and bottom. The title is red, centered and at top. One author is in caps and below the title. There is a small logo at the bottom."}
 
+### multi-purpose-static
+
+![](images/multi-purpose-static.png){.border fig-alt="Screenshot of multi-purpose-static title page. Title has a cyan filled box around it. Author name is in bottom right corner."}
+
 :::
