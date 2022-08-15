@@ -39,7 +39,7 @@
     "href": "index.html",
     "title": "quarto titlepages",
     "section": "",
-    "text": "There are two types of title pages. Static does not use the YAML. Modify these if you have a title page written in LaTeX that you want to you. The template title pages (currently vline and bg-image) will use the YAML variables (authors, affiliations, cover image, etc).\n\nvlinebg-imageacademic-staticclassic-lined-staticmulti-purpose-static"
+    "text": "There are two types of title pages. Static does not use the YAML. Modify these if you have a title page written in LaTeX that you want to you. The template title pages (currently vline and bg-image) will use the YAML variables (authors, affiliations, cover image, etc).\n\nvlinebg-imageacademic-staticclassic-lined-staticmulti-purpose-static\n\n\nDouble-click on image to see PDF \n\n\nDouble-click on image to see PDF \n\n\nDouble-click on image to see PDF \n\n\nDouble-click on image to see PDF \n\n\nDouble-click on image to see PDF"
   },
   {
     "objectID": "04-how-to-modify.html",
