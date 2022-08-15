@@ -1,19 +1,21 @@
-# quarto_titlepages <a href="https://github.com/nmfs-opensci/quarto_titlepages"><img align="right" src="https://raw.githubusercontent.com/nmfs-opensci/assets/main/images/GitHub-Mark-32px.png"/></a>
+# quarto_titlepages <a href="https://github.com/nmfs-opensci/quarto_titlepages"><img src="https://raw.githubusercontent.com/nmfs-opensci/assets/main/images/GitHub-Mark-32px.png" align="right"/></a>
 
 This work is based on this section of the Quarto manual <https://quarto.org/docs/journals/templates.html#replacing-partials> To see the LaTeX templates that Quarto is using start here: <https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/template.tex>
 
 This template makes a custom title page using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a Quarto book). The default document classes in Quarto are `scrbook` and `srcartcl`. There are some other classes in the `cls` folder (krantz, svmono, elsevier) and this works with those too. Some of the title pages are inspired from [Latex Templates](http://www.latextemplates.com/cat/title-pages#google_vignette). Click [here](https://github.com/nmfs-opensci/quarto_titlepages/blob/e1384fabc59772a1211a693eca7b6490c68f9939/article.pdf) (or on `article.pdf` in repo) to see the output.
 
-|              vline (template)               |            classic lined (static)             |              academic (static)              |
-|:------------------------:|:---------------------:|:---------------------:|
-| ![](images/paste-CC55A28D.png){width="300"} | ![](images/paste-309BEAEA.png){width="300px"} | ![](images/paste-CD5ECC9C.png){width="300"} |
+|                                                               vline (template)                                                                |                                                            classic lined (static)                                                             |                                                               academic (static)                                                               |      bg-image (template)       |
+|:-------------------:|:----------------:|:----------------:|:-------------:|
+| <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-CC55A28D.png"><img src="./images/paste-CC55A28D.png" width="200"/></a> | <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-309BEAEA.png"><img src="./images/paste-309BEAEA.png" width="200"/></a> | <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-CD5ECC9C.png"><img src="./images/paste-CD5ECC9C.png" width="200"/></a> | <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-782C7459.png"><img src="./images/paste-782C7459.png" width="200"/></a> |
 
 ## How to use
 
 1.  Clone the repo (or grab all the files)
 2.  Open the `titlepages` folder
-3.  Pick a titlepage, eg. `vline` or `static`
+3.  Pick a titlepage, eg. `vline` or `static` or `bg-image`
 4.  Open `article.qmd` in that folder and render it.
+
+*Note* Click on any `article.pdf` to see what the template looks like.
 
 ## How to modify to make your own title page
 
