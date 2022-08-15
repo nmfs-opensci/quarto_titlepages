@@ -6,9 +6,9 @@ This template makes a custom title page using the information in the YAML (from 
 
 ## Audience
 
-This is written assuming you are a LaTeX user and thus we have shared ways of doing things. We already know how to do what we want in LaTeX, but we need to figure out how to tell Quarto to do what we want. See the chapter on LaTeX document structure if you are unfamiliar with LaTeX document structure skim that chapter so you know what I am talking about when I reference parts of a LaTeX document.
+This is written assuming you are a LaTeX user and thus already know how to do what you want in LaTeX, but you need to figure out how to tell Quarto to do what you want. Skim the chapter on LaTeX document structure if you are unfamiliar with LaTeX so you know what I am talking about when I reference parts of a LaTeX document.
 
-Quarto has included a variety of YAML options so that you can alter your LaTeX document by passing in things like fontenc package options or geometry options in the YAML. I largely ignore all that and just pass in the header file I want. As a LaTeX user, I find all those YAML options confusing and I spend hours digging through the Quarto source code to figure out exactly how they are using the YAML options.
+Quarto has included a variety of YAML options so that you can use to alter your LaTeX document by passing in things like fontenc package options or geometry options in the YAML. I largely ignore all that and just pass in the header file I want. As a LaTeX user, I find all those YAML options confusing and I spend hours digging through the Quarto source code to figure out exactly how they are using the YAML options.
 
 That said, for quarto_titlepages, I am mainly just swapping out the `before-body.tex` partial (the part that specs the title and front matter) and adding stuff to the header (before `begin{document}`).
 
@@ -24,10 +24,10 @@ There are 2 approaches that I considered.
 
 When recreating a government report title page, I don't get to choose how the page looks. It has to look a very particular way. I find it easiest to just create that look manually rather than trying to figure out how to get the authblk LaTeX package to do what I want. authblk is a widely used LaTeX package which has helper functions for creating author lists along with affiliations.
 
-If you use authblk in your titlepage, you will need to write your `\author` and `affil` definitions in `title.tex` and then you can use those in `before-body.tex` in your `\begin{title}...\end{title}` code.
+If you use authblk in your titlepage, you will need to write your `\author` and `affil` definitions in `title.tex` and then you can use those in `before-body.tex` in your `\begin{titlepage}...\end{titlepage}` code.
 
 ## More notes
 
-See the notes chapter for some notes I took along the way.
+See the [notes chapter](@sec-notes) for some notes I took along the way.
 
 

@@ -1,0 +1,137 @@
+# LaTeX structure {#sec-latex}
+
+For the purposes of quarto_titlepages, this is all you need to know.
+
+    \documentclass[<<<classoption>>>]{<<<document class>>>}
+
+    <<<include-in-header static>>>
+
+    <<<title.tex template>>>
+
+    \begin{document}
+
+    <<<before-body.tex template>>>
+
+    ALL YOUR CONTENT
+
+    \end{document}
+
+## document class
+
+This specifies the look of your PDF. It is specified by a `.cls` file. Quarto uses by default `scrartcl` and `scrbook`. If you want to customize a document class, you can start with class options. You'll need to dig into the CTAN documentation to see what is available: [scrbook](https://www.ctan.org/pkg/scrbook) and [srcartcl](https://www.ctan.org/pkg/scrartcl).
+
+        documentclass: scrbook
+        classoption: ["onepage", "openany"]
+
+## include-in-header (static)
+
+This is static LaTeX. Static means it doesn't using any variable from your YAML. It is just plain LaTeX. Headers on LaTeX documents are used to specify extra packages to use and define or redefine commands. It can get pretty complex. But quarto_title pages, we really don't need much. I used the babel package for some diacritic (accents on letters) and the hyphenat package to stop titles from being hyphenated.
+
+## `title.tex` (template)
+
+::: callout-note
+**quarto_titlepages does not use title.tex** I include this section because defining authors using `\author{}` is ubiquitous in LaTeX, so you should know a) what it is and b) what to do if you want to use it. *Why doesn't quarto_titlepages use it?* Because the standard LaTeX title pages are nothing like the title pages I need for government reports. I would in a constant fight against the pre-defined `\author` function or the authblk package functions if I used it.
+:::
+
+Pandoc allows you to use a Pandoc template (meaning you can uses variables in your YAML). To that you can use `title.tex`. Despite the name, it is not restricted to using for the title. It is just that that is how Pandoc uses it.
+
+**title**
+
+You might see title defined here like so. 
+
+    \title{Here is the title.}
+
+`\title` is a function and `{..}` is the argument for it. Later, after `\begin{document}`, we can use `\title` to output a title. The formating is defined in the `\title` definition in the document class cls file.
+
+**authors**
+
+If you are going to use `\author` or the authblk package to help you generate your author list on your title page, this is where you do that. Here is a really common `\author` specification for a LaTeX document.
+
+Example from Pandoc `title.tex`
+
+    \author{$for(author)$$author$$sep$ \and $endfor$}
+
+The is going to put, for example, the following LaTeX in the document:
+
+    \author{Jane Doe \and Ashok Kumar \and Matti Meikäläinen}
+
+It gets the names from `author:` in the YAML.
+
+`\author` is essentially a function in LaTeX and the bit in `{...}` is the arguments. The document class (the cls file) has the code to process define the `\author` function using those arguments (the names). Later, after `\begin{document}`, we can use `\author` to call the author function and it will output a formatted list of the author names.
+
+**authblk package**
+
+We also typically have author affiliations that we want to print. The authblk package helps with that.
+
+It modifies the `\author` function to have a number for the affiliation. So `\author[1]{author name 1}` and has a `\affil[#]{affiliation}` function to define the affiliation 1. So you would see something like this
+
+    \author[1]{Junli Liu}
+    \author[2]{James Rowe}
+    \author[3]{Keith Lindsey}
+    \affil[1]{address one}
+    \affil[2]{address two}
+    \affil[3]{address three}
+
+## `before-body.tex` (template)
+
+This is where the command to make a title page is issued. Typically, you will see `\maketitle` called. `\maketitle` is a function defined in the document class cls file and specifies how the title page looks. 
+
+    \begin{document}
+
+    \maketitle
+
+    ALL YOUR CONTENT
+
+    \end{document}
+
+But we don't have to use `\maketitle` at all. We can define our own title page. **This is the approach quarto_titlepages uses**.
+
+```
+\begin{titlepage}
+
+<<< Code for your title page >>>
+
+\end{titlepage}
+```
+
+For example, (the MWE from the base LaTeX installation):
+
+```
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
+	{\scshape\Jacksonville State University \par}
+	\vspace{1cm}
+	{\scshape\Large Final year project\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Pigeons love doves\par}
+	\vspace{2cm}
+	{\Large\itshape John Birdwatch\par}
+	\vfill
+	supervised by\par
+	Dr.~Mark \textsc{Brown}
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+```
+
+## frontmatter
+
+In a book document class, the title page is created using `\frontmatter` (again that's a function). If that is the case, you need to define the frontmatter otherwise the frontmatter (with title page) from the class definition will be used.  So you have to use
+
+```
+\begin{frontmatter}
+\begin{titlepage}
+<<< Code for our title page >>>
+\end{titlepage}
+\end{frontmatter}
+```
+
+## troubleshooting
+
+* The most common problem I have is that LaTeX wants a empty line feed (carriage return) at the end of my `_titlepage.tex` code. I often forget and then it complains that `\begin{titlepage}` did not end.
+
+

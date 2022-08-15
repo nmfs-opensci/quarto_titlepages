@@ -1,7 +1,63 @@
-# How to use
+# How to use  {#sec-howtouse}
+
+1.  Go to the GitHub repository https://github.com/nmfs-opensci/quarto_titlepages
+1.  Open the `titlepages` folder
+2.  Pick a title page, eg. `vline` or `bg-image`
+3.  Download (or copy) the `before-body.tex`, `_titlepage.tex`, and `in-header.tex` files.
+4.  You can download `article.qmd` if you want an example qmd to run.
+
+In the YAML of your qmd document or `index.qmd` file for a Quarto book project, add this to the PDF format section:
+
+## Article class `scrartcl`
+
+Adding `number-sections: true` will number the chapters and sections. Remove if you don't want that.
+
+```
+format:
+  pdf:
+    documentclass: scrartcl
+    number-sections: true
+    template-partials:
+      - "before-body.tex"
+      - "_titlepage.tex" 
+    include-in-header: 
+      - "in-header.tex"
+```
+
+## Book class `scrbook`
+
+The class option "onepage" makes the margins of the even and odd pages the same. The class option "openany" allows chapters and parts to start on even or odd pages; the default is to only start chapters and parts on odd pages.
+
+```
+format:
+  pdf:
+    documentclass: scrbook
+    classoption: ["onepage", "openany"]
+    template-partials:
+      - "template/before-body.tex"
+      - "template/_titlepage.tex" 
+    include-in-header: 
+      - "template/in-header.tex"
+```
+
+## How do I add a table of contents
+
+You can add a table of contents (`toc: true`), list of figures (`lof: true`) and list of tables (`lot: true`). The depth of the TOC is specified with `toc-depth`. Example:
+
+```
+format:
+  pdf:
+    documentclass: scrartcl
+    template-partials:
+      - "before-body.tex"
+      - "_titlepage.tex" 
+    include-in-header: 
+      - "in-header.tex"
+    toc: true
+    toc-depth: 3
+    lof: true
+    lot: true
+```
 
 
-1.  Clone the repo (or grab all the files)
-2.  Open the `titlepages` folder
-3.  Pick a titlepage, eg. `vline` or `static` or `bg-image`
-4.  Open `article.qmd` in that folder and render it.
+

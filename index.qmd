@@ -4,7 +4,7 @@ subtitle: "LaTeX title pages with Quarto"
 page-layout: full
 ---
 
-[quarto titlepages](https://github.com/nmfs-opensci/quarto_titlepages) is a collection of Pandoc template partials (Pandoc template + LaTeX) and LaTeX header files to create custom title pages for PDF.
+[quarto titlepages](https://github.com/nmfs-opensci/quarto_titlepages) is a collection of Pandoc template partials (Pandoc template + LaTeX) and LaTeX header files to create custom title pages for PDF. It does not require installation of anything. Just download (or copy) the `before-body.tex`, `_titlepage.tex`, and `in-header.tex` files for one of the title pages and add the pdf format portion of your YAML. See [How to use](@sec-howtouse)
 
 ::: {.panel-tabset}
 

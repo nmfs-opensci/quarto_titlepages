@@ -5,9 +5,9 @@ website:
   page-navigation: true
   title: "quarto titlepages" 
   site-url: "https://nmfs-opensci.github.io/quarto_titlepages" 
-  repo-url: https://github.com/nmfs-opensi/quarto_titlepages
+  repo-url: "https://github.com/nmfs-opensci/quarto_titlepages"
   repo-actions: [edit, source, issue]
-  favicon: https://raw.githubusercontent.com/nmfs-opensci/assets/main/favicon/favicon.ico  
+  favicon: "https://raw.githubusercontent.com/nmfs-opensci/assets/main/favicon/favicon.ico"
   
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
@@ -43,7 +43,9 @@ website:
         text: Source code
       - href: 05-pandoc-templates.qmd
         text: Help with Pandoc
-      - href: 06-notes.qmd
+      - href: 06-latex.qmd
+        text: LaTeX structure
+      - href: 07-notes.qmd
         text: Notes
 
 format:

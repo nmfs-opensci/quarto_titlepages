@@ -1,4 +1,4 @@
-# Notes
+# Notes {#sec-notes}
 
 Some comments on my approach and why I did things the way I did.
 
@@ -6,7 +6,7 @@ Some comments on my approach and why I did things the way I did.
 
 It is very common to use `\maketitle`. When you customize a title page, you redefine this. I personnally find that approach more difficult than necessary. If I were writing a document class (cls), sure I'd use that but for of my work, I just find that more work than necessary.
 
-Instead I find it easier to include `\begin{title}....\end{title}` directly and not use `\maketitle` at all. Background: within the documentclass (required for a LaTeX document), there will be a definitian of `\maketitle`, a shortcut for a `\begin{title}....\end{title}` definition that specifies the look of the title page for that document class. Typically you'll see this at the start of a LaTeX doc:
+Instead I find it easier to include `\begin{titlepage}....\end{titlepage}` directly and not use `\maketitle` at all. Background: within the documentclass (required for a LaTeX document), there will be a definitian of `\maketitle`, a shortcut for a `\begin{title}....\end{title}` definition that specifies the look of the title page for that document class. Typically you'll see this at the start of a LaTeX doc:
 ```
 \begin{document}
 \maketitle

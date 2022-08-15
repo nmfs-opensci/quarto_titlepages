@@ -25,7 +25,7 @@ author:
       - name: HØnefoss Institute
         address: R Tradição 35, Portugal 2950-726
 cover: images/logo.png
-editor: visual
+editor: source
 format:
   pdf:
     documentclass: scrbook
