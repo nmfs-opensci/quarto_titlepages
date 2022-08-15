@@ -3,16 +3,16 @@ title: Not used
 subtitle: Not used
 author:
   - name: Not used
-editor: visual
+editor: source
 format:
   pdf:
     documentclass: scrbook
-    number-sections: true
+    classoption: ["onepage", "openany"]
     template-partials:
-      - "template/before-body.tex"
-      - "template/_titlepage.tex" 
+      - "before-body.tex"
+      - "_titlepage.tex" 
     include-in-header: 
-      - "template/in-header.tex"
+      - "in-header.tex"
     toc: true
     lof: true
     lot: true
