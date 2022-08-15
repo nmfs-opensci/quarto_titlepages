@@ -1,6 +1,8 @@
 on:
   push:
-    branches: main, documentation
+    branches:
+      - main
+      - documentation
 
 name: Render and Publish
 
