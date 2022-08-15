@@ -16,7 +16,7 @@ website:
   sidebar:
     background: "#D9E3E4"
     logo: "https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/nmfs-opensci-logo3.png"
-    favicon: images/openscapes_hex.png
+    favicon: images/favicon.ico
     pinned: true
     align: center
     tools: 
