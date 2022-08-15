@@ -1,0 +1,36 @@
+% Authors	
+% This hairy bit of code is to get "and" between the last 2
+% authors such that it works if there is 1, 2 or 2+ authors.
+$if(by-author/allbutlast)$%
+$for(by-author/allbutlast)$%
+{\large{$by-author.name.literal$}}%
+$for(by-author.affiliations)$%
+{\textsuperscript{$it.number$}}$sep$\textsuperscript{,}%
+$endfor$%
+$if(by-author.email)$%
+$if(by-author.affiliations)$\textsuperscript{,}$endif$%
+{\textsuperscript{*}}%
+$endif$%
+$sep$, %
+$endfor$%
+$for(by-author/last)$%
+{ and \large{$by-author.name.literal$}}%
+$for(by-author.affiliations)$%
+{\textsuperscript{$it.number$}}$sep$\textsuperscript{,}%
+$endfor$%
+$if(by-author.email)$%
+$if(by-author.affiliations)$\textsuperscript{,}$endif$%
+{\textsuperscript{*}}%
+$endif$%
+$endfor$%
+$else$%
+$for(by-author/last)$%
+{\large{$by-author.name.literal$}}%
+$for(by-author.affiliations)$%
+{\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
+$if(by-author.email)$%
+$if(by-author.affiliations)$\textsuperscript{,}$endif$%
+{\textsuperscript{,*}}%
+$endif$%
+$endfor$%
+$endif$
