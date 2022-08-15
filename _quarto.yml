@@ -7,7 +7,7 @@ website:
   site-url: "https://nmfs-opensci.github.io/quarto_titlepages" 
   repo-url: https://github.com/nmfs-opensi/quarto_titlepages
   repo-actions: [edit, source, issue]
-  favicon: images/openscapes_hex.png  
+  favicon: https://raw.githubusercontent.com/nmfs-opensci/assets/main/favicon/favicon.ico  
   
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
@@ -15,7 +15,7 @@ website:
   
   sidebar:
     background: "#D9E3E4"
-    logo: "images/logo-transparent-crop.png"
+    logo: "https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/nmfs-opensci-logo3.png"
     favicon: images/openscapes_hex.png
     pinned: true
     align: center
