@@ -1,0 +1,19 @@
+$if(has-frontmatter)$
+\begin{frontmatter}
+\begin{titlepage}
+$_coverpage.tex()$%
+% for some reason it insists on putting a black page
+% between cover and title if I have this above \begin{titlepage}
+$_titlepage.tex()$
+  
+\end{titlepage}
+\setcounter{page}{1}
+\end{frontmatter}
+$else$
+\begin{titlepage}
+$_titlepage.tex()$
+  
+\end{titlepage}
+$endif$
+
+  
