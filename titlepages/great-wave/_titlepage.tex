@@ -15,7 +15,12 @@
 $if(subtitle)${\large\textit{$subtitle$}}\\[4\baselineskip]$endif$
 
 % Abstract
-$if(abstract)${\large\textit{$abstract$}}\\[4\baselineskip]$endif$
+$if(abstract)$%
+\begin{flushright}%
+{{$abstract$}}\\[4\baselineskip]%
+\end{flushright}%
+$endif$
+
 % Authors	
 % This hairy bit of code is just to get "and" between the last 2
 % authors. See below if you don't need that
