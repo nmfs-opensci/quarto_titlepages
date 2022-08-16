@@ -10,6 +10,10 @@ There are two types of title pages. Static does not use the YAML. Modify these i
 
 ::: {.panel-tabset}
 
+### great-wave
+<span style="font-size:0.8em; color: grey">Template with a book cover. Double-click on image to see PDF</span>
+[![](images/great-wave.png){.border fig-alt="Screenshot of great-wave title page. This template has a cover page with a great wave image. Title page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/great-wave/article.pdf)
+
 ### vline
 <span style="font-size:0.8em; color: grey">Double-click to see demo PDF in [scrbook](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [scrartcl](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [krantz](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-krantz.pdf) [svmono](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-svmono.pdf) [elsarticle](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-elsarticle.pdf)</span>
 [![](images/vline.png){.border fig-width="50%" fig-alt="Screenshot of vline title page. Page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf)
