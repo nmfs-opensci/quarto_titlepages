@@ -9,6 +9,7 @@ author:
       - name: University of Washington
         department: School of Aquatic and Fishery Sciences
     email: eli.holmes@noaa.gov
+abstract: "[quarto_titlepages](https://nmfs-opensci.github.io/quarto_titlepages): GitHub repo with template partials for use with [Quarto](https://quarto.org/) for adding custom cover pages and title pages to your PDF books or articles. Documentation included for using the provided templates or modifying to create your own."
 cover: images/nmfs-opensci-logo.png
 editor: source
 format:

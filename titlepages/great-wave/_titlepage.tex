@@ -11,9 +11,11 @@
 
 \raggedright
 % Title and subtitle
-{\huge\bfseries\nohyphens{$title$}}\\[2\baselineskip] 
+{\huge\bfseries\nohyphens{$title$}}\\[1.25\baselineskip] 
 $if(subtitle)${\large\textit{$subtitle$}}\\[4\baselineskip]$endif$
-	
+
+% Abstract
+$if(abstract)${\large\textit{$abstract$}}\\[4\baselineskip]$endif$
 % Authors	
 % This hairy bit of code is just to get "and" between the last 2
 % authors. See below if you don't need that
