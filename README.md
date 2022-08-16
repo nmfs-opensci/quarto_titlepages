@@ -2,6 +2,6 @@
 
 [Documentation](https://nmfs-opensci.github.io/quarto_titlepages/)
 
-This template makes a custom title page using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a Quarto book). 
+This template makes a custom title page using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a [Quarto](https://quarto.org/) book). 
 
 <a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-CC55A28D.png"><img src="./images/bg-image.png" width="200"/></a>
