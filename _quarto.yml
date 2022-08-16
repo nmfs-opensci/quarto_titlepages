@@ -47,6 +47,8 @@ website:
         text: LaTeX structure
       - href: 07-notes.qmd
         text: Notes
+      - href: 08-acknowledgements.qmd
+        text: Acknowledgements
 
 format:
   html:

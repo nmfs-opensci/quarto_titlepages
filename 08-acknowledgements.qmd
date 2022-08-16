@@ -1,0 +1,23 @@
+# Acknowledgements
+
+## Quarto
+
+[quarto-cli](https://github.com/quarto-dev/quarto-cli): Allaire, J., Teague, C., Scheidegger, C., Xie, Y., & Dervieux, C. (2022). Quarto (Version 0.3) [Computer software]. https://doi.org/10.5281/zenodo.5960048
+
+[Quarto manual](https://quarto.org/docs/guide/)
+
+## LaTeX templates
+
+### Dyanamic
+
+* vline: Based off vline-static (see below). Coverted to Pandoc template and further modified by EE Holmes (eli.holmes@noaa.gov)
+* bg-image: EE Holmes (eli.holmes@noaa.gov)
+* great-wave: This template is based on a post by Arun Debray to tex.stackoverflow: https://tex.stackexchange.com/posts/554962/revisions. Coverted to Pandoc template and further modified by EE Holmes (eli.holmes@noaa.gov)
+
+
+### Static
+
+* vline-static: Downloaded from http://www.LaTeXTemplates.com. Original author: Peter Wilson (herries.press@earthlink.net) with modifications by Vel (vel@latextemplates.com)
+* classic-lined-static: Downloaded from http://www.LaTeXTemplates.com. Original author: WikiBooks (LaTeX - Title Creation) with modifications by Vel (vel@latextemplates.com)
+* academic-static: Downloaded from http://www.LaTeXTemplates.com. Original author: Peter Wilson (herries.press@earthlink.net) with modifications by Vel (vel@latextemplates.com)
+* multi-purpose-static: Downloaded from http://www.LaTeXTemplates.com. Original author: WikiBooks (LaTeX - Title Creation) with modifications by Vel (vel@latextemplates.com)
