@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/nmfs-opensci/quarto_titlepages/05-pandoc-templates.html</loc>
-    <lastmod>2022-08-15T23:58:09.006Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nmfs-opensci/quarto_titlepages/06-latex.html</loc>
-    <lastmod>2022-08-15T23:58:10.590Z</lastmod>
+    <loc>https://github.com/nmfs-opensci/quarto_titlepages/01-about.html</loc>
+    <lastmod>2022-08-16T12:50:51.286Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nmfs-opensci/quarto_titlepages/02-titlepages.html</loc>
-    <lastmod>2022-08-15T23:59:41.575Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nmfs-opensci/quarto_titlepages/07-notes.html</loc>
-    <lastmod>2022-08-15T23:59:42.095Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nmfs-opensci/quarto_titlepages/03-how-to-use.html</loc>
-    <lastmod>2022-08-15T23:59:42.551Z</lastmod>
+    <lastmod>2022-08-16T12:50:52.430Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nmfs-opensci/quarto_titlepages/index.html</loc>
-    <lastmod>2022-08-15T23:59:43.047Z</lastmod>
+    <lastmod>2022-08-16T12:50:52.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nmfs-opensci/quarto_titlepages/07-notes.html</loc>
+    <lastmod>2022-08-16T12:50:53.202Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nmfs-opensci/quarto_titlepages/03-how-to-use.html</loc>
+    <lastmod>2022-08-16T12:50:53.558Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nmfs-opensci/quarto_titlepages/04-how-to-modify.html</loc>
-    <lastmod>2022-08-15T23:59:43.535Z</lastmod>
+    <lastmod>2022-08-16T12:50:53.898Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nmfs-opensci/quarto_titlepages/01-about.html</loc>
-    <lastmod>2022-08-15T23:59:43.983Z</lastmod>
+    <loc>https://github.com/nmfs-opensci/quarto_titlepages/05-pandoc-templates.html</loc>
+    <lastmod>2022-08-16T12:52:03.734Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nmfs-opensci/quarto_titlepages/06-latex.html</loc>
+    <lastmod>2022-08-16T12:52:04.106Z</lastmod>
   </url>
 </urlset>
