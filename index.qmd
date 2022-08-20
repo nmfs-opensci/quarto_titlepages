@@ -6,7 +6,7 @@ page-layout: full
 
 [quarto titlepages](https://github.com/nmfs-opensci/quarto_titlepages) is a collection of Pandoc template partials (Pandoc template + LaTeX) and LaTeX header files to create custom title pages for PDF. It does not require installation of anything. Download (or copy) the `before-body.tex`, `_titlepage.tex`, and `in-header.tex` files for one of the title pages and add them to the pdf format portion of your YAML. See [How to use](03-how-to-use.html)
 
-There are two types of title pages. Static does not use the YAML. Modify these if you have a title page written in LaTeX that you want to you. The template title pages (currently `vline` and `bg-image`) will use the YAML variables (authors, affiliations, cover image, etc).
+There are two types of title pages. Static does not use the YAML. Modify these if you have a title page written in LaTeX that you want to use. The template title pages (no `-static` at end) will use the YAML variables (authors, affiliations, cover image, etc).
 
 ::: {.panel-tabset}
 
@@ -33,5 +33,9 @@ There are two types of title pages. Static does not use the YAML. Modify these i
 ### multi-purpose-static
 <span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span>
 [![](images/multi-purpose-static.png){.border fig-alt="Screenshot of multi-purpose-static title page. Title has a cyan filled box around it. Author name is in bottom right corner."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/multi-purpose-static/article.pdf)
+
+### thesis-static
+<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span>
+[![](images/thesis-static.png){.border fig-alt="Screenshot of thesis-static title page. A fairly minimal thesis title page."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/thesis-static/article.pdf)
 
 :::
