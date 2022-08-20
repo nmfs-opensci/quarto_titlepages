@@ -34,5 +34,19 @@ Thus by passing in `title.tex` or `before-body.tex`, you replace the title page 
 
 * Ditch `\maketitle` and create your own title page using `\begin{titlepage}....\end{titlepage}`. In this case, you will pass in `before-body.tex`. You don't need to specify `title.tex`; that LaTeX code is only used for `\maketitle` and you won't have that in your new `before-body.tex`. **This is the approach used by quarto-titlepages.**
 
+## Let's try it out
 
+You can [open up the repo](https://rstudio.cloud/content/4370280) on RStudio Cloud. Log in with an account or with Google if you don't want to create an account.
 
+Start with a static title page by going to `titlepages/vline-static`.
+
+* Open up `article.qmd` and click Render. Or open a shell and type
+```
+quarto render titlepages/vline-static/article.qmd
+```
+* Open `before-body.tex` to see what it is doing.
+* Open `_titlepage.tex` to see the code that defines the title page.
+
+## Ready to modify?
+
+Go to the chapter on [How to modify](04-how-to-modify.html).
