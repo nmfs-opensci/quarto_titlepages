@@ -1,38 +1,23 @@
 ---
-title: quarto_titlepages
-subtitle: Templates for title pages and covers
+title: Not used
+subtitle: Not used
 author:
-  - name: Elizabeth Eli Holmes
-    affiliations:
-      - name: NOAA Fisheries
-        address: Northwest Fisheries Science Center, Seattle WA, USA
-      - name: University of Washington
-        department: School of Aquatic and Fishery Sciences
-    email: eli.holmes@noaa.gov
-abstract: "[quarto_titlepages](https://nmfs-opensci.github.io/quarto_titlepages): GitHub repo with template partials for use with [Quarto](https://quarto.org/) for adding custom cover pages and title pages to your PDF books or articles. Documentation included for using the provided templates or modifying to create your own."
-cover: images/nmfs-opensci-logo.png
+  - name: Not used
 editor: source
 format:
   pdf:
     documentclass: scrbook
-    classoption: ["onepage", "openany"]
-    number-sections: true
+    classoption: ["onepage"]
+    geometry:
+      - "margin=1in"
     template-partials:
       - "before-body.tex"
       - "_titlepage.tex" 
-      - "_coverpage.tex" 
     include-in-header: 
       - "in-header.tex"
     toc: true
     lof: true
     lot: true
-    titlepage-geometry: 
-      - top=3in
-      - bottom=0in
-      - right=1in
-      - left=1in
-    title-bg-image: "images/TheGreatWaveoffKanagawa.jpeg"
-    title-page-color: "F6D5A8"
 
 bibliography: references.bib
 ---
@@ -66,9 +51,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, veh
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat.
 
-![great wave](images/TheGreatWaveoffKanagawa.jpeg){#fig-wave}
+![the study area](logo.png){#fig-logo}
 
-See @fig-wave for a picture of the study animal. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
+See @fig-logo for a picture of the study area. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 
 Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
 
@@ -86,16 +71,6 @@ See @tbl-numbers for the table of results. Phasellus quis orci nec erat suscipit
 : Table of numbers. {#tbl-numbers}
 
 # Discussion
-
-Lorem ipsum dolor sit amet, @tbl-numbers, consectetur adipiscing elit. @knuth84 and all things LaTeX. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
-
-Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
-
-Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu, fermentum sem.
-
-Quisque congue, ligula et mattis vulputate, arcu risus facilisis mauris, a feugiat mi mi et magna. Aliquam id malesuada neque. Sed dapibus justo mauris, sed mattis nibh sodales sit amet. Donec nec faucibus magna. Curabitur tincidunt porta egestas. In eleifend sed enim ac varius. Vivamus tempus ultrices vehicula. Vestibulum iaculis eleifend mattis. Quisque euismod dui et velit facilisis dapibus. Ut in mauris porttitor, congue orci et, sodales turpis. Pellentesque porttitor volutpat sapien vel pretium.
-
-Aliquam ante diam, euismod in nisi sed, iaculis tincidunt lacus. Cras pellentesque magna id enim pulvinar porta. Proin quis feugiat quam. Nunc vitae ultricies nulla, a facilisis tortor. Aliquam semper mi et libero tincidunt, nec iaculis erat pharetra. Duis ac pharetra purus. Nunc condimentum ex massa, a vestibulum risus bibendum in. Suspendisse suscipit, lectus pharetra vulputate fringilla, ligula sem condimentum purus, eget dapibus diam libero vitae lorem. Nam blandit pulvinar augue, non gravida risus rhoncus sed.
 
 Lorem ipsum dolor sit amet, @tbl-numbers, consectetur adipiscing elit. @knuth84 and all things LaTeX. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 
