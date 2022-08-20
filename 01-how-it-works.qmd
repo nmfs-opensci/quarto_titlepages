@@ -1,0 +1,38 @@
+# How it works
+
+*For LaTeX users*
+
+Pandoc has a template that it uses to create the LaTeX document. Certain key parts of the template are specified with files (template partials) with the code for that section. For our purposes, the key template partials are `title.tex` and `before-body.tex`.
+
+    \documentclass[<<<classoption>>>]{<<<document class>>>}
+
+    <<<include-in-header static>>>
+
+    <<<title.tex template>>>
+
+    \begin{document}
+
+    <<<before-body.tex template>>>
+
+    ALL YOUR CONTENT
+
+    \end{document}
+
+The `title.tex` template is defining things like `\author` and `before-body.tex` is calling `\maketitle`. When you pass in `before-body.tex` in `template-partials: ` in your document YAML, it **replaces** the default one. 
+
+Thus by passing in `title.tex` or `before-body.tex`, you replace the title page specification by you own specification.
+    
+## Definitions
+
+**template versus static** A template mixes Pandoc templating code with LaTeX and allows you to use variables from the YAML in our file. Static must have plain LaTeX. Note a template file can be plain LaTeX too, if you want.
+
+**special template files** There are some template files that are special because Pandoc uses files of the same name to input code in the same places. For our purposes, we need to know about `before-body.tex` and `title.tex`. 
+
+## Two approaches for getting a custom title page
+
+* Pass in `title.tex` with the `\author` and `\affil` specified how you want. You will probably want to redefine `\maketitle`. Search google for how to do that. It is a standard way to customize the title page.  That's all you need to do. The title page will be created with `\maketitle` which is in the default `before-body.tex`.
+
+* Ditch `\maketitle` and create your own title page using `\begin{titlepage}....\end{titlepage}`. In this case, you will pass in `before-body.tex`. You don't need to specify `title.tex`; that LaTeX code is only used for `\maketitle` and you won't have that in your new `before-body.tex`. **This is the approach used by quarto-titlepages.**
+
+
+
