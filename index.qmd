@@ -35,7 +35,7 @@ There are two types of title pages. Static does not use the YAML. Modify these i
 [![](images/multi-purpose-static.png){.border fig-alt="Screenshot of multi-purpose-static title page. Title has a cyan filled box around it. Author name is in bottom right corner."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/multi-purpose-static/article.pdf)
 
 ### thesis-static
-<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span>
+<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
 [![](images/thesis-static.png){.border fig-alt="Screenshot of thesis-static title page. A fairly minimal thesis title page."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/thesis-static/article.pdf)
 
 :::
