@@ -31,7 +31,7 @@ format:
       - bottom=0in
       - right=1in
       - left=1in
-    title-bg-image: "images/The_Great_Wave_off_Kanagawa.jpeg"
+    title-bg-image: "images/TheGreatWaveoffKanagawa.jpeg"
     title-page-color: "F6D5A8"
 
 bibliography: references.bib
@@ -66,7 +66,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, veh
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat.
 
-![great wave](images/The_Great_Wave_off_Kanagawa.jpeg){#fig-wave}
+![great wave](images/TheGreatWaveoffKanagawa.jpeg){#fig-wave}
 
 See @fig-wave for a picture of the study animal. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 
