@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "01-how-it-works.html",
+    "href": "01-how-it-works.html",
+    "title": "quarto titlepages",
+    "section": "",
+    "text": "For LaTeX users\nPandoc has a template that it uses to create the LaTeX document. Certain key parts of the template are specified with files (template partials) with the code for that section. For our purposes, the key template partials are title.tex and before-body.tex.\n\\documentclass[<<<classoption>>>]{<<<document class>>>}\n\n<<<include-in-header static>>>\n\n<<<title.tex template>>>\n\n\\begin{document}\n\n<<<before-body.tex template>>>\n\nALL YOUR CONTENT\n\n\\end{document}\nThe title.tex template is defining things like \\author and before-body.tex is calling \\maketitle. When you pass in before-body.tex in template-partials: in your document YAML, it replaces the default one.\nThus by passing in title.tex or before-body.tex, you replace the title page specification by you own specification.\n\n\ntemplate versus static A template mixes Pandoc templating code with LaTeX and allows you to use variables from the YAML in our file. Static must have plain LaTeX. Note a template file can be plain LaTeX too, if you want.\nspecial template files There are some template files that are special because Pandoc uses files of the same name to input code in the same places. For our purposes, we need to know about before-body.tex and title.tex.\n\n\n\n\nPass in title.tex with the \\author and \\affil specified how you want. You will probably want to redefine \\maketitle. Search google for how to do that. It is a standard way to customize the title page. That’s all you need to do. The title page will be created with \\maketitle which is in the default before-body.tex.\nDitch \\maketitle and create your own title page using \\begin{titlepage}....\\end{titlepage}. In this case, you will pass in before-body.tex. You don’t need to specify title.tex; that LaTeX code is only used for \\maketitle and you won’t have that in your new before-body.tex. This is the approach used by quarto-titlepages."
+  },
+  {
     "objectID": "01-about.html",
     "href": "01-about.html",
     "title": "quarto titlepages",
