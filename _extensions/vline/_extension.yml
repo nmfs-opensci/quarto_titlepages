@@ -1,0 +1,12 @@
+title: great-wave
+author: Eli Holmes
+version: 0.1.0
+contributes:
+    pdf:
+      documentclass: scrbook
+      cover-theme: great-wave
+      template-partials:
+        - "before-body.tex"
+        - "_titlepage.tex" 
+      include-in-header: 
+        - "in-header.tex"
