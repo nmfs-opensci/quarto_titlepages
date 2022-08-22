@@ -1,6 +1,6 @@
 # quarto_titlepages <a href="https://github.com/nmfs-opensci/quarto_titlepages"><img src="https://raw.githubusercontent.com/nmfs-opensci/assets/main/images/GitHub-Mark-32px.png" align="right"/></a>
 
-[Documentation](https://nmfs-opensci.github.io/quarto_titlepages/)
+[Try it out on RStudio Cloud](https://rstudio.cloud/content/4370280) --- [Read documentation](https://nmfs-opensci.github.io/quarto_titlepages/)
 
 This template makes a custom title page using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a [Quarto](https://quarto.org/) book). 
 
