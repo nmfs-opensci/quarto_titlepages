@@ -20,7 +20,7 @@ format:
     template-partials:
       - "before-body.tex"
       - "_titlepage.tex" 
-      - "_coverpage.tex" 
+      - "_cover.tex" 
     include-in-header: 
       - "in-header.tex"
     toc: true

@@ -1,25 +1,14 @@
 $if(has-frontmatter)$
-\begin{frontmatter}
-$if(cover-theme)$%
-./covers/$cover-theme$/_cover.tex()$%
-$endif$
-$if(titlepage-theme)$%
-\begin{titlepage}
-% for some reason it insists on putting a black page
-% between cover and title if I have this above \begin{titlepage}
-./titlepages/$titlepage-theme$/$_titlepage.tex()$%
-
-\end{titlepage}
-$else$
-\maketitle
-$endif$
-\setcounter{page}{1}
-\end{frontmatter}
-$else$
-\begin{titlepage}
-$_titlepage.tex()$
+  \begin{frontmatter}
+  \begin{titlepage}
+  $_titlepage.tex()$
   
-\end{titlepage}
+  \end{titlepage}
+  \end{frontmatter}
+$else$
+  \begin{titlepage}
+  $_titlepage.tex()$
+  
+  \end{titlepage}
 $endif$
 
-  
