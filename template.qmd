@@ -21,7 +21,7 @@ author:
   - name: Ashok Kumar
     affiliations:
       - name: Author affiliation
-        department: Affiliation address
+        address: Affiliation address
 cover: logo.png
 editor: source
 format:
