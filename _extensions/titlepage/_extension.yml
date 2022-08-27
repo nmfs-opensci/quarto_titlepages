@@ -1,0 +1,13 @@
+title: titlepage
+author: Eli Holmes
+version: 0.1.0
+contributes:
+  format:
+    pdf:
+      filters:
+        - theme.lua
+      template-partials:
+        - "before-body.tex"
+        - "_titlepage.tex"
+        - "_cover.tex"
+        - "pandoc.tex"

@@ -43,3 +43,6 @@ titlepages/bg-image/.DS_Store
 
 /.quarto/
 /_site/
+
+template_files/
+template.log

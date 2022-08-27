@@ -24,19 +24,12 @@ author:
         address: Affiliation address
 cover: logo.png
 editor: source
-format:
-  great-wave-pdf:
-    documentclass: scrbook
-    classoption: ["openany"]
-    geometry:
-      - "margin=1.5in"
-    toc: true
-    lof: true
-    lot: true
+format: titlepage-pdf
 bibliography: references.bib
+titlepage: bg-image
 ---
 
-# Introduction
+# Introduction {{< meta titlepage >}} {{< meta bg-image >}}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor velit. Fusce accumsan ultrices fringilla. Praesent sed odio mi. Mauris non ligula turpis. Duis posuere lacus nec diam interdum dictum suscipit magna molestie. Vestibulum nibh dolor, interdum eget rhoncus ut, sodales eget justo. Morbi blandit lorem sit amet nulla egestas aliquam. Nunc pharetra est at nibh ullamcorper in commodo erat dignissim. Cras et suscipit enim.
 
