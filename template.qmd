@@ -22,10 +22,8 @@ author:
     affiliations:
       - name: Author affiliation
         address: Affiliation address
-cover: logo.png
-editor: source
-format: titlepage-pdf
 bibliography: references.bib
+format: titlepage-pdf
 titlepage: bg-image
 ---
 
