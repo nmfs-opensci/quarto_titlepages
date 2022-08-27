@@ -27,7 +27,7 @@ format: titlepage-pdf
 titlepage: bg-image
 ---
 
-# Introduction {{< meta titlepage >}} {{< meta bg-image >}}
+# Introduction
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor velit. Fusce accumsan ultrices fringilla. Praesent sed odio mi. Mauris non ligula turpis. Duis posuere lacus nec diam interdum dictum suscipit magna molestie. Vestibulum nibh dolor, interdum eget rhoncus ut, sodales eget justo. Morbi blandit lorem sit amet nulla egestas aliquam. Nunc pharetra est at nibh ullamcorper in commodo erat dignissim. Cras et suscipit enim.
 
