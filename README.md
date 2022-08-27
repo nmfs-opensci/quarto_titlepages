@@ -26,9 +26,9 @@ quarto install extension nmfs-opensci/quarto-titlepages
 
 ## Usage
 
-After installing the extension, you will find folders for each of the title and cover page examples in the `_extensions` folder, e.g. `vline` or `bg-image`. The folder contains the necessary `.tex` templates, any needed images, and a `article.qmd` file with a full YAML example. You can render the example `article.qmd` directly in the folder to render an example with the specified title or cover page example.
+After installing the extension, you will find folders for each of the title and cover page examples in the `_extensions` folder, *e.g.*, `vline` or `bg-image`. The folder contains the necessary `.tex` templates, any needed images, and a `article.qmd` file with a full YAML example. You can render the example `article.qmd` directly in the folder to render an example with the specified title or cover page example.
 
-You also run using the format that each extension provides, e.g. `vline-pdf` or `bg-image-pdf`. See the documentation for all options.
+You also run using the format that each extension provides, *e.g.*, `vline-pdf` or `bg-image-pdf`. See the documentation for all options.
 
 For example:
 
@@ -44,7 +44,7 @@ format: great-wave-pdf
 
 ## Customizing
 
-Find one of the templates (e.g. `vline` or `bg-image`), copy its folder, and edit `_titlepage.tex` and/or `_cover.tex`.
+Find one of the templates (*e.g.*, `vline` or `bg-image`), copy its folder, and edit `_titlepage.tex` and/or `_cover.tex`.
 
 ------
 
