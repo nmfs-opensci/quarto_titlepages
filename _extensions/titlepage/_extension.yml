@@ -32,3 +32,4 @@ contributes:
         - "images/logo.png"
         - "images/nmfs-opensci-logo.png"
         - "images/ringed-seal.png"
+        - "references.bib"
