@@ -19,9 +19,9 @@ function Meta(m)
       if isEmpty(m['title-bg-size']) then
         m['title-bg-size'] = 0.5
       end
-      -- if isEmpty(m['title-geometry']) then
-      --   m['titlepage-geometry'] = {top = "3in", bottom = "1in", right = "1in", left = "1in"}
-      -- end
+      if isEmpty(m['titlepage-geometry']) then
+        m['titlepage-geometry'] = pandoc.List({top = "3in", bottom = "1in", right = "1in", left = "1in"})
+      end
       return m
     end,
     ["classic-lined-static"] = function (m)
@@ -33,9 +33,6 @@ function Meta(m)
     end,
     ["great-wave"] = function (m)
       m['great-wave'] = true
-      -- if isEmpty(m['title-geometry']) then
-      --   m['titlepage-geometry'] = {top = "3in", bottom = "0in", right = "1in", left = "1in"}
-      -- end
       if isEmpty(m['title-bg-image']) then
         m['title-bg-image'] = "TheGreatWaveoffKanagawa.jpeg"
       end
