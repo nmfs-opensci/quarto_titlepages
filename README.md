@@ -1,10 +1,10 @@
-# quarto_titlepages <a href="https://github.com/nmfs-opensci/quarto_titlepages"><img src="https://raw.githubusercontent.com/nmfs-opensci/assets/main/images/GitHub-Mark-32px.png" align="right"/></a>
+# quarto_titlepages <a href="https://github.com/nmfs-opensci/quarto_titlepages"><img src="https://github.com/nmfs-opensci.png" align="right"/></a>
 
 [Try it out on RStudio Cloud](https://rstudio.cloud/content/4370280) --- [Read documentation](https://nmfs-opensci.github.io/quarto_titlepages/)
 
 This is a [Quarto](https://quarto.org/) extension to help you make custom title pages and cover pages for PDF output. 
 
-<a href="https://nmfs-opensci.github.io/quarto_titlepages/images/paste-CC55A28D.png"><img src="./images/bg-image.png" width="200"/></a>
+<a href="media/bg-image.png"><img src="media/bg-image.png" width="200"/></a>
 
 
 ## Installing the extension
