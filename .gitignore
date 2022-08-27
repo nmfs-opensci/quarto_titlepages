@@ -46,7 +46,5 @@ titlepages/bg-image/.DS_Store
 
 template_files/
 template.log
-*.png
-*.jpeg
 template.tex
 template.pdf
