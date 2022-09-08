@@ -24,7 +24,10 @@ author:
         address: Affiliation address
 bibliography: references.bib
 format: titlepage-pdf
-titlepage: multi-purpose-static
+titlepage: great-wave
+documentclass: scrbook
+number-sections: true
+
 ---
 
 # YAML additions for themes
