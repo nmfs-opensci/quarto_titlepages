@@ -19,6 +19,7 @@
 
 # RStudio files
 .Rproj.user/
+*.Rproj
 
 # produced vignettes
 vignettes/*.html
@@ -53,3 +54,5 @@ logo.png
 nmfs-opensci-logo.png
 ringed-seal.png
 TheGreatWaveoffKanagawa.jpeg
+
+
