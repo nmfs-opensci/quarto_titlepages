@@ -20,7 +20,7 @@ function Meta(m)
         m['title-bg-size'] = 0.5
       end
       if isEmpty(m['titlepage-geometry']) then
-        m['titlepage-geometry'] = pandoc.List({top = "3in", bottom = "1in", right = "1in", left = "1in"})
+        m['titlepage-geometry'] = pandoc.List({"top=3in", "bottom=1in", "right=1in", "left=1in"})
       end
       return m
     end,
