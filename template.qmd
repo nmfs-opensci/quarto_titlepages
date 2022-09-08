@@ -22,18 +22,9 @@ author:
     affiliations:
       - name: Author affiliation
         address: Affiliation address
-cover: logo.png
-editor: source
-format:
-  great-wave-pdf:
-    documentclass: scrbook
-    classoption: ["openany"]
-    geometry:
-      - "margin=1.5in"
-    toc: true
-    lof: true
-    lot: true
 bibliography: references.bib
+format: titlepage-pdf
+titlepage: bg-image
 ---
 
 # Introduction

@@ -1,0 +1,109 @@
+% This is a combination of Pandoc templating and LaTeX
+% Pandoc templating https://pandoc.org/MANUAL.html#templates
+% See the README for help
+
+$if(titlepage-geometry)$
+\newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
+$endif$
+\begin{minipage}[b][\textheight][s]{\textwidth}
+\raggedright
+
+% background image
+$if(title-bg-image)$
+\This$if(title-bg-location)$$title-bg-location$$else$UL$endif$CornerWallPaper{$if(title-bg-size)$$title-bg-size$$else$0.5$endif$}{$title-bg-image$}
+$endif$
+
+% Title and subtitle
+{\huge\bfseries\nohyphens{$title$}}\\[1\baselineskip] 
+$if(subtitle)${\large{$subtitle$}}\\[4\baselineskip]$endif$
+	
+% Authors	
+% This hairy bit of code is just to get "and" between the last 2
+% authors. See below if you don't need that
+$if(by-author/allbutlast)$
+$for(by-author/allbutlast)$
+ {\large{$by-author.name.literal$}}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
+$if(by-author.email)$%
+$if(by-author.affiliations)$\textsuperscript{,}$endif$%
+{\textsuperscript{*}}%
+$endif$%
+$sep$, 
+$endfor$
+$for(by-author/last)$%
+{ and \large{$by-author.name.literal$}}%
+$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}%
+$endfor$%
+$if(by-author.email)$%
+$if(by-author.affiliations)$\textsuperscript{,}$endif$%
+{\textsuperscript{*}}%
+$endif$%
+$endfor$
+$else$
+$for(by-author/last)$%
+{\large{$by-author.name.literal$}}%
+$for(by-author.affiliations)$%
+{\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
+$if(by-author.email)$%
+$if(by-author.affiliations)$\textsuperscript{,}$endif$%
+{\textsuperscript{,*}}%
+$endif$%
+$endfor$
+$endif$
+
+% This is how to do it if you don't need the "and"
+$if(false)$
+  $for(by-author)$
+    {$by-author.name.literal$}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}$endfor$$if(by-author.email)$,{\textsuperscript{*}}$endif$$sep$, 
+$endfor$
+$endif$
+
+%%%%%% Affiliations
+\vspace{2\baselineskip} 
+
+\hangindent=1em
+\hangafter=1
+$for(by-affiliation)$%
+{$it.number$}.~$if(by-affiliation.name)${$it.name$}$endif$%
+$if(by-affiliation.department)$%
+$if(by-affiliation.name)$, $endif$%
+{$it.department$}%
+$endif$%
+$if(by-affiliation.address)$%
+$if(by-affiliation.name)$, $else$$if(by-affiliation.department)$, $endif$$endif$%
+{$it.address$}%
+$endif$%
+$sep$\par\hangindent=1em\hangafter=1%
+$endfor$
+
+%%%%%% Correspondence
+\vspace{1\baselineskip} 
+
+$for(by-author)$
+$if(by-author.email)$
+* \textit{Correspondence:}~$by-author.name.literal$~$by-author.email$
+$endif$
+$endfor$
+
+%use \vfill instead to get the space to fill flexibly	
+%\vspace{0.25\textheight} % Whitespace between the title block and the publisher
+
+\vfill
+
+%%%%%% Cover image
+$if(cover)$\includegraphics[width=4cm]{$cover$}$endif$
+
+% Whitespace between the title block and the tagline
+\vspace{1\baselineskip} 
+
+%%%%%% Tagline at bottom
+University Technical Series\newline
+Open Source Publication for All\newline
+Amtmandens Allé 15\newline
+6950 Rindum Ringkøbing-Skjern\newline
+DENMARK\newline
+December 2025
+
+\end{minipage}
+$if(titlepage-geometry)$
+\restoregeometry
+$endif$

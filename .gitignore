@@ -43,3 +43,13 @@ titlepages/bg-image/.DS_Store
 
 /.quarto/
 /_site/
+
+template_files/
+template.log
+template.tex
+template.pdf
+corner-bg.png
+logo.png
+nmfs-opensci-logo.png
+ringed-seal.png
+TheGreatWaveoffKanagawa.jpeg
