@@ -1,1 +1,1 @@
-Sitemap: https://github.com/nmfs-opensci/quarto_titlepages/sitemap.xml
+Sitemap: https://nmfs-opensci.github.io/quarto_titlepages/sitemap.xml
