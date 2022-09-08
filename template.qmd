@@ -24,8 +24,34 @@ author:
         address: Affiliation address
 bibliography: references.bib
 format: titlepage-pdf
-titlepage: bg-image
+titlepage: vline-static
 ---
+
+# YAML additions for themes
+
+Some themes need some additional YAML information to work.
+
+## `bg-image`
+
+Needs info on the titlepage geometry so the title doesn't overlap the background image. Also you need to supply the background image and where to put it (UL, upperleft; UR, upperright; BL, bottomleft; BR, bottomright).
+
+```
+titlepage: bg-image
+titlepage-geometry: 
+  - top=3in
+  - bottom=1in
+  - right=1in
+  - left=1in
+title-bg-image: "img/corner-bg.png"
+title-bg-location: "UL"
+title-bg-size: 0.5
+```
+
+# Static versus dynamic themes
+
+`vline-static`, `thesis-static`, `multi-purpose-static`, `classic-lined-static` and `academic-static` use a title page that is defined in the `_extensions/titlepage` folder. You will need to edit the `_xyz-static_titlepage.tex` file.
+
+The other themes use the YAML for the titlepage info and you do not need to edit the `...-titlepage.tex` files unless you want to customize the pages.
 
 # Introduction
 

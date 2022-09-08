@@ -4,7 +4,7 @@
 
 This is a [Quarto](https://quarto.org/) extension to help you make custom title pages and cover pages for PDF output.
 
-<a href="media/bg-image.png"><img src="media/bg-image.png" width="200"/></a>
+<a href="img/bg-image.png"><img src="img/bg-image.png" width="200"/></a>
 
 ## Installing the extension
 
