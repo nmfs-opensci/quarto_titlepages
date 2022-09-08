@@ -24,7 +24,7 @@ author:
         address: Affiliation address
 bibliography: references.bib
 format: titlepage-pdf
-titlepage: vline-static
+titlepage: multi-purpose-static
 ---
 
 # YAML additions for themes

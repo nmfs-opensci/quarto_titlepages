@@ -73,7 +73,7 @@ function Meta(m)
 
   choice = pandoc.utils.stringify(m.titlepage)
   if isEmpty(choice) then
-    return theme_table["vline"](m)
+    return theme_table["vline-static"](m)
   else
     return theme_table[choice](m)
   end
