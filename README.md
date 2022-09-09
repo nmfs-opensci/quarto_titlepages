@@ -38,7 +38,7 @@ Then render the document. See the documentation for the possible themes.
 
 ## Customizing
 
-In the `demo` folder of the repo, you will find a dynamic and static example of using Pandoc templates when rendering a pdf. Read the documentation to get oriented or skim the code and it should be apparent how it works.
+In the `examples` folder of the repo, you will find a dynamic and static example of using Pandoc templates when rendering a pdf. Read the documentation to get oriented or skim the code and it should be apparent how it works. Start with the static example.
 
 If you want to customize one of the title page themes, you will find tex files for each of the title and cover page examples in the `_extensions` folder, *e.g.*, `_vline_titlepage.tex`.
 
