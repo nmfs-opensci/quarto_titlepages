@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages</title>
+<title>quarto titlepages – how-to-use-diy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-about.html" rel="next">
+<link href="./04-how-to-modify.html" rel="next">
+<link href="./03-how-to-use-extension.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -66,7 +67,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">quarto titlepages</h1>
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -74,7 +75,7 @@ ul.task-list{list-style: none;}
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
@@ -96,7 +97,7 @@ ul.task-list{list-style: none;}
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Home</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Home</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -116,7 +117,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-how-to-use-diy.html" class="sidebar-item-text sidebar-link">How to use - DIY</a>
+  <a href="./03-how-to-use-diy.html" class="sidebar-item-text sidebar-link active">How to use - DIY</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -154,61 +155,80 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-howtouse-diy" id="toc-sec-howtouse-diy" class="nav-link active" data-scroll-target="#sec-howtouse-diy">How to use - DIY</a>
+  <ul class="collapse">
+  <li><a href="#article-class-scrartcl" id="toc-article-class-scrartcl" class="nav-link" data-scroll-target="#article-class-scrartcl">Article class <code>scrartcl</code></a></li>
+  <li><a href="#book-class-scrbook" id="toc-book-class-scrbook" class="nav-link" data-scroll-target="#book-class-scrbook">Book class <code>scrbook</code></a></li>
+  <li><a href="#how-do-i-add-a-table-of-contents" id="toc-how-do-i-add-a-table-of-contents" class="nav-link" data-scroll-target="#how-do-i-add-a-table-of-contents">How do I add a table of contents</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/03-how-to-use-diy.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/03-how-to-use-diy.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">quarto titlepages</h1>
-<p class="subtitle lead">LaTeX title pages with Quarto</p>
-</div>
+<main class="content" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
+<section id="sec-howtouse-diy" class="level1">
+<h1>How to use - DIY</h1>
+<p>For those who want to set up their own tex templates and not use the extension format <code>titlepage-pdf</code>.</p>
+<ol type="1">
+<li>Go to <a href="https://github.com/nmfs-opensci/quarto_titlepages">https://github.com/nmfs-opensci/quarto_titlepages</a></li>
+<li>Open the <code>examples</code> folder</li>
+<li>Pick either the dynamic (use YAML for things like title, authors) or static approach (hard code title, authors into your tex files).</li>
+<li>Download (or copy) all the <code>.tex</code> files. Typically this is the <code>before-body.tex</code>, <code>_titlepage.tex</code>, and <code>in-header.tex</code> files, but there may be more. <em>How?</em> Clone the repo or click on “raw” and copy and paste the code into your own file or install the extension into a new folder and use the <code>examples</code> folder.</li>
+<li>You can download (or copy) <code>article.qmd</code> in the examples folder to use as a template and so you know how the YAML is specified for the template you are using.</li>
+</ol>
+<p>In the YAML of your qmd document or <code>index.qmd</code> file for a Quarto book project, add this to the PDF format section:</p>
+<section id="article-class-scrartcl" class="level2">
+<h2 class="anchored" data-anchor-id="article-class-scrartcl">Article class <code>scrartcl</code></h2>
+<p>Adding <code>number-sections: true</code> will number the chapters and sections. Remove if you don’t want that.</p>
+<pre><code>format:
+  pdf:
+    documentclass: scrartcl
+    number-sections: true
+    template-partials:
+      - "before-body.tex"
+      - "_titlepage.tex" 
+    include-in-header: 
+      - "in-header.tex"</code></pre>
+</section>
+<section id="book-class-scrbook" class="level2">
+<h2 class="anchored" data-anchor-id="book-class-scrbook">Book class <code>scrbook</code></h2>
+<p>The class option “oneside” makes the margins of the even and odd pages the same. The class option “open=any” allows chapters and parts to start on even or odd pages; the default is to only start chapters and parts on odd pages.</p>
+<pre><code>format:
+  pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    template-partials:
+      - "template/before-body.tex"
+      - "template/_titlepage.tex" 
+    include-in-header: 
+      - "template/in-header.tex"</code></pre>
+</section>
+<section id="how-do-i-add-a-table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-i-add-a-table-of-contents">How do I add a table of contents</h2>
+<p>You can add a table of contents (<code>toc: true</code>), list of figures (<code>lof: true</code>) and list of tables (<code>lot: true</code>). The depth of the TOC is specified with <code>toc-depth</code>. Example:</p>
+<pre><code>format:
+  pdf:
+    documentclass: scrartcl
+    template-partials:
+      - "before-body.tex"
+      - "_titlepage.tex" 
+    include-in-header: 
+      - "in-header.tex"
+    toc: true
+    toc-depth: 3
+    lof: true
+    lot: true</code></pre>
 
-    
-    
-  </div>
-  
 
-</header>
-
-<p><a href="https://github.com/nmfs-opensci/quarto_titlepages">quarto titlepages</a> is a collection of Pandoc template partials (Pandoc template + LaTeX) and LaTeX header files to create custom title pages for PDF. It does not require installation of anything. Download (or copy) the <code>before-body.tex</code>, <code>_titlepage.tex</code>, and <code>in-header.tex</code> files for one of the title pages and add them to the pdf format portion of your YAML. See <a href="03-how-to-use.html">How to use</a></p>
-<p>There are two types of title pages. Static does not use the YAML. Modify these if you have a title page written in LaTeX that you want to use. The template title pages (no <code>-static</code> at end) will use the YAML variables (authors, affiliations, cover image, etc).</p>
-<div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">great-wave</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">vline</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">bg-image</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">academic-static</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">classic-lined-static</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">multi-purpose-static</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false">thesis-static</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-8" role="tab" aria-controls="tabset-1-8" aria-selected="false">thesis2-static</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><span style="font-size:0.8em; color: grey">Template with a book cover. Double-click on image to see PDF</span> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/great-wave/article.pdf"><img src="images/great-wave.png" class="border img-fluid" alt="Screenshot of great-wave title page. This template has a cover page with a great wave image. Title page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."></a></p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><span style="font-size:0.8em; color: grey">Double-click to see demo PDF in <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf">scrbook</a> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf">scrartcl</a> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-krantz.pdf">krantz</a> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-svmono.pdf">svmono</a> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-elsarticle.pdf">elsarticle</a></span><br> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf"><img src="images/vline.png" class="border img-fluid" data-fig-width="50%" alt="Screenshot of vline title page. Page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."></a></p>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p><span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span><br> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/bg-image/article.pdf"><img src="images/bg-image.png" class="border img-fluid" alt="Screenshot of bg-image title page. Page has a background image in the top left with title, subtitle, authors and affiliations below. There is a logo towards the bottom followed by address."></a></p>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p><span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span><br> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/academic-static/article.pdf"><img src="images/academic-static.png" class="border img-fluid" alt="Screenshot of academic-static title page. Page has institution name centered at top with the title centered between two horizontal lines. The two authors are on the same level on left and right."></a></p>
-</div>
-<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
-<p><span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span><br> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/classic-lined-static/article.pdf"><img src="images/classic-lined-static.png" class="border img-fluid" alt="Screenshot of classic-lined-static title page. Page has double horizontal lines at the top and bottom. The title is red, centered and at top. One author is in caps and below the title. There is a small logo at the bottom."></a></p>
-</div>
-<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
-<p><span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span><br> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/multi-purpose-static/article.pdf"><img src="images/multi-purpose-static.png" class="border img-fluid" alt="Screenshot of multi-purpose-static title page. Title has a cyan filled box around it. Author name is in bottom right corner."></a></p>
-</div>
-<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
-<p><span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span><br> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/thesis-static/article.pdf"><img src="images/thesis-static.png" class="border img-fluid" alt="Screenshot of thesis-static title page. A fairly minimal thesis title page."></a></p>
-</div>
-<div id="tabset-1-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-8-tab">
-<p><span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span><br> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/thesis2-static/article.pdf"><img src="images/thesis2-static.png" class="border img-fluid" alt="Screenshot of thesis2-static title page."></a></p>
-</div>
-</div>
-</div>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -411,12 +431,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./03-how-to-use-extension.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How to use - Extension</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-about.html" class="pagination-link">
-        <span class="nav-page-text">About</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-how-to-modify.html" class="pagination-link">
+        <span class="nav-page-text">How to modify</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

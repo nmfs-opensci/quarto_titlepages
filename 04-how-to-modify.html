@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,15 +11,10 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
-  vertical-align: middle;
-}
 </style>
 
 
@@ -30,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./02-titlepages.html" rel="next">
-<link href="./03-how-to-use.html" rel="prev">
+<link href="./03-how-to-use-diy.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -117,7 +112,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-how-to-use.html" class="sidebar-item-text sidebar-link">How to use</a>
+  <a href="./03-how-to-use-extension.html" class="sidebar-item-text sidebar-link">How to use - Extension</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-how-to-use-diy.html" class="sidebar-item-text sidebar-link">How to use - DIY</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -155,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -179,12 +179,12 @@ ul.task-list li input[type="checkbox"] {
 <h1>How to modify</h1>
 <section id="modifying-pandoc-templates-sounds-like-fun" class="level2">
 <h2 class="anchored" data-anchor-id="modifying-pandoc-templates-sounds-like-fun">Modifying Pandoc templates sounds like fun!!</h2>
-<p>Start modifying the files in one of the template title pages. Currently this is <code>vline</code> and <code>bg-image</code>.</p>
+<p>Start modifying the files for a dynamic example: <code>examples/dynamic</code> or any files in <code>_extensions/titlepage</code> that does not have <code>-static</code> in the name.</p>
 </section>
 <section id="are-you-kidding-me" class="level2">
 <h2 class="anchored" data-anchor-id="are-you-kidding-me">Are you kidding me?</h2>
 <p><strong>No way! I have a static title page and I want to use that.</strong></p>
-<p>Go to one of the static examples (end in <code>-static</code>) and modify there.</p>
+<p>Go to one of the static examples” the <code>static</code> example in the <code>examples</code> folder or the files in <code>_extensions/titlepage</code> that have <code>-static</code> in the name.</p>
 <p>What’s the difference? They both are being listed in template-partials in the YAML. <code>-static</code> is using a static title page. It is not using the values from the YAML at all. However <code>before-body.tex</code> still needs to be listed in template-partials to override the template that Quarto (and Pandoc) uses.</p>
 </section>
 <section id="how-it-works" class="level2">
@@ -304,16 +304,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       }
     }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
   }
   const isFileUrl = () => { 
     return window.location.protocol === 'file:';
@@ -415,8 +405,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
@@ -446,8 +435,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-how-to-use.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How to use</span>
+      <a href="./03-how-to-use-diy.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How to use - DIY</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

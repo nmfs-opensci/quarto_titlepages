@@ -151,6 +151,8 @@ ul.task-list{list-style: none;}
   <ul class="collapse">
   <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a></li>
   <li><a href="#two-approaches-for-getting-a-custom-title-page" id="toc-two-approaches-for-getting-a-custom-title-page" class="nav-link" data-scroll-target="#two-approaches-for-getting-a-custom-title-page">Two approaches for getting a custom title page</a></li>
+  <li><a href="#lets-try-it-out" id="toc-lets-try-it-out" class="nav-link" data-scroll-target="#lets-try-it-out">Let’s try it out</a></li>
+  <li><a href="#ready-to-modify" id="toc-ready-to-modify" class="nav-link" data-scroll-target="#ready-to-modify">Ready to modify?</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/01-how-it-works.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/01-how-it-works.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -190,6 +192,23 @@ ALL YOUR CONTENT
 <li><p>Pass in <code>title.tex</code> with the <code>\author</code> and <code>\affil</code> specified how you want. You will probably want to redefine <code>\maketitle</code>. Search google for how to do that. It is a standard way to customize the title page. That’s all you need to do. The title page will be created with <code>\maketitle</code> which is in the default <code>before-body.tex</code>.</p></li>
 <li><p>Ditch <code>\maketitle</code> and create your own title page using <code>\begin{titlepage}....\end{titlepage}</code>. In this case, you will pass in <code>before-body.tex</code>. You don’t need to specify <code>title.tex</code>; that LaTeX code is only used for <code>\maketitle</code> and you won’t have that in your new <code>before-body.tex</code>. <strong>This is the approach used by quarto-titlepages.</strong></p></li>
 </ul>
+</section>
+<section id="lets-try-it-out" class="level2">
+<h2 class="anchored" data-anchor-id="lets-try-it-out">Let’s try it out</h2>
+<p>You can <a href="https://rstudio.cloud/content/4370280">open up the repo</a> on RStudio Cloud. Log in with your account or with Google if you don’t want to create an account.</p>
+<p>Start with a static title page by going to <code>titlepages/vline-static</code>.</p>
+<ul>
+<li>Open up <code>article.qmd</code> and click Render. Or open a shell and type</li>
+</ul>
+<pre><code>quarto render titlepages/vline-static/article.qmd</code></pre>
+<ul>
+<li>Open <code>before-body.tex</code> to see what it is doing.</li>
+<li>Open <code>_titlepage.tex</code> to see the code that defines the title page.</li>
+</ul>
+</section>
+<section id="ready-to-modify" class="level2">
+<h2 class="anchored" data-anchor-id="ready-to-modify">Ready to modify?</h2>
+<p>Go to the chapter on <a href="04-how-to-modify.html">How to modify</a>.</p>
 
 
 </section>

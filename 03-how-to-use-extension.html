@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages – how-to-use</title>
+<title>quarto titlepages – how-to-use-extension</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -24,7 +87,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-how-to-modify.html" rel="next">
+<link href="./03-how-to-use-diy.html" rel="next">
 <link href="./02-how-it-works.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -112,7 +175,12 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-how-to-use.html" class="sidebar-item-text sidebar-link active">How to use</a>
+  <a href="./03-how-to-use-extension.html" class="sidebar-item-text sidebar-link active">How to use - Extension</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-how-to-use-diy.html" class="sidebar-item-text sidebar-link">How to use - DIY</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -154,14 +222,29 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-howtouse" id="toc-sec-howtouse" class="nav-link active" data-scroll-target="#sec-howtouse">How to use</a>
+  <li><a href="#sec-howtouse" id="toc-sec-howtouse" class="nav-link active" data-scroll-target="#sec-howtouse">How to use - Extension</a>
   <ul class="collapse">
-  <li><a href="#article-class-scrartcl" id="toc-article-class-scrartcl" class="nav-link" data-scroll-target="#article-class-scrartcl">Article class <code>scrartcl</code></a></li>
-  <li><a href="#book-class-scrbook" id="toc-book-class-scrbook" class="nav-link" data-scroll-target="#book-class-scrbook">Book class <code>scrbook</code></a></li>
-  <li><a href="#how-do-i-add-a-table-of-contents" id="toc-how-do-i-add-a-table-of-contents" class="nav-link" data-scroll-target="#how-do-i-add-a-table-of-contents">How do I add a table of contents</a></li>
+  <li><a href="#install-the-extension" id="toc-install-the-extension" class="nav-link" data-scroll-target="#install-the-extension">Install the extension</a>
+  <ul class="collapse">
+  <li><a href="#install-into-new-directory" id="toc-install-into-new-directory" class="nav-link" data-scroll-target="#install-into-new-directory">Install into new directory</a></li>
+  <li><a href="#install-for-an-existing-directory" id="toc-install-for-an-existing-directory" class="nav-link" data-scroll-target="#install-for-an-existing-directory">Install for an existing directory</a></li>
+  </ul></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#yaml-additions-for-themes" id="toc-yaml-additions-for-themes" class="nav-link" data-scroll-target="#yaml-additions-for-themes">YAML additions for themes</a>
+  <ul class="collapse">
+  <li><a href="#bg-image" id="toc-bg-image" class="nav-link" data-scroll-target="#bg-image"><code>bg-image</code></a></li>
+  <li><a href="#great-wave" id="toc-great-wave" class="nav-link" data-scroll-target="#great-wave"><code>great-wave</code></a></li>
+  </ul></li>
+  <li><a href="#document-classes" id="toc-document-classes" class="nav-link" data-scroll-target="#document-classes">Document classes</a>
+  <ul class="collapse">
+  <li><a href="#scrbook" id="toc-scrbook" class="nav-link" data-scroll-target="#scrbook"><code>scrbook</code></a></li>
+  <li><a href="#scrartcl" id="toc-scrartcl" class="nav-link" data-scroll-target="#scrartcl"><code>scrartcl</code></a></li>
+  <li><a href="#other-classes" id="toc-other-classes" class="nav-link" data-scroll-target="#other-classes">Other classes</a></li>
+  </ul></li>
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of contents</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/03-how-to-use.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/03-how-to-use.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/03-how-to-use-extension.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/03-how-to-use-extension.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -169,52 +252,88 @@ ul.task-list{list-style: none;}
 
 
 <section id="sec-howtouse" class="level1">
-<h1>How to use</h1>
-<ol type="1">
-<li>Go to <a href="https://github.com/nmfs-opensci/quarto_titlepages">https://github.com/nmfs-opensci/quarto_titlepages</a></li>
-<li>Open the <code>titlepages</code> folder</li>
-<li>Pick a title page, eg. <code>vline</code> or <code>bg-image</code></li>
-<li>Download (or copy) all the <code>.tex</code> files. Typically this is the <code>before-body.tex</code>, <code>_titlepage.tex</code>, and <code>in-header.tex</code> files, but there may be more. <em>How?</em> Clone the repo or click on “raw” and copy and paste the code into your own file.</li>
-<li>You can download (or copy) <code>article.qmd</code> to use as a template and so you know how the YAML is specified for the template you are using.</li>
-</ol>
-<p>In the YAML of your qmd document or <code>index.qmd</code> file for a Quarto book project, add this to the PDF format section:</p>
-<section id="article-class-scrartcl" class="level2">
-<h2 class="anchored" data-anchor-id="article-class-scrartcl">Article class <code>scrartcl</code></h2>
-<p>Adding <code>number-sections: true</code> will number the chapters and sections. Remove if you don’t want that.</p>
-<pre><code>format:
-  pdf:
-    documentclass: scrartcl
-    number-sections: true
-    template-partials:
-      - "before-body.tex"
-      - "_titlepage.tex" 
-    include-in-header: 
-      - "in-header.tex"</code></pre>
+<h1>How to use - Extension</h1>
+<p>The extension provides a format <code>titlepage-pdf</code> where you can specify a variety of themes. <a href="./index.html">Here are the themes available</a>.</p>
+<section id="install-the-extension" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-extension">Install the extension</h2>
+<section id="install-into-new-directory" class="level3">
+<h3 class="anchored" data-anchor-id="install-into-new-directory">Install into new directory</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template nmfs-opensci/quarto_titlepages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will install the extension in the <code>_extension</code> folder plus all the demo files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.</p>
 </section>
-<section id="book-class-scrbook" class="level2">
-<h2 class="anchored" data-anchor-id="book-class-scrbook">Book class <code>scrbook</code></h2>
-<p>The class option “onepage” makes the margins of the even and odd pages the same. The class option “openany” allows chapters and parts to start on even or odd pages; the default is to only start chapters and parts on odd pages.</p>
-<pre><code>format:
-  pdf:
-    documentclass: scrbook
-    classoption: ["onepage", "openany"]
-    template-partials:
-      - "template/before-body.tex"
-      - "template/_titlepage.tex" 
-    include-in-header: 
-      - "template/in-header.tex"</code></pre>
+<section id="install-for-an-existing-directory" class="level3">
+<h3 class="anchored" data-anchor-id="install-for-an-existing-directory">Install for an existing directory</h3>
+<p>You may also use this format with an existing Quarto project or document. This will install only the files in the <code>_extension</code> folder and will not install the files above that (the demo files).</p>
+<p>From the quarto project or document directory, run the following command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install extension nmfs-opensci/quarto_titlepages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="how-do-i-add-a-table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="how-do-i-add-a-table-of-contents">How do I add a table of contents</h2>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p>In your document yaml add the format and a titlepage theme.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">titlepage-pdf</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">titlepage</span><span class="kw">:</span><span class="at"> great-wave</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then render the document. <em>How?</em> That depends on the IDE you are using. There should be a render ‘button’ or drop-down or you can run this command from the shell.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render article.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>assuming your qmd file is named <code>article.qmd</code>.</p>
+</section>
+<section id="yaml-additions-for-themes" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-additions-for-themes">YAML additions for themes</h2>
+<p>Some themes need some additional YAML information to work.</p>
+<section id="bg-image" class="level3">
+<h3 class="anchored" data-anchor-id="bg-image"><code>bg-image</code></h3>
+<p>Needs info on the titlepage geometry so the title doesn’t overlap the background image. Also you need to supply the background image and where to put it (UL, upperleft; UR, upperright; BL, bottomleft; BR, bottomright). Note, there are placeholders in the extension, but when you put your own image in, you will need to add the YAML information.</p>
+<pre><code>titlepage: bg-image
+titlepage-geometry: 
+  - top=3in
+  - bottom=1in
+  - right=1in
+  - left=1in
+title-bg-image: "img/corner-bg.png"
+title-bg-location: "UL"
+title-bg-size: 0.5</code></pre>
+</section>
+<section id="great-wave" class="level3">
+<h3 class="anchored" data-anchor-id="great-wave"><code>great-wave</code></h3>
+<p>Great wave theme creates a cover page with a background image that fills the width of the page at the bottom with a color above. You need to specify the image and the upper color (unless you want to use the default Great Wave off Kanagawa image).</p>
+<pre><code>documentclass: scrbook
+number-sections: true
+title-bg-image: "img/TheGreatWaveoffKanagawa.jpeg"
+title-page-color: "F6D5A8"</code></pre>
+</section>
+</section>
+<section id="document-classes" class="level2">
+<h2 class="anchored" data-anchor-id="document-classes">Document classes</h2>
+<p>The document class changes the look of your document. For the book document classes, you will need to pass in</p>
+<pre><code>number-sections: true</code></pre>
+<p>in your YAML because Quarto sets <code>number-sections: false</code> by default and that will mess up all your equation, figure and table numbers. It simple will not number them correctly at all.</p>
+<section id="scrbook" class="level3">
+<h3 class="anchored" data-anchor-id="scrbook"><code>scrbook</code></h3>
+<p>The KOMA <code>scrbook</code> document class has many options that your can use to change the look of your book. <a href="https://ctan.org/pkg/scrbook?lang=en">Read the documentation here</a>.</p>
+<p>If you want chapters to be allowed to start on even or odd pages and the left and right margins on even and odd pages to be the same, use</p>
+<pre><code>classoption: ["oneside", "open=any"]</code></pre>
+</section>
+<section id="scrartcl" class="level3">
+<h3 class="anchored" data-anchor-id="scrartcl"><code>scrartcl</code></h3>
+<p>This document class is more for single documents with sections and the equation, figure and table numbering will be 1, 2, 3, … as opposed to 1.1, 1.2, etc, with the chapter number included in the number. The default in Quarto is no section or chapter numbers. Use</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>if you want numbers.</p>
+</section>
+<section id="other-classes" class="level3">
+<h3 class="anchored" data-anchor-id="other-classes">Other classes</h3>
+<p>The <code>cls</code> folder has some other document classes that you can use. Specify by providing the path to the document class file. For example,</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> cls/krantz.cls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The base TeX document classes are <code>article</code>, <code>report</code>, and <code>book</code>. But there are many many more available to customize the look of your document. Here is a Stackoverflow post with a few discusssed <a href="https://tex.stackexchange.com/questions/782/what-are-the-available-documentclass-types-and-their-uses">here</a>.</p>
+</section>
+</section>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">Table of contents</h2>
 <p>You can add a table of contents (<code>toc: true</code>), list of figures (<code>lof: true</code>) and list of tables (<code>lot: true</code>). The depth of the TOC is specified with <code>toc-depth</code>. Example:</p>
 <pre><code>format:
-  pdf:
+  titlepage-pdf:
+    titlepage: bg-image
     documentclass: scrartcl
-    template-partials:
-      - "before-body.tex"
-      - "_titlepage.tex" 
-    include-in-header: 
-      - "in-header.tex"
     toc: true
     toc-depth: 3
     lof: true
@@ -432,8 +551,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-how-to-modify.html" class="pagination-link">
-        <span class="nav-page-text">How to modify</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03-how-to-use-diy.html" class="pagination-link">
+        <span class="nav-page-text">How to use - DIY</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
