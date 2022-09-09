@@ -41,6 +41,13 @@ function Meta(m)
       end
       return m
     end,
+    ["multi-purpose"] = function (m)
+      m['multi-purpose'] = true
+      if isEmpty(m['logo']) then
+        m['logo'] = "logo.png"
+      end
+      return m
+    end,
     ["multi-purpose-static"] = function (m)
       m['multi-purpose-static'] = true
       if isEmpty(m['logo']) then
@@ -71,9 +78,12 @@ function Meta(m)
     end
   }
 
+  if not m.titlepage then
+    m['titlepage'] = "vline"
+  end
   choice = pandoc.utils.stringify(m.titlepage)
   if isEmpty(choice) then
-    return theme_table["vline-static"](m)
+    return theme_table["vline"](m)
   else
     return theme_table[choice](m)
   end
