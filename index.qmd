@@ -40,6 +40,6 @@ There are two types of title pages. Static does not use the YAML. Modify these i
 
 ### thesis2-static
 <span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
-[![](images/thesis2-static.png){.border fig-alt="Screenshot of thesis-static title page. A fairly minimal thesis title page."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/thesis2-static/article.pdf)
+[![](images/thesis2-static.png){.border fig-alt="Screenshot of thesis2-static title page."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/thesis2-static/article.pdf)
 
 :::

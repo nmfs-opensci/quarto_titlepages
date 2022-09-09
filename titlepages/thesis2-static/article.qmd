@@ -7,9 +7,7 @@ editor: source
 format:
   pdf:
     documentclass: scrbook
-    classoption: ["onepage"]
-    geometry:
-      - "margin=1in"
+    classoption: ["oneside", "open=any"]
     template-partials:
       - "before-body.tex"
       - "_titlepage.tex" 

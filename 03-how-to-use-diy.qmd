@@ -1,10 +1,12 @@
-# How to use  {#sec-howtouse}
+# How to use - DIY {#sec-howtouse-diy}
+
+For those who want to set up their own tex templates and not use the extension format `titlepage-pdf`.
 
 1.  Go to [https://github.com/nmfs-opensci/quarto_titlepages](https://github.com/nmfs-opensci/quarto_titlepages)
-1.  Open the `titlepages` folder
-2.  Pick a title page, eg. `vline` or `bg-image`
-3.  Download (or copy) all the `.tex` files. Typically this is the `before-body.tex`, `_titlepage.tex`, and `in-header.tex` files, but there may be more. *How?* Clone the repo or click on "raw" and copy and paste the code into your own file.
-4.  You can download (or copy) `article.qmd` to use as a template and so you know how the YAML is specified for the template you are using.
+1.  Open the `examples` folder
+2.  Pick either the dynamic (use YAML for things like title, authors) or static approach (hard code title, authors into your tex files).
+3.  Download (or copy) all the `.tex` files. Typically this is the `before-body.tex`, `_titlepage.tex`, and `in-header.tex` files, but there may be more. *How?* Clone the repo or click on "raw" and copy and paste the code into your own file or install the extension into a new folder and use the `examples` folder.
+4.  You can download (or copy) `article.qmd` in the examples folder to use as a template and so you know how the YAML is specified for the template you are using.
 
 In the YAML of your qmd document or `index.qmd` file for a Quarto book project, add this to the PDF format section:
 
@@ -26,13 +28,13 @@ format:
 
 ## Book class `scrbook`
 
-The class option "onepage" makes the margins of the even and odd pages the same. The class option "openany" allows chapters and parts to start on even or odd pages; the default is to only start chapters and parts on odd pages.
+The class option "oneside" makes the margins of the even and odd pages the same. The class option "open=any" allows chapters and parts to start on even or odd pages; the default is to only start chapters and parts on odd pages.
 
 ```
 format:
   pdf:
     documentclass: scrbook
-    classoption: ["onepage", "openany"]
+    classoption: ["oneside", "open=any"]
     template-partials:
       - "template/before-body.tex"
       - "template/_titlepage.tex" 

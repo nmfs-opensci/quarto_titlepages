@@ -1,6 +1,6 @@
 # Title pages
 
-**The YAML** This appears at the top of `article.qmd` for a single qmd or `index.qmd` for a Quarto book project (multiple qmd for a book). This just shows the PDF format specification.
+**The YAML** This appears at the top of the `.qmd` file for a single qmd or `index.qmd` for a Quarto book project (multiple qmd for a book). This just shows the PDF format specification.
 
 
 ## vline
@@ -28,7 +28,7 @@ For `scrbook` document class, these class options will make the page margins the
 
 ```
     documentclass: scrbook
-    classoption: ["onepage", "openany"]
+    classoption: ["oneside", "open=any"]
 ```
 
 ### `before-body.tex`

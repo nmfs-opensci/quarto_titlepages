@@ -1,5 +1,7 @@
 # Acknowledgements
 
+The tex templates were written by [Eli Holmes](https://github.com/eeholmes) and the lua filter along with changes to the Pandoc templates to allow themes was written by [Mickaël Canouil](https://github.com/mcanouil).
+
 ## Quarto
 
 [quarto-cli](https://github.com/quarto-dev/quarto-cli): Allaire, J., Teague, C., Scheidegger, C., Xie, Y., & Dervieux, C. (2022). Quarto (Version 0.3) [Computer software]. https://doi.org/10.5281/zenodo.5960048

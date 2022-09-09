@@ -6,7 +6,9 @@ This template makes a custom title page using the information in the YAML (from 
 
 ## Audience
 
-This is written assuming you are a LaTeX user and thus already know how to do what you want in LaTeX, but you need to figure out how to tell Quarto to do what you want. Skim the chapter on [LaTeX document structure](06-latex.qmd) if you are unfamiliar with LaTeX so you know what I am talking about when I reference parts of a LaTeX document.
+This is documentation is written assuming you are a LaTeX user and thus already know how to do what you want in LaTeX, but you need to figure out how to tell Quarto to do what you want. 
+
+Non-LaTeX users, who just want to use the themes that I created, can use the `titlepage-pdf` format that is included in the extension. See the chapter on the *Using the extension*. If you are a non-LaTeX user who wants to create a custom title page or cover, skim the chapter on [LaTeX document structure](06-latex.qmd) so you know what I am talking about when I reference parts of a LaTeX document.
 
 Quarto has included a variety of YAML options you can use to alter your LaTeX document by passing in things like fontenc package options or geometry options in the YAML. I largely ignore all that and just pass in the header file I want. As a LaTeX user, I find all those YAML options confusing and I spend hours digging through the Quarto source code to figure out exactly how they are using the YAML options.
 

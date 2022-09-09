@@ -37,8 +37,10 @@ website:
         text: About
       - href: 02-how-it-works.qmd
         text: How it works
-      - href: 03-how-to-use.qmd
-        text: How to use
+      - href: 03-how-to-use-extension.qmd
+        text: How to use - Extension
+      - href: 03-how-to-use-diy.qmd
+        text: How to use - DIY
       - href: 04-how-to-modify.qmd
         text: How to modify
       - href: 02-titlepages.qmd
