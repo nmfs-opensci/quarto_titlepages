@@ -38,10 +38,13 @@ Then render the document. See the documentation for the possible themes.
 
 ## Customizing
 
-In the `demo` folder of the repo, you will find an example of using Pandoc templates when rendering a pdf. Read the documentation to get oriented or skim the code and it should be apparent how it works.
+In the `demo` folder of the repo, you will find a dynamic and static example of using Pandoc templates when rendering a pdf. Read the documentation to get oriented or skim the code and it should be apparent how it works.
 
 If you want to customize one of the title page themes, you will find tex files for each of the title and cover page examples in the `_extensions` folder, *e.g.*, `_vline_titlepage.tex`.
-The folder also contains a `theme.lua` filter that sets up the metadata so that the Pandoc template in `before-body.tex` chooses the right title page theme and cover based on `titlepage: ` in the YAML. You do not have to use the extension when customizing. You can just copy and paste the relevent LaTeX code, from say one of the `..._titlepage.tex` files, into `demo/_titlepage.tex` and use the `article.qmd` file in the `demo` folder.
+
+**Help? What's all the weird code in the `_titlepage.tex` files?** If you are looking at one of the dynamic examples, this file is a combo of Pandoc template code and LaTeX. Try looking at one of the static examples, if you want to see pure LaTeX code. Note in that case, your YAML info (like author, title) will be ignored and the info in the `_titlepage.tex` file is what makes the title page.
+
+**Can I just edit the files in the `_extensions` folder?** Yes...but if you are not familiar with writing Quarto extensions, this might be frustrating. You have to declare all files you use in the `_extension.yml` and if you add new files/themes, you need to edit the `theme.lua` filter plus `before-body.tex`.
 
 See the documentation for more information on customizing.
 
