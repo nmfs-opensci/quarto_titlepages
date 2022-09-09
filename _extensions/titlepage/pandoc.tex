@@ -1,0 +1,39 @@
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+$tightlist.tex()$
+$tables.tex()$
+$graphics.tex()$
+$citations.tex()$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{babel}
+\babelprovide[import,main]{czech}
+
+$if(bg-image)$
+\usepackage{hyphenat}
+\usepackage{graphicx}
+\usepackage{wallpaper} % for the background image on title page
+\usepackage{geometry}
+$endif$
+
+$if(great-wave)$
+\usepackage{hyphenat}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{afterpage}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+\usepackage[pagecolor=none]{pagecolor}
+$endif$
+
+$if(vline)$
+\usepackage{hyphenat}
+\usepackage{graphicx}
+$endif$

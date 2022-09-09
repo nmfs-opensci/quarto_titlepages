@@ -1,0 +1,16 @@
+$if(has-frontmatter)$
+  \begin{frontmatter}
+    \begin{titlepage}
+      $_great-wave_cover.tex()$
+      % for some reason it insists on putting a black page
+      % between cover and title if I have this above \begin{titlepage}
+      $_great-wave_titlepage.tex()$
+    \end{titlepage}
+    \setcounter{page}{1}
+  \end{frontmatter}
+$else$
+  \begin{titlepage}
+    $_great-wave_cover.tex()$
+    $_great-wave_titlepage.tex()$
+  \end{titlepage}
+$endif$

@@ -2,25 +2,21 @@
 % Pandoc templating https://pandoc.org/MANUAL.html#templates
 % See the README for help
 
-\raggedleft % left align the title page
-\thispagestyle{empty}
-\rule{1pt}{\textheight} % Vertical line
-\hspace{0.05\textwidth} % Whitespace between the vertical line and title page text
-% Adjust num before \textwidth to move the block left or right
-\begin{minipage}[b][\textheight][s]{0.85\textwidth}
-
+$if(titlepage-geometry)$
+\newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
+$endif$
+\begin{minipage}[b][\textheight][s]{\textwidth}
 \raggedright
-% Title and subtitle
-{\huge\bfseries\nohyphens{$title$}}\\[1.25\baselineskip] 
-$if(subtitle)${\large\textit{$subtitle$}}\\[4\baselineskip]$endif$
 
-% Abstract
-$if(abstract)$%
-\begin{flushright}%
-{{$abstract$}}\\[4\baselineskip]%
-\end{flushright}%
+% background image
+$if(title-bg-image)$
+\This$if(title-bg-location)$$title-bg-location$$else$UL$endif$CornerWallPaper{$if(title-bg-size)$$title-bg-size$$else$0.5$endif$}{$title-bg-image$}
 $endif$
 
+% Title and subtitle
+{\huge\bfseries\nohyphens{$title$}}\\[1\baselineskip] 
+$if(subtitle)${\large{$subtitle$}}\\[4\baselineskip]$endif$
+	
 % Authors	
 % This hairy bit of code is just to get "and" between the last 2
 % authors. See below if you don't need that
@@ -55,16 +51,10 @@ $endfor$
 $endif$
 
 % This is how to do it if you don't need the "and"
-$if(false)$%
-$for(by-author)$%
-{$by-author.name.literal$}%
-$for(by-author.affiliations)$%
-{\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}%
-$endfor$%
-$if(by-author.email)$,{\textsuperscript{*}}%
-$endif$%
-$sep$, %
-$endfor$%
+$if(false)$
+  $for(by-author)$
+    {$by-author.name.literal$}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}$endfor$$if(by-author.email)$,{\textsuperscript{*}}$endif$$sep$, 
+$endfor$
 $endif$
 
 %%%%%% Affiliations
@@ -103,8 +93,17 @@ $endfor$
 $if(cover)$\includegraphics[width=4cm]{$cover$}$endif$
 
 % Whitespace between the title block and the tagline
-\vspace{0.1\textheight} 
+\vspace{1\baselineskip} 
 
 %%%%%% Tagline at bottom
-{\noindent https://nmfs-opensci.github.io/}\\[\baselineskip]
+University Technical Series\newline
+Open Source Publication for All\newline
+Amtmandens Allé 15\newline
+6950 Rindum Ringkøbing-Skjern\newline
+DENMARK\newline
+December 2025
+
 \end{minipage}
+$if(titlepage-geometry)$
+\restoregeometry
+$endif$

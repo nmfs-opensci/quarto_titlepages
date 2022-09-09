@@ -3,7 +3,6 @@
 % See the README for help
 
 \raggedleft % left align the title page
-\thispagestyle{empty}
 \rule{1pt}{\textheight} % Vertical line
 \hspace{0.05\textwidth} % Whitespace between the vertical line and title page text
 % Adjust num before \textwidth to move the block left or right
@@ -11,16 +10,9 @@
 
 \raggedright
 % Title and subtitle
-{\huge\bfseries\nohyphens{$title$}}\\[1.25\baselineskip] 
+{\large\bfseries\nohyphens{$title$}}\\[2\baselineskip] 
 $if(subtitle)${\large\textit{$subtitle$}}\\[4\baselineskip]$endif$
-
-% Abstract
-$if(abstract)$%
-\begin{flushright}%
-{{$abstract$}}\\[4\baselineskip]%
-\end{flushright}%
-$endif$
-
+	
 % Authors	
 % This hairy bit of code is just to get "and" between the last 2
 % authors. See below if you don't need that
@@ -106,5 +98,6 @@ $if(cover)$\includegraphics[width=4cm]{$cover$}$endif$
 \vspace{0.1\textheight} 
 
 %%%%%% Tagline at bottom
-{\noindent https://nmfs-opensci.github.io/}\\[\baselineskip]
+% {\noindent The Publisher~~\plogo}\\[\baselineskip] % Publisher and logo
+{\noindent The Publisher}\\[\baselineskip] % Publisher and logo
 \end{minipage}
