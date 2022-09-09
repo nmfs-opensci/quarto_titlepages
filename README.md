@@ -10,7 +10,7 @@ This repo includes a Quarto extension and templates for making a custom title pa
 ## Install the extension
 
 ```bash
-quarto use template nmfs-opensci/quarto-titlepages
+quarto use template nmfs-opensci/quarto_titlepages
 ```
 
 This will install the extension in the `_extension` folder plus all the demo files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.
@@ -22,7 +22,7 @@ You may also use this format with an existing Quarto project or document. This w
 From the quarto project or document directory, run the following command:
 
 ```bash
-quarto install extension nmfs-opensci/quarto-titlepages
+quarto install extension nmfs-opensci/quarto_titlepages
 ```
 
 ## Usage
