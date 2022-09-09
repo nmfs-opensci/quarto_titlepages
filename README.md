@@ -6,13 +6,13 @@ This is a [Quarto](https://quarto.org/) extension to help you make custom title 
 
 <a href="img/bg-image.png"><img src="img/example.png" width="200"/></a>
 
-## Installing the extension
+## Install the extension
 
 ```bash
 quarto use template nmfs-opensci/quarto-titlepages@extension
 ```
 
-This will install the extension and create an example qmd file and bibliography that you can use as a starting place.
+This will install the extension and create an example qmd file and bibliography that you can use as a starting place. Note, it will ask for the directory name and will install in that (empty) directory.
 
 ## Installation for an existing document
 
