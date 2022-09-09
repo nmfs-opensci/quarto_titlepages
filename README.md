@@ -2,7 +2,7 @@
 
 [Try it out on RStudio Cloud](https://rstudio.cloud/content/4370280) --- [Read the documentation](https://nmfs-opensci.github.io/quarto_titlepages/)
 
-This repo includes a Quarto extension and templates for making a custom title page or book cover using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a [Quarto](https://quarto.org/) book). 
+This repo includes a Quarto extension and templates for making a custom title page or book cover for PDF output using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a [Quarto](https://quarto.org/) book). 
 
 <img src="./img/example.png" width="200"/>
 
