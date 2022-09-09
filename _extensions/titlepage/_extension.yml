@@ -18,6 +18,8 @@ contributes:
         - "_great-wave_titlepage.tex"
         - "_multi-purpose-static_before-body.tex"
         - "_multi-purpose-static_titlepage.tex"
+        - "_multi-purpose_before-body.tex"
+        - "_multi-purpose_titlepage.tex"
         - "_thesis-static_before-body.tex"
         - "_thesis-static_titlepage.tex"
         - "_vline_before-body.tex"

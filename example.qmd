@@ -25,7 +25,7 @@ author:
 bibliography: references.bib
 format: 
   titlepage-pdf:
-    titlepage: great-wave
+    titlepage: multi-purpose
     documentclass: scrbook
     number-sections: true
     toc: true
