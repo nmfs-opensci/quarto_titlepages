@@ -1,0 +1,8 @@
+% This creates the corresponding author with an asterick
+% probably looks bad if there is more than one email
+
+$for(by-author)$%
+$if(by-author.email)$%
+* \textit{Correspondence:}~$by-author.name.literal$~$by-author.email$%
+$endif$%
+$endfor$
