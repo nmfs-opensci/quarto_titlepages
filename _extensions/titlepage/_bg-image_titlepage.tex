@@ -11,8 +11,8 @@ $endif$
 \raggedright
 
 % background image
-$if(title-bg-image)$
-\This$if(title-bg-location)$$title-bg-location$$else$UL$endif$CornerWallPaper{$if(title-bg-size)$$title-bg-size$$else$0.5$endif$}{$title-bg-image$}
+$if(titlepage-image)$
+\This$if(titlepage-image-location)$$titlepage-image-location$$else$ULCorner$endif$WallPaper{$if(titlepage-image-size)$$titlepage-image-size$$else$0.5$endif$}{$titlepage-image$}
 $endif$
 
 % Title and subtitle
@@ -91,8 +91,10 @@ $endfor$
 
 \vfill
 
-%%%%%% Cover image
-$if(cover)$\includegraphics[width=4cm]{$cover$}$endif$
+%%%%%% Logo
+$if(titlepage-logo)$
+\includegraphics[width=0.2\textwidth]{$titlepage-logo$}\\
+$endif$
 
 % Whitespace between the title block and the tagline
 \vspace{1\baselineskip} 

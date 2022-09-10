@@ -15,16 +15,15 @@ $endfor$
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{babel}
 \babelprovide[import,main]{czech}
+\usepackage{hyphenat}
 
 $if(titlepage-bg-image)$
-\usepackage{hyphenat}
 \usepackage{graphicx}
 \usepackage{wallpaper} % for the background image on title page
 \usepackage{geometry}
 $endif$
 
 $if(coverpage-great-wave)$
-\usepackage{hyphenat}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{afterpage}
@@ -34,6 +33,13 @@ $if(coverpage-great-wave)$
 $endif$
 
 $if(titlepage-vline)$
-\usepackage{hyphenat}
 \usepackage{graphicx}
+$endif$
+
+$if(titlepage-color)$
+\usepackage[pagecolor=none]{pagecolor}
+$endif$
+
+$if(titlepage-image)$
+\usepackage{wallpaper} % for the background image on title page
 $endif$

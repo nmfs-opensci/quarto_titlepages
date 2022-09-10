@@ -7,12 +7,12 @@ contributes:
       filters:
         - theme.lua
       template-partials:
-        - "_academic-static_titlepage.tex"
+        - "_academic_titlepage.tex"
         - "_bg-image_titlepage.tex"
         - "_classic-lined_titlepage.tex"
         - "_great-wave_cover.tex"
         - "_multi-purpose_titlepage.tex"
-        - "_thesis-static_titlepage.tex"
+        - "_thesis_titlepage.tex"
         - "_vline_titlepage.tex"
         - "before-body.tex"
         - "pandoc.tex"

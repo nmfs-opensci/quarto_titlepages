@@ -25,14 +25,20 @@ author:
 bibliography: references.bib
 format: 
   titlepage-pdf:
-    titlepage: vline
+    titlepage: academic
     coverpage: great-wave
     documentclass: scrbook
+    classoption: ["oneside", "open=any"]
     number-sections: true
     toc: true
     lof: true
     lot: true
-    classoption: ["oneside", "open=any"]
+    titlepage-logo: "img/logo.png"
+    titlepage-publisher: "The Publisher"
+    titlepage-color: "F6D5A8"
+    titlepage-image: "img/ringed-seal.png"
+    titlepage-image-size: 1.0
+    titlepage-image-location: "Center"
 ---
 
 # Usage notes
@@ -46,26 +52,26 @@ Some themes need some additional YAML information to work.
 Needs info on the titlepage geometry so the title doesn't overlap the background image. Also you need to supply the background image and where to put it (UL, upperleft; UR, upperright; BL, bottomleft; BR, bottomright). Note, there are placeholders in the extension, but when you put your own image in, you'll need to add the YAML information.
 
 ```
-titlepage: bg-image
-titlepage-geometry: 
-  - top=3in
-  - bottom=1in
-  - right=1in
-  - left=1in
-title-bg-image: "img/corner-bg.png"
-title-bg-location: "UL"
-title-bg-size: 0.5
+format: 
+  titlepage-pdf:
+    titlepage: bg-image
+    titlepage-geometry: 
+     - top=3in
+     - bottom=1in
+     - right=1in
+     - left=1in
+    titlepage-image: "img/corner-bg.png"
+    titlepage-image-location: "UL"
+    titlepage-image-size: 0.5
 ```
 
 ### `great-wave`
 
-Great wave theme creates a cover page with a background image that fills the width of the page at the bottom with a color above. You need to specify the image and the upper color (unless you want to use the default Great Wave off Kanagawa image).
+Great wave cover page theme creates a cover page with a background image that fills the width of the page at the bottom with a color above. You need to specify the image and the upper color (unless you want to use the default Great Wave off Kanagawa image).
 
 ```
-documentclass: scrbook
-number-sections: true
-title-bg-image: "img/TheGreatWaveoffKanagawa.jpeg"
-title-page-color: "F6D5A8"
+coverpage-image: "img/TheGreatWaveoffKanagawa.jpeg"
+coverpage-color: "F6D5A8"
 ```
 
 

@@ -8,12 +8,22 @@ $if(coverpage-great-wave)$
 $_great-wave_cover.tex()$
 $endif$
 
+$if(titlepage-color)$
+\definecolor{pgcolor}{HTML}{$titlepage-color$}
+\pagecolor{pgcolor}\afterpage{\nopagecolor}
+$endif$
+
+% background image
+$if(titlepage-image)$
+\This$if(titlepage-image-location)$$titlepage-image-location$$else$ULCorner$endif$WallPaper{$if(titlepage-image-size)$$titlepage-image-size$$else$0.5$endif$}{$titlepage-image$}
+$endif$
+
 $-- % Titlepage
-$if(titlepage-academic-static)$$_academic-static_titlepage.tex()$$endif$
+$if(titlepage-academic)$$_academic_titlepage.tex()$$endif$
 $if(titlepage-bg-image)$$_bg-image_titlepage.tex()$$endif$
 $if(titlepage-classic-lined)$$_classic-lined_titlepage.tex()$$endif$
 $if(titlepage-multi-purpose)$$_multi-purpose_titlepage.tex()$$endif$
-$if(titlepage-thesis-static)$$_thesis-static_titlepage.tex()$$endif$
+$if(titlepage-thesis-static)$$_thesis_titlepage.tex()$$endif$
 $if(titlepage-vline)$$_vline_titlepage.tex()$$endif$
 
 \end{titlepage}

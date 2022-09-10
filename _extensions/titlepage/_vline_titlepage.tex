@@ -93,13 +93,16 @@ $endfor$
 
 \vfill
 
-%%%%%% Cover image
-$if(cover)$\includegraphics[width=4cm]{$cover$}$endif$
+%%%%%% Logo
+$if(titlepage-logo)$
+\includegraphics[width=0.2\textwidth]{$titlepage-logo$}\\
+$endif$
 
 % Whitespace between the title block and the tagline
 \vspace{0.1\textheight} 
 
 %%%%%% Tagline at bottom
-% {\noindent The Publisher~~\plogo}\\[\baselineskip] % Publisher and logo
-{\noindent The Publisher}\\[\baselineskip] % Publisher and logo
+$if(titlepage-publisher)$
+{\noindent $titlepage-publisher$}\\[\baselineskip]
+$endif$
 \end{minipage}

@@ -4,20 +4,20 @@ end
 
 function Meta(m)
   local titlepage_table = {
-    ["academic-static"] = function (m)
-      m['titlepage-academic-static'] = true
+    ["academic"] = function (m)
+      m['titlepage-academic'] = true
       return m
     end,
     ["bg-image"] = function (m)
       m['titlepage-bg-image'] = true
       if isEmpty(m['title-bg-image']) then
-        m['title-bg-image'] = "corner-bg.png"
+        m['titlepage-image'] = "corner-bg.png"
       end
       if isEmpty(m['title-bg-location']) then
-        m['title-bg-location'] = "UL"
+        m['titlepage-image-location'] = "UL"
       end
       if isEmpty(m['title-bg-size']) then
-        m['title-bg-size'] = 0.5
+        m['titlepage-image-size'] = 0.5
       end
       if isEmpty(m['titlepage-geometry']) then
         m['titlepage-geometry'] = pandoc.List({"top=3in", "bottom=1in", "right=1in", "left=1in"})
@@ -85,12 +85,11 @@ function Meta(m)
     coverpage_table[choice](m)
   end
   
-  if isEmpty(m['titlepage-logo']) then
-    m['titlepage-logo'] = "logo.png"
-  end
-
-  if isEmpty(m['titlepage-publisher']) then
-    m['titlepage-publisher'] = "The Publisher"
+  if not isEmpty(m["titlepage-image-location"]) then
+    choice = pandoc.utils.stringify(m["titlepage-image-location"])
+    if choice ~= "ULCorner" and choice ~= "URCorner" and choice ~= "LLCorner" and choice ~= "LRCorner" and and choice ~= "TileSquare" and choice ~= "Center" then
+      error("titlepage extension error: titlepage-image-location can be ULCorner, URCorner, LLCorner, LRCorner, TileSquare, or Center")
+    end
   end
 
   return m
