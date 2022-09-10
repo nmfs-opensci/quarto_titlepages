@@ -1,104 +1,45 @@
 ---
-title: The title
-subtitle: See the documentation for available formats.
+title: quarto_titlepages
+subtitle: Templates for title pages and covers
 author:
-  - name: Jane Doe
+  - name: Elizabeth Eli Holmes
     affiliations:
-      - name: Author affiliation
-        address: Affiliation address
-      - name: Author 1 second affiliation
-        department: Department
-  - name: Eva Nováková
+      - name: NOAA Fisheries
+        address: Northwest Fisheries Science Center, Seattle WA, USA
+      - name: University of Washington
+        department: School of Aquatic and Fishery Sciences
+    email: eli.holmes@noaa.gov
+  - name: Mickaël Canouil
     affiliations:
-      - name: Author 2 affiliation
-        address: Author 2 affiliation address
-  - name: Matti Meikäläinen
-    email: matti@jy.fi
-    affiliations:
-      - name: Author 3 affiliation
-        department: Author 3 department
-        address: Author 3 address
-  - name: Ashok Kumar
-    affiliations:
-      - name: Author affiliation
-        address: Affiliation address
-bibliography: references.bib
-format: 
-  titlepage-pdf:
-    titlepage: academic
-    coverpage: great-wave
+      - name: Institut Pasteur de Lille
+        address: Lille, France
+abstract: "[quarto_titlepages](https://nmfs-opensci.github.io/quarto_titlepages): GitHub repo with template partials for use with [Quarto](https://quarto.org/) for adding custom cover pages and title pages to your PDF books or articles. Documentation included for using the provided templates or modifying to create your own."
+cover: img/nmfs-opensci-logo.png
+editor: source
+format:
+  pdf:
     documentclass: scrbook
     classoption: ["oneside", "open=any"]
     number-sections: true
+    template-partials:
+      - "before-body.tex"
+      - "_titlepage.tex" 
+      - "_coverpage.tex" 
+    include-in-header: 
+      - "in-header.tex"
     toc: true
     lof: true
     lot: true
-    titlepage-logo: "img/logo.png"
-    titlepage-publisher: "The Publisher"
-    titlepage-color: "F6D5A8"
-    titlepage-image: "img/ringed-seal.png"
-    titlepage-image-size: 0.5
-    titlepage-image-location: "LLCorner"
     titlepage-geometry: 
-     - top=2in
-     - bottom=1in
-     - right=1in
-     - left=4in
+      - top=3in
+      - bottom=0in
+      - right=1in
+      - left=1in
+    title-bg-image: "img/TheGreatWaveoffKanagawa.jpeg"
+    title-page-color: "F6D5A8"
+
+bibliography: references.bib
 ---
-
-# Usage notes
-
-## YAML additions for themes
-
-Some themes need some additional YAML information to work.
-
-### `bg-image`
-
-Needs info on the titlepage geometry so the title doesn't overlap the background image. Also you need to supply the background image and where to put it (UL, upperleft; UR, upperright; BL, bottomleft; BR, bottomright). Note, there are placeholders in the extension, but when you put your own image in, you'll need to add the YAML information.
-
-```
-format: 
-  titlepage-pdf:
-    titlepage: bg-image
-    titlepage-geometry: 
-     - top=3in
-     - bottom=1in
-     - right=1in
-     - left=1in
-    titlepage-image: "img/corner-bg.png"
-    titlepage-image-location: "UL"
-    titlepage-image-size: 0.5
-```
-
-### `great-wave`
-
-Great wave cover page theme creates a cover page with a background image that fills the width of the page at the bottom with a color above. You need to specify the image and the upper color (unless you want to use the default Great Wave off Kanagawa image).
-
-```
-coverpage-image: "img/TheGreatWaveoffKanagawa.jpeg"
-coverpage-color: "F6D5A8"
-```
-
-
-## Document classes
-
-The document class changes the look of your document. For the book document classes, you will need to pass in 
-```
-number-sections: true
-```
-in your YAML because Quarto sets `number-sections: false` by default and that will mess up all your equation, figure and table numbers. It simple will not number them correctly at all.
-
-For book document classes (like `scrbook`), if you want chapters to be allowed to start on even or odd pages and the left and right margins on even and odd pages to be the same, use
-
-```
-classoption: ["oneside", "open=any"]
-```
-
-## Static versus dynamic themes
-
-`vline-static`, `thesis-static`, `multi-purpose-static`, `classic-lined-static` and `academic-static` use a title page that is defined in the `_extensions/titlepage` folder. You will need to edit the `_xyz-static_titlepage.tex` file.
-
-The other themes use the YAML for the title page info and you do not need to edit the `...-titlepage.tex` files unless you want to customize the pages.
 
 # Introduction
 
@@ -129,9 +70,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, veh
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat.
 
-![the study area](logo.png){#fig-logo}
+![great wave](img/TheGreatWaveoffKanagawa.jpeg){#fig-wave}
 
-See @fig-logo for a picture of the study area. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
+See @fig-wave for a picture of the study animal. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 
 Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
 
@@ -149,6 +90,16 @@ See @tbl-numbers for the table of results. Phasellus quis orci nec erat suscipit
 : Table of numbers. {#tbl-numbers}
 
 # Discussion
+
+Lorem ipsum dolor sit amet, @tbl-numbers, consectetur adipiscing elit. @knuth84 and all things LaTeX. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
+
+Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
+
+Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu, fermentum sem.
+
+Quisque congue, ligula et mattis vulputate, arcu risus facilisis mauris, a feugiat mi mi et magna. Aliquam id malesuada neque. Sed dapibus justo mauris, sed mattis nibh sodales sit amet. Donec nec faucibus magna. Curabitur tincidunt porta egestas. In eleifend sed enim ac varius. Vivamus tempus ultrices vehicula. Vestibulum iaculis eleifend mattis. Quisque euismod dui et velit facilisis dapibus. Ut in mauris porttitor, congue orci et, sodales turpis. Pellentesque porttitor volutpat sapien vel pretium.
+
+Aliquam ante diam, euismod in nisi sed, iaculis tincidunt lacus. Cras pellentesque magna id enim pulvinar porta. Proin quis feugiat quam. Nunc vitae ultricies nulla, a facilisis tortor. Aliquam semper mi et libero tincidunt, nec iaculis erat pharetra. Duis ac pharetra purus. Nunc condimentum ex massa, a vestibulum risus bibendum in. Suspendisse suscipit, lectus pharetra vulputate fringilla, ligula sem condimentum purus, eget dapibus diam libero vitae lorem. Nam blandit pulvinar augue, non gravida risus rhoncus sed.
 
 Lorem ipsum dolor sit amet, @tbl-numbers, consectetur adipiscing elit. @knuth84 and all things LaTeX. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 

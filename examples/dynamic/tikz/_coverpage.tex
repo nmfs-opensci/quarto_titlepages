@@ -1,0 +1,47 @@
+% This is a combination of Pandoc templating and LaTeX
+% Pandoc templating https://pandoc.org/MANUAL.html#templates
+% See the README for help
+% This template is based on a post by Arun Debray to tex.stackoverflow
+% https://tex.stackexchange.com/posts/554962/revisions
+
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+% Background Image  
+\node[inner sep=0pt] at (current page.center){
+    \includegraphics[
+        width=\paperwidth,
+        height=\paperheight
+    ]{$title-bg-image$}
+};
+
+
+% Node Text (TikZ Tutorials)
+\begin{scope}
+{\fontsize{90}{100} \playfair
+\node[
+    below=1cm,
+    align=left] (Title1) at (current page.north){
+    \textcolor{black!90!cyan}{TikZ} 
+    \\\textcolor{blue}{TUTORIALS}};
+}
+\end{scope}
+
+% Node Text (Title)
+{\fontsize{30}{36} \robotoCondensed
+\node[
+    right,
+    align=left] (Title2) at (current page.center){ 
+    \textcolor{black!90!cyan}{How to change font} 
+    \\\textcolor{black!90!cyan}{style in \LaTeX ?}};
+}
+
+% Node Text (Author)
+{ \fontsize{25}{30} \playfair
+\node (Title3) at ($$(current page.south west)+(6.5cm,1.5cm)$$){ \textcolor{white}{LaTeXdraw.com}};
+}
+
+\end{tikzpicture}
+

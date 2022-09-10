@@ -14,7 +14,7 @@ author:
       - name: Institut Pasteur de Lille
         address: Lille, France
 abstract: "[quarto_titlepages](https://nmfs-opensci.github.io/quarto_titlepages): GitHub repo with template partials for use with [Quarto](https://quarto.org/) for adding custom cover pages and title pages to your PDF books or articles. Documentation included for using the provided templates or modifying to create your own."
-cover: images/nmfs-opensci-logo.png
+cover: img/nmfs-opensci-logo.png
 editor: source
 format:
   pdf:
@@ -35,8 +35,24 @@ format:
       - bottom=0in
       - right=1in
       - left=1in
-    title-bg-image: "images/TheGreatWaveoffKanagawa.jpeg"
-    title-page-color: "F6D5A8"
+    coverpage-image: "img/TheGreatWaveoffKanagawa.jpeg"
+    coverpage-image-size: 1
+    coverpage-image-opacity: "0.5"
+    coverpage-image-fading: "north"
+    coverpage-image-rotate: 0
+    coverpage-image-left: "0cm"
+    coverpage-image-bottom: "0cm"
+    coverpage-color: "F6D5A8"
+    coverpage-title-fontfamily: "Palatino Bold Italic"
+    coverpage-title-fontsize: "50"
+    coverpage-title-align: "left"
+    coverpage-title-color: "cyan"
+    coverpage-geometry: 
+      - top=2in
+      - bottom=0in
+      - right=1in
+      - left=1in
+    keep-tex: true
 
 bibliography: references.bib
 ---
@@ -70,7 +86,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, veh
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat.
 
-![great wave](images/TheGreatWaveoffKanagawa.jpeg){#fig-wave}
+![great wave](img/TheGreatWaveoffKanagawa.jpeg){#fig-wave}
 
 See @fig-wave for a picture of the study animal. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 

@@ -87,7 +87,7 @@ function Meta(m)
   
   if not isEmpty(m["titlepage-image-location"]) then
     choice = pandoc.utils.stringify(m["titlepage-image-location"])
-    if choice ~= "ULCorner" and choice ~= "URCorner" and choice ~= "LLCorner" and choice ~= "LRCorner" and and choice ~= "TileSquare" and choice ~= "Center" then
+    if choice ~= "ULCorner" and choice ~= "URCorner" and choice ~= "LLCorner" and choice ~= "LRCorner" and choice ~= "TileSquare" and choice ~= "Center" then
       error("titlepage extension error: titlepage-image-location can be ULCorner, URCorner, LLCorner, LRCorner, TileSquare, or Center")
     end
   end
