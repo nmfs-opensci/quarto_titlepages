@@ -1,0 +1,84 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classic-Lined Title Page
+% LaTeX Template
+% Version 2.0 (17/7/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% WikiBooks (LaTeX - Title Creation) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty} % no page numbers on titlepages
+
+\centering % Centre everything on the title page
+
+%------------------------------------------------
+%	Top rules
+%------------------------------------------------
+
+\rule{\textwidth}{1pt} % Thick horizontal rule
+
+\vspace{2pt}\vspace{-\baselineskip} % Whitespace between rules
+
+\rule{\textwidth}{0.4pt} % Thin horizontal rule
+
+\vspace{0.1\textheight} % Whitespace between the top rules and title
+
+%------------------------------------------------
+%	Title
+%------------------------------------------------
+
+\textcolor{red}{ % Red font color
+	{\Huge \uppercase{$title$}}\\[1\baselineskip] % Title line 1
+	{\Large $subtitle$} % Title line 3
+}
+
+\vspace{0.025\textheight} % Whitespace between the title and short horizontal rule
+
+\rule{0.3\textwidth}{0.4pt} % Short horizontal rule under the title
+
+\vspace{0.1\textheight} % Whitespace between the thin horizontal rule and the author name
+
+%------------------------------------------------
+%	Author
+%------------------------------------------------
+
+$for(by-author)$%
+{\Large \textsc{$by-author.name.literal$}}%
+$sep$\\ %
+$endfor$%
+
+\vfill % Whitespace between the author name and publisher
+
+%------------------------------------------------
+%	Publisher
+%------------------------------------------------
+
+$if(titlepage-logo)$
+\includegraphics[width=0.2\textwidth]{$titlepage-logo$}\\[1cm] 
+$endif$
+
+$if(titlepage-publisher)$
+{\large\textsc{$titlepage-publisher$}} % Publisher
+$endif$
+
+\vspace{0.1\textheight} % Whitespace under the publisher text
+
+%------------------------------------------------
+%	Bottom rules
+%------------------------------------------------
+
+\rule{\textwidth}{0.4pt} % Thin horizontal rule
+
+\vspace{2pt}\vspace{-\baselineskip} % Whitespace between rules
+
+\rule{\textwidth}{1pt} % Thick horizontal rule
+
+

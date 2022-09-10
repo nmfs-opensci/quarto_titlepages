@@ -7,25 +7,13 @@ contributes:
       filters:
         - theme.lua
       template-partials:
-        - "_academic-static_before-body.tex"
         - "_academic-static_titlepage.tex"
-        - "_bg-image_before-body.tex"
         - "_bg-image_titlepage.tex"
-        - "_classic-lined-static_before-body.tex"
-        - "_classic-lined-static_titlepage.tex"
-        - "_great-wave_before-body.tex"
+        - "_classic-lined_titlepage.tex"
         - "_great-wave_cover.tex"
-        - "_great-wave_titlepage.tex"
-        - "_multi-purpose-static_before-body.tex"
-        - "_multi-purpose-static_titlepage.tex"
-        - "_multi-purpose_before-body.tex"
         - "_multi-purpose_titlepage.tex"
-        - "_thesis-static_before-body.tex"
         - "_thesis-static_titlepage.tex"
-        - "_vline_before-body.tex"
         - "_vline_titlepage.tex"
-        - "_vline-static_before-body.tex"
-        - "_vline-static_titlepage.tex"
         - "before-body.tex"
         - "pandoc.tex"
       format-resources:

@@ -12,7 +12,7 @@
 \DeclareFixedFont{\subtitlefont}{T1}{ppl}{b}{it}{0.2in}
 
 % Page color
-\definecolor{pgcolor}{HTML}{$title-page-color$}
+\definecolor{pgcolor}{HTML}{$coverpage-color$}
 \pagecolor{pgcolor}\afterpage{\nopagecolor}
 
 \thispagestyle{empty}
@@ -24,7 +24,7 @@
 \begin{center}
 \begin{tikzpicture}
 \node[scope fading=north, inner sep=0pt, outer sep=0pt]{
- \makebox[\textwidth]{\includegraphics[width=\paperwidth]{$title-bg-image$}}
+ \makebox[\textwidth]{\includegraphics[width=\paperwidth]{$coverpage-image$}}
 };
 \end{tikzpicture}
 \end{center}

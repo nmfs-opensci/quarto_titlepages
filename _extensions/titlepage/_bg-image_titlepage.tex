@@ -2,6 +2,8 @@
 % Pandoc templating https://pandoc.org/MANUAL.html#templates
 % See the README for help
 
+\thispagestyle{empty} % no page numbers on titlepages
+
 $if(titlepage-geometry)$
 \newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
 $endif$

@@ -3,13 +3,13 @@ local function isEmpty(s)
 end
 
 function Meta(m)
-  local theme_table = {
+  local titlepage_table = {
     ["academic-static"] = function (m)
-      m['academic-static'] = true
+      m['titlepage-academic-static'] = true
       return m
     end,
     ["bg-image"] = function (m)
-      m['bg-image'] = true
+      m['titlepage-bg-image'] = true
       if isEmpty(m['title-bg-image']) then
         m['title-bg-image'] = "corner-bg.png"
       end
@@ -24,56 +24,20 @@ function Meta(m)
       end
       return m
     end,
-    ["classic-lined-static"] = function (m)
-      m['classic-lined-static'] = true
-      if isEmpty(m['logo']) then
-        m['logo'] = "logo.png"
-      end
-      return m
-    end,
-    ["great-wave"] = function (m)
-      m['great-wave'] = true
-      if isEmpty(m['title-bg-image']) then
-        m['title-bg-image'] = "TheGreatWaveoffKanagawa.jpeg"
-      end
-      if isEmpty(m['title-page-color']) then
-        m['title-page-color'] = "F6D5A8"
-      end
+    ["classic-lined"] = function (m)
+      m['titlepage-classic-lined'] = true
       return m
     end,
     ["multi-purpose"] = function (m)
-      m['multi-purpose'] = true
-      if isEmpty(m['logo']) then
-        m['logo'] = "logo.png"
-      end
-      return m
-    end,
-    ["multi-purpose-static"] = function (m)
-      m['multi-purpose-static'] = true
-      if isEmpty(m['logo']) then
-        m['logo'] = "logo.png"
-      end
+      m['titlepage-multi-purpose'] = true
       return m
     end,
     ["thesis-static"] = function (m)
-      m['thesis-static'] = true
-      if isEmpty(m['logo']) then
-        m['logo'] = "logo.png"
-      end
+      m['titlepage-thesis-static'] = true
       return m
     end,
     ["vline"] = function (m)
-      m['vline'] = true
-      if isEmpty(m['logo']) then
-        m['logo'] = "logo.png"
-      end
-      return m
-    end,
-    ["vline-static"] = function (m)
-      m['vline-static'] = true
-      if isEmpty(m['logo']) then
-        m['logo'] = "logo.png"
-      end
+      m['titlepage-vline'] = true
       return m
     end
   }
@@ -82,9 +46,55 @@ function Meta(m)
     m['titlepage'] = "vline"
   end
   choice = pandoc.utils.stringify(m.titlepage)
-  if isEmpty(choice) then
-    return theme_table["vline"](m)
-  else
-    return theme_table[choice](m)
+  if choice ~= "vline" and choice ~= "bg-image" and choice ~= "multi-purpose" and choice ~= "academic" and choice ~= "thesis"then
+    error("titlepage extension error: titlepage can be vline, bg-image, multi-purpose, academic or thesis")
   end
+  if isEmpty(choice) then
+    titlepage_table["vline"](m)
+  else
+    titlepage_table[choice](m)
+  end
+
+  local coverpage_table = {
+    ["great-wave"] = function (m)
+      m['coverpage-great-wave'] = true
+      if isEmpty(m['coverpage-image']) then
+        m['coverpage-image'] = "TheGreatWaveoffKanagawa.jpeg"
+      end
+      if isEmpty(m['coverpage-color']) then
+        m['coverpage-color'] = "F6D5A8"
+      end
+      return m
+    end,
+    ["none"] = function (m)
+      m['coverpage-none'] = true
+      return m
+    end
+  }
+
+  if not m.coverpage then
+    m['coverpage'] = "none"
+  end
+  choice = pandoc.utils.stringify(m.coverpage)
+  if choice ~= "great-wave" and choice ~= "none" then
+    error("titlepage extension error: coverpage can be great-wave or none")
+  end
+  if isEmpty(choice) then
+    coverpage_table["none"](m)
+  else
+    coverpage_table[choice](m)
+  end
+  
+  if isEmpty(m['titlepage-logo']) then
+    m['titlepage-logo'] = "logo.png"
+  end
+
+  if isEmpty(m['titlepage-publisher']) then
+    m['titlepage-publisher'] = "The Publisher"
+  end
+
+  return m
+  
 end
+
+
