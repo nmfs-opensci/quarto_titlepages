@@ -23,11 +23,12 @@ $if(titlepage-bg-image)$
 \usepackage{geometry}
 $endif$
 
-$if(coverpage-great-wave)$
+$if(coverpage)$
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{afterpage}
 \usepackage{tikz}
+\usetikzlibrary{calc}
 \usetikzlibrary{fadings}
 \usepackage[pagecolor=none]{pagecolor}
 $endif$
@@ -42,4 +43,13 @@ $endif$
 
 $if(titlepage-image)$
 \usepackage{wallpaper} % for the background image on title page
+$endif$
+
+$if(coverpage-title-fontfamily)$
+\usepackage{fontspec}
+\newfontfamily{\coverpagetitlefont}{$coverpage-title-fontfamily$}
+$endif$
+$if(coverpage-author-fontfamily)$
+\usepackage{fontspec}
+\newfontfamily{\coverpageauthorfont}{$coverpage-author-fontfamily$}
 $endif$

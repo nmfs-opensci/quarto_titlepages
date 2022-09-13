@@ -1,0 +1,16 @@
+% Simple author
+
+\newcommand{\authorlocationleft}{$coverpage-author-left$\paperwidth}
+\newcommand{\authorlocationbottom}{$coverpage-author-bottom$\paperheight}
+\newcommand{\authoralign}{$coverpage-author-align$}
+
+% Title
+\begin{scope}
+{%
+$if(coverpage-author-fontsize)$\fontsize{$coverpage-author-fontsize$}{$coverpage-author-spacing$}$endif$ $if(coverpage-author-fontfamily)$\coverpageauthorfont$endif$
+\node[anchor=$coverpage-author-anchor$, align=$coverpage-author-align$, rotate=$coverpage-author-rotate$] (Author1) at %
+($$(current page.south west)+(\authorlocationleft,\authorlocationbottom)$$)  [text width = $coverpage-author-width$\paperwidth]  {
+$if(coverpage-author-color)$\textcolor{$coverpage-author-color$}$endif${$for(by-author)$$by-author.name.literal$$sep$\\$endfor$}};
+
+}
+\end{scope}

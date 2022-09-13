@@ -1,17 +1,13 @@
 % This is a combination of Pandoc templating and LaTeX
 % Pandoc templating https://pandoc.org/MANUAL.html#templates
 % See the README for help
-% This template is based on a post by Arun Debray to tex.stackoverflow
-% https://tex.stackexchange.com/posts/554962/revisions
+
+\thispagestyle{empty}
 
 $if(coverpage-geometry)$
 \newgeometry{$for(coverpage-geometry)$$coverpage-geometry$$sep$,$endfor$}
-$endif$
-
-% Change title fonts here
-%\DeclareFixedFont{\titlefont}{T1}{qag}{b}{}{0.6in}
-$if(coverpage-title-fontfamily)$
-\newfontfamily{\mytitlefont}{$coverpage-title-fontfamily$}
+$else$
+\newgeometry{top=-100in}
 $endif$
 
 % Page color
@@ -19,8 +15,6 @@ $if(coverpage-color)$
 \definecolor{pgcolor}{HTML}{$coverpage-color$}
 \pagecolor{pgcolor}\afterpage{\nopagecolor}
 $endif$
-
-\thispagestyle{empty}
 
 \begin{tikzpicture}[remember picture, overlay, inner sep=0pt, outer sep=0pt]
 
@@ -36,30 +30,25 @@ $if(coverpage-image-opacity)$, opacity=$coverpage-image-opacity$$endif$%
 ($$(current page.south west)+(%
 $if(coverpage-image-left)$$coverpage-image-left$$else$0cm$endif$,%
 $if(coverpage-image-bottom)$$coverpage-image-bottom$$else$0cm$endif$%
-)$$) {\includegraphics[%
+)$$) {
+\includegraphics[%
 width=$if(coverpage-image-size)$$coverpage-image-size$$endif$%
-\paperwidth]{$coverpage-image$}};
+\paperwidth, keepaspectratio]{$coverpage-image$}
+};
 $endif$
 
 % This section has the text and is theme specific
-
-% Title
-$if(title)$
-\begin{scope}
-{%
-$if(coverpage-title-fontsize)$\fontsize{$coverpage-title-fontsize$}{$if(coverpage-title-spacing)$$coverpage-title-spacing$$else$$coverpage-title-fontsize$$endif$}$endif$ $if(coverpage-title-fontfamily)$\mytitlefont$endif$
-\node[anchor=north west%
-$if(coverpage-title-align)$, align=$coverpage-title-align$$endif$%
-$if(coverpage-title-rotate)$, rotate=$coverpage-title-rotate$$endif$%
-] (Title1) at %
-($$(current page.south west)+(%
-$if(coverpage-title-left)$$coverpage-title-left$$else$\the\dimexpr1in+\oddsidemargin\relax$endif$,%
-$if(coverpage-title-bottom)$$coverpage-title-bottom$$else$\textheight$endif$%
-)$$)    {
-$if(coverpage-title-color)$\textcolor{$coverpage-title-color$}$endif${$title$}};
-}
-\end{scope}
+$if(coverpage-titleonly)$
+$_titleonly_coverpage.tex()$
 $endif$
+$if(coverpage-authoronly)$
+$_authoronly_coverpage.tex()$
+$endif$
+$if(coverpage-titleauthor)$
+$_titleonly_coverpage.tex()$
+$_authoronly_coverpage.tex()$
+$endif$
+
 
 \end{tikzpicture}
 \clearpage

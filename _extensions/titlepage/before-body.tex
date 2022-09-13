@@ -4,11 +4,12 @@ $endif$
 
 \begin{titlepage}
 $-- % Coverpage
-$if(coverpage-great-wave)$
-$_great-wave_cover.tex()$
+$if(coverpage)$
+$_coverpage.tex()$
 $endif$
 
 $-- % Titlepage
+$if(titlepage)$
 $if(titlepage-geometry)$
 \newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
 $endif$
@@ -33,6 +34,7 @@ $if(titlepage-vline)$$_vline_titlepage.tex()$$endif$
 $if(titlepage-geometry)$
 \restoregeometry
 $endif$
+$endif$ %titlepage
 
 \end{titlepage}
 \setcounter{page}{1}

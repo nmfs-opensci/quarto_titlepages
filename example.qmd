@@ -25,25 +25,26 @@ author:
 bibliography: references.bib
 format: 
   titlepage-pdf:
-    titlepage: academic
-    coverpage: great-wave
     documentclass: scrbook
     classoption: ["oneside", "open=any"]
     number-sections: true
     toc: true
     lof: true
     lot: true
+    titlepage: academic
     titlepage-logo: "img/logo.png"
     titlepage-publisher: "The Publisher"
     titlepage-color: "F6D5A8"
     titlepage-image: "img/ringed-seal.png"
     titlepage-image-size: 0.5
     titlepage-image-location: "LLCorner"
-    titlepage-geometry: 
-     - top=2in
-     - bottom=1in
-     - right=1in
-     - left=4in
+    coverpage: titleauthor
+    coverpage-image: otter
+    coverpage-title-rotate: 45
+    coverpage-title-fontfamily: "QTHelvet-BoldOutline.otf"
+    coverpage-author-align: right
+    coverpage-author-fontfamily: "Palatino"
+
 ---
 
 # Usage notes
