@@ -1,6 +1,6 @@
 title: titlepage
-author: Eli Holmes
-version: 0.1.0
+author: Eli Holmes, Mickaël Canouil
+version: 0.2.1
 contributes:
   format:
     pdf:
