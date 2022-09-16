@@ -33,7 +33,7 @@ format:
     toc: true
     lof: true
     lot: true
-    titlepage: "thesis"
+    titlepage: "vline"
     titlepage-logo: "img/logo.png"
     titlepage-header: "The Publisher"
     titlepage-footer: |

@@ -18,6 +18,7 @@ Options
       page-color: green # use either html color xcolors
       page-text-align: left, right, center
       page-fontfamily: "Palatino"
+      page-fontsize: "Palatino"
       title-style: "plain"
       title-fontfamily: "Palatino"
       title-fontstyle: "\\Huge\\bfseries"

@@ -11,6 +11,16 @@ local function getVal(s)
   return pandoc.utils.stringify(s)
 end
 
+local function has_value (tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
 function dump(o)
    if type(o) == 'table' then
       local s = '{ '
@@ -25,6 +35,35 @@ function dump(o)
 end
 
 function Meta(m)
+  local function check_yaml (yamlelement, yamltext, okvals)
+    choice = pandoc.utils.stringify(yamlelement)
+    if not has_value(okvals, choice) then
+      print("\n\ntitlepage extension error: " .. yamltext .. " is set to " .. choice .. ". It can be " .. pandoc.utils.stringify(table.concat(okvals, ", ")) .. ".\n\n")
+      return false
+    else
+      return true
+    end
+
+    return true
+  end
+  
+  local function set_style (page, styleelement, okvals)
+    yamltext = page .. "-theme" .. ": " .. styleelement .. "-style"
+    yamlelement = m[page .. "-theme"][styleelement .. "-style"]
+    if not isEmpty(yamlelement) then
+      ok = check_yaml (yamlelement, yamltext, okvals)
+      if ok then
+        m[page .. "-style-code"][styleelement] = {}
+        m[page .. "-style-code"][styleelement][getVal(yamlelement)] = true
+      else
+        error()
+      end
+    else
+      print("\n\ntitlepage extension error: ", yamltext, " needs a value. Should have been set in titlepage-theme lua filter.\n\n")
+      error()
+    end
+  end
+
   local titlepage_table = {
     ["academic"] = function (m)
       m['titlepage-academic'] = true
@@ -352,12 +391,14 @@ function Meta(m)
   
   m['titlepage-file'] = false
   if not m.titlepage then
-    m['titlepage'] = "vline"
+    m['titlepage'] = "bg-image"
   end
   choice = pandoc.utils.stringify(m.titlepage)
-  if choice ~= "plain" and choice ~= "vline" and choice ~= "bg-image" and choice ~= "colorbox" and choice ~= "academic" and choice ~= "formal" and choice ~= "classic-lined" then
+  okvals = {"plain", "vline", "bg-image", "colorbox", "academic", "formal"}
+  isatheme = has_value (okvals, choice)
+  if not isatheme then
     if not file_exists(choice) then
-      error("titlepage extension error: titlepage can be a tex file or one of the themes: plain, vline, bg-image, colorbox, academic or formal")
+      error("titlepage extension error: titlepage can be a tex file or one of the themes: " .. pandoc.utils.stringify(table.concat(okvals, ", ")) .. ".")
     else
       m['titlepage-file'] = true
       m['titlepage-filename'] = choice
@@ -366,12 +407,12 @@ function Meta(m)
   end
   if not m['titlepage-file'] then
     if isEmpty(m['titlepage-theme']) then
-      m['titlepage-theme'] = {key1 = 'dummy'}
+      m['titlepage-theme'] = {}
     end
-    titlepage_table[choice](m)
+    titlepage_table[choice](m) -- add the theme defaults
   else
     if not isEmpty(m['titlepage-theme']) then
-      print("\n\ntitlepage extension message: since you passed in a titlepage file, titlepage-theme is ignored.n\n")
+      print("\n\ntitlepage extension message: since you passed in a static titlepage file, titlepage-theme is ignored.n\n")
     end
   end
 
@@ -379,103 +420,60 @@ function Meta(m)
 -- titlepage-theme will exist if using a theme
 if not m['titlepage-file'] then
 --[[
-Error checking the inputs
+Error checking the style codes
 --]]
-  if not isEmpty(m["titlepage-theme"]["title-style"]) then
-    choice = pandoc.utils.stringify(m["titlepage-theme"]["title-style"])
-    if choice ~= "none" and choice ~= "plain" and choice ~= "colorbox" and choice ~= "doubleline" then
-      error("\n\ntitlepage extension error: titlepage-theme.title-style can be none, plain, doubleline, and colorbox\n\n")
-    else
-      m["titlepage-title-style-code"] = {}
-      m["titlepage-title-style-code"][getVal(m["titlepage-theme"]["title-style"])] = true
-    end
-  end
-  if not isEmpty(m["titlepage-theme"]["bg-image-location"]) then
-    choice = pandoc.utils.stringify(m["titlepage-theme"]["bg-image-location"])
-    if choice ~= "ULCorner" and choice ~= "URCorner" and choice ~= "LLCorner" and choice ~= "LRCorner" and choice ~= "TileSquare" and choice ~= "Center" then
-      error("\n\ntitlepage extension error: titlepage-theme.bg-image-location can be ULCorner, URCorner, LLCorner, LRCorner, TileSquare, or Center\n\n")
-    end
-  end
-  if not isEmpty(m["titlepage-theme"]["page-align"]) then
-    choice = pandoc.utils.stringify(m["titlepage-theme"]["page-align"])
-    if choice ~= "right" and choice ~= "left" and choice ~= "center" then
-      error("\n\ntitlepage extension error: titlepage-theme.page-align can be right, left, center\n\n")
-    end
-  end
-  if not isEmpty(m["titlepage-theme"]["title-align"]) then
-    choice = pandoc.utils.stringify(m["titlepage-theme"]["title-align"])
-    if choice ~= "right" and choice ~= "left" and choice ~= "center" and choice ~= "spread" then
-      error("\n\ntitlepage extension error: titlepage-theme.title-align can be right, left, center, spread\n\n")
-    end
-  end
-  if not isEmpty(m["titlepage-theme"]["author-align"]) then
-    choice = pandoc.utils.stringify(m["titlepage-theme"]["author-align"])
-    if choice ~= "right" and choice ~= "left" and choice ~= "center" and choice ~= "spread" then
-      error("\n\ntitlepage extension error: titlepage-theme.author-align can be right, left, center, spread\n\n")
-    end
-  end
+  -- Style codes
+  m["titlepage-style-code"] = {}
+  okvals = {"none", "plain", "colorbox", "doubleline"}
+  set_style("titlepage", "title", okvals)
+  okvals = {"none", "plain", "plain-with-and", "plain-newline", "plain-superscript", "superscript", "superscript-with-and", "two-column"}
+  set_style("titlepage", "author", okvals)
+  okvals = {"none", "numbered-list", "numbered-list-with-correspondence"}
+  set_style("titlepage", "affiliation", okvals)
+  set_style("titlepage", "footer", {"none", "plain"})
 
 --[[
 Set the fontsize defaults
+if page-fontsize was passed in or if fontsize passed in but not spacing
 --]]
-if not isEmpty(m['titlepage-theme']["title-fontsize"]) then
-  if isEmpty(m['titlepage-theme']["title-spacing"]) then
-    m['titlepage-theme']["title-spacing"] = 1.2*getVal(m['titlepage-theme']["title-fontsize"])
+  for key, val in pairs({"title", "author", "affiliation", "footer", "header", "footer"}) do
+    if isEmpty(m["titlepage-theme"][val .. "-fontsize"]) then
+      if not isEmpty(m["titlepage-theme"]["page-fontsize"]) then
+        m["titlepage-theme"][val .. "-fontsize"] = getVal(m["titlepage-theme"]["page-fontsize"])
+      end
+    end
   end
-end
-if not isEmpty(m['titlepage-theme']["subtitle-fontsize"]) then
-  if isEmpty(m['titlepage-theme']["subtitle-spacing"]) then
-    m['titlepage-theme']["subtitle-spacing"] = 1.2*getVal(m['titlepage-theme']["subtitle-fontsize"])
+  if isEmpty(m['titlepage-theme']["subtitle-fontsize"]) then
+    if not isEmpty(m['titlepage-theme']["title-fontsize"]) then
+      m['titlepage-theme']["subtitle-fontsize"] = getVal(m['titlepage-theme']["title-fontsize"])
+    end
   end
-end
-if not isEmpty(m['titlepage-theme']["author-fontsize"]) then
-  if isEmpty(m['titlepage-theme']["author-spacing"]) then
-    m['titlepage-theme']["author-spacing"] = 1.2*getVal(m['titlepage-theme']["author-fontsize"])
+  for key, val in pairs({"page", "title", "subtitle", "author", "affiliation", "footer", "header", "footer"}) do
+    if not isEmpty(m['titlepage-theme'][val .. "-fontsize"]) then
+      if isEmpty(m['titlepage-theme'][val .. "-spacing"]) then
+        m['titlepage-theme'][val .. "-spacing"] = 1.2*getVal(m['titlepage-theme'][val .. "-fontsize"])
+      end
+    end
   end
-end
 
 --[[
 Set vrule defaults
 --]]
-if not isEmpty(m['titlepage-theme']["vrule-width"]) then
-  if isEmpty(m['titlepage-theme']["vrule-color"]) then
-    m['titlepage-theme']["vrule-color"] = "black"
-  end
-  if isEmpty(m['titlepage-theme']["vrule-space"]) then
-    m['titlepage-theme']["vrule-space"] = pandoc.MetaInlines{
+  if not isEmpty(m['titlepage-theme']["vrule-width"]) then
+    if isEmpty(m['titlepage-theme']["vrule-color"]) then
+      m['titlepage-theme']["vrule-color"] = "black"
+    end
+    if isEmpty(m['titlepage-theme']["vrule-space"]) then
+      m['titlepage-theme']["vrule-space"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","0.05\\textheight")}
+    end
+    if isEmpty(m['titlepage-theme']["vrule-align"]) then
+      m['titlepage-theme']["vrule-align"] = "left"
+    end
   end
-  if isEmpty(m['titlepage-theme']["vrule-align"]) then
-    m['titlepage-theme']["vrule-align"] = "left"
-  end
-end
-
---[[
-Set the defaults for the titlepage alignments
---]]    
-  if isEmpty(m['titlepage-theme']["page-align"]) then
-    m['titlepage-theme']["page-align"] = "left"
-  end
-  if isEmpty(m['titlepage-theme']["title-align"]) then 
-      m['titlepage-theme']["title-align"] = getVal(m['titlepage-theme']["page-align"])
-  end
-  if isEmpty(m['titlepage-theme']["author-align"]) then 
-      m['titlepage-theme']["author-align"] = getVal(m['titlepage-theme']["page-align"])
-  end
-  if isEmpty(m['titlepage-theme']["affiliation-align"]) then 
-      m['titlepage-theme']["affiliation-align"] = getVal(m['titlepage-theme']["page-align"])
-  end
-  if isEmpty(m['titlepage-theme']["header-align"]) then 
-      m['titlepage-theme']["header-align"] = getVal(m['titlepage-theme']["page-align"])
-  end
-  if isEmpty(m['titlepage-theme']["footer-align"]) then 
-      m['titlepage-theme']["footer-align"] = getVal(m['titlepage-theme']["page-align"])
-  end
-  if isEmpty(m['titlepage-theme']["logo-align"]) then 
-      m['titlepage-theme']["logo-align"] = getVal(m['titlepage-theme']["page-align"])
-  end
-  if isEmpty(m['titlepage-theme']["vline-align"]) then 
-      m['titlepage-theme']["vline-align"] = "left"
+  if not isEmpty(m["titlepage-theme"]["vrule-align"]) then
+    okvals = {"left", "right", "leftright"}
+    check_yaml (m["titlepage-theme"]["vrule-align"], "titlepage-theme: vrule-align", okvals)
   end
 
 --[[
@@ -505,6 +503,46 @@ Don't set a font unless the user did
   if isEmpty(m['titlepage-theme']["footer-fontfamily"]) then 
     if not isEmpty(m['titlepage-theme']["page-fontfamily"]) then
       m['titlepage-theme']["footer-fontfamily"] = getVal(m['titlepage-theme']["page-fontfamily"])
+    end
+  end
+
+--[[
+Set the defaults for the titlepage alignments
+default titlepage alignment is left
+--]]    
+  if isEmpty(m['titlepage-theme']["page-align"]) then
+    m['titlepage-theme']["page-align"] = "left"
+  end
+  for key, val in pairs({"page", "title", "author", "affiliation", "footer", "header", "footer", "logo"}) do
+    if not isEmpty(m["titlepage-theme"][val .. "-align"]) then
+      okvals = {"right", "left", "center"}
+      if has_value({"title", "author", "footer", "header"}, val) then table.insert(okvals, "spread") end
+      ok = check_yaml (m["titlepage-theme"][val .. "-align"], "titlepage-theme: " .. val .. "-align", okvals)
+      if not ok then error("") end
+    end
+  end
+  
+--[[
+Set bg-image defaults
+--]]
+  if not isEmpty(m['titlepage-bg-image']) then
+    if isEmpty(m['titlepage-theme']["bg-image-size"]) then
+      m['titlepage-theme']["bg-image-size"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","\\paperwidth")}
+    end
+    if not isEmpty(m["titlepage-theme"]["bg-image-location"]) then
+      okvals = {"URCorner", "LLCorner", "LRCorner", "TileSquare", "Center"}
+      check_yaml (m["titlepage-theme"]["bg-image-location"], "titlepage-theme: bg-image-location", okvals)
+    end  
+  end
+
+--[[
+Set logo defaults
+--]]
+  if not isEmpty(m['titlepage-logo']) then
+    if isEmpty(m['titlepage-theme']["logo-size"]) then
+      m['titlepage-theme']["logo-size"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.2\\paperwidth")}
     end
   end
   

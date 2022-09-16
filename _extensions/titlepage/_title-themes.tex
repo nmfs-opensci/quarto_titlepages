@@ -66,17 +66,17 @@ $if(titlepage-theme.subtitle-fontsize)$\fontsize{$titlepage-theme.subtitle-fonts
 $endif$
 }
 
-$if(titlepage-title-style-code.none)$
+$if(titlepage-style-code.title.none)$
 \newcommand{\titlepagetitleblock}{}
 $endif$
 
-$if(titlepage-title-style-code.plain)$
+$if(titlepage-style-code.title.plain)$
 \newcommand{\titlepagetitleblock}{
 \titleandsubtitle
 }
 $endif$
 
-$if(titlepage-title-style-code.colorbox)$
+$if(titlepage-style-code.title.colorbox)$
 \newcommand{\titlepagetitleblock}{
 {\setlength{\fboxrule}{$if(titlepage-theme.title-colorbox-borderwidth)$$titlepage-theme.title-colorbox-borderwidth$$else$0pt$endif$}
 \fcolorbox{$if(titlepage-theme.title-colorbox-bordercolor)$$titlepage-theme.title-colorbox-bordercolor$$else$black$endif$}{$if(titlepage-theme.title-colorbox-fill)$$titlepage-theme.title-colorbox-fill$$else$cyan$endif$}{
@@ -94,7 +94,7 @@ $if(titlepage-title-style-code.colorbox)$
 }
 $endif$
 
-$if(titlepage-title-style-code.doubleline)$
+$if(titlepage-style-code.title.doubleline)$
 \newcommand{\titlepagetitleblock}{
 \rule{\textwidth}{0.4pt} % Thin horizontal rule
 
@@ -107,7 +107,6 @@ $if(titlepage-title-style-code.doubleline)$
 \rule{0.3\textwidth}{0.4pt} % Short horizontal rule under the title
 }
 $endif$
-
 
 \ifthenelse{\equal{$coverpage-title-theme$}{none}}
 {% True case

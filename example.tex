@@ -147,14 +147,11 @@
 \makeatletter
 \makeatother
 
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
-\usepackage{babel}
-\babelprovide[import,main]{czech}
 \usepackage{hyphenat}
 \usepackage{ifthen}
 \usepackage{calc}
 \usepackage{calculator}
+
 
 
 \usepackage{graphicx}
@@ -164,8 +161,6 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{fadings}
 \usepackage[pagecolor=none]{pagecolor}
-
-
 
 
 \usepackage{fontspec}
@@ -182,6 +177,7 @@
 \newcommand{\titlepageauthorfont}{\titlepagefont}
 
 \newcommand{\titlepageaffiliationfont}{\titlepagefont}
+
 \newcommand{\titlepagefooterfont}{\titlepagefont}
 
 \newcommand{\titlepageheaderfont}{\titlepagefont}
@@ -192,19 +188,20 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={The title},
+  pdftitle={A Sample Title - The SocioEconomic Aspects of Stock Assessments},
   pdfauthor={Jane Doe; Eva Nováková; Matti Meikäläinen; Ashok Kumar},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{The title}
+\title{A Sample Title - The SocioEconomic Aspects of Stock Assessments}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
-\subtitle{See the documentation for available formats.}
+\subtitle{with non-English diacritics in the author names. see
+documentation.}
 \author{Jane Doe \and Eva Nováková \and Matti Meikäläinen \and Ashok
 Kumar}
 \date{}
@@ -255,7 +252,7 @@ width=1.0%
 \fontsize{100}{120.0} \coverpagetitlefont
 \node[anchor=north west, align=left, rotate=45] (Title1) at %
 ($(current page.south west)+(\titlelocationleft,\titlelocationbottom)$)  [text width = 0.7000000000000001\paperwidth]  {
-{The title}};
+{A Sample Title - The SocioEconomic Aspects of Stock Assessments}};
 }
 \end{scope}
 % Simple author
@@ -288,17 +285,17 @@ width=1.0%
 
 %Page
 \newcommand{\titlepagepagealign}{
-\ifthenelse{\equal{center}{right}}{\raggedleft}{}
-\ifthenelse{\equal{center}{center}}{\centering}{}
-\ifthenelse{\equal{center}{left}}{\raggedright}{}
+\ifthenelse{\equal{left}{right}}{\raggedleft}{}
+\ifthenelse{\equal{left}{center}}{\centering}{}
+\ifthenelse{\equal{left}{left}}{\raggedright}{}
 }
 
 %% Titles
 \newcommand{\titlepagetitlealign}{
-\ifthenelse{\equal{center}{right}}{\raggedleft}{}
-\ifthenelse{\equal{center}{center}}{\centering}{}
-\ifthenelse{\equal{center}{left}}{\raggedright}{}
-\ifthenelse{\equal{center}{spread}}{\makebox[\linewidth][s]}{}
+\ifthenelse{\equal{}{right}}{\raggedleft}{}
+\ifthenelse{\equal{}{center}}{\centering}{}
+\ifthenelse{\equal{}{left}}{\raggedright}{}
+\ifthenelse{\equal{}{spread}}{\makebox[\linewidth][s]}{}
 }
 
 
@@ -312,34 +309,34 @@ width=1.0%
 
 %Affiliation
 \newcommand{\titlepageaffiliationalign}{
-\ifthenelse{\equal{center}{right}}{\raggedleft}{}
-\ifthenelse{\equal{center}{center}}{\centering}{}
-\ifthenelse{\equal{center}{left}}{\raggedright}{}
-\ifthenelse{\equal{center}{spread}}{\makebox[\linewidth][s]}{}
+\ifthenelse{\equal{}{right}}{\raggedleft}{}
+\ifthenelse{\equal{}{center}}{\centering}{}
+\ifthenelse{\equal{}{left}}{\raggedright}{}
+\ifthenelse{\equal{}{spread}}{\makebox[\linewidth][s]}{}
 }
 
 
 %Footer
 \newcommand{\titlepagefooteralign}{
-\ifthenelse{\equal{center}{right}}{\raggedleft}{}
-\ifthenelse{\equal{center}{center}}{\centering}{}
-\ifthenelse{\equal{center}{left}}{\raggedright}{}
-\ifthenelse{\equal{center}{spread}}{\makebox[\linewidth][s]}{}
+\ifthenelse{\equal{}{right}}{\raggedleft}{}
+\ifthenelse{\equal{}{center}}{\centering}{}
+\ifthenelse{\equal{}{left}}{\raggedright}{}
+\ifthenelse{\equal{}{spread}}{\makebox[\linewidth][s]}{}
 }
 
 %Header
 \newcommand{\titlepageheaderalign}{
-\ifthenelse{\equal{center}{right}}{\raggedleft}{}
-\ifthenelse{\equal{center}{center}}{\centering}{}
-\ifthenelse{\equal{center}{left}}{\raggedright}{}
-\ifthenelse{\equal{center}{spread}}{\makebox[\linewidth][s]}{}
+\ifthenelse{\equal{}{right}}{\raggedleft}{}
+\ifthenelse{\equal{}{center}}{\centering}{}
+\ifthenelse{\equal{}{left}}{\raggedright}{}
+\ifthenelse{\equal{}{spread}}{\makebox[\linewidth][s]}{}
 }
 
 %Logo
 \newcommand{\titlepagelogoalign}{
-\ifthenelse{\equal{center}{right}}{\raggedleft}{}
-\ifthenelse{\equal{center}{center}}{\centering}{}
-\ifthenelse{\equal{center}{left}}{\raggedright}{}
+\ifthenelse{\equal{}{right}}{\raggedleft}{}
+\ifthenelse{\equal{}{center}}{\centering}{}
+\ifthenelse{\equal{}{left}}{\raggedright}{}
 }
 % This file defines the author block and affiliation block
 % based on the author and affiliation theme
@@ -350,9 +347,11 @@ width=1.0%
 \newcommand{\plaintitleblock}{
 % Title and subtitle
 
-{Hugetextbf\nohyphens{The title}}\\[1\baselineskip]
+{largebfseries\nohyphens{A Sample Title - The SocioEconomic Aspects of
+Stock Assessments}}\\[1\baselineskip]
 
-{LARGE{See the documentation for available formats.}}\\}
+{largetextit{with non-English diacritics in the author names. see
+documentation.}}\\}
 
 \newcommand{\colorboxtitleblock}{
 \setlength{\fboxrule}{4pt}
@@ -363,9 +362,11 @@ width=1.0%
 			
 			\vspace{0.7cm} % Space between the start of the title and the top of the grey box
 			
-			{Hugetextbf\nohyphens{The title}}\\
+			{largebfseries\nohyphens{A Sample Title - The SocioEconomic Aspects of
+Stock Assessments}}\\
 			
-			{LARGE\nohyphens{See the documentation for available formats.}}\\
+			{largetextit\nohyphens{with non-English diacritics in the author names.
+see documentation.}}\\
 			
 			\vspace{0.7cm} % Space between the end of the title and the bottom of the grey box
 		}
@@ -379,8 +380,10 @@ width=1.0%
 \vspace{0.1\textheight} % Whitespace between the top rules and title
 
 % Title and subtitle
-{Hugetextbf\nohyphens{The title}}\\[1\baselineskip]
-{{See the documentation for available formats.}}\\
+{largebfseries\nohyphens{A Sample Title - The SocioEconomic Aspects of
+Stock Assessments}}\\[1\baselineskip]
+{{with non-English diacritics in the author names. see
+documentation.}}\\
 
 \vspace{0.025\textheight} 
 
@@ -391,13 +394,15 @@ width=1.0%
 % Title and subtitle
 {%
 
-{\Huge \textbf \nohyphens{The title}}%
+{\large \bfseries \nohyphens{A Sample Title - The SocioEconomic Aspects
+of Stock Assessments}}%
 }%
 
 \vspace{\betweentitlesubtitle}
 {%
 
-{\LARGE \nohyphens{See the documentation for available formats.}}%
+{\large \textit \nohyphens{with non-English diacritics in the author
+names. see documentation.}}%
 }%
 }
 
@@ -405,7 +410,6 @@ width=1.0%
 \newcommand{\titlepagetitleblock}{
 \titleandsubtitle
 }
-
 
 
 
@@ -428,7 +432,7 @@ width=1.0%
 
 \newcommand{\authorstyle}{%
 
-\textbf %
+\large %
 }
 \newcommand{\affiliationstyle}{%
 
@@ -518,7 +522,9 @@ width=1.0%
 %
 {Ashok Kumar}%
 %
-{\textsuperscript{1}}%
+{\textsuperscript{2}}{\textsuperscript{,}}%
+%
+{\textsuperscript{5}}%
 %
 %
 }
@@ -552,7 +558,9 @@ width=1.0%
 %
 {Ashok Kumar}%
 %
-{\textsuperscript{1}}%
+{\textsuperscript{2}}{\textsuperscript{,}}%
+%
+{\textsuperscript{5}}%
 %
 %
 }
@@ -587,7 +595,9 @@ width=1.0%
 %
 { and Ashok Kumar}%
 %
-{\textsuperscript{1}}%
+{\textsuperscript{2}}\textsuperscript{,}%
+%
+{\textsuperscript{5}}%
 %
 %
 
@@ -634,6 +644,11 @@ width=1.0%
 %
 %
 %
+;~%
+%
+%
+%
+%
 %
 
 %
@@ -664,16 +679,16 @@ width=1.0%
 \begin{flushright}
 {\affiliationstyle
 %
-{Author affiliation}%
+{Minnesota Department of Natural Resources}%
 
 %
-{Author 2 affiliation}%
+{Czech University of Life Sciences}%
 
 %
-{Author 3 affiliation}%
+{University of Kemijärvi}%
 
 %
-{Author affiliation}%
+{University of Minnesota}%
 
 }
 \end{flushright}
@@ -685,38 +700,46 @@ width=1.0%
 \hangafter=1
 {\affiliationstyle
 %
-{1}.~{Author affiliation}%
+{1}.~{Minnesota Department of Natural Resources}%
 %
 %
 , %
-{Affiliation address}%
+{500 Lafayette Road Saint Paul, MN 55155}%
 %
 \par\hangindent=1em\hangafter=1%
 %
-{2}.~{Author 1 second affiliation}%
+{2}.~{University of Minnesota}%
 %
 , %
-{Department}%
+{Department of Mathematics}%
 %
 %
 \par\hangindent=1em\hangafter=1%
 %
-{3}.~{Author 2 affiliation}%
+{3}.~{Czech University of Life Sciences}%
 %
 %
 , %
-{Author 2 affiliation address}%
+{Družstevní 666, Vikýřovice, Czechia}%
 %
 \par\hangindent=1em\hangafter=1%
 %
-{4}.~{Author 3 affiliation}%
+{4}.~{University of Kemijärvi}%
 %
 , %
-{Author 3 department}%
+{Department of Biological and Environmental Science}%
 %
 %
 , %
-{Author 3 address}%
+{Kylmäniementie 79, 98120, KEMIJÄRVI, Finland}%
+%
+\par\hangindent=1em\hangafter=1%
+%
+{5}.~{HØnefoss Institute}%
+%
+%
+, %
+{R Tradição 35, Portugal 2950-726}%
 %
 
 }
@@ -727,38 +750,46 @@ width=1.0%
 \hangafter=1
 {\affiliationstyle
 %
-{1}.~{Author affiliation}%
+{1}.~{Minnesota Department of Natural Resources}%
 %
 %
 , %
-{Affiliation address}%
+{500 Lafayette Road Saint Paul, MN 55155}%
 %
 \par\hangindent=1em\hangafter=1%
 %
-{2}.~{Author 1 second affiliation}%
+{2}.~{University of Minnesota}%
 %
 , %
-{Department}%
+{Department of Mathematics}%
 %
 %
 \par\hangindent=1em\hangafter=1%
 %
-{3}.~{Author 2 affiliation}%
+{3}.~{Czech University of Life Sciences}%
 %
 %
 , %
-{Author 2 affiliation address}%
+{Družstevní 666, Vikýřovice, Czechia}%
 %
 \par\hangindent=1em\hangafter=1%
 %
-{4}.~{Author 3 affiliation}%
+{4}.~{University of Kemijärvi}%
 %
 , %
-{Author 3 department}%
+{Department of Biological and Environmental Science}%
 %
 %
 , %
-{Author 3 address}%
+{Kylmäniementie 79, 98120, KEMIJÄRVI, Finland}%
+%
+\par\hangindent=1em\hangafter=1%
+%
+{5}.~{HØnefoss Institute}%
+%
+%
+, %
+{R Tradição 35, Portugal 2950-726}%
 %
 
 
@@ -768,7 +799,7 @@ width=1.0%
 }
 
 
-\ifthenelse{\equal{plain-newline}{none}}
+\ifthenelse{\equal{superscript-with-and}{none}}
 {% True case
 \newcommand{\titlepageauthorblock}{\emptyauthorblock}
 }{}
@@ -776,7 +807,7 @@ width=1.0%
 {% True case
 \newcommand{\coverpageauthorblock}{\emptyauthorblock}
 }{}
-\ifthenelse{\equal{plain-newline}{plain}}
+\ifthenelse{\equal{superscript-with-and}{plain}}
 {% True case
 \newcommand{\titlepageauthorblock}{\plainauthorblock}
 }{}
@@ -784,7 +815,7 @@ width=1.0%
 {% True case
 \newcommand{\coverpageauthorblock}{\plainauthorblock}
 }{}
-\ifthenelse{\equal{plain-newline}{plain-newline}}
+\ifthenelse{\equal{superscript-with-and}{plain-newline}}
 {% True case
 \newcommand{\titlepageauthorblock}{\plainauthornewlineblock}
 }{}
@@ -792,7 +823,7 @@ width=1.0%
 {% True case
 \newcommand{\coverpageauthorblock}{\plainauthornewlineblock}
 }{}
-\ifthenelse{\equal{plain-newline}{plain-with-and}}
+\ifthenelse{\equal{superscript-with-and}{plain-with-and}}
 {% True case
 \newcommand{\titlepageauthorblock}{\plainwithandauthorblock}
 }{}
@@ -800,19 +831,19 @@ width=1.0%
 {% True case
 \newcommand{\coverpageauthorblock}{\plainwithandauthorblock}
 }{}
-\ifthenelse{\equal{plain-newline}{plain-superscript}}
+\ifthenelse{\equal{superscript-with-and}{plain-superscript}}
 {% True case
 \newcommand{\titlepageauthorblock}{\plainsuperscriptauthorblock}
 }{}
-\ifthenelse{\equal{plain-newline}{superscript}}
+\ifthenelse{\equal{superscript-with-and}{superscript}}
 {% True case
 \newcommand{\titlepageauthorblock}{\superscriptauthorblock}
 }{}
-\ifthenelse{\equal{plain-newline}{superscript-with-and}}
+\ifthenelse{\equal{superscript-with-and}{superscript-with-and}}
 {% True case
 \newcommand{\titlepageauthorblock}{\superscriptwithandauthorblock}
 }{}
-\ifthenelse{\equal{plain-newline}{two-column}}
+\ifthenelse{\equal{superscript-with-and}{two-column}}
 {% True case
 \newcommand{\titlepageauthorblock}{\twocolumnauthorblock}
 }{}
@@ -821,15 +852,15 @@ width=1.0%
 \newcommand{\coverpageauthorblock}{\twocolumnauthorblock}
 }{}
 
-\ifthenelse{\equal{}{none}}
+\ifthenelse{\equal{numbered-list-with-correspondence}{none}}
 {% True case
 \newcommand{\titlepageaffiliationblock}{\emptyauthorblock}
 }{}
-\ifthenelse{\equal{}{numbered-list}}
+\ifthenelse{\equal{numbered-list-with-correspondence}{numbered-list}}
 {% True case
 \newcommand{\titlepageaffiliationblock}{\numberedlistaffiliationblock}
 }{}
-\ifthenelse{\equal{}{numbered-list-with-correspondence}}
+\ifthenelse{\equal{numbered-list-with-correspondence}{numbered-list-with-correspondence}}
 {% True case
 \newcommand{\titlepageaffiliationblock}{\numberedlistwithcorraffiliationblock}
 }{}
@@ -838,13 +869,13 @@ width=1.0%
 %set up blocks so user can specify order
 \newcommand{\titleblock}{
 \newlength{\betweentitlesubtitle}
-\setlength{\betweentitlesubtitle}{0.5cm}
+\setlength{\betweentitlesubtitle}{1\baselineskip}
 {\titlepagetitlealign
 \titlepagetitlefont
 {\titlepagetitleblock}
 }
 \newlength{\aftertitle}
-\setlength{\aftertitle}{1.5cm}
+\setlength{\aftertitle}{4\baselineskip}
 
 \vspace{\aftertitle}
 }
@@ -856,7 +887,7 @@ width=1.0%
 {\titlepageauthorblock}
 }
 \newlength{\afterauthor}
-\setlength{\afterauthor}{0pt}
+\setlength{\afterauthor}{2\baselineskip}
 
 \vspace{\afterauthor}
 }
@@ -875,10 +906,10 @@ width=1.0%
 
 \newcommand{\logoblock}{
 {\titlepagelogoalign
-\includegraphics[width=0.4\textwidth]{img/logo.png}
+\includegraphics[width=0.25\textheight]{img/logo.png}
 }
 \newlength{\afterlogo}
-\setlength{\afterlogo}{1cm}
+\setlength{\afterlogo}{0.1\textheight}
 
 \vspace{\afterlogo}
 }
@@ -916,22 +947,38 @@ December 2025}\\
 
 \thispagestyle{empty} % no page numbers on titlepages
 
+\newlength{\A}
+\setlength{\A}{1pt}
+\newlength{\B}
+\setlength{\B}{\ifdim\A > 0pt 0.05\textheight\else 0pt\fi}
 \newlength{\minipagewidth}
-\setlength{\minipagewidth}{\textwidth}
-\raggedright
+\ifthenelse{\equal{left}{left} \OR \equal{left}{right} }
+{% True case
+\setlength{\minipagewidth}{\textwidth - \A - \B - 0.1\textwidth}
+}{
+\setlength{\minipagewidth}{\textwidth - 2\A - 2\B - 0.1\textwidth}
+}
+\ifthenelse{\equal{left}{left} \OR \equal{left}{leftright}}
+{% True case
+\raggedleft % needed for the minipage to work
+\rule{\A}{\textheight} % Vertical line
+\hspace{\B} % Whitespace between the vertical line and title page text
+}{%
+% else it is right only and width is not 0
+\raggedright}
 % [position of box][box height][inner position]{width}
 % [s] means stretch out vertically; assuming there is a vfill
 \begin{minipage}[b][\textheight][s]{\minipagewidth}
 \titlepagepagealign
 \titleblock
 \authorblock
+\affiliationblock
 \vfill
-A report presented at the annual\\meeting on 10 August 2025\\ \vspace{0.8cm}
 \logoblock
 \footerblock
 \end{minipage}
 
-\ifthenelse{\equal{}{right} \OR \equal{}{leftright} }%
+\ifthenelse{\equal{left}{right} \OR \equal{left}{leftright} }%
 {% True case
 \hspace{\B}
 \rule{\A}{\textheight}
@@ -939,7 +986,7 @@ A report presented at the annual\\meeting on 10 August 2025\\ \vspace{0.8cm}
 \end{titlepage}
 \setcounter{page}{1}
 \end{frontmatter}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, breakable, frame hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, boxrule=0pt, interior hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, breakable, enhanced, interior hidden, borderline west={3pt}{0pt}{shadecolor}, sharp corners]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
