@@ -36,6 +36,7 @@ format:
     classoption: ["oneside", "open=any"]
     include-in-header: |
       text:
+        % delete. this is for the example w CZ diacritics
         \usepackage{babel}
         \babelprovide[import]{czech}
 
