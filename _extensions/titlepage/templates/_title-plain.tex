@@ -1,0 +1,11 @@
+% title plain
+
+% Title and subtitle
+$if(title)$
+$if(titlepage-theme.title-fontsize)$\fontsize{$titlepage-theme.title-fontsize$}{$titlepage-theme.title-spacing$}\selectfont$endif$
+$if(titlepage-theme.title-color)$\textcolor{$titlepage-theme.title-color$}$endif${$titlepage-theme.title-fontstyle$\nohyphens{$title$}}\\[1\baselineskip]
+$endif$
+$if(subtitle)$
+$if(titlepage-theme.subtitle-fontsize)$\fontsize{$titlepage-theme.subtitle-fontsize$}{$titlepage-theme.subtitle-spacing$}\selectfont$endif$
+{$titlepage-theme.subtitle-fontstyle${$subtitle$}}\\$endif$
+}

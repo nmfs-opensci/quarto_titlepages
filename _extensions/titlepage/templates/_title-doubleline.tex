@@ -1,0 +1,13 @@
+% title doubleline
+
+\rule{\textwidth}{0.4pt} % Thin horizontal rule
+
+\vspace{0.1\textheight} % Whitespace between the top rules and title
+
+% Title and subtitle
+$if(title)$$if(titlepage-theme.title-color)$\textcolor{$titlepage-theme.title-color$}$endif${$titlepage-theme.title-fontstyle$\nohyphens{$title$}}\\[1\baselineskip]$endif$
+$if(subtitle)${$subtitlepage-theme.title-fontstyle${$subtitle$}}\\$endif$
+
+\vspace{0.025\textheight} 
+
+\rule{0.3\textwidth}{0.4pt}

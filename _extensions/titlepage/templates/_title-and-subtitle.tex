@@ -1,0 +1,18 @@
+% Title and subtitle
+$if(subtitle)$
+\newlength{\betweentitlesubtitle}
+\setlength{\betweentitlesubtitle}{$if(titlepage-theme.title-subtitle-space-between)$$titlepage-theme.title-subtitle-space-between$$else$1\baselineskip$endif$}
+$endif$
+$if(title)$
+{%
+$if(titlepage-theme.title-fontsize)$\fontsize{$titlepage-theme.title-fontsize$}{$titlepage-theme.title-spacing$}\selectfont$endif$
+$if(titlepage-theme.title-color)$\textcolor{$titlepage-theme.title-color$}$endif${$for(titlepage-theme.title-fontstyle)$\$titlepage-theme.title-fontstyle$ $endfor$\nohyphens{$title$}}%
+}%
+$endif$
+$if(subtitle)$
+\vspace{\betweentitlesubtitle}
+{%
+$if(titlepage-theme.subtitle-fontsize)$\fontsize{$titlepage-theme.subtitle-fontsize$}{$titlepage-theme.subtitle-spacing$}\selectfont$endif$
+{$for(titlepage-theme.subtitle-fontstyle)$\$titlepage-theme.subtitle-fontstyle$ $endfor$\nohyphens{$subtitle$}}%
+}%
+$endif$

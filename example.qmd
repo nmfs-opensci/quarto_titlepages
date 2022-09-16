@@ -1,27 +1,29 @@
 ---
-title: The title
-subtitle: See the documentation for available formats.
+title: A Sample Title - The SocioEconomic Aspects of Stock Assessments
+subtitle: with non-English diacritics in the author names. see documentation.
 author:
   - name: Jane Doe
     affiliations:
-      - name: Author affiliation
-        address: Affiliation address
-      - name: Author 1 second affiliation
-        department: Department
+      - name: Minnesota Department of Natural Resources
+        address: 500 Lafayette Road Saint Paul, MN 55155
+      - name: University of Minnesota
+        department: Department of Mathematics
   - name: Eva Nováková
     affiliations:
-      - name: Author 2 affiliation
-        address: Author 2 affiliation address
+      - name: Czech University of Life Sciences
+        address: Družstevní 666, Vikýřovice, Czechia
   - name: Matti Meikäläinen
     email: matti@jy.fi
     affiliations:
-      - name: Author 3 affiliation
-        department: Author 3 department
-        address: Author 3 address
+      - name: University of Kemijärvi
+        department: Department of Biological and Environmental Science
+        address: Kylmäniementie 79, 98120, KEMIJÄRVI, Finland
   - name: Ashok Kumar
     affiliations:
-      - name: Author affiliation
-        address: Affiliation address
+      - name: University of Minnesota
+        department: Department of Mathematics
+      - name: HØnefoss Institute
+        address: R Tradição 35, Portugal 2950-726
 bibliography: references.bib
 format: 
   titlepage-pdf:
@@ -51,7 +53,11 @@ format:
     coverpage-author-align: right
     coverpage-author-fontfamily: "Palatino"
     keep-tex: true
-
+    include-in-header: |
+      text:
+        % delete. this is for the example w CZ diacritics
+        \usepackage{babel}
+        \babelprovide[import]{czech}
 ---
 
 # Usage notes

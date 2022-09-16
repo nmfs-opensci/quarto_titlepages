@@ -11,10 +11,6 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
-\usepackage{babel}
-\babelprovide[import,main]{czech}
 \usepackage{hyphenat}
 \usepackage{ifthen}
 \usepackage{calc}
@@ -22,7 +18,10 @@ $endfor$
 
 $if(titlepage-bg-image)$
 \usepackage{graphicx}
-\usepackage{wallpaper} % for the background image on title page
+\usepackage{wallpaper}
+$endif$
+
+$if(titlepage-geometry)$
 \usepackage{geometry}
 $endif$
 
@@ -36,18 +35,8 @@ $if(coverpage)$
 \usepackage[pagecolor=none]{pagecolor}
 $endif$
 
-$if(titlepage-vline)$
-\usepackage{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-$endif$
-
-$if(titlepage-color)$
+$if(titlepage-theme.page-color)$
 \usepackage[pagecolor=none]{pagecolor}
-$endif$
-
-$if(titlepage-image)$
-\usepackage{wallpaper} % for the background image on title page
 $endif$
 
 $if(coverpage-title-fontfamily)$
@@ -97,6 +86,7 @@ $else$
 \newcommand{\titlepageaffiliationfont}{}
 $endif$
 $endif$
+
 $if(titlepage-theme.footer-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepagefooterfont}{$titlepage-theme.footer-fontfamily$}

@@ -1,0 +1,18 @@
+% title colorbox
+
+\setlength{\fboxrule}{4pt}
+\fcolorbox{black}{$if(titlepage-theme.title-colorbox-color)$$titlepage-theme.title-colorbox-color$$else$cyan$endif$}{
+	\parbox[t]{0.93\minipagewidth}{ % Outer full width box
+		\parbox[t]{0.91\minipagewidth}{ % Inner box for inner right text margin
+			\raggedright % Right align the text
+			$if(titlepage-theme.title-fontsize)$\fontsize{$titlepage-theme.title-fontsize$}{$titlepage-theme.title-spacing$}\selectfont$endif$
+			\vspace{0.7cm} % Space between the start of the title and the top of the grey box
+			
+			$if(titlepage-theme.title-color)$\textcolor{$titlepage-theme.title-color$}$endif${$titlepage-theme.title-fontstyle$\nohyphens{$title$}}\\
+			$if(titlepage-theme.subtitle-fontsize)$\fontsize{$titlepage-theme.subtitle-fontsize$}{$titlepage-theme.subtitle-spacing$}\selectfont$endif$
+			$if(titlepage-theme.subtitle-color)$\textcolor{$titlepage-theme.subtitle-color$}$endif${$titlepage-theme.subtitle-fontstyle$\nohyphens{$subtitle$}}\\
+			
+			\vspace{0.7cm} % Space between the end of the title and the bottom of the grey box
+		}
+	}
+}
