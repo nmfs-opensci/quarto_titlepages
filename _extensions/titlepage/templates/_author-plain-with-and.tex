@@ -1,0 +1,16 @@
+% Authors	with no affiliation
+% This hairy bit of code is to get "and" between the last 2
+% authors such that it works if there is 1, 2 or 2+ authors.
+$if(by-author/allbutlast)$%
+$for(by-author/allbutlast)$%
+{\large{$by-author.name.literal$}}%
+$sep$, %
+$endfor$%
+$for(by-author/last)$%
+{ and \large{$by-author.name.literal$}}%
+$endfor$%
+$else$%
+$for(by-author/last)$%
+{\large{$by-author.name.literal$}}%
+$endfor$%
+$endif$

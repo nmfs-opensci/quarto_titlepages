@@ -31,23 +31,71 @@ format:
     toc: true
     lof: true
     lot: true
-    titlepage: academic
+    titlepage: "thesis"
     titlepage-logo: "img/logo.png"
-    titlepage-publisher: "The Publisher"
-    titlepage-color: "F6D5A8"
-    titlepage-image: "img/ringed-seal.png"
-    titlepage-image-size: 0.5
-    titlepage-image-location: "LLCorner"
+    titlepage-header: "The Publisher"
+    titlepage-footer: |
+      University Technical Series\
+      Open Source Publication for All\
+      Amtmandens Allé 15\
+      6950 Rindum Ringkøbing-Skjern\
+      DENMARK\
+      December 2025
+    titlepage-theme:
+      fontfamily: "QTDublinIrish.otf"
+      author-align: center
     coverpage: titleauthor
     coverpage-image: otter
     coverpage-title-rotate: 45
     coverpage-title-fontfamily: "QTHelvet-BoldOutline.otf"
     coverpage-author-align: right
     coverpage-author-fontfamily: "Palatino"
+    keep-tex: true
 
 ---
 
 # Usage notes
+
+```
+    titlepage-theme: 
+      elements: ["\\titleblock", "\\authorblock", "\\affiliationblock", "\\logoblock", "\\vfill", "\\footerblock"]
+      page-html-color: "c4c4c4"
+      page-text-align: left
+      page-fontfamily: "Palatino"
+      title-style: "plain"
+      title-fontfamily: "Palatino"
+      title-fontstyle: "\\Huge\\bfseries"
+      title-align: left
+      title-space-after: 1in
+      subtitle-fontstyle: "\\large"
+      author-style: "superscript"
+      author-fontfamily: "Palatino"
+      author-fontstyle: "\\large"
+      author-align: left
+      author-space-after: 1in
+      affiliation-style: "numberedlist"
+      affiliation-fontfamily: "Palatino"
+      affiliation-fontstyle: "\\large"
+      affiliation-align: left
+      affiliation-space-after: 1in
+      footer-style: "plain"
+      footer-fontfamily: "Palatino"
+      footer-fontstyle: "\\large"
+      footer-align: left
+      footer-space-after: 1in
+      header-style: "plain"
+      header-fontfamily: "Palatino"
+      header-fontstyle: "\\large"
+      header-align: left
+      header-space-after: 1in
+      logo-size: 0.25
+      logo-space-after: 1in
+      bg-image-size: 0.25
+      bg-image-location: "URCorner"
+      vrule-width: 20pt
+      vrule-color: "blue"
+      vrule-space-after: 10pt
+```
 
 ## YAML additions for themes
 

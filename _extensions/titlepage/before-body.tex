@@ -10,32 +10,13 @@ $endif$
 
 $-- % Titlepage
 $if(titlepage)$
-$if(titlepage-geometry)$
-\newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
+% Use the file
+$if(titlepage-file)$
+\input{$titlepage-filename$}
+$else$
+$_titlepage.tex()$
 $endif$
-
-$if(titlepage-color)$
-\definecolor{pgcolor}{HTML}{$titlepage-color$}
-\pagecolor{pgcolor}\afterpage{\nopagecolor}
 $endif$
-
-% background image
-$if(titlepage-image)$
-\This$if(titlepage-image-location)$$titlepage-image-location$$else$ULCorner$endif$WallPaper{$if(titlepage-image-size)$$titlepage-image-size$$else$0.5$endif$}{$titlepage-image$}
-$endif$
-
-$if(titlepage-academic)$$_academic_titlepage.tex()$$endif$
-$if(titlepage-bg-image)$$_bg-image_titlepage.tex()$$endif$
-$if(titlepage-classic-lined)$$_classic-lined_titlepage.tex()$$endif$
-$if(titlepage-multi-purpose)$$_multi-purpose_titlepage.tex()$$endif$
-$if(titlepage-thesis-static)$$_thesis_titlepage.tex()$$endif$
-$if(titlepage-vline)$$_vline_titlepage.tex()$$endif$
-
-$if(titlepage-geometry)$
-\restoregeometry
-$endif$
-$endif$ %titlepage
-
 \end{titlepage}
 \setcounter{page}{1}
 $if(has-frontmatter)$

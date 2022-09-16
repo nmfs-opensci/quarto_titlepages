@@ -1,0 +1,17 @@
+% Authors	with affiliation
+% Each author on a new line
+$if(author)$
+$for(by-author)$%
+{$by-author.name.literal$}%
+$if(by-author.affiliations)$
+$for(by-author.affiliations)$%
+$if(by-affiliations.name)$$by-author.affiliations.name$,~$endif$%
+$if(by-affiliations.department)$$by-author.affiliations.department$,~$endif$%
+$if(by-affiliations.address)$$by-author.affiliations.address$$endif$%
+$endif$%
+$sep$;~}%
+$endfor$%
+$if(by-author.email)$~$by-author.email$$endif$
+$sep$\\%
+$endfor$%
+$endif$

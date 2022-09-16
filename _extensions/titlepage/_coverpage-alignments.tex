@@ -1,0 +1,92 @@
+%Specify the alignments
+
+%% Titles
+\ifthenelse{\equal{$titlepage-align.title$}{right}}
+{% True case
+\newcommand{\titlepagetitlealign}{\raggedleft}
+}{}
+\ifthenelse{\equal{$titlepage-align.title$}{center}}
+{% True case
+\newcommand{\titlepagetitlealign}{\centering}
+}{}
+\ifthenelse{\equal{$titlepage-align.title$}{left}}
+{% True case
+\newcommand{\titlepagetitlealign}{\raggedright}
+}{}
+\ifthenelse{\equal{$titlepage-align.title$}{spread}}
+{% True case
+\newcommand{\titlepagetitlealign}{\makebox[\linewidth][s]}
+}{}
+
+%Author
+\ifthenelse{\equal{$titlepage-align.author$}{right}}
+{% True case
+\newcommand{\titlepageauthoralign}{\raggedleft}
+}{}
+\ifthenelse{\equal{$titlepage-align.author$}{center}}
+{% True case
+\newcommand{\titlepageauthoralign}{\centering}
+}{}
+\ifthenelse{\equal{$titlepage-align.author$}{left}}
+{% True case
+\newcommand{\titlepageauthoralign}{\raggedright}
+}{}
+\ifthenelse{\equal{$titlepage-align.author$}{spread}}
+{% True case
+\newcommand{\titlepageauthoralign}{\makebox[\linewidth][s]}
+}{}
+\ifthenelse{\equal{$coverpage-align.author$}{right}}
+{% True case
+\newcommand{\coverpageauthoralign}{\raggedleft}
+}{}
+\ifthenelse{\equal{$coverpage-align.author$}{center}}
+{% True case
+\newcommand{\coverpageauthoralign}{\centering}
+}{}
+\ifthenelse{\equal{$coverpage-align.author$}{left}}
+{% True case
+\newcommand{\coverpageauthoralign}{\raggedright}
+}{}
+
+%Affiliation
+\ifthenelse{\equal{$titlepage-align.affiliation$}{right}}
+{% True case
+\newcommand{\titlepageaffiliationalign}{\raggedleft}
+}{}
+\ifthenelse{\equal{$titlepage-align.affiliation$}{center}}
+{% True case
+\newcommand{\titlepageaffiliationalign}{\centering}
+}{}
+\ifthenelse{\equal{$titlepage-align.affiliation$}{left}}
+{% True case
+\newcommand{\titlepageaffiliationalign}{\raggedright}
+}{}
+
+%Tagline
+\ifthenelse{\equal{$titlepage-align.tagline$}{right}}
+{% True case
+\newcommand{\titlepagetaglinealign}{\raggedleft}
+}{}
+\ifthenelse{\equal{$titlepage-align.tagline$}{center}}
+{% True case
+\newcommand{\titlepagetaglinealign}{\centering}
+}{}
+\ifthenelse{\equal{$titlepage-align.tagline$}{left}}
+{% True case
+\newcommand{\titlepagetaglinealign}{\raggedright}
+}{}
+
+%Header
+\ifthenelse{\equal{$titlepage-align.header$}{right}}
+{% True case
+\newcommand{\titlepageheaderalign}{\raggedleft}
+}{}
+\ifthenelse{\equal{$titlepage-align.header$}{center}}
+{% True case
+\newcommand{\titlepageheaderalign}{\centering}
+}{}
+\ifthenelse{\equal{$titlepage-align.header$}{left}}
+{% True case
+\newcommand{\titlepageheaderalign}{\raggedright}
+}{}
+

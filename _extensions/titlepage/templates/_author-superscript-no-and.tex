@@ -1,0 +1,11 @@
+% Authors	with affiliation
+% This is just has commas between authors. No and.
+$for(by-author)$%
+{$by-author.name.literal$}%
+$for(by-author.affiliations)$%
+{\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}%
+$endfor$%
+$if(by-author.email)$,{\textsuperscript{*}}%
+$endif$%
+$sep$, %
+$endfor$%

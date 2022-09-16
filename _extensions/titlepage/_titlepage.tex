@@ -1,0 +1,163 @@
+% This is a combination of Pandoc templating and LaTeX
+% Pandoc templating https://pandoc.org/MANUAL.html#templates
+% See the README for help
+
+% Get the theme commands
+$_titlepage-alignments.tex()$
+$_title-themes.tex()$
+$_author-affiliation-themes.tex()$
+
+%set up blocks so user can specify order
+\newcommand{\titleblock}{
+$if(title)$
+$if(subtitle)$
+\newlength{\betweentitlesubtitle}
+\setlength{\betweentitlesubtitle}{$if(titlepage-theme.title-subtitle-space-between)$$titlepage-theme.title-subtitle-space-between$$else$0pt$endif$}
+$endif$
+{\titlepagetitlealign
+\titlepagetitlefont
+{\titlepagetitleblock}
+}
+\newlength{\aftertitle}
+\setlength{\aftertitle}{$if(titlepage-theme.title-space-after)$$titlepage-theme.title-space-after$$else$0pt$endif$}
+
+\vspace{\aftertitle}
+$else$$endif$
+}
+
+\newcommand{\authorblock}{
+% Authors	
+$if(author)$
+{\titlepageauthoralign
+\titlepageauthorfont
+{\titlepageauthorblock}
+}
+\newlength{\afterauthor}
+\setlength{\afterauthor}{$if(titlepage-theme.author-space-after)$$titlepage-theme.author-space-after$$else$0pt$endif$}
+
+\vspace{\afterauthor}
+$else$$endif$
+}
+
+\newcommand{\affiliationblock}{
+%%%%%% Affiliations
+$if(author)$
+{\titlepageaffiliationalign
+\titlepageaffiliationfont
+\titlepageaffiliationblock
+}
+\newlength{\afteraffiliation}
+\setlength{\afteraffiliation}{$if(titlepage-theme.affiliation-space-after)$$titlepage-theme.affiliation-space-after$$else$0pt$endif$}
+
+\vspace{\afteraffiliation}
+$else$$endif$
+}
+
+\newcommand{\logoblock}{
+$if(titlepage-logo)$
+{\titlepagelogoalign
+\includegraphics[width=$if(titlepage-theme.logo-size)$$titlepage-theme.logo-size$$else$0.2\textwidth$endif$]{$titlepage-logo$}
+}
+\newlength{\afterlogo}
+\setlength{\afterlogo}{$if(titlepage-theme.logo-space-after)$$titlepage-theme.logo-space-after$$else$0pt$endif$}
+
+\vspace{\afterlogo}
+$else$$endif$
+}
+
+\newcommand{\footerblock}{
+$if(titlepage-footer)$
+{\titlepagefooteralign
+\titlepagefooterfont
+{\noindent $titlepage-footer$}\\
+}
+\newlength{\afterfooter}
+\setlength{\afterfooter}{$if(titlepage-theme.footer-space-after)$$titlepage-theme.footer-space-after$$else$0pt$endif$}
+
+\vspace{\afterfooter}
+$else$$endif$
+}
+
+\newcommand{\headerblock}{
+$if(titlepage-header)$
+{\titlepageheaderalign
+\titlepageheaderfont
+{\noindent $titlepage-header$}\\
+}
+\newlength{\afterheader}
+\setlength{\afterheader}{$if(titlepage-theme.header-space-after)$$titlepage-theme.header-space-after$$else$0pt$endif$}
+
+\vspace{\afterheader}
+$else$$endif$
+}
+
+$if(titlepage-geometry)$
+\newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
+$endif$
+
+$if(titlepage-theme.page-html-color)$
+\definecolor{pgcolor}{HTML}{$titlepage-theme.page-html-color$}
+\pagecolor{pgcolor}\afterpage{\nopagecolor}
+$else$
+$if(titlepage-theme.page-color)$
+\colorlet{pgcolor}{$titlepage-theme.page-color$}
+\pagecolor{pgcolor}\afterpage{\nopagecolor}
+$endif$
+$endif$
+
+% background image
+$if(titlepage-bg-image)$
+\newlength{\bgimagesize}
+\setlength{\bgimagesize}{$if(titlepage-theme.bg-image-size)$$titlepage-theme.bg-image-size$$else$\paperwidth$endif$}
+\LENGTHDIVIDE{\bgimagesize}{\paperwidth}{\theRatio} % from calculator pkg
+\This$if(titlepage-theme.bg-image-location)$$titlepage-theme.bg-image-location$$else$ULCorner$endif$WallPaper{\theRatio}{$titlepage-bg-image$}
+$endif$
+
+\thispagestyle{empty} % no page numbers on titlepages
+
+$if(titlepage-theme.vrule-width)$
+\newlength{\A}
+\setlength{\A}{$titlepage-theme.vrule-width$}
+\newlength{\B}
+\setlength{\B}{\ifdim\A > 0pt $titlepage-theme.vrule-space$\else 0pt\fi}
+\newlength{\minipagewidth}
+\ifthenelse{\equal{$titlepage-theme.vrule-align$}{left} \OR \equal{$titlepage-theme.vrule-align$}{right} }
+{% True case
+\setlength{\minipagewidth}{\textwidth - \A - \B - 0.1\textwidth}
+}{
+\setlength{\minipagewidth}{\textwidth - 2\A - 2\B - 0.1\textwidth}
+}
+$else$
+\newlength{\minipagewidth}
+\setlength{\minipagewidth}{\textwidth}
+$endif$
+$if(titlepage-theme.vrule-width)$
+\ifthenelse{\equal{$titlepage-theme.vrule-align$}{left} \OR \equal{$titlepage-theme.vrule-align$}{leftright}}
+{% True case
+\raggedleft % needed for the minipage to work
+\rule{\A}{\textheight} % Vertical line
+\hspace{\B} % Whitespace between the vertical line and title page text
+}{%
+% else it is right only and width is not 0
+\raggedright}
+$else$
+\raggedright
+$endif$
+% [position of box][box height][inner position]{width}
+% [s] means stretch out vertically; assuming there is a vfill
+\begin{minipage}[b][\textheight][s]{\minipagewidth}
+\titlepagepagealign
+$for(titlepage-theme.elements)$
+$titlepage-theme.elements$
+$sep$
+$endfor$
+\end{minipage}
+
+\ifthenelse{\equal{$titlepage-theme.vrule-align$}{right} \OR \equal{$titlepage-theme.vrule-align$}{leftright} }%
+{% True case
+\hspace{\B}
+\rule{\A}{\textheight}
+}{}
+$if(titlepage-geometry)$
+\restoregeometry
+$endif$
