@@ -8,88 +8,74 @@ $_title-themes.tex()$
 $_author-affiliation-themes.tex()$
 
 %set up blocks so user can specify order
-\newcommand{\titleblock}{
-$if(title)$
+\newcommand{\titleblock}{$if(title)$
 $if(subtitle)$
 \newlength{\betweentitlesubtitle}
 \setlength{\betweentitlesubtitle}{$if(titlepage-theme.title-subtitle-space-between)$$titlepage-theme.title-subtitle-space-between$$else$0pt$endif$}
 $endif$
-{\titlepagetitlealign
-\titlepagetitlefont
+{$if(titlepage-theme.title-align)$\titlepagetitlealign$endif$
+$if(titlepage-theme.title-fontfamily)$\titlepagetitlefont$endif$
 {\titlepagetitleblock}
 }
 \newlength{\aftertitle}
 \setlength{\aftertitle}{$if(titlepage-theme.title-space-after)$$titlepage-theme.title-space-after$$else$0pt$endif$}
 
 \vspace{\aftertitle}
-$else$$endif$
-}
+$else$$endif$}
 
-\newcommand{\authorblock}{
-% Authors	
-$if(author)$
-{\titlepageauthoralign
-\titlepageauthorfont
+\newcommand{\authorblock}{$if(author)$
+{$if(titlepage-theme.author-align)$\titlepageauthoralign$endif$
+$if(titlepage-theme.author-fontfamily)$\titlepageauthorfont$endif$
 {\titlepageauthorblock}
 }
 \newlength{\afterauthor}
 \setlength{\afterauthor}{$if(titlepage-theme.author-space-after)$$titlepage-theme.author-space-after$$else$0pt$endif$}
 
 \vspace{\afterauthor}
-$else$$endif$
-}
+$else$$endif$}
 
-\newcommand{\affiliationblock}{
-%%%%%% Affiliations
-$if(author)$
-{\titlepageaffiliationalign
-\titlepageaffiliationfont
+\newcommand{\affiliationblock}{$if(author)$
+{$if(titlepage-theme.afiliation-align)$\titlepageaffiliationalign$endif$
+$if(titlepage-theme.affiliation-fontfamily)$\titlepageaffiliationfont$endif$
 \titlepageaffiliationblock
 }
 \newlength{\afteraffiliation}
 \setlength{\afteraffiliation}{$if(titlepage-theme.affiliation-space-after)$$titlepage-theme.affiliation-space-after$$else$0pt$endif$}
 
 \vspace{\afteraffiliation}
-$else$$endif$
-}
+$else$$endif$}
 
-\newcommand{\logoblock}{
-$if(titlepage-logo)$
-{\titlepagelogoalign
+\newcommand{\logoblock}{$if(titlepage-logo)$
+{$if(titlepage-theme.logo-align)$\titlepagelogoalign$endif$
 \includegraphics[width=$if(titlepage-theme.logo-size)$$titlepage-theme.logo-size$$else$0.2\textwidth$endif$]{$titlepage-logo$}
 }
 \newlength{\afterlogo}
 \setlength{\afterlogo}{$if(titlepage-theme.logo-space-after)$$titlepage-theme.logo-space-after$$else$0pt$endif$}
 
 \vspace{\afterlogo}
-$else$$endif$
-}
+$else$$endif$}
 
-\newcommand{\footerblock}{
-$if(titlepage-footer)$
-{\titlepagefooteralign
-\titlepagefooterfont
-{\noindent $titlepage-footer$}\\
+\newcommand{\footerblock}{$if(titlepage-footer)$
+{$if(titlepage-theme.footer-align)$\titlepagefooteralign$endif$
+$if(titlepage-theme.footer-fontfamily)$\titlepagefooterfont$endif$
+{\noindent $titlepage-footer$}
 }
 \newlength{\afterfooter}
 \setlength{\afterfooter}{$if(titlepage-theme.footer-space-after)$$titlepage-theme.footer-space-after$$else$0pt$endif$}
 
 \vspace{\afterfooter}
-$else$$endif$
-}
+$else$$endif$}
 
-\newcommand{\headerblock}{
-$if(titlepage-header)$
-{\titlepageheaderalign
-\titlepageheaderfont
-{\noindent $titlepage-header$}\\
+\newcommand{\headerblock}{$if(titlepage-header)$
+{$if(titlepage-theme.header-align)$\titlepageheaderalign$endif$
+$if(titlepage-theme.header-fontfamily)$\titlepageheaderfont$endif$
+{\noindent $titlepage-header$}
 }
 \newlength{\afterheader}
 \setlength{\afterheader}{$if(titlepage-theme.header-space-after)$$titlepage-theme.header-space-after$$else$0pt$endif$}
 
 \vspace{\afterheader}
-$else$$endif$
-}
+$else$$endif$}
 
 $if(titlepage-geometry)$
 \newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
@@ -114,7 +100,7 @@ $if(titlepage-bg-image)$
 $endif$
 
 \thispagestyle{empty} % no page numbers on titlepages
-\titlepagefont
+$if(titlepage-theme.page-fontfamily)$\titlepagefont$endif$
 
 $if(titlepage-theme.vrule-width)$
 \newlength{\A}
@@ -147,7 +133,7 @@ $endif$
 % [position of box][box height][inner position]{width}
 % [s] means stretch out vertically; assuming there is a vfill
 \begin{minipage}[b][\textheight][s]{\minipagewidth}
-\titlepagepagealign
+$if(titlepage-theme.page-align)$\titlepagepagealign$endif$
 $for(titlepage-theme.elements)$
 $titlepage-theme.elements$
 $sep$

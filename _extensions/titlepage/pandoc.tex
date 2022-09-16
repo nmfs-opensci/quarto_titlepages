@@ -48,46 +48,39 @@ $if(coverpage-author-fontfamily)$
 \newfontfamily{\coverpageauthorfont}{$coverpage-author-fontfamily$}
 $endif$
 
+$if(titlepage)$
+%%%%% Set titlepage variables
+
 % Set the titlepage font families
 $if(titlepage-theme.page-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepagefont}{$titlepage-theme.page-fontfamily$}
-$else$
-\newcommand{\titlepagefont}{}
 $endif$
 
 $if(titlepage-theme.title-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepagetitlefont}{$titlepage-theme.title-fontfamily$}
-$else$
-\newcommand{\titlepagetitlefont}{}
 $endif$
 
 $if(titlepage-theme.author-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepageauthorfont}{$titlepage-theme.author-fontfamily$}
-$else$
-\newcommand{\titlepageauthorfont}{}
 $endif$
 
 $if(titlepage-theme.affiliation-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepageaffiliationfont}{$titlepage-theme.affiliation-fontfamily$}
-$else$
-\newcommand{\titlepageaffiliationfont}{}
 $endif$
 
 $if(titlepage-theme.footer-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepagefooterfont}{$titlepage-theme.footer-fontfamily$}
-$else$
-\newcommand{\titlepagefooterfont}{}
 $endif$
 
 $if(titlepage-theme.header-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepageheaderfont}{$titlepage-theme.header-fontfamily$}
-$else$
-\newcommand{\titlepageheaderfont}{}
+$endif$
+
 $endif$
 

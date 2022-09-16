@@ -1,12 +1,12 @@
-%Specify the titlepage alignments
-
+$if(titlepage-theme.page-align)$
 %Page
 \newcommand{\titlepagepagealign}{
 \ifthenelse{\equal{$titlepage-theme.page-align$}{right}}{\raggedleft}{}
 \ifthenelse{\equal{$titlepage-theme.page-align$}{center}}{\centering}{}
 \ifthenelse{\equal{$titlepage-theme.page-align$}{left}}{\raggedright}{}
 }
-
+$endif$
+$if(titlepage-theme.title-align)$
 %% Titles
 \newcommand{\titlepagetitlealign}{
 \ifthenelse{\equal{$titlepage-theme.title-align$}{right}}{\raggedleft}{}
@@ -14,8 +14,8 @@
 \ifthenelse{\equal{$titlepage-theme.title-align$}{left}}{\raggedright}{}
 \ifthenelse{\equal{$titlepage-theme.title-align$}{spread}}{\makebox[\linewidth][s]}{}
 }
-
-
+$endif$
+$if(titlepage-theme.author-align)$
 %Author
 \newcommand{\titlepageauthoralign}{
 \ifthenelse{\equal{$titlepage-theme.author-align$}{right}}{\raggedleft}{}
@@ -23,7 +23,8 @@
 \ifthenelse{\equal{$titlepage-theme.author-align$}{left}}{\raggedright}{}
 \ifthenelse{\equal{$titlepage-theme.author-align$}{spread}}{\makebox[\linewidth][s]}{}
 }
-
+$endif$
+$if(titlepage-theme.affiliation-align)$
 %Affiliation
 \newcommand{\titlepageaffiliationalign}{
 \ifthenelse{\equal{$titlepage-theme.affiliation-align$}{right}}{\raggedleft}{}
@@ -31,8 +32,8 @@
 \ifthenelse{\equal{$titlepage-theme.affiliation-align$}{left}}{\raggedright}{}
 \ifthenelse{\equal{$titlepage-theme.affiliation-align$}{spread}}{\makebox[\linewidth][s]}{}
 }
-
-
+$endif$
+$if(titlepage-theme.footer-align)$
 %Footer
 \newcommand{\titlepagefooteralign}{
 \ifthenelse{\equal{$titlepage-theme.footer-align$}{right}}{\raggedleft}{}
@@ -40,7 +41,8 @@
 \ifthenelse{\equal{$titlepage-theme.footer-align$}{left}}{\raggedright}{}
 \ifthenelse{\equal{$titlepage-theme.footer-align$}{spread}}{\makebox[\linewidth][s]}{}
 }
-
+$endif$
+$if(titlepage-theme.header-align)$
 %Header
 \newcommand{\titlepageheaderalign}{
 \ifthenelse{\equal{$titlepage-theme.header-align$}{right}}{\raggedleft}{}
@@ -48,11 +50,12 @@
 \ifthenelse{\equal{$titlepage-theme.header-align$}{left}}{\raggedright}{}
 \ifthenelse{\equal{$titlepage-theme.header-align$}{spread}}{\makebox[\linewidth][s]}{}
 }
-
+$endif$
+$if(titlepage-theme.logo-align)$
 %Logo
 \newcommand{\titlepagelogoalign}{
 \ifthenelse{\equal{$titlepage-theme.logo-align$}{right}}{\raggedleft}{}
 \ifthenelse{\equal{$titlepage-theme.logo-align$}{center}}{\centering}{}
 \ifthenelse{\equal{$titlepage-theme.logo-align$}{left}}{\raggedright}{}
 }
-
+$endif$

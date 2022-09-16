@@ -168,20 +168,19 @@
 \usepackage{fontspec}
 \newfontfamily{\coverpageauthorfont}{Palatino}
 
+%%%%% Set titlepage variables
+
 % Set the titlepage font families
 \usepackage{fontspec}
 \newfontfamily{\titlepagefont}{QTDublinIrish.otf}
 
-\newcommand{\titlepagetitlefont}{}
 
-\newcommand{\titlepageauthorfont}{}
 
-\newcommand{\titlepageaffiliationfont}{}
 
 \usepackage{fontspec}
 \newfontfamily{\titlepagefooterfont}{Palatino}
 
-\newcommand{\titlepageheaderfont}{}
+
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -282,62 +281,18 @@ width=1.0%
 % See the README for help
 
 % Get the theme commands
-%Specify the titlepage alignments
-
 %Page
 \newcommand{\titlepagepagealign}{
 \ifthenelse{\equal{left}{right}}{\raggedleft}{}
 \ifthenelse{\equal{left}{center}}{\centering}{}
 \ifthenelse{\equal{left}{left}}{\raggedright}{}
 }
-
-%% Titles
-\newcommand{\titlepagetitlealign}{
-\ifthenelse{\equal{}{right}}{\raggedleft}{}
-\ifthenelse{\equal{}{center}}{\centering}{}
-\ifthenelse{\equal{}{left}}{\raggedright}{}
-\ifthenelse{\equal{}{spread}}{\makebox[\linewidth][s]}{}
-}
-
-
 %Author
 \newcommand{\titlepageauthoralign}{
 \ifthenelse{\equal{center}{right}}{\raggedleft}{}
 \ifthenelse{\equal{center}{center}}{\centering}{}
 \ifthenelse{\equal{center}{left}}{\raggedright}{}
 \ifthenelse{\equal{center}{spread}}{\makebox[\linewidth][s]}{}
-}
-
-%Affiliation
-\newcommand{\titlepageaffiliationalign}{
-\ifthenelse{\equal{}{right}}{\raggedleft}{}
-\ifthenelse{\equal{}{center}}{\centering}{}
-\ifthenelse{\equal{}{left}}{\raggedright}{}
-\ifthenelse{\equal{}{spread}}{\makebox[\linewidth][s]}{}
-}
-
-
-%Footer
-\newcommand{\titlepagefooteralign}{
-\ifthenelse{\equal{}{right}}{\raggedleft}{}
-\ifthenelse{\equal{}{center}}{\centering}{}
-\ifthenelse{\equal{}{left}}{\raggedright}{}
-\ifthenelse{\equal{}{spread}}{\makebox[\linewidth][s]}{}
-}
-
-%Header
-\newcommand{\titlepageheaderalign}{
-\ifthenelse{\equal{}{right}}{\raggedleft}{}
-\ifthenelse{\equal{}{center}}{\centering}{}
-\ifthenelse{\equal{}{left}}{\raggedright}{}
-\ifthenelse{\equal{}{spread}}{\makebox[\linewidth][s]}{}
-}
-
-%Logo
-\newcommand{\titlepagelogoalign}{
-\ifthenelse{\equal{}{right}}{\raggedleft}{}
-\ifthenelse{\equal{}{center}}{\centering}{}
-\ifthenelse{\equal{}{left}}{\raggedright}{}
 }
 % This file defines the author block and affiliation block
 % based on the author and affiliation theme
@@ -868,11 +823,10 @@ names. see documentation.}}%
 
 
 %set up blocks so user can specify order
-\newcommand{\titleblock}{
-\newlength{\betweentitlesubtitle}
+\newcommand{\titleblock}{\newlength{\betweentitlesubtitle}
 \setlength{\betweentitlesubtitle}{1\baselineskip}
-{\titlepagetitlealign
-\titlepagetitlefont
+{
+
 {\titlepagetitleblock}
 }
 \newlength{\aftertitle}
@@ -881,10 +835,8 @@ names. see documentation.}}%
 \vspace{\aftertitle}
 }
 
-\newcommand{\authorblock}{
-% Authors	
-{\titlepageauthoralign
-\titlepageauthorfont
+\newcommand{\authorblock}{{\titlepageauthoralign
+
 {\titlepageauthorblock}
 }
 \newlength{\afterauthor}
@@ -893,10 +845,8 @@ names. see documentation.}}%
 \vspace{\afterauthor}
 }
 
-\newcommand{\affiliationblock}{
-%%%%%% Affiliations
-{\titlepageaffiliationalign
-\titlepageaffiliationfont
+\newcommand{\affiliationblock}{{
+
 \titlepageaffiliationblock
 }
 \newlength{\afteraffiliation}
@@ -905,8 +855,7 @@ names. see documentation.}}%
 \vspace{\afteraffiliation}
 }
 
-\newcommand{\logoblock}{
-{\titlepagelogoalign
+\newcommand{\logoblock}{{
 \includegraphics[width=0.25\textheight]{img/logo.png}
 }
 \newlength{\afterlogo}
@@ -915,15 +864,14 @@ names. see documentation.}}%
 \vspace{\afterlogo}
 }
 
-\newcommand{\footerblock}{
-{\titlepagefooteralign
+\newcommand{\footerblock}{{
 \titlepagefooterfont
 {\noindent University Technical Series\\
 Open Source Publication for All\\
 Amtmandens Allé 15\\
 6950 Rindum Ringkøbing-Skjern\\
 DENMARK\\
-December 2025}\\
+December 2025}
 }
 \newlength{\afterfooter}
 \setlength{\afterfooter}{0pt}
@@ -931,10 +879,9 @@ December 2025}\\
 \vspace{\afterfooter}
 }
 
-\newcommand{\headerblock}{
-{\titlepageheaderalign
-\titlepageheaderfont
-{\noindent The Publisher}\\
+\newcommand{\headerblock}{{
+
+{\noindent The Publisher}
 }
 \newlength{\afterheader}
 \setlength{\afterheader}{0pt}
@@ -988,7 +935,7 @@ December 2025}\\
 \end{titlepage}
 \setcounter{page}{1}
 \end{frontmatter}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, boxrule=0pt, enhanced, borderline west={3pt}{0pt}{shadecolor}, interior hidden, breakable, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, frame hidden, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, interior hidden, breakable, enhanced]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
