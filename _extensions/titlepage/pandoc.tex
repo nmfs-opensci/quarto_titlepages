@@ -52,60 +52,42 @@ $endif$
 $if(titlepage-theme.page-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepagefont}{$titlepage-theme.page-fontfamily$}
+$else$
+\newcommand{\titlepagefont}{}
 $endif$
 
 $if(titlepage-theme.title-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepagetitlefont}{$titlepage-theme.title-fontfamily$}
 $else$
-$if(titlepage-theme.fontfamily)$
-\newcommand{\titlepagetitlefont}{\titlepagefont}
-$else$
 \newcommand{\titlepagetitlefont}{}
-$endif$
 $endif$
 
 $if(titlepage-theme.author-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepageauthorfont}{$titlepage-theme.author-fontfamily$}
 $else$
-$if(titlepage-theme.fontfamily)$
-\newcommand{\titlepageauthorfont}{\titlepagefont}
-$else$
 \newcommand{\titlepageauthorfont}{}
-$endif$
 $endif$
 
 $if(titlepage-theme.affiliation-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepageaffiliationfont}{$titlepage-theme.affiliation-fontfamily$}
 $else$
-$if(titlepage-theme.fontfamily)$
-\newcommand{\titlepageaffiliationfont}{\titlepagefont}
-$else$
 \newcommand{\titlepageaffiliationfont}{}
-$endif$
 $endif$
 
 $if(titlepage-theme.footer-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepagefooterfont}{$titlepage-theme.footer-fontfamily$}
 $else$
-$if(titlepage-theme.fontfamily)$
-\newcommand{\titlepagefooterfont}{\titlepagefont}
-$else$
 \newcommand{\titlepagefooterfont}{}
-$endif$
 $endif$
 
 $if(titlepage-theme.header-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\titlepageheaderfont}{$titlepage-theme.header-fontfamily$}
 $else$
-$if(titlepage-theme.fontfamily)$
-\newcommand{\titlepageheaderfont}{\titlepagefont}
-$else$
 \newcommand{\titlepageheaderfont}{}
-$endif$
 $endif$
 

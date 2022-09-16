@@ -477,36 +477,6 @@ Set vrule defaults
   end
 
 --[[
-Set the defaults for the titlepage fonts
-Don't set a font unless the user did
---]]    
-  if isEmpty(m['titlepage-theme']["title-fontfamily"]) then 
-    if not isEmpty(m['titlepage-theme']["page-fontfamily"]) then
-      m['titlepage-theme']["title-fontfamily"] = getVal(m['titlepage-theme']["page-fontfamily"])
-    end
-  end
-  if isEmpty(m['titlepage-theme']["author-fontfamily"]) then 
-    if not isEmpty(m['titlepage-theme']["page-fontfamily"]) then
-      m['titlepage-theme']["author-fontfamily"] = getVal(m['titlepage-theme']["page-fontfamily"])
-    end
-  end
-  if isEmpty(m['titlepage-theme']["affiliation-fontfamily"]) then 
-    if not isEmpty(m['titlepage-theme']["page-fontfamily"]) then
-      m['titlepage-theme']["affiliation-fontfamily"] = getVal(m['titlepage-theme']["page-fontfamily"])
-    end
-  end
-  if isEmpty(m['titlepage-theme']["header-fontfamily"]) then 
-    if not isEmpty(m['titlepage-theme']["page-fontfamily"]) then
-      m['titlepage-theme']["header-fontfamily"] = getVal(m['titlepage-theme']["page-fontfamily"])
-    end
-  end
-  if isEmpty(m['titlepage-theme']["footer-fontfamily"]) then 
-    if not isEmpty(m['titlepage-theme']["page-fontfamily"]) then
-      m['titlepage-theme']["footer-fontfamily"] = getVal(m['titlepage-theme']["page-fontfamily"])
-    end
-  end
-
---[[
 Set the defaults for the titlepage alignments
 default titlepage alignment is left
 --]]    

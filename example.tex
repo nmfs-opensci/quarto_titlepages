@@ -172,15 +172,16 @@
 \usepackage{fontspec}
 \newfontfamily{\titlepagefont}{QTDublinIrish.otf}
 
-\newcommand{\titlepagetitlefont}{\titlepagefont}
+\newcommand{\titlepagetitlefont}{}
 
-\newcommand{\titlepageauthorfont}{\titlepagefont}
+\newcommand{\titlepageauthorfont}{}
 
-\newcommand{\titlepageaffiliationfont}{\titlepagefont}
+\newcommand{\titlepageaffiliationfont}{}
 
-\newcommand{\titlepagefooterfont}{\titlepagefont}
+\usepackage{fontspec}
+\newfontfamily{\titlepagefooterfont}{Palatino}
 
-\newcommand{\titlepageheaderfont}{\titlepagefont}
+\newcommand{\titlepageheaderfont}{}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -946,6 +947,7 @@ December 2025}\\
 % background image
 
 \thispagestyle{empty} % no page numbers on titlepages
+\titlepagefont
 
 \newlength{\A}
 \setlength{\A}{1pt}
@@ -986,7 +988,7 @@ December 2025}\\
 \end{titlepage}
 \setcounter{page}{1}
 \end{frontmatter}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, breakable, enhanced, interior hidden, borderline west={3pt}{0pt}{shadecolor}, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, boxrule=0pt, enhanced, borderline west={3pt}{0pt}{shadecolor}, interior hidden, breakable, sharp corners]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {

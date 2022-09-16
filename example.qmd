@@ -44,7 +44,8 @@ format:
       DENMARK\
       December 2025
     titlepage-theme:
-      fontfamily: "QTDublinIrish.otf"
+      page-fontfamily: "QTDublinIrish.otf"
+      footer-fontfamily: "Palatino"
       author-align: center
     coverpage: titleauthor
     coverpage-image: otter
