@@ -171,8 +171,6 @@
 %%%%% Set titlepage variables
 
 % Set the titlepage font families
-\usepackage{fontspec}
-\newfontfamily{\titlepagefont}{QTDublinIrish.otf}
 
 
 
@@ -286,13 +284,6 @@ width=1.0%
 \ifthenelse{\equal{left}{right}}{\raggedleft}{}
 \ifthenelse{\equal{left}{center}}{\centering}{}
 \ifthenelse{\equal{left}{left}}{\raggedright}{}
-}
-%Author
-\newcommand{\titlepageauthoralign}{
-\ifthenelse{\equal{center}{right}}{\raggedleft}{}
-\ifthenelse{\equal{center}{center}}{\centering}{}
-\ifthenelse{\equal{center}{left}}{\raggedright}{}
-\ifthenelse{\equal{center}{spread}}{\makebox[\linewidth][s]}{}
 }
 % This file defines the author block and affiliation block
 % based on the author and affiliation theme
@@ -835,7 +826,7 @@ names. see documentation.}}%
 \vspace{\aftertitle}
 }
 
-\newcommand{\authorblock}{{\titlepageauthoralign
+\newcommand{\authorblock}{{
 
 {\titlepageauthorblock}
 }
@@ -894,27 +885,29 @@ December 2025}
 % background image
 
 \thispagestyle{empty} % no page numbers on titlepages
-\titlepagefont
 
-\newlength{\A}
-\setlength{\A}{1pt}
+
+\newcommand{\vrulecode}{\noindent\colorbox{black}{\begin{minipage}[b][0.99\textheight][c]{\vrulewidth}\centering\rotatebox{90}{\makebox[0.88\textheight][r]{
+\bfseries \LARGE \color{white} hello}}\end{minipage}}}
+\newlength{\vrulewidth}
+\setlength{\vrulewidth}{0.5in}
 \newlength{\B}
-\setlength{\B}{\ifdim\A > 0pt 0.05\textheight\else 0pt\fi}
+\setlength{\B}{\ifdim\vrulewidth > 0pt 0.05\textheight\else 0pt\fi}
 \newlength{\minipagewidth}
-\ifthenelse{\equal{left}{left} \OR \equal{left}{right} }
+\ifthenelse{\equal{leftright}{left} \OR \equal{leftright}{right} }
 {% True case
-\setlength{\minipagewidth}{\textwidth - \A - \B - 0.1\textwidth}
+\setlength{\minipagewidth}{\textwidth - \vrulewidth - \B - 0.1\textwidth}
 }{
-\setlength{\minipagewidth}{\textwidth - 2\A - 2\B - 0.1\textwidth}
+\setlength{\minipagewidth}{\textwidth - 2\vrulewidth - 2\B - 0.1\textwidth}
 }
-\ifthenelse{\equal{left}{left} \OR \equal{left}{leftright}}
+\ifthenelse{\equal{leftright}{left} \OR \equal{leftright}{leftright}}
 {% True case
 \raggedleft % needed for the minipage to work
-\rule{\A}{\textheight} % Vertical line
-\hspace{\B} % Whitespace between the vertical line and title page text
+\vrulecode
+\hspace{\B}
 }{%
-% else it is right only and width is not 0
-\raggedright}
+\raggedright % else it is right only and width is not 0
+}
 % [position of box][box height][inner position]{width}
 % [s] means stretch out vertically; assuming there is a vfill
 \begin{minipage}[b][\textheight][s]{\minipagewidth}
@@ -926,16 +919,15 @@ December 2025}
 \logoblock
 \footerblock
 \end{minipage}
-
-\ifthenelse{\equal{left}{right} \OR \equal{left}{leftright} }%
+\ifthenelse{\equal{leftright}{right} \OR \equal{leftright}{leftright} }%
 {% True case
 \hspace{\B}
-\rule{\A}{\textheight}
+\vrulecode
 }{}
 \end{titlepage}
 \setcounter{page}{1}
 \end{frontmatter}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, frame hidden, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, interior hidden, breakable, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, frame hidden, enhanced, boxrule=0pt, breakable, sharp corners, interior hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {

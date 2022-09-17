@@ -107,3 +107,10 @@ Options
       vrule-color: "black"
       vrule-space-after: "0.05\\textwidth"
 ```
+
+vrule-text
+```
+      vrule-width: 25pt
+      vrule-text: "Set in titlepage-theme: vrule-text"
+      vrule-text-color: white
+```

@@ -103,32 +103,36 @@ $endif$
 $if(titlepage-theme.page-fontfamily)$\titlepagefont$endif$
 
 $if(titlepage-theme.vrule-width)$
-\newlength{\A}
-\setlength{\A}{$titlepage-theme.vrule-width$}
+$if(titlepage-theme.vrule-text)$
+\newcommand{\vrulecode}{\noindent\colorbox{$titlepage-theme.vrule-color$}{\begin{minipage}[b][0.99\textheight][c]{\vrulewidth}$if(titlepage-theme.vrule-text)$
+\centering\rotatebox{90}{\makebox[0.88\textheight][r]{
+$if(titlepage-theme.vrule-text-fontstyle)$$for(titlepage-theme.vrule-text-fontstyle)$\$titlepage-theme.vrule-text-fontstyle$ $endfor$$endif$$if(titlepage-theme.vrule-text-color)$\color{$titlepage-theme.vrule-text-color$}$endif$ $titlepage-theme.vrule-text$}}$endif$\end{minipage}}}
+$else$
+\newcommand{\vrulecode}{\rule{\vrulewidth}{\textheight}}
+$endif$
+\newlength{\vrulewidth}
+\setlength{\vrulewidth}{$titlepage-theme.vrule-width$}
 \newlength{\B}
-\setlength{\B}{\ifdim\A > 0pt $titlepage-theme.vrule-space$\else 0pt\fi}
+\setlength{\B}{\ifdim\vrulewidth > 0pt $titlepage-theme.vrule-space$\else 0pt\fi}
 \newlength{\minipagewidth}
 \ifthenelse{\equal{$titlepage-theme.vrule-align$}{left} \OR \equal{$titlepage-theme.vrule-align$}{right} }
 {% True case
-\setlength{\minipagewidth}{\textwidth - \A - \B - 0.1\textwidth}
+\setlength{\minipagewidth}{\textwidth - \vrulewidth - \B - 0.1\textwidth}
 }{
-\setlength{\minipagewidth}{\textwidth - 2\A - 2\B - 0.1\textwidth}
+\setlength{\minipagewidth}{\textwidth - 2\vrulewidth - 2\B - 0.1\textwidth}
 }
-$else$
-\newlength{\minipagewidth}
-\setlength{\minipagewidth}{\textwidth}
 $endif$
 $if(titlepage-theme.vrule-width)$
 \ifthenelse{\equal{$titlepage-theme.vrule-align$}{left} \OR \equal{$titlepage-theme.vrule-align$}{leftright}}
 {% True case
 \raggedleft % needed for the minipage to work
-\rule{\A}{\textheight} % Vertical line
-\hspace{\B} % Whitespace between the vertical line and title page text
+\vrulecode
+\hspace{\B}
 }{%
-% else it is right only and width is not 0
-\raggedright}
+\raggedright % else it is right only and width is not 0
+}
 $else$
-\raggedright
+\raggedright % single minipage
 $endif$
 % [position of box][box height][inner position]{width}
 % [s] means stretch out vertically; assuming there is a vfill
@@ -139,11 +143,10 @@ $titlepage-theme.elements$
 $sep$
 $endfor$
 \end{minipage}
-
 \ifthenelse{\equal{$titlepage-theme.vrule-align$}{right} \OR \equal{$titlepage-theme.vrule-align$}{leftright} }%
 {% True case
 \hspace{\B}
-\rule{\A}{\textheight}
+\vrulecode
 }{}
 $if(titlepage-geometry)$
 \restoregeometry

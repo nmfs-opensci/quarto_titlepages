@@ -44,9 +44,12 @@ format:
       DENMARK\
       December 2025
     titlepage-theme:
-      page-fontfamily: "QTDublinIrish.otf"
       footer-fontfamily: "Palatino"
-      author-align: center
+      vrule-width: 0.5in
+      vrule-text: hello
+      vrule-text-color: white
+      vrule-text-fontstyle: ["bfseries", "LARGE"]
+      vrule-align: leftright
     coverpage: titleauthor
     coverpage-image: otter
     coverpage-title-rotate: 45
