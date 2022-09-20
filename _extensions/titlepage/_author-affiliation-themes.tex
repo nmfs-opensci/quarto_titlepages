@@ -1,146 +1,48 @@
-% This file defines the author block and affiliation block
+% This sectrion defines the author block and affiliation blocks
 % based on the author and affiliation theme
-% none, plain, plain-with-and, plain-newline, plain-superscript, superscript, superscript-with-and, two-column
 
-\newcommand{\authorstyle}{%
-$if(titlepage-theme.author-fontsize)$\fontsize{$titlepage-theme.author-fontsize$}{$titlepage-theme.author-spacing$}\selectfont$endif$
-$for(titlepage-theme.author-fontstyle)$\$titlepage-theme.author-fontstyle$ $endfor$%
-}
-\newcommand{\affiliationstyle}{%
-$if(titlepage-theme.affiliation-fontsize)$\fontsize{$titlepage-theme.affiliation-fontsize$}{$titlepage-theme.affiliation-spacing$}\selectfont$endif$
-$for(titlepage-theme.affiliation-fontstyle)$\$titlepage-theme.affiliation-fontstyle$ $endfor$%
-}
+\newcommand{\authorstyle}[1]{{$if(titlepage-theme.author-fontsize)$\fontsize{$titlepage-theme.author-fontsize$}{$titlepage-theme.author-spacing$}\selectfont
+$endif$$for(titlepage-theme.author-fontstyle)$\$titlepage-theme.author-fontstyle${$endfor$#1$for(titlepage-theme.author-fontstyle)$}$endfor$}}
 
-\newcommand{\emptyauthorblock}{}
+\newcommand{\affiliationstyle}[1]{{$if(titlepage-theme.affiliation-fontsize)$\fontsize{$titlepage-theme.affiliation-fontsize$}{$titlepage-theme.affiliation-spacing$}\selectfont
+$endif$$for(titlepage-theme.affiliation-fontstyle)$\$titlepage-theme.affiliation-fontstyle${$endfor$#1$for(titlepage-theme.affiliation-fontstyle)$}$endfor$}}
 
-\newcommand{\plainauthorblock}{
-{\authorstyle
-$for(by-author)$%
-{$by-author.name.literal$}%
-$sep$, %
-$endfor$
+$if(titlepage-style-code.author.none)$
+\newcommand{\titlepageauthorblock}{}
+$endif$
+$if(titlepage-style-code.author.plain)$
+\newcommand{\titlepageauthorblock}{
+\authorstyle{$for(by-author)$$by-author.name.literal$$sep$$titlepage-theme.author-sep$ $endfor$}
 }
+$endif$
+$if(titlepage-style-code.author.plain-with-and)$
+\newcommand{\titlepageauthorblock}{
+\authorstyle{$if(by-author/allbutlast)$$for(by-author/allbutlast)$$by-author.name.literal$$sep$$titlepage-theme.author-sep$ $endfor$$for(by-author/last)$ and $by-author.name.literal$$endfor$$else$$for(by-author/last)$$by-author.name.literal$$endfor$$endif$}
 }
-
-\newcommand{\plainauthornewlineblock}{
-{\authorstyle
-$for(by-author)$%
-{$by-author.name.literal$}%
-$sep$\\%
-$endfor$
+$endif$
+$if(titlepage-style-code.author.superscript)$
+\newcommand{\titlepageauthorblock}{
+\authorstyle{$for(by-author)$$by-author.name.literal$$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}$endfor$$if(by-author.email)$$if(by-author.affiliations)$\textsuperscript{,}$endif${\textsuperscript{*}}$endif$$sep$$titlepage-theme.author-sep$  $endfor$}
 }
-}
-
-\newcommand{\plainwithandauthorblock}{
-{\authorstyle
-$if(by-author/allbutlast)$%
-$for(by-author/allbutlast)$%
-{$by-author.name.literal$}%
-$sep$, %
-$endfor$%
-$for(by-author/last)$%
-{ and $by-author.name.literal$}%
-$endfor$%
+$endif$
+$if(titlepage-style-code.author.superscript-with-and)$
+\newcommand{\titlepageauthorblock}{
+\authorstyle{$if(by-author/allbutlast)$$for(by-author/allbutlast)$$by-author.name.literal$$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$$if(by-author.email)$$if(by-author.affiliations)$\textsuperscript{,}$endif${\textsuperscript{*}}$endif$$sep$$titlepage-theme.author-sep$ $endfor$$for(by-author/last)$ and $by-author.name.literal$$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$$if(by-author.email)$$if(by-author.affiliations)$\textsuperscript{,}$endif${\textsuperscript{*}}$endif$$endfor$%
 $else$%
-$for(by-author/last)$%
-{$by-author.name.literal$}%
-$endfor$%
+$for(by-author/last)$$by-author.name.literal$$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$$if(by-author.email)$$if(by-author.affiliations)$\textsuperscript{,}$endif${\textsuperscript{,*}}$endif$$endfor$$endif$
+}}
 $endif$
-}
-}
-
-\newcommand{\plainsuperscriptauthorblock}{
-{\authorstyle
-$for(by-author)$%
-{$by-author.name.literal$}%
-$for(by-author.affiliations)$%
-{\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}%
-$endfor$%
-$if(by-author.email)$%
-$if(by-author.affiliations)$\textsuperscript{,}$endif$%
-{\textsuperscript{*}}%
-$endif$%
-$sep$ %
-$endfor$%
-}
-}
-
-\newcommand{\superscriptauthorblock}{
-{\authorstyle
-$for(by-author)$%
-{$by-author.name.literal$}%
-$for(by-author.affiliations)$%
-{\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}%
-$endfor$%
-$if(by-author.email)$%
-$if(by-author.affiliations)$\textsuperscript{,}$endif$%
-{\textsuperscript{*}}%
-$endif$%
-$sep$, %
-$endfor$%
-}
-}
-
-\newcommand{\superscriptwithandauthorblock}{
-{\authorstyle
-$if(by-author/allbutlast)$%
-$for(by-author/allbutlast)$%
-{$by-author.name.literal$}%
-$for(by-author.affiliations)$%
-{\textsuperscript{$it.number$}}$sep$\textsuperscript{,}%
-$endfor$%
-$if(by-author.email)$%
-$if(by-author.affiliations)$\textsuperscript{,}$endif$%
-{\textsuperscript{*}}%
-$endif$%
-$sep$, %
-$endfor$%
-$for(by-author/last)$%
-{ and $by-author.name.literal$}%
-$for(by-author.affiliations)$%
-{\textsuperscript{$it.number$}}$sep$\textsuperscript{,}%
-$endfor$%
-$if(by-author.email)$%
-$if(by-author.affiliations)$\textsuperscript{,}$endif$%
-{\textsuperscript{*}}%
-$endif$%
-$endfor$%
-$else$%
-$for(by-author/last)$%
-{$by-author.name.literal$}%
-$for(by-author.affiliations)$%
-{\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
-$if(by-author.email)$%
-$if(by-author.affiliations)$\textsuperscript{,}$endif$%
-{\textsuperscript{,*}}%
-$endif$%
-$endfor$%
+$if(titlepage-style-code.author.author-address)$
+\newcommand{\titlepageauthorblock}{
+\authorstyle{
+$for(by-author)$$by-author.name.literal$$if(by-author.affiliations)$,~$for(by-author.affiliations)$$by-author.affiliations.name$$if(by-affiliations.department)$,~$by-author.affiliations.department$$endif$$if(by-affiliations.address)$,~$by-author.affiliations.address$$endif$$sep$;~$endfor$$endif$$if(by-author.email)$~$by-author.email$$endif$$sep$\\
+$endfor$}}
 $endif$
-}
-}
-
-\newcommand{\authoraddressblock}{
-{\authorstyle
-$for(by-author)$%
-{$by-author.name.literal$}%
-$if(by-author.affiliations)$
-$for(by-author.affiliations)$%
-$if(by-affiliations.name)$$by-author.affiliations.name$,~$endif$%
-$if(by-affiliations.department)$$by-author.affiliations.department$,~$endif$%
-$if(by-affiliations.address)$$by-author.affiliations.address$$endif$%
-$sep$;~%
-$endfor$%
-$endif$
-$if(by-author.email)$~$by-author.email$$endif$
-$sep$\\%
-$endfor$%
-}
-}
-
-\newcommand{\twocolumnauthorblock}{
+$if(titlepage-style-code.author.two-column)$
+\newcommand{\titlepageauthorblock}{
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft}
-{\authorstyle
+\authorstyle{
 $for(by-author)$%
 {$by-author.name.literal$}%
 $sep$\\ %
@@ -151,7 +53,7 @@ $endfor$%
 ~
 \begin{minipage}{0.4\textwidth}
 \begin{flushright}
-{\affiliationstyle
+\affiliationstyle{
 $for(by-author)$
 $for(by-author.affiliations/first)$%
 {$by-author.affiliations.name$}%
@@ -161,40 +63,24 @@ $endfor$
 \end{flushright}
 \end{minipage}
 }
+$endif$
 
-\newcommand{\numberedlistaffiliationblock}{
+$if(titlepage-style-code.affiliation.numbered-list)$
+\newcommand{\titlepageaffiliationblock}{
 \hangindent=1em
 \hangafter=1
-{\affiliationstyle
-$for(by-affiliation)$%
-{$it.number$}.~$if(by-affiliation.name)${$it.name$}$endif$%
-$if(by-affiliation.department)$%
-$if(by-affiliation.name)$, $endif$%
-{$it.department$}%
-$endif$%
-$if(by-affiliation.address)$%
-$if(by-affiliation.name)$, $else$$if(by-affiliation.department)$, $endif$$endif$%
-{$it.address$}%
-$endif$%
-$sep$\par\hangindent=1em\hangafter=1%
+\affiliationstyle{
+$for(by-affiliation)${$it.number$}.~$if(by-affiliation.name)$$it.name$$endif$$if(by-affiliation.department)$$if(by-affiliation.name)$, $endif$$it.department$$endif$$if(by-affiliation.address)$$if(by-affiliation.name)$, $else$$if(by-affiliation.department)$, $endif$$endif$$it.address$$endif$%
+$sep$\par\hangindent=1em\hangafter=1
 $endfor$
-}
-}
-
-\newcommand{\numberedlistwithcorraffiliationblock}{
+}}
+$endif$
+$if(titlepage-style-code.affiliation.numbered-list-with-correspondence)$
+\newcommand{\titlepageaffiliationblock}{
 \hangindent=1em
 \hangafter=1
-{\affiliationstyle
-$for(by-affiliation)$%
-{$it.number$}.~$if(by-affiliation.name)${$it.name$}$endif$%
-$if(by-affiliation.department)$%
-$if(by-affiliation.name)$, $endif$%
-{$it.department$}%
-$endif$%
-$if(by-affiliation.address)$%
-$if(by-affiliation.name)$, $else$$if(by-affiliation.department)$, $endif$$endif$%
-{$it.address$}%
-$endif$%
+\affiliationstyle{
+$for(by-affiliation)${$it.number$}.~$if(by-affiliation.name)$$it.name$$endif$$if(by-affiliation.department)$$if(by-affiliation.name)$, $endif$$it.department$$endif$$if(by-affiliation.address)$$if(by-affiliation.name)$,  $else$$if(by-affiliation.department)$, $endif$$endif$$it.address$$endif$
 $sep$\par\hangindent=1em\hangafter=1%
 $endfor$
 
@@ -203,77 +89,7 @@ $if(author)$
 $for(by-author)$
 $if(by-author.email)$
 * \textit{Correspondence:}~$by-author.name.literal$~$by-author.email$
-$endif$
-$endfor$
-$endif$
+$endif$$endfor$$endif$
 }
 }
-
-
-\ifthenelse{\equal{$titlepage-theme.author-style$}{none}}
-{% True case
-\newcommand{\titlepageauthorblock}{\emptyauthorblock}
-}{}
-\ifthenelse{\equal{$coverpage-author-theme$}{none}}
-{% True case
-\newcommand{\coverpageauthorblock}{\emptyauthorblock}
-}{}
-\ifthenelse{\equal{$titlepage-theme.author-style$}{plain}}
-{% True case
-\newcommand{\titlepageauthorblock}{\plainauthorblock}
-}{}
-\ifthenelse{\equal{$coverpage-author-theme$}{plain}}
-{% True case
-\newcommand{\coverpageauthorblock}{\plainauthorblock}
-}{}
-\ifthenelse{\equal{$titlepage-theme.author-style$}{plain-newline}}
-{% True case
-\newcommand{\titlepageauthorblock}{\plainauthornewlineblock}
-}{}
-\ifthenelse{\equal{$coverpage-author-theme$}{plain-newline}}
-{% True case
-\newcommand{\coverpageauthorblock}{\plainauthornewlineblock}
-}{}
-\ifthenelse{\equal{$titlepage-theme.author-style$}{plain-with-and}}
-{% True case
-\newcommand{\titlepageauthorblock}{\plainwithandauthorblock}
-}{}
-\ifthenelse{\equal{$coverpage-author-theme$}{plain-with-and}}
-{% True case
-\newcommand{\coverpageauthorblock}{\plainwithandauthorblock}
-}{}
-\ifthenelse{\equal{$titlepage-theme.author-style$}{plain-superscript}}
-{% True case
-\newcommand{\titlepageauthorblock}{\plainsuperscriptauthorblock}
-}{}
-\ifthenelse{\equal{$titlepage-theme.author-style$}{superscript}}
-{% True case
-\newcommand{\titlepageauthorblock}{\superscriptauthorblock}
-}{}
-\ifthenelse{\equal{$titlepage-theme.author-style$}{superscript-with-and}}
-{% True case
-\newcommand{\titlepageauthorblock}{\superscriptwithandauthorblock}
-}{}
-\ifthenelse{\equal{$titlepage-theme.author-style$}{two-column}}
-{% True case
-\newcommand{\titlepageauthorblock}{\twocolumnauthorblock}
-}{}
-\ifthenelse{\equal{$coverpage-author-theme$}{two-column}}
-{% True case
-\newcommand{\coverpageauthorblock}{\twocolumnauthorblock}
-}{}
-
-\ifthenelse{\equal{$titlepage-theme.affiliation-style$}{none}}
-{% True case
-\newcommand{\titlepageaffiliationblock}{\emptyauthorblock}
-}{}
-\ifthenelse{\equal{$titlepage-theme.affiliation-style$}{numbered-list}}
-{% True case
-\newcommand{\titlepageaffiliationblock}{\numberedlistaffiliationblock}
-}{}
-\ifthenelse{\equal{$titlepage-theme.affiliation-style$}{numbered-list-with-correspondence}}
-{% True case
-\newcommand{\titlepageaffiliationblock}{\numberedlistwithcorraffiliationblock}
-}{}
-
-
+$endif$

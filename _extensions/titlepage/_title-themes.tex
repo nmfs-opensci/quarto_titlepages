@@ -2,58 +2,12 @@
 % based on the author and affiliation theme
 % none, plain, colorbox, doublelined
 
-\newcommand{\emptytitleblock}{}
-
-\newcommand{\plaintitleblock}{
-% Title and subtitle
-$if(title)$
-$if(titlepage-theme.title-fontsize)$\fontsize{$titlepage-theme.title-fontsize$}{$titlepage-theme.title-spacing$}\selectfont$endif$
-$if(titlepage-theme.title-color)$\textcolor{$titlepage-theme.title-color$}$endif${$titlepage-theme.title-fontstyle$\nohyphens{$title$}}\\[1\baselineskip]
-$endif$
-$if(subtitle)$
-$if(titlepage-theme.subtitle-fontsize)$\fontsize{$titlepage-theme.subtitle-fontsize$}{$titlepage-theme.subtitle-spacing$}\selectfont$endif$
-{$titlepage-theme.subtitle-fontstyle${$subtitle$}}\\$endif$
-}
-
-\newcommand{\colorboxtitleblock}{
-\setlength{\fboxrule}{4pt}
-\fcolorbox{black}{$if(titlepage-theme.title-colorbox-color)$$titlepage-theme.title-colorbox-color$$else$cyan$endif$}{
-	\parbox[t]{0.93\minipagewidth}{ % Outer full width box
-		\parbox[t]{0.91\minipagewidth}{ % Inner box for inner right text margin
-			\raggedright % Right align the text
-			$if(titlepage-theme.title-fontsize)$\fontsize{$titlepage-theme.title-fontsize$}{$titlepage-theme.title-spacing$}\selectfont$endif$
-			\vspace{0.7cm} % Space between the start of the title and the top of the grey box
-			
-			$if(titlepage-theme.title-color)$\textcolor{$titlepage-theme.title-color$}$endif${$titlepage-theme.title-fontstyle$\nohyphens{$title$}}\\
-			$if(titlepage-theme.subtitle-fontsize)$\fontsize{$titlepage-theme.subtitle-fontsize$}{$titlepage-theme.subtitle-spacing$}\selectfont$endif$
-			$if(titlepage-theme.subtitle-color)$\textcolor{$titlepage-theme.subtitle-color$}$endif${$titlepage-theme.subtitle-fontstyle$\nohyphens{$subtitle$}}\\
-			
-			\vspace{0.7cm} % Space between the end of the title and the bottom of the grey box
-		}
-	}
-}
-}
-
-\newcommand{\doublelinedtitleblock}{
-\rule{\textwidth}{0.4pt} % Thin horizontal rule
-
-\vspace{0.1\textheight} % Whitespace between the top rules and title
-
-% Title and subtitle
-$if(title)$$if(titlepage-theme.title-color)$\textcolor{$titlepage-theme.title-color$}$endif${$titlepage-theme.title-fontstyle$\nohyphens{$title$}}\\[1\baselineskip]$endif$
-$if(subtitle)${$subtitlepage-theme.title-fontstyle${$subtitle$}}\\$endif$
-
-\vspace{0.025\textheight} 
-
-\rule{0.3\textwidth}{0.4pt} % Short horizontal rule under the title
-}
-
 \newcommand{\titleandsubtitle}{
 % Title and subtitle
 $if(title)$
 {%
 $if(titlepage-theme.title-fontsize)$\fontsize{$titlepage-theme.title-fontsize$}{$titlepage-theme.title-spacing$}\selectfont$endif$
-$if(titlepage-theme.title-color)$\textcolor{$titlepage-theme.title-color$}$endif${$for(titlepage-theme.title-fontstyle)$\$titlepage-theme.title-fontstyle$ $endfor$\nohyphens{$title$}}%
+$if(titlepage-theme.title-color)$\textcolor{$titlepage-theme.title-color$}$endif${$for(titlepage-theme.title-fontstyle)$\$titlepage-theme.title-fontstyle${$endfor$\nohyphens{$title$}$for(titlepage-theme.title-fontstyle)$}$endfor$}\par
 }%
 $endif$
 $if(subtitle)$
@@ -61,7 +15,7 @@ $if(subtitle)$
 \vspace{\betweentitlesubtitle}
 {%
 $if(titlepage-theme.subtitle-fontsize)$\fontsize{$titlepage-theme.subtitle-fontsize$}{$titlepage-theme.subtitle-spacing$}\selectfont$endif$
-{$for(titlepage-theme.subtitle-fontstyle)$\$titlepage-theme.subtitle-fontstyle$ $endfor$\nohyphens{$subtitle$}}%
+{$for(titlepage-theme.subtitle-fontstyle)$\$titlepage-theme.subtitle-fontstyle${$endfor$\nohyphens{$subtitle$}$for(titlepage-theme.subtitle-fontstyle)$}$endfor$}\par
 }%
 $endif$
 }
@@ -82,7 +36,7 @@ $if(titlepage-style-code.title.colorbox)$
 \fcolorbox{$if(titlepage-theme.title-colorbox-bordercolor)$$titlepage-theme.title-colorbox-bordercolor$$else$black$endif$}{$if(titlepage-theme.title-colorbox-fill)$$titlepage-theme.title-colorbox-fill$$else$cyan$endif$}{
 \parbox[t]{0.90\minipagewidth}{ % Outer full width box
 \parbox[t]{0.85\minipagewidth}{ % Inner box for inner right text margin
-\titlepagetitlealign 
+$if(titlepage-theme.title-align)$\titlepagetitlealign$else$$if(titlepage-theme.page-align)$\titlepagepagealign$endif$$endif$
 \vspace{0.7cm}
 
 \titleandsubtitle
@@ -94,31 +48,26 @@ $if(titlepage-style-code.title.colorbox)$
 }
 $endif$
 
-$if(titlepage-style-code.title.doubleline)$
+$if(titlepage-style-code.title.doublelinewide)$
 \newcommand{\titlepagetitleblock}{
 \rule{\textwidth}{0.4pt} % Thin horizontal rule
-
-\vspace{0.1\textheight} % Whitespace between the top rules and title
+\vspace{0.025\textheight} % Whitespace between the top rules and title
 
 \titleandsubtitle
 
 \vspace{0.025\textheight} 
-
 \rule{0.3\textwidth}{0.4pt} % Short horizontal rule under the title
 }
 $endif$
 
-\ifthenelse{\equal{$coverpage-title-theme$}{none}}
-{% True case
-\newcommand{\coverpagetitleblock}{\emptytitleblock}
-}{}
-\ifthenelse{\equal{$coverpage-title-theme$}{plain}}
-{% True case
-\newcommand{\coverpagetitleblock}{\plaintitleblock}
-}{}
-\ifthenelse{\equal{$coverpage-title-theme$}{colorbox}}
-{% True case
-\newcommand{\coverpagetitleblock}{\colorboxtitleblock}
-}{}
+$if(titlepage-style-code.title.doublelinetight)$
+\newcommand{\titlepagetitleblock}{
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
 
+\HRule\\[0.4cm]
 
+\titleandsubtitle
+
+\HRule\\
+}
+$endif$

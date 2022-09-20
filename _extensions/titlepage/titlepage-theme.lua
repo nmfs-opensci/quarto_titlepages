@@ -35,6 +35,13 @@ function dump(o)
 end
 
 function Meta(m)
+--[[
+This function checks that the value the user set is ok
+and stops with an error message if no.
+yamlelement: the yaml metadata. e.g. m["titlepage-theme"]["page-align"]
+yamltext: page, how to print the yaml value in the error message. e.g. titlepage-theme: page-align
+okvals: a text table of ok styles. e.g. {"right", "center"}
+--]]
   local function check_yaml (yamlelement, yamltext, okvals)
     choice = pandoc.utils.stringify(yamlelement)
     if not has_value(okvals, choice) then
@@ -46,7 +53,16 @@ function Meta(m)
 
     return true
   end
-  
+
+--[[
+This function gets the value of something like titlepage-theme.title-style
+and sets a value titlepage-theme.title-style.plain (for example). It also
+does error checking against okvals. "plain" is always ok and if no value is
+set then the style is set to plain.
+page: titlepage or coverpage
+styleement: page, title, subtitle, header, footer, affiliation, etc
+okvals: a text table of ok styles. e.g. {"plain", "two-column"}
+--]]
   local function set_style (page, styleelement, okvals)
     yamltext = page .. "-theme" .. ": " .. styleelement .. "-style"
     yamlelement = m[page .. "-theme"][styleelement .. "-style"]
@@ -59,332 +75,235 @@ function Meta(m)
         error()
       end
     else
-      print("\n\ntitlepage extension error: ", yamltext, " needs a value. Should have been set in titlepage-theme lua filter.\n\n")
-      error()
+--      print("\n\ntitlepage extension error: " .. yamltext .. " needs a value. Should have been set in titlepage-theme lua filter.\n\n")
+--      error()
+        m[page .. "-style-code"][styleelement] = {}
+        m[page .. "-style-code"][styleelement]["plain"] = true
     end
+  end
+
+--[[
+This function assigns the themevals to the meta data
+--]]
+  local function assign_value (tab)
+    for i, value in pairs(tab) do
+      if isEmpty(m['titlepage-theme'][i]) then
+        m['titlepage-theme'][i] = value
+      end
+    end
+
+    return m
   end
 
   local titlepage_table = {
     ["academic"] = function (m)
-      m['titlepage-academic'] = true
+      themevals = {
+        ["elements"] = {
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\headerblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\dateblock")}
+          },
+        ["page-align"] = "center",
+        ["title-style"] = "doublelinetight",
+        ["title-fontstyle"] = {"huge", "bfseries"},
+        ["title-space-after"] = "1.5cm",
+        ["subtitle-fontstyle"] = {"Large"},
+        ["author-style"] = "two-column",
+        ["affiliation-style"] = "none",
+        ["author-fontstyle"] = {"textsc"},
+        ["affiliation-fontstyle"] = {"large"},
+        ["logo-space-after"] = pandoc.MetaInlines{pandoc.RawInline("latex","2\\baselineskip")},
+        ["header-fontstyle"] = {"textsc", "LARGE"},
+        ["header-space-after"] = "1.5cm",
+        ["date-fontstyle"] = {"large"}
+        }
+      assign_value(themevals)
+        
       return m
     end,
     ["bg-image"] = function (m)
-      if isEmpty(m['titlepage-theme']["elements"]) then
-        m['titlepage-theme']["elements"] = {
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\affiliationblock")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\footerblock")}
-          }
-      end
-      if isEmpty(m['titlepage-theme']["page-align"]) then
-        m['titlepage-theme']["page-align"] = "left"
-      end
-      if isEmpty(m['titlepage-theme']["title-style"]) then
-        m['titlepage-theme']["title-style"] = "plain"
-      end
-      if isEmpty(m['titlepage-theme']["title-fontstyle"]) then
-        m['titlepage-theme']["title-fontstyle"] = {"large", "bfseries"}
-      end
-      if isEmpty(m['titlepage-theme']["title-space-after"]) then
-        m['titlepage-theme']["title-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","4\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["title-subtitle-space-between"]) then
-        m['titlepage-theme']["title-subtitle-space-between"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","1\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["subtitle-fontstyle"]) then
-        m['titlepage-theme']["subtitle-fontstyle"] = {"large", "textit"}
-      end
-      if isEmpty(m['titlepage-theme']["author-style"]) then
-        m['titlepage-theme']["author-style"] = "superscript-with-and"
-      end
-      if isEmpty(m['titlepage-theme']["author-fontstyle"]) then
-        m['titlepage-theme']["author-fontstyle"] = {"large"}
-      end
-      if isEmpty(m['titlepage-theme']["author-space-after"]) then
-        m['titlepage-theme']["author-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","2\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["affiliation-style"]) then
-        m['titlepage-theme']["affiliation-style"] = "numbered-list-with-correspondence"
-      end
-      if isEmpty(m['titlepage-theme']["affiliation-space-after"]) then
-        m['titlepage-theme']["affiliation-space-after"] = "0pt"
-      end
-      if isEmpty(m['titlepage-theme']["footer-style"]) then
-        m['titlepage-theme']["footer-style"] = "plain"
-      end
-      if isEmpty(m['titlepage-theme']["footer-fontstyle"]) then
-        m['titlepage-theme']["footer-fontstyle"] = {"large"}
-      end
-      if isEmpty(m['titlepage-theme']["footer-space-after"]) then
-        m['titlepage-theme']["footer-space-after"] = "0pt"
-      end
-      if isEmpty(m['titlepage-theme']["logo-size"]) then
-        m['titlepage-theme']["logo-size"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.25\\textheight")}
-      end
-      if isEmpty(m['titlepage-theme']["logo-space-after"]) then
-        m['titlepage-theme']["logo-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.1\\textheight")}
-      end
-      if isEmpty(m['titlepage-theme']["vrule-width"]) then
-        m['titlepage-theme']["vrule-width"] = "1pt"
-      end
-      if isEmpty(m['titlepage-theme']["bg-image-size"]) then
-        m['titlepage-theme']["bg-image-size"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.5\\paperwidth")}
-      end
-      if isEmpty(m['titlepage-theme']["bg-image-location"]) then
-        m['titlepage-theme']["bg-image-location"] = "ULCorner"
-      end
       if isEmpty(m['title-bg-image']) then
         m['titlepage-image'] = "corner-bg.png"
       end
       if isEmpty(m['titlepage-geometry']) then
         m['titlepage-geometry'] = pandoc.List({"top=3in", "bottom=1in", "right=1in", "left=1in"})
       end
-      return m
-    end,
-    ["classic-lined"] = function (m)
-      if isEmpty(m['titlepage-theme']["elements"]) then
-        m['titlepage-theme']["elements"] = {
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\footerblock")}
-          }
-      end
-      if isEmpty(m['titlepage-theme']["page-align"]) then
-        m['titlepage-theme']["page-align"] = "center"
-      end
-      if isEmpty(m['titlepage-theme']["title-style"]) then
-        m['titlepage-theme']["title-style"] = "doubleline"
-      end
-      if isEmpty(m['titlepage-theme']["title-fontstyle"]) then
-        m['titlepage-theme']["title-fontstyle"] = {"Huge", "uppercase"}
-      end
-      if isEmpty(m['titlepage-theme']["title-space-after"]) then
-        m['titlepage-theme']["title-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.1\\textheight")}
-      end
-      if isEmpty(m['titlepage-theme']["title-subtitle-space-between"]) then
-        m['titlepage-theme']["title-subtitle-space-between"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","1\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["subtitle-fontstyle"]) then
-        m['titlepage-theme']["subtitle-fontstyle"] = {"Large"}
-      end
-      if isEmpty(m['titlepage-theme']["author-style"]) then
-        m['titlepage-theme']["author-style"] = "plain-newline"
-      end
-      if isEmpty(m['titlepage-theme']["author-fontstyle"]) then
-        m['titlepage-theme']["author-fontstyle"] = {"Large", "textsc"}
-      end
-      if isEmpty(m['titlepage-theme']["author-space-after"]) then
-        m['titlepage-theme']["author-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","2\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["affiliation-style"]) then
-        m['titlepage-theme']["affiliation-style"] = "numbered-list-with-correspondence"
-      end
-      if isEmpty(m['titlepage-theme']["affiliation-space-after"]) then
-        m['titlepage-theme']["affiliation-space-after"] = "0pt"
-      end
-      if isEmpty(m['titlepage-theme']["footer-style"]) then
-        m['titlepage-theme']["footer-style"] = "plain"
-      end
-      if isEmpty(m['titlepage-theme']["footer-fontstyle"]) then
-        m['titlepage-theme']["footer-fontstyle"] = {"large", "textsc"}
-      end
-      if isEmpty(m['titlepage-theme']["footer-space-after"]) then
-        m['titlepage-theme']["footer-space-after"] = "0pt"
-      end
-      if isEmpty(m['titlepage-theme']["logo-size"]) then
-        m['titlepage-theme']["logo-size"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.25\\textheight")}
-      end
-      if isEmpty(m['titlepage-theme']["logo-space-after"]) then
-        m['titlepage-theme']["logo-space-after"] = "1cm"
-      end
-
-      return m
-    end,
-    ["colorbox"] = function (m)
-      if isEmpty(m['titlepage-theme']["elements"]) then
-        m['titlepage-theme']["elements"] = {
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")}
-          }
-      end
-      if isEmpty(m['titlepage-theme']["page-align"]) then
-        m['titlepage-theme']["page-align"] = "left"
-      end
-      if isEmpty(m['titlepage-theme']["title-style"]) then
-        m['titlepage-theme']["title-style"] = "colorbox"
-      end
-      if isEmpty(m['titlepage-theme']["title-fontsize"]) then
-        m['titlepage-theme']["title-fontsize"] = 100
-      end
-      if isEmpty(m['titlepage-theme']["subtitle-fontsize"]) then
-        m['titlepage-theme']["subtitle-fontsize"] = 25
-      end
-      if isEmpty(m['titlepage-theme']["title-space-after"]) then
-        m['titlepage-theme']["title-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","2\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["title-subtitle-space-between"]) then
-        m['titlepage-theme']["title-subtitle-space-between"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","5\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["subtitle-fontstyle"]) then
-        m['titlepage-theme']["subtitle-fontstyle"] = {"bfseries"}
-      end
-      if isEmpty(m['titlepage-theme']["author-style"]) then
-        m['titlepage-theme']["author-style"] = "plain-newline"
-      end
-      if isEmpty(m['titlepage-theme']["author-fontstyle"]) then
-        m['titlepage-theme']["author-fontstyle"] = {"Large"}
-      end
-      if isEmpty(m['titlepage-theme']["author-align"]) then
-        m['titlepage-theme']["author-align"] = "right"
-      end
-      if isEmpty(m['titlepage-theme']["author-space-after"]) then
-        m['titlepage-theme']["author-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","2\\baselineskip")}
-      end
-
-      return m
-    end,
-    ["formal"] = function (m)
-      if isEmpty(m['titlepage-theme']["elements"]) then
-        m['titlepage-theme']["elements"] = {
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","A report presented at the annual\\\\meeting on 10 August 2025\\\\ \\vspace{0.8cm}")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
-          pandoc.MetaInlines{pandoc.RawInline("latex","\\footerblock")}
-          }
-      end
-      if isEmpty(m['titlepage-theme']["page-align"]) then
-        m['titlepage-theme']["page-align"] = "center"
-      end
-      if isEmpty(m['titlepage-theme']["title-style"]) then
-        m['titlepage-theme']["title-style"] = "plain"
-      end
-      if isEmpty(m['titlepage-theme']["title-fontstyle"]) then
-        m['titlepage-theme']["title-fontstyle"] = {"Huge", "textbf"}
-      end
-      if isEmpty(m['titlepage-theme']["title-space-after"]) then
-        m['titlepage-theme']["title-space-after"] = "1.5cm"
-      end
-      if isEmpty(m['titlepage-theme']["title-subtitle-space-between"]) then
-        m['titlepage-theme']["title-subtitle-space-between"] = "0.5cm"
-      end
-      if isEmpty(m['titlepage-theme']["subtitle-fontstyle"]) then
-        m['titlepage-theme']["subtitle-fontstyle"] = {"LARGE"}
-      end
-      if isEmpty(m['titlepage-theme']["author-style"]) then
-        m['titlepage-theme']["author-style"] = "plain-newline"
-      end
-      if isEmpty(m['titlepage-theme']["author-fontstyle"]) then
-        m['titlepage-theme']["author-fontstyle"] = {"textbf"}
-      end
-      if isEmpty(m['titlepage-theme']["footer-style"]) then
-        m['titlepage-theme']["footer-style"] = "plain"
-      end
-      if isEmpty(m['titlepage-theme']["footer-fontstyle"]) then
-        m['titlepage-theme']["footer-fontstyle"] = {"Large", "textsc"}
-      end
-      if isEmpty(m['titlepage-theme']["footer-space-after"]) then
-        m['titlepage-theme']["footer-space-after"] = "0pt"
-      end
-      if isEmpty(m['titlepage-theme']["logo-size"]) then
-        m['titlepage-theme']["logo-size"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.4\\textwidth")}
-      end
-      if isEmpty(m['titlepage-theme']["logo-space-after"]) then
-        m['titlepage-theme']["logo-space-after"] = "1cm"
-      end
-
-      return m
-    end,
-    ["vline"] = function (m)
-      if isEmpty(m['titlepage-theme']["elements"]) then
-        m['titlepage-theme']["elements"] = {
+      themevals = {
+        ["elements"] = {
           pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
           pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
           pandoc.MetaInlines{pandoc.RawInline("latex","\\affiliationblock")},
           pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
           pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
           pandoc.MetaInlines{pandoc.RawInline("latex","\\footerblock")}
-          }
-      end
-      if isEmpty(m['titlepage-theme']["page-align"]) then
-        m['titlepage-theme']["page-align"] = "left"
-      end
-      if isEmpty(m['titlepage-theme']["title-style"]) then
-        m['titlepage-theme']["title-style"] = "plain"
-      end
-      if isEmpty(m['titlepage-theme']["title-fontstyle"]) then
-        m['titlepage-theme']["title-fontstyle"] = {"large", "bfseries"}
-      end
-      if isEmpty(m['titlepage-theme']["title-space-after"]) then
-        m['titlepage-theme']["title-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","4\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["title-subtitle-space-between"]) then
-        m['titlepage-theme']["title-subtitle-space-between"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","1\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["subtitle-fontstyle"]) then
-        m['titlepage-theme']["subtitle-fontstyle"] = {"large", "textit"}
-      end
-      if isEmpty(m['titlepage-theme']["author-style"]) then
-        m['titlepage-theme']["author-style"] = "superscript-with-and"
-      end
-      if isEmpty(m['titlepage-theme']["author-fontstyle"]) then
-        m['titlepage-theme']["author-fontstyle"] = {"large"}
-      end
-      if isEmpty(m['titlepage-theme']["author-space-after"]) then
-        m['titlepage-theme']["author-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","2\\baselineskip")}
-      end
-      if isEmpty(m['titlepage-theme']["affiliation-style"]) then
-        m['titlepage-theme']["affiliation-style"] = "numbered-list-with-correspondence"
-      end
-      if isEmpty(m['titlepage-theme']["affiliation-space-after"]) then
-        m['titlepage-theme']["affiliation-space-after"] = "0pt"
-      end
-      if isEmpty(m['titlepage-theme']["footer-style"]) then
-        m['titlepage-theme']["footer-style"] = "plain"
-      end
-      if isEmpty(m['titlepage-theme']["footer-fontstyle"]) then
-        m['titlepage-theme']["footer-fontstyle"] = {"large"}
-      end
-      if isEmpty(m['titlepage-theme']["footer-space-after"]) then
-        m['titlepage-theme']["footer-space-after"] = "0pt"
-      end
-      if isEmpty(m['titlepage-theme']["logo-size"]) then
-        m['titlepage-theme']["logo-size"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.25\\textheight")}
-      end
-      if isEmpty(m['titlepage-theme']["logo-space-after"]) then
-        m['titlepage-theme']["logo-space-after"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.1\\textheight")}
-      end
-      if isEmpty(m['titlepage-theme']["vrule-width"]) then
-        m['titlepage-theme']["vrule-width"] = "1pt"
-      end
-
+          },
+        ["page-align"] = "left",
+        ["title-style"] = "plain",
+        ["title-fontstyle"] = {"large", "bfseries"},
+        ["title-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","4\\baselineskip")},
+        ["subtitle-fontstyle"] = {"large", "textit"},
+        ["author-style"] = "superscript-with-and",
+        ["author-fontstyle"] = {"large"},
+        ["author-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","2\\baselineskip")},
+        ["affiliation-style"] = "numbered-list-with-correspondence",
+        ["affiliation-fontstyle"] = {"large"},
+        ["footer-space-after"] = "0pt",
+        ["affiliation-space-after"] = "0pt",
+        ["footer-style"] = "plain",
+        ["footer-fontstyle"] = {"large"},
+        ["logo-size"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.25\\textheight")},
+        ["logo-space-after"] = pandoc.MetaInlines{pandoc.RawInline("latex","2\\baselineskip")},
+        ["vrule-width"] = "1pt",
+        ["bg-image-size"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.5\\paperwidth")},
+        ["bg-image-location"] = "ULCorner",
+        }
+      assign_value(themevals)
+        
+      return m
+    end,
+    ["classic-lined"] = function (m)
+      themevals = {
+        ["elements"] = {
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\footerblock")}
+          },
+        ["page-align"] = "center",
+        ["title-style"] = "doublelinewide",
+        ["title-fontsize"] = 30,
+        ["title-fontstyle"] = {"uppercase"},
+        ["title-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.1\\textheight")},
+        ["subtitle-fontstyle"] = {"Large", "textit"},
+        ["author-style"] = "plain",
+        ["author-sep"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","\\hskip1em")},
+        ["author-fontstyle"] = {"Large"},
+        ["author-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","2\\baselineskip")},
+        ["affiliation-style"] = "numbered-list-with-correspondence",
+        ["affiliation-fontstyle"] = {"large"},
+        ["affiliation-space-after"] = "0pt",
+        ["footer-style"] = "plain",
+        ["footer-fontstyle"] = {"large", "textsc"},
+        ["footer-space-after"] = "0pt",
+        ["logo-size"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.25\\textheight")},
+        ["logo-space-after"] = "1cm",
+        }
+      assign_value(themevals)
+        
+      return m
+    end,
+    ["colorbox"] = function (m)
+      themevals = {
+        ["elements"] = {
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")}
+          },
+        ["page-align"] = "left",
+        ["title-style"] = "colorbox",
+        ["title-fontsize"] = 100,
+        ["title-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","2\\baselineskip")},
+        ["subtitle-fontsize"] = 25,
+        ["subtitle-fontstyle"] = {"bfseries"},
+        ["title-subtitle-space-between"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","5\\baselineskip")},
+        ["author-style"] = "plain-newline",
+        ["author-fontstyle"] = {"Large"},
+        ["author-align"] = "right",
+        ["author-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","2\\baselineskip")},
+        }
+      assign_value(themevals)
+        
+      return m
+    end,
+    ["formal"] = function (m)
+      themevals = {
+        ["elements"] = {
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","A report presented at the annual\\\\meeting on 10 August 2025\\\\ \\vspace{0.8cm}")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\footerblock")}
+          },
+        ["page-align"] = "center",
+        ["title-style"] = "plain",
+        ["title-fontstyle"] = {"Huge", "textbf"},
+        ["title-space-after"] = "1.5cm",
+        ["subtitle-fontstyle"] = {"LARGE"},
+        ["title-subtitle-space-between"] = "0.5cm",
+        ["author-style"] = "plain-newline",
+        ["author-fontstyle"] = {"textbf"},
+        ["author-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","2\\baselineskip")},
+        ["affiliation-style"] = "numbered-list-with-correspondence",
+        ["affiliation-fontstyle"] = {"large"},
+        ["affiliation-space-after"] = "0pt",
+        ["footer-style"] = "plain",
+        ["footer-fontstyle"] = {"Large", "textsc"},
+        ["footer-space-after"] = "0pt",
+        ["logo-size"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.4\\textwidth")},
+        ["logo-space-after"] = "1cm",
+        }
+      assign_value(themevals)
+        
+      return m
+    end,
+    ["vline"] = function (m)
+      themevals = {
+        ["elements"] = {
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\affiliationblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\footerblock")}
+          },
+        ["page-align"] = "left",
+        ["title-style"] = "plain",
+        ["title-fontstyle"] = {"large", "bfseries"},
+        ["title-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","4\\baselineskip")},
+        ["subtitle-fontstyle"] = {"large", "textit"},
+        ["author-style"] = "superscript-with-and",
+        ["author-fontstyle"] = {"large"},
+        ["author-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","2\\baselineskip")},
+        ["affiliation-style"] = "numbered-list-with-correspondence",
+        ["affiliation-fontstyle"] = {"large"},
+        ["footer-space-after"] = "0pt",
+        ["affiliation-space-after"] = "0pt",
+        ["footer-style"] = "plain",
+        ["footer-fontstyle"] = {"large"},
+        ["footer-space-after"] = "0pt",
+        ["logo-size"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.25\\textheight")},
+        ["logo-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.1\\textheight")},
+        ["vrule-width"] = "0.5in",
+        ["vrule-align"] = "left",
+        ["vrule-color"] = "blue",
+        ["vrule-text-color"] = "white",
+        ["vrule-text-fontstyle"] = {"bfseries", "Large"},
+        ["vrule-text"] = "Add your text in vrule-text"
+        }
+      assign_value(themevals)
+        
       return m
     end
   }
@@ -394,7 +313,7 @@ function Meta(m)
     m['titlepage'] = "bg-image"
   end
   choice = pandoc.utils.stringify(m.titlepage)
-  okvals = {"plain", "vline", "bg-image", "colorbox", "academic", "formal"}
+  okvals = {"plain", "vline", "bg-image", "colorbox", "academic", "formal", "classic-lined"}
   isatheme = has_value (okvals, choice)
   if not isatheme then
     if not file_exists(choice) then
@@ -420,35 +339,32 @@ function Meta(m)
 -- titlepage-theme will exist if using a theme
 if not m['titlepage-file'] then
 --[[
-Error checking the style codes
+Error checking and setting the style codes
 --]]
   -- Style codes
   m["titlepage-style-code"] = {}
-  okvals = {"none", "plain", "colorbox", "doubleline"}
+  okvals = {"none", "plain", "colorbox", "doublelinewide", "doublelinetight"}
   set_style("titlepage", "title", okvals)
-  okvals = {"none", "plain", "plain-with-and", "plain-newline", "plain-superscript", "superscript", "superscript-with-and", "two-column"}
+  set_style("titlepage", "footer", okvals)
+  set_style("titlepage", "header", okvals)
+  set_style("titlepage", "date", okvals)
+  okvals = {"none", "plain", "plain-with-and", "superscript", "superscript-with-and", "two-column", "author-address"}
   set_style("titlepage", "author", okvals)
   okvals = {"none", "numbered-list", "numbered-list-with-correspondence"}
   set_style("titlepage", "affiliation", okvals)
-  set_style("titlepage", "footer", {"none", "plain"})
 
 --[[
 Set the fontsize defaults
 if page-fontsize was passed in or if fontsize passed in but not spacing
 --]]
-  for key, val in pairs({"title", "author", "affiliation", "footer", "header", "footer"}) do
+  for key, val in pairs({"title", "author", "affiliation", "footer", "header", "footer", "date"}) do
     if isEmpty(m["titlepage-theme"][val .. "-fontsize"]) then
       if not isEmpty(m["titlepage-theme"]["page-fontsize"]) then
         m["titlepage-theme"][val .. "-fontsize"] = getVal(m["titlepage-theme"]["page-fontsize"])
       end
     end
   end
-  if isEmpty(m['titlepage-theme']["subtitle-fontsize"]) then
-    if not isEmpty(m['titlepage-theme']["title-fontsize"]) then
-      m['titlepage-theme']["subtitle-fontsize"] = getVal(m['titlepage-theme']["title-fontsize"])
-    end
-  end
-  for key, val in pairs({"page", "title", "subtitle", "author", "affiliation", "footer", "header", "footer"}) do
+  for key, val in pairs({"page", "title", "subtitle", "author", "affiliation", "footer", "header", "footer", "date"}) do
     if not isEmpty(m['titlepage-theme'][val .. "-fontsize"]) then
       if isEmpty(m['titlepage-theme'][val .. "-spacing"]) then
         m['titlepage-theme'][val .. "-spacing"] = 1.2*getVal(m['titlepage-theme'][val .. "-fontsize"])
@@ -456,6 +372,16 @@ if page-fontsize was passed in or if fontsize passed in but not spacing
     end
   end
 
+--[[
+Set author sep character
+--]]
+  if isEmpty(m['titlepage-theme']["author-sep"]) then
+    m['titlepage-theme']["author-sep"] = ",  "
+  end
+  if getVal(m['titlepage-theme']["author-sep"]) == "newline" then
+    m['titlepage-theme']["author-sep"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","\\\\")}
+  end
 --[[
 Set vrule defaults
 --]]
@@ -465,7 +391,7 @@ Set vrule defaults
     end
     if isEmpty(m['titlepage-theme']["vrule-space"]) then
       m['titlepage-theme']["vrule-space"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.05\\textheight")}
+          pandoc.RawInline("latex","0.05\\textwidth")}
     end
     if isEmpty(m['titlepage-theme']["vrule-align"]) then
       m['titlepage-theme']["vrule-align"] = "left"
@@ -483,7 +409,7 @@ default titlepage alignment is left
   if isEmpty(m['titlepage-theme']["page-align"]) then
     m['titlepage-theme']["page-align"] = "left"
   end
-  for key, val in pairs({"page", "title", "author", "affiliation", "footer", "header", "footer", "logo"}) do
+  for key, val in pairs({"page", "title", "author", "affiliation", "footer", "header", "logo", "date"}) do
     if not isEmpty(m["titlepage-theme"][val .. "-align"]) then
       okvals = {"right", "left", "center"}
       if has_value({"title", "author", "footer", "header"}, val) then table.insert(okvals, "spread") end

@@ -18,6 +18,7 @@ contributes:
         - "_titleonly_coverpage.tex"
         - "_authoronly_coverpage.tex"
         - "_author-affiliation-themes.tex"
+        - "_header-footer-date-themes.tex"
         - "_title-themes.tex"
         - "_titlepage-alignments.tex"
         - "_titlepage.tex"

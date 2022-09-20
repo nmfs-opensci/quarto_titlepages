@@ -59,3 +59,11 @@ $if(titlepage-theme.logo-align)$
 \ifthenelse{\equal{$titlepage-theme.logo-align$}{left}}{\raggedright}{}
 }
 $endif$
+$if(titlepage-theme.date-align)$
+%% Titles
+\newcommand{\titlepagedatealign}{
+\ifthenelse{\equal{$titlepage-theme.title-align$}{right}}{\raggedleft}{}
+\ifthenelse{\equal{$titlepage-theme.title-align$}{center}}{\centering}{}
+\ifthenelse{\equal{$titlepage-theme.title-align$}{left}}{\raggedright}{}
+}
+$endif$

@@ -41,21 +41,7 @@ format:
       Open Source Publication for All\
       Amtmandens Allé 15\
       6950 Rindum Ringkøbing-Skjern\
-      DENMARK\
-      December 2025
-    titlepage-theme:
-      footer-fontfamily: "Palatino"
-      vrule-width: 0.5in
-      vrule-text: hello
-      vrule-text-color: white
-      vrule-text-fontstyle: ["bfseries", "LARGE"]
-      vrule-align: leftright
-    coverpage: titleauthor
-    coverpage-image: otter
-    coverpage-title-rotate: 45
-    coverpage-title-fontfamily: "QTHelvet-BoldOutline.otf"
-    coverpage-author-align: right
-    coverpage-author-fontfamily: "Palatino"
+      DENMARK
     keep-tex: true
     include-in-header: |
       text:
@@ -63,6 +49,17 @@ format:
         \usepackage{babel}
         \babelprovide[import]{czech}
 ---
+
+# Cover page
+
+```
+    coverpage: titleauthor
+    coverpage-image: otter
+    coverpage-title-rotate: 45
+    coverpage-title-fontfamily: "QTHelvet-BoldOutline.otf"
+    coverpage-author-align: right
+    coverpage-author-fontfamily: "Palatino"
+```
 
 # Usage notes
 
