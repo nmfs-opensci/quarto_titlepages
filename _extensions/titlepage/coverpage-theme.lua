@@ -97,14 +97,6 @@ This function assigns the themevals to the meta data
     return m
   end
 
-  local footer-style_themevals = {
-        ["footer-fontsize"] = 0.25*getVal(m["page-fontsize"]),
-        }
-
-  local header-style_themevals = {
-        ["header-fontsize"] = 0.25*getVal(m["page-fontsize"]),
-        }
-
   local coverpage_table = {
     ["none"] = function (m)
       themevals = {
@@ -115,7 +107,6 @@ This function assigns the themevals to the meta data
         ["header-style"] = "none",
         ["date-style"] = "none",
         }
-      themevals = table_concat(themevals, title_themevals)
       assign_value(themevals)
         
       return m
@@ -129,7 +120,6 @@ This function assigns the themevals to the meta data
         ["header-style"] = "none",
         ["date-style"] = "none",
         }
-      themevals = table_concat(themevals, title_themevals)
       assign_value(themevals)
         
       return m
@@ -143,7 +133,6 @@ This function assigns the themevals to the meta data
         ["header-style"] = "none",
         ["date-style"] = "none",
         }
-      themevals = table_concat(themevals, author_themevals)
       assign_value(themevals)
         
       return m
@@ -168,12 +157,8 @@ This function assigns the themevals to the meta data
       for key, val in pairs({"title", "author", "footer", "header"}) do
         if not isEmpty(m['coverpage-' .. val]) then
           themevals[val .. "-style"] = "plain"
-          if val == "footer" then
-            themevals["footer-fontsize"] = 0.25*getVal(m["page-fontsize"])
-          end
-          if val == "header" then
-            themevals["header-fontsize"] = 0.25*getVal(m["page-fontsize"])
-          end
+        else
+          themevals[val .. "-style"] = "none"
         end
       end
       assign_value(themevals)
@@ -212,8 +197,8 @@ This function assigns the themevals to the meta data
 -- coverpage-theme will exist if using a theme
 if not m['coverpage-file'] then
   
--- set the coverpage values unles user passed them in
-  for key, val in pairs({"title", "author", "date"}) do
+-- set the coverpage values unless user passed them in
+  for key, val in pairs({"title", "author"}) do
     if isEmpty(m['coverpage-' .. val]) then
       if not isEmpty(m[val]) then
         m['coverpage-' .. val] = getVal(m[val])
@@ -226,7 +211,7 @@ Error checking and setting the style codes
 --]]
   -- Style codes
   m["coverpage-style-code"] = {}
-  okvals = {"none", "plain", "colorbox", "doublelinewide", "doublelinetight"}
+  okvals = {"none", "plain"}
   set_style("coverpage", "title", okvals)
   set_style("coverpage", "footer", okvals)
   set_style("coverpage", "header", okvals)
@@ -250,17 +235,15 @@ Error checking and setting the style codes
   -- Some demos
   if choice == "great-wave" then
     m['coverpage-bg-image'] = "TheGreatWaveoffKanagawa.jpeg"
-    if isEmpty(m['coverpage-theme']['page-color']) then
-      m['coverpage-theme']['page-color'] = "F6D5A8"
+    if isEmpty(m['coverpage-theme']['page-html-color']) then
+      m['coverpage-theme']['page-html-color'] = "F6D5A8"
     end
     if isEmpty(m['coverpage-theme']['bg-image-fading']) then
       m['coverpage-theme']['bg-image-fading'] = "north"
     end
   end
   if choice == "otter" then
-    if isEmpty(m['coverpage-bg-image']) then
-      m['coverpage-bg-image'] = "_extensions/titlepage/images/otter-bar.jpeg"
-    end
+    m['coverpage-bg-image'] = "_extensions/titlepage/images/otter-bar.jpeg"
     if isEmpty(m['coverpage-theme']['bg-image-opacity']) then
       m['coverpage-theme']['bg-image-opacity'] = 0.5
     end
@@ -280,21 +263,19 @@ if page-fontsize was passed in or if fontsize passed in but not spacing
     m["coverpage-theme"]["page-fontsize"] = 100
     m['coverpage-theme']["page-spacing"] = 120
   end
+
   -- if not passed in then it will take page-fontsize and page-spacing
-  for key, val in pairs({"title", "author"}) do
-    if isEmpty(m["coverpage-theme"][val .. "-fontsize"]) then
-      m["coverpage-theme"][val .. "-fontsize"] = getVal(m["coverpage-theme"]["page-fontsize"])
-      if isEmpty(m['coverpage-theme'][val .. "-spacing"]) then
-        m['coverpage-theme'][val .. "-spacing"] = 1.2*getVal(m['coverpage-theme'][val .. "-fontsize"])
-      end
-    end
-  end
-  -- if not passed in then it will take 0.25 page-fontsize and 0.25 page-spacing
-  for key, val in pairs({"footer", "header"}) do
-    if isEmpty(m["coverpage-theme"][val .. "-fontsize"]) then
-      m["coverpage-theme"][val .. "-fontsize"] = 0.25*getVal(m["coverpage-theme"]["page-fontsize"])
-      if isEmpty(m['coverpage-theme'][val .. "-spacing"]) then
-        m['coverpage-theme'][val .. "-spacing"] = 1.2*getVal(m['coverpage-theme'][val .. "-fontsize"])
+  for key, val in pairs({"title", "author", "footer", "header"}) do
+    if not getVal(m["coverpage-theme"][val .. "-style"]) ~= "none" then
+      if isEmpty(m["coverpage-theme"][val .. "-fontsize"]) then
+        if has_value ({"title", "author"}, val) then
+          m["coverpage-theme"][val .. "-fontsize"] = getVal(m["coverpage-theme"]["page-fontsize"])
+        else
+          m["coverpage-theme"][val .. "-fontsize"] = 0.25*getVal(m["coverpage-theme"]["page-fontsize"])
+        end
+        if isEmpty(m['coverpage-theme'][val .. "-spacing"]) then
+          m['coverpage-theme'][val .. "-spacing"] = 1.2*getVal(m['coverpage-theme'][val .. "-fontsize"])
+        end
       end
     end
   end
@@ -371,14 +352,14 @@ Set left and width alignments, bottom distance and rotation
       end -- center
       -- Set the bottom distances
       bottom_table = {["title"] = 0.8, ["author"] = 0.25, ["footer"] = 0.1, ["header"] = 0.9, ["date"] = 0.1}
-      for key, val in pairs(bottom_table) do
-        if isEmpty(m['coverpage-theme'][key .. '-bottom']) then
-          m['coverpage-theme'][key .. '-bottom'] = val
+      for bkey, bval in pairs(bottom_table) do
+        if isEmpty(m['coverpage-theme'][bkey .. '-bottom']) then
+          m['coverpage-theme'][bkey .. '-bottom'] = bval
         end
       end -- bottom distance
       -- set rotation
-      if isEmpty(m['coverpage-theme'][key .. '-rotate']) then
-        m['coverpage-theme'][key .. 'rotate'] = 0
+      if isEmpty(m['coverpage-theme'][val .. '-rotate']) then
+        m['coverpage-theme'][val .. '-rotate'] = 0
       end -- rotate
     end -- if style not none
   end -- for loop
