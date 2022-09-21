@@ -21,7 +21,7 @@ local function has_value (tab, val)
     return false
 end
 
-function dump(o)
+local function dump(o)
    if type(o) == 'table' then
       local s = '{ '
       for k,v in pairs(o) do
@@ -36,8 +36,7 @@ end
 
 function Meta(m)
 --[[
-This function checks that the value the user set is ok
-and stops with an error message if no.
+This function checks that the value the user set is ok and stops with an error message if no.
 yamlelement: the yaml metadata. e.g. m["titlepage-theme"]["page-align"]
 yamltext: page, how to print the yaml value in the error message. e.g. titlepage-theme: page-align
 okvals: a text table of ok styles. e.g. {"right", "center"}
@@ -55,10 +54,8 @@ okvals: a text table of ok styles. e.g. {"right", "center"}
   end
 
 --[[
-This function gets the value of something like titlepage-theme.title-style
-and sets a value titlepage-theme.title-style.plain (for example). It also
-does error checking against okvals. "plain" is always ok and if no value is
-set then the style is set to plain.
+This function gets the value of something like titlepage-theme.title-style and sets a value titlepage-theme.title-style.plain (for example). It also
+does error checking against okvals. "plain" is always ok and if no value is set then the style is set to plain.
 page: titlepage or coverpage
 styleement: page, title, subtitle, header, footer, affiliation, etc
 okvals: a text table of ok styles. e.g. {"plain", "two-column"}
@@ -357,14 +354,14 @@ Error checking and setting the style codes
 Set the fontsize defaults
 if page-fontsize was passed in or if fontsize passed in but not spacing
 --]]
-  for key, val in pairs({"title", "author", "affiliation", "footer", "header", "footer", "date"}) do
+  for key, val in pairs({"title", "author", "affiliation", "footer", "header", "date"}) do
     if isEmpty(m["titlepage-theme"][val .. "-fontsize"]) then
       if not isEmpty(m["titlepage-theme"]["page-fontsize"]) then
         m["titlepage-theme"][val .. "-fontsize"] = getVal(m["titlepage-theme"]["page-fontsize"])
       end
     end
   end
-  for key, val in pairs({"page", "title", "subtitle", "author", "affiliation", "footer", "header", "footer", "date"}) do
+  for key, val in pairs({"page", "title", "subtitle", "author", "affiliation", "footer", "header", "date"}) do
     if not isEmpty(m['titlepage-theme'][val .. "-fontsize"]) then
       if isEmpty(m['titlepage-theme'][val .. "-spacing"]) then
         m['titlepage-theme'][val .. "-spacing"] = 1.2*getVal(m['titlepage-theme'][val .. "-fontsize"])
