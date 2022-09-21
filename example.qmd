@@ -44,6 +44,16 @@ format:
       DENMARK
     titlepage-theme:
       title-align: "right"
+    coverpage: default
+    coverpage-bg-image: otter
+    coverpage-title: "Otters"
+    coverpage-footer: "Dec 2025"
+    coverpage-theme:
+      title-rotate: 0
+      title-color: "white"
+      title-fontfamily: "QTDublinIrish.otf"
+      author-style: "none"
+      footer-align: "right"
     keep-tex: true
     include-in-header: |
       text:
