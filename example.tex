@@ -163,20 +163,21 @@
 \usepackage[pagecolor=none]{pagecolor}
 
 
-\usepackage{fontspec}
-\newfontfamily{\coverpagetitlefont}{QTHelvet-BoldOutline.otf}
-\usepackage{fontspec}
-\newfontfamily{\coverpageauthorfont}{Palatino}
-
-%%%%% Set titlepage variables
 
 % Set the titlepage font families
 
 
 
 
+
+
+
+% Set the coverpage font families
+
 \usepackage{fontspec}
-\newfontfamily{\titlepagefooterfont}{Palatino}
+\newfontfamily{\coverpagetitlefont}{QTDublinIrish.otf}
+
+
 
 
 \ifLuaTeX
@@ -205,6 +206,8 @@ Kumar}
 \date{}
 
 \begin{document}
+%%%%% begin titlepage extension code
+
   \begin{frontmatter}
 
 \begin{titlepage}
@@ -222,685 +225,214 @@ Kumar}
 
 \tikzfading[name=fadeout, inner color=transparent!0,outer color=transparent!100]
 \tikzfading[name=fadein, inner color=transparent!100,outer color=transparent!0]
-\node[%
-%
-anchor=south west%
-%
-, opacity=0.5%
-] at %
-($(current page.south west)+(%
-0cm,%
-0cm%
-)$) {
-\includegraphics[%
-width=1.0%
-\paperwidth, keepaspectratio]{\_extensions/titlepage/images/otter-bar.jpeg}
-};
+\node[anchor=south west, rotate=0.0, opacity=1.0] at ($(current page.south west)+(0.0, 0.0)$) {
+\includegraphics[width=\paperwidth, keepaspectratio]{\_extensions/titlepage/images/otter-bar.jpeg}};
 
-% This section has the text and is theme specific
-% Simple title
-
+% Title
 \newcommand{\titlelocationleft}{0.2\paperwidth}
 \newcommand{\titlelocationbottom}{0.8\paperheight}
 \newcommand{\titlealign}{left}
 
-% Title
 \begin{scope}
 {%
 \fontsize{100}{120.0} \coverpagetitlefont
-\node[anchor=north west, align=left, rotate=45] (Title1) at %
-($(current page.south west)+(\titlelocationleft,\titlelocationbottom)$)  [text width = 0.7000000000000001\paperwidth]  {
-{A Sample Title - The SocioEconomic Aspects of Stock Assessments}};
+\node[anchor=north
+west, align=left, rotate=0] (Title1) at ($(current page.south west)+(\titlelocationleft,\titlelocationbottom)$)  [text width = 0.7000000000000001\paperwidth]  {
+\textcolor{white}{Otters}};
 }
 \end{scope}
-% Simple author
 
-\newcommand{\authorlocationleft}{0.8\paperwidth}
-\newcommand{\authorlocationbottom}{0.25\paperheight}
-\newcommand{\authoralign}{right}
+% Footer
+\newcommand{\footerlocationleft}{0.8\paperwidth}
+\newcommand{\footerlocationbottom}{0.1\paperheight}
+\newcommand{\footerlocationalign}{right}
 
-% Title
 \begin{scope}
 {%
-\fontsize{30}{36.0} \coverpageauthorfont
-\node[anchor=south east, align=right, rotate=0] (Author1) at %
-($(current page.south west)+(\authorlocationleft,\authorlocationbottom)$)  [text width = 0.7000000000000001\paperwidth]  {
-{Jane Doe\\Eva Nováková\\Matti Meikäläinen\\Ashok Kumar}};
+\fontsize{25.0}{30.0} 
+\node[anchor=north east, align=right, rotate=0] (Footer1) at %
+($(current page.south west)+(\footerlocationleft,\footerlocationbottom)$)  [text width = 0.7000000000000001\paperwidth]  {
+{Dec 2025}};
 
 }
 \end{scope}
+
+
+
 
 \end{tikzpicture}
 \clearpage
 \restoregeometry
-% Use the file
-% This is a combination of Pandoc templating and LaTeX
-% Pandoc templating https://pandoc.org/MANUAL.html#templates
-% See the README for help
+%%% TITLE PAGE START
 
-% Get the theme commands
+% Set up alignment commands
 %Page
 \newcommand{\titlepagepagealign}{
 \ifthenelse{\equal{left}{right}}{\raggedleft}{}
 \ifthenelse{\equal{left}{center}}{\centering}{}
 \ifthenelse{\equal{left}{left}}{\raggedright}{}
 }
-% This file defines the author block and affiliation block
-% based on the author and affiliation theme
-% none, plain, colorbox, doublelined
-
-\newcommand{\emptytitleblock}{}
-
-\newcommand{\plaintitleblock}{
-% Title and subtitle
-
-{largebfseries\nohyphens{A Sample Title - The SocioEconomic Aspects of
-Stock Assessments}}\\[1\baselineskip]
-
-{largetextit{with non-English diacritics in the author names. see
-documentation.}}\\}
-
-\newcommand{\colorboxtitleblock}{
-\setlength{\fboxrule}{4pt}
-\fcolorbox{black}{cyan}{
-	\parbox[t]{0.93\minipagewidth}{ % Outer full width box
-		\parbox[t]{0.91\minipagewidth}{ % Inner box for inner right text margin
-			\raggedright % Right align the text
-			
-			\vspace{0.7cm} % Space between the start of the title and the top of the grey box
-			
-			{largebfseries\nohyphens{A Sample Title - The SocioEconomic Aspects of
-Stock Assessments}}\\
-			
-			{largetextit\nohyphens{with non-English diacritics in the author names.
-see documentation.}}\\
-			
-			\vspace{0.7cm} % Space between the end of the title and the bottom of the grey box
-		}
-	}
-}
+%% Titles
+\newcommand{\titlepagetitlealign}{
+\ifthenelse{\equal{right}{right}}{\raggedleft}{}
+\ifthenelse{\equal{right}{center}}{\centering}{}
+\ifthenelse{\equal{right}{left}}{\raggedright}{}
+\ifthenelse{\equal{right}{spread}}{\makebox[\linewidth][s]}{}
 }
 
-\newcommand{\doublelinedtitleblock}{
-\rule{\textwidth}{0.4pt} % Thin horizontal rule
-
-\vspace{0.1\textheight} % Whitespace between the top rules and title
-
-% Title and subtitle
-{largebfseries\nohyphens{A Sample Title - The SocioEconomic Aspects of
-Stock Assessments}}\\[1\baselineskip]
-{{with non-English diacritics in the author names. see
-documentation.}}\\
-
-\vspace{0.025\textheight} 
-
-\rule{0.3\textwidth}{0.4pt} % Short horizontal rule under the title
-}
 
 \newcommand{\titleandsubtitle}{
 % Title and subtitle
-{%
-
-{\large \bfseries \nohyphens{A Sample Title - The SocioEconomic Aspects
-of Stock Assessments}}%
+{{\large{\bfseries{\nohyphens{A Sample Title - The SocioEconomic Aspects
+of Stock Assessments}}}}\par
 }%
 
 \vspace{\betweentitlesubtitle}
-{%
-
-{\large \textit \nohyphens{with non-English diacritics in the author
-names. see documentation.}}%
-}%
-}
-
-
+{
+{\large{\textit{\nohyphens{with non-English diacritics in the author
+names. see documentation.}}}}\par
+}}
 \newcommand{\titlepagetitleblock}{
 \titleandsubtitle
 }
 
+\newcommand{\authorstyle}[1]{{\large{#1}}}
 
+\newcommand{\affiliationstyle}[1]{{\large{#1}}}
 
-\ifthenelse{\equal{}{none}}
-{% True case
-\newcommand{\coverpagetitleblock}{\emptytitleblock}
-}{}
-\ifthenelse{\equal{}{plain}}
-{% True case
-\newcommand{\coverpagetitleblock}{\plaintitleblock}
-}{}
-\ifthenelse{\equal{}{colorbox}}
-{% True case
-\newcommand{\coverpagetitleblock}{\colorboxtitleblock}
-}{}
+\newcommand{\titlepageauthorblock}{
+\authorstyle{Jane
+Doe{\textsuperscript{1}}\textsuperscript{,}{\textsuperscript{2}}, Eva
+Nováková{\textsuperscript{3}}, Matti
+Meikäläinen{\textsuperscript{4}}\textsuperscript{,}{\textsuperscript{*}} and Ashok
+Kumar{\textsuperscript{2}}\textsuperscript{,}{\textsuperscript{5}}%
 
-% This file defines the author block and affiliation block
-% based on the author and affiliation theme
-% none, plain, plain-with-and, plain-newline, plain-superscript, superscript, superscript-with-and, two-column
+}}
 
-\newcommand{\authorstyle}{%
-
-\large %
-}
-\newcommand{\affiliationstyle}{%
-
-%
-}
-
-\newcommand{\emptyauthorblock}{}
-
-\newcommand{\plainauthorblock}{
-{\authorstyle
-%
-{Jane Doe}%
-, %
-%
-{Eva Nováková}%
-, %
-%
-{Matti Meikäläinen}%
-, %
-%
-{Ashok Kumar}%
-
-}
-}
-
-\newcommand{\plainauthornewlineblock}{
-{\authorstyle
-%
-{Jane Doe}%
-\\%
-%
-{Eva Nováková}%
-\\%
-%
-{Matti Meikäläinen}%
-\\%
-%
-{Ashok Kumar}%
-
-}
-}
-
-\newcommand{\plainwithandauthorblock}{
-{\authorstyle
-%
-%
-{Jane Doe}%
-, %
-%
-{Eva Nováková}%
-, %
-%
-{Matti Meikäläinen}%
-%
-%
-{ and Ashok Kumar}%
-%
-
-}
-}
-
-\newcommand{\plainsuperscriptauthorblock}{
-{\authorstyle
-%
-{Jane Doe}%
-%
-{\textsuperscript{1}}{\textsuperscript{,}}%
-%
-{\textsuperscript{2}}%
-%
- %
-%
-{Eva Nováková}%
-%
-{\textsuperscript{3}}%
-%
- %
-%
-{Matti Meikäläinen}%
-%
-{\textsuperscript{4}}%
-%
-\textsuperscript{,}%
-{\textsuperscript{*}}%
-%
- %
-%
-{Ashok Kumar}%
-%
-{\textsuperscript{2}}{\textsuperscript{,}}%
-%
-{\textsuperscript{5}}%
-%
-%
-}
-}
-
-\newcommand{\superscriptauthorblock}{
-{\authorstyle
-%
-{Jane Doe}%
-%
-{\textsuperscript{1}}{\textsuperscript{,}}%
-%
-{\textsuperscript{2}}%
-%
-, %
-%
-{Eva Nováková}%
-%
-{\textsuperscript{3}}%
-%
-, %
-%
-{Matti Meikäläinen}%
-%
-{\textsuperscript{4}}%
-%
-\textsuperscript{,}%
-{\textsuperscript{*}}%
-%
-, %
-%
-{Ashok Kumar}%
-%
-{\textsuperscript{2}}{\textsuperscript{,}}%
-%
-{\textsuperscript{5}}%
-%
-%
-}
-}
-
-\newcommand{\superscriptwithandauthorblock}{
-{\authorstyle
-%
-%
-{Jane Doe}%
-%
-{\textsuperscript{1}}\textsuperscript{,}%
-%
-{\textsuperscript{2}}%
-%
-, %
-%
-{Eva Nováková}%
-%
-{\textsuperscript{3}}%
-%
-, %
-%
-{Matti Meikäläinen}%
-%
-{\textsuperscript{4}}%
-%
-\textsuperscript{,}%
-{\textsuperscript{*}}%
-%
-%
-%
-{ and Ashok Kumar}%
-%
-{\textsuperscript{2}}\textsuperscript{,}%
-%
-{\textsuperscript{5}}%
-%
-%
-
-}
-}
-
-\newcommand{\authoraddressblock}{
-{\authorstyle
-%
-{Jane Doe}%
-%
-%
-%
-%
-;~%
-%
-%
-%
-%
-%
-
-\\%
-%
-{Eva Nováková}%
-%
-%
-%
-%
-%
-
-\\%
-%
-{Matti Meikäläinen}%
-%
-%
-%
-%
-%
-~matti@jy.fi
-\\%
-%
-{Ashok Kumar}%
-%
-%
-%
-%
-;~%
-%
-%
-%
-%
-%
-
-%
-}
-}
-
-\newcommand{\twocolumnauthorblock}{
-\begin{minipage}{0.4\textwidth}
-\begin{flushleft}
-{\authorstyle
-%
-{Jane Doe}%
-\\ %
-%
-{Eva Nováková}%
-\\ %
-%
-{Matti Meikäläinen}%
-\\ %
-%
-{Ashok Kumar}%
-%
-}
-\end{flushleft}
-\end{minipage}
-~
-\begin{minipage}{0.4\textwidth}
-\begin{flushright}
-{\affiliationstyle
-%
-{Minnesota Department of Natural Resources}%
-
-%
-{Czech University of Life Sciences}%
-
-%
-{University of Kemijärvi}%
-
-%
-{University of Minnesota}%
-
-}
-\end{flushright}
-\end{minipage}
-}
-
-\newcommand{\numberedlistaffiliationblock}{
+\newcommand{\titlepageaffiliationblock}{
 \hangindent=1em
 \hangafter=1
-{\affiliationstyle
-%
-{1}.~{Minnesota Department of Natural Resources}%
-%
-%
-, %
-{500 Lafayette Road Saint Paul, MN 55155}%
-%
+\affiliationstyle{
+{1}.~Minnesota Department of Natural Resources,  500 Lafayette Road
+Saint Paul, MN 55155
 \par\hangindent=1em\hangafter=1%
-%
-{2}.~{University of Minnesota}%
-%
-, %
-{Department of Mathematics}%
-%
-%
+{2}.~University of Minnesota, Department of Mathematics
 \par\hangindent=1em\hangafter=1%
-%
-{3}.~{Czech University of Life Sciences}%
-%
-%
-, %
-{Družstevní 666, Vikýřovice, Czechia}%
-%
+{3}.~Czech University of Life Sciences,  Družstevní 666, Vikýřovice,
+Czechia
 \par\hangindent=1em\hangafter=1%
-%
-{4}.~{University of Kemijärvi}%
-%
-, %
-{Department of Biological and Environmental Science}%
-%
-%
-, %
-{Kylmäniementie 79, 98120, KEMIJÄRVI, Finland}%
-%
+{4}.~University of Kemijärvi, Department of Biological and Environmental
+Science,  Kylmäniementie 79, 98120, KEMIJÄRVI, Finland
 \par\hangindent=1em\hangafter=1%
-%
-{5}.~{HØnefoss Institute}%
-%
-%
-, %
-{R Tradição 35, Portugal 2950-726}%
-%
-
-}
-}
-
-\newcommand{\numberedlistwithcorraffiliationblock}{
-\hangindent=1em
-\hangafter=1
-{\affiliationstyle
-%
-{1}.~{Minnesota Department of Natural Resources}%
-%
-%
-, %
-{500 Lafayette Road Saint Paul, MN 55155}%
-%
-\par\hangindent=1em\hangafter=1%
-%
-{2}.~{University of Minnesota}%
-%
-, %
-{Department of Mathematics}%
-%
-%
-\par\hangindent=1em\hangafter=1%
-%
-{3}.~{Czech University of Life Sciences}%
-%
-%
-, %
-{Družstevní 666, Vikýřovice, Czechia}%
-%
-\par\hangindent=1em\hangafter=1%
-%
-{4}.~{University of Kemijärvi}%
-%
-, %
-{Department of Biological and Environmental Science}%
-%
-%
-, %
-{Kylmäniementie 79, 98120, KEMIJÄRVI, Finland}%
-%
-\par\hangindent=1em\hangafter=1%
-%
-{5}.~{HØnefoss Institute}%
-%
-%
-, %
-{R Tradição 35, Portugal 2950-726}%
-%
+{5}.~HØnefoss Institute,  R Tradição 35, Portugal 2950-726
 
 
 \vspace{1\baselineskip} 
 * \textit{Correspondence:}~Matti Meikäläinen~matti@jy.fi
 }
 }
+\newcommand{\headerstyled}{%
+{
+The Publisher}
+}
+\newcommand{\footerstyled}{%
+{
+\large{ University Technical Series\\
+Open Source Publication for All\\
+Amtmandens Allé 15\\
+6950 Rindum Ringkøbing-Skjern\\
+DENMARK}}
+}
+\newcommand{\datestyled}{%
+{
+}
+}
 
 
-\ifthenelse{\equal{superscript-with-and}{none}}
-{% True case
-\newcommand{\titlepageauthorblock}{\emptyauthorblock}
-}{}
-\ifthenelse{\equal{}{none}}
-{% True case
-\newcommand{\coverpageauthorblock}{\emptyauthorblock}
-}{}
-\ifthenelse{\equal{superscript-with-and}{plain}}
-{% True case
-\newcommand{\titlepageauthorblock}{\plainauthorblock}
-}{}
-\ifthenelse{\equal{}{plain}}
-{% True case
-\newcommand{\coverpageauthorblock}{\plainauthorblock}
-}{}
-\ifthenelse{\equal{superscript-with-and}{plain-newline}}
-{% True case
-\newcommand{\titlepageauthorblock}{\plainauthornewlineblock}
-}{}
-\ifthenelse{\equal{}{plain-newline}}
-{% True case
-\newcommand{\coverpageauthorblock}{\plainauthornewlineblock}
-}{}
-\ifthenelse{\equal{superscript-with-and}{plain-with-and}}
-{% True case
-\newcommand{\titlepageauthorblock}{\plainwithandauthorblock}
-}{}
-\ifthenelse{\equal{}{plain-with-and}}
-{% True case
-\newcommand{\coverpageauthorblock}{\plainwithandauthorblock}
-}{}
-\ifthenelse{\equal{superscript-with-and}{plain-superscript}}
-{% True case
-\newcommand{\titlepageauthorblock}{\plainsuperscriptauthorblock}
-}{}
-\ifthenelse{\equal{superscript-with-and}{superscript}}
-{% True case
-\newcommand{\titlepageauthorblock}{\superscriptauthorblock}
-}{}
-\ifthenelse{\equal{superscript-with-and}{superscript-with-and}}
-{% True case
-\newcommand{\titlepageauthorblock}{\superscriptwithandauthorblock}
-}{}
-\ifthenelse{\equal{superscript-with-and}{two-column}}
-{% True case
-\newcommand{\titlepageauthorblock}{\twocolumnauthorblock}
-}{}
-\ifthenelse{\equal{}{two-column}}
-{% True case
-\newcommand{\coverpageauthorblock}{\twocolumnauthorblock}
-}{}
+\newcommand{\titlepageheaderblock}{
+\headerstyled
+}
 
-\ifthenelse{\equal{numbered-list-with-correspondence}{none}}
-{% True case
-\newcommand{\titlepageaffiliationblock}{\emptyauthorblock}
-}{}
-\ifthenelse{\equal{numbered-list-with-correspondence}{numbered-list}}
-{% True case
-\newcommand{\titlepageaffiliationblock}{\numberedlistaffiliationblock}
-}{}
-\ifthenelse{\equal{numbered-list-with-correspondence}{numbered-list-with-correspondence}}
-{% True case
-\newcommand{\titlepageaffiliationblock}{\numberedlistwithcorraffiliationblock}
-}{}
+\newcommand{\titlepagefooterblock}{
+\footerstyled
+}
 
+\newcommand{\titlepagedateblock}{
+\datestyled
+}
 
 %set up blocks so user can specify order
 \newcommand{\titleblock}{\newlength{\betweentitlesubtitle}
-\setlength{\betweentitlesubtitle}{1\baselineskip}
-{
+\setlength{\betweentitlesubtitle}{\baselineskip}
+{\titlepagetitlealign
 
 {\titlepagetitleblock}
 }
-\newlength{\aftertitle}
-\setlength{\aftertitle}{4\baselineskip}
 
-\vspace{\aftertitle}
+\vspace{4\baselineskip}
 }
 
 \newcommand{\authorblock}{{
 
-{\titlepageauthorblock}
+\titlepageauthorblock
 }
-\newlength{\afterauthor}
-\setlength{\afterauthor}{2\baselineskip}
 
-\vspace{\afterauthor}
+\vspace{2\baselineskip}
 }
 
 \newcommand{\affiliationblock}{{
 
 \titlepageaffiliationblock
 }
-\newlength{\afteraffiliation}
-\setlength{\afteraffiliation}{0pt}
 
-\vspace{\afteraffiliation}
+\vspace{0pt}
 }
 
 \newcommand{\logoblock}{{
-\includegraphics[width=0.25\textheight]{img/logo.png}
+\includegraphics[width=0.15\textheight]{img/logo.png}
 }
-\newlength{\afterlogo}
-\setlength{\afterlogo}{0.1\textheight}
 
-\vspace{\afterlogo}
+\vspace{0.1\textheight}
 }
 
 \newcommand{\footerblock}{{
-\titlepagefooterfont
-{\noindent University Technical Series\\
-Open Source Publication for All\\
-Amtmandens Allé 15\\
-6950 Rindum Ringkøbing-Skjern\\
-DENMARK\\
-December 2025}
-}
-\newlength{\afterfooter}
-\setlength{\afterfooter}{0pt}
 
-\vspace{\afterfooter}
+\titlepagefooterblock
 }
+
+\vspace{0pt}
+}
+
+\newcommand{\dateblock}{}
 
 \newcommand{\headerblock}{{
 
-{\noindent The Publisher}
+\titlepageheaderblock
 }
-\newlength{\afterheader}
-\setlength{\afterheader}{0pt}
 
-\vspace{\afterheader}
+\vspace{0pt}
 }
 
 
 
-% background image
 
 \thispagestyle{empty} % no page numbers on titlepages
 
 
-\newcommand{\vrulecode}{\noindent\colorbox{black}{\begin{minipage}[b][0.99\textheight][c]{\vrulewidth}\centering\rotatebox{90}{\makebox[0.88\textheight][r]{
-\bfseries \LARGE \color{white} hello}}\end{minipage}}}
+\newcommand{\vrulecode}{\noindent\colorbox{blue}{\begin{minipage}[b][0.99\textheight][c]{\vrulewidth}\centering\rotatebox{90}{\makebox[0.88\textheight][r]{\bfseries{\Large{\color{white}Add
+your text in vrule-text}}}}\end{minipage}}}
 \newlength{\vrulewidth}
 \setlength{\vrulewidth}{0.5in}
 \newlength{\B}
-\setlength{\B}{\ifdim\vrulewidth > 0pt 0.05\textheight\else 0pt\fi}
+\setlength{\B}{\ifdim\vrulewidth > 0pt 0.05\textwidth\else 0pt\fi}
 \newlength{\minipagewidth}
-\ifthenelse{\equal{leftright}{left} \OR \equal{leftright}{right} }
+\ifthenelse{\equal{left}{left} \OR \equal{left}{right} }
 {% True case
 \setlength{\minipagewidth}{\textwidth - \vrulewidth - \B - 0.1\textwidth}
 }{
 \setlength{\minipagewidth}{\textwidth - 2\vrulewidth - 2\B - 0.1\textwidth}
 }
-\ifthenelse{\equal{leftright}{left} \OR \equal{leftright}{leftright}}
+\ifthenelse{\equal{left}{left} \OR \equal{left}{leftright}}
 {% True case
 \raggedleft % needed for the minipage to work
 \vrulecode
@@ -913,21 +445,31 @@ December 2025}
 \begin{minipage}[b][\textheight][s]{\minipagewidth}
 \titlepagepagealign
 \titleblock
+
 \authorblock
+
 \affiliationblock
+
 \vfill
+
 \logoblock
+
 \footerblock
 \end{minipage}
-\ifthenelse{\equal{leftright}{right} \OR \equal{leftright}{leftright} }%
+\ifthenelse{\equal{left}{right} \OR \equal{left}{leftright} }%
 {% True case
 \hspace{\B}
 \vrulecode
 }{}
+
+%%% TITLE PAGE END
+
+
 \end{titlepage}
 \setcounter{page}{1}
 \end{frontmatter}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, frame hidden, enhanced, boxrule=0pt, breakable, sharp corners, interior hidden]}{\end{tcolorbox}}\fi
+
+%%%%% end titlepage extension code\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, borderline west={3pt}{0pt}{shadecolor}, frame hidden, sharp corners, enhanced, boxrule=0pt, interior hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -937,6 +479,18 @@ December 2025}
 \listoffigures
 \listoftables
 \mainmatter
+\hypertarget{cover-page}{%
+\chapter{Cover page}\label{cover-page}}
+
+\begin{verbatim}
+    coverpage: titleauthor
+    coverpage-image: otter
+    coverpage-title-rotate: 45
+    coverpage-title-fontfamily: "QTHelvet-BoldOutline.otf"
+    coverpage-author-align: right
+    coverpage-author-fontfamily: "Palatino"
+\end{verbatim}
+
 \hypertarget{usage-notes}{%
 \chapter{Usage notes}\label{usage-notes}}
 
