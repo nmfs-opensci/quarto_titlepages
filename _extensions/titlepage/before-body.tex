@@ -1,3 +1,5 @@
+%%%%% begin titlepage extension code
+
 $if(has-frontmatter)$
   \begin{frontmatter}
 $endif$
@@ -10,8 +12,8 @@ $endif$
 
 $-- % Titlepage
 $if(titlepage)$
-% Use the file
 $if(titlepage-file)$
+% Use the file
 \input{$titlepage-filename$}
 $else$
 $_titlepage.tex()$
@@ -22,3 +24,5 @@ $endif$
 $if(has-frontmatter)$
 \end{frontmatter}
 $endif$
+
+%%%%% end titlepage extension code

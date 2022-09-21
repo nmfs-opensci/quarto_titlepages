@@ -283,13 +283,12 @@ This function assigns the themevals to the meta data
           pandoc.RawInline("latex","2\\baselineskip")},
         ["affiliation-style"] = "numbered-list-with-correspondence",
         ["affiliation-fontstyle"] = {"large"},
-        ["footer-space-after"] = "0pt",
         ["affiliation-space-after"] = "0pt",
         ["footer-style"] = "plain",
         ["footer-fontstyle"] = {"large"},
         ["footer-space-after"] = "0pt",
         ["logo-size"] = pandoc.MetaInlines{
-          pandoc.RawInline("latex","0.25\\textheight")},
+          pandoc.RawInline("latex","0.15\\textheight")},
         ["logo-space-after"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","0.1\\textheight")},
         ["vrule-width"] = "0.5in",

@@ -21,20 +21,8 @@ $endif$
 $if(coverpage-bg-image)$
 \tikzfading[name=fadeout, inner color=transparent!0,outer color=transparent!100]
 \tikzfading[name=fadein, inner color=transparent!100,outer color=transparent!0]
-\node[%
-$if(coverpage-theme.bg-image-fading)$ scope fading=$coverpage-theme.bg-image-fading$, $endif$%
-anchor=south west%
-$if(coverpage-theme.bg-image-rotate)$, rotate=$coverpage-theme.bg-image-rotate$$endif$%
-$if(coverpage-theme.bg-image-opacity)$, opacity=$coverpage-theme.bg-image-opacity$$endif$%
-] at %
-($$(current page.south west)+(%
-$if(coverpage-theme.bg-image-left)$$coverpage-theme.bg-image-left$$else$0cm$endif$,%
-$if(coverpage-theme.bg-image-bottom)$$coverpage-theme.bg-image-bottom$$else$0cm$endif$%
-)$$) {
-\includegraphics[%
-width=$if(coverpage-theme.bg-image-size)$$coverpage-theme.bg-image-size$$endif$%
-\paperwidth, keepaspectratio]{$coverpage-bg-image$}
-};
+\node[$if(coverpage-theme.bg-image-fading)$ scope fading=$coverpage-theme.bg-image-fading$, $endif$anchor=south west$if(coverpage-theme.bg-image-rotate)$, rotate=$coverpage-theme.bg-image-rotate$$endif$$if(coverpage-theme.bg-image-opacity)$, opacity=$coverpage-theme.bg-image-opacity$$endif$] at ($$(current page.south west)+($if(coverpage-theme.bg-image-left)$$coverpage-theme.bg-image-left$$else$0cm$endif$, $if(coverpage-theme.bg-image-bottom)$$coverpage-theme.bg-image-bottom$$else$0cm$endif$)$$) {
+\includegraphics[width=$if(coverpage-theme.bg-image-size)$$coverpage-theme.bg-image-size$$endif$\paperwidth, keepaspectratio]{$coverpage-bg-image$}};
 $endif$
 
 $if(coverpage-style-code.title.plain)$
@@ -47,16 +35,15 @@ $if(coverpage-title)$
 \begin{scope}
 {%
 $if(coverpage-theme.title-fontsize)$\fontsize{$coverpage-theme.title-fontsize$}{$coverpage-theme.title-spacing$}$endif$ $if(coverpage-theme.title-fontfamily)$\coverpagetitlefont$endif$
-\node[anchor=$coverpage-theme.title-anchor$, align=$coverpage-theme.title-align$, rotate=$coverpage-theme.title-rotate$] (Title1) at %
-($$(current page.south west)+(\titlelocationleft,\titlelocationbottom)$$)  [text width = $coverpage-theme.title-width$\paperwidth]  {
+\node[anchor=$coverpage-theme.title-anchor$, align=$coverpage-theme.title-align$, rotate=$coverpage-theme.title-rotate$] (Title1) at ($$(current page.south west)+(\titlelocationleft,\titlelocationbottom)$$)  [text width = $coverpage-theme.title-width$\paperwidth]  {
 $if(coverpage-theme.title-color)$\textcolor{$coverpage-theme.title-color$}$endif${$coverpage-title$}};
 }
 \end{scope}
 $endif$
 $endif$
-
 $if(coverpage-style-code.author.plain)$
 $if(coverpage-author)$
+
 % Author
 \newcommand{\authorlocationleft}{$coverpage-theme.author-left$\paperwidth}
 \newcommand{\authorlocationbottom}{$coverpage-theme.author-bottom$\paperheight}
@@ -65,17 +52,15 @@ $if(coverpage-author)$
 \begin{scope}
 {%
 $if(coverpage-theme.author-fontsize)$\fontsize{$coverpage-theme.author-fontsize$}{$coverpage-theme.author-spacing$}$endif$ $if(coverpage-theme.author-fontfamily)$\coverpageauthorfont$endif$
-\node[anchor=$coverpage-theme.author-anchor$, align=$coverpage-theme.author-align$, rotate=$coverpage-theme.author-rotate$] (Author1) at %
-($$(current page.south west)+(\authorlocationleft,\authorlocationbottom)$$)  [text width = $coverpage-theme.author-width$\paperwidth]  {
+\node[anchor=$coverpage-theme.author-anchor$, align=$coverpage-theme.author-align$, rotate=$coverpage-theme.author-rotate$] (Author1) at ($$(current page.south west)+(\authorlocationleft,\authorlocationbottom)$$)  [text width = $coverpage-theme.author-width$\paperwidth]  {
 $if(coverpage-theme.author-color)$\textcolor{$coverpage-theme.author-color$}$endif${$for(by-author)$$by-author.name.literal$$sep$$coverpage-theme.author-sep$$endfor$}};
-
 }
 \end{scope}
 $endif$
 $endif$
-
 $if(coverpage-style-code.header.plain)$
 $if(coverpage-header)$
+
 % Header
 \newcommand{\headerlocationleft}{$coverpage-theme.header-left$\paperwidth}
 \newcommand{\headerlocationbottom}{$coverpage-theme.header-bottom$\paperheight}
@@ -92,9 +77,9 @@ $if(coverpage-theme.header-color)$\textcolor{$coverpage-theme.header-color$}$end
 \end{scope}
 $endif$
 $endif$
-
 $if(coverpage-style-code.footer.plain)$
 $if(coverpage-footer)$
+
 % Footer
 \newcommand{\footerlocationleft}{$coverpage-theme.footer-left$\paperwidth}
 \newcommand{\footerlocationbottom}{$coverpage-theme.footer-bottom$\paperheight}

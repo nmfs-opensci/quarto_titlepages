@@ -1,7 +1,77 @@
 %%% TITLE PAGE START
 
-% Get the theme commands
-$_titlepage-alignments.tex()$
+% Set up alignment commands
+$if(titlepage-theme.page-align)$
+%Page
+\newcommand{\titlepagepagealign}{
+\ifthenelse{\equal{$titlepage-theme.page-align$}{right}}{\raggedleft}{}
+\ifthenelse{\equal{$titlepage-theme.page-align$}{center}}{\centering}{}
+\ifthenelse{\equal{$titlepage-theme.page-align$}{left}}{\raggedright}{}
+}
+$endif$
+$if(titlepage-theme.title-align)$
+%% Titles
+\newcommand{\titlepagetitlealign}{
+\ifthenelse{\equal{$titlepage-theme.title-align$}{right}}{\raggedleft}{}
+\ifthenelse{\equal{$titlepage-theme.title-align$}{center}}{\centering}{}
+\ifthenelse{\equal{$titlepage-theme.title-align$}{left}}{\raggedright}{}
+\ifthenelse{\equal{$titlepage-theme.title-align$}{spread}}{\makebox[\linewidth][s]}{}
+}
+$endif$
+$if(titlepage-theme.author-align)$
+%Author
+\newcommand{\titlepageauthoralign}{
+\ifthenelse{\equal{$titlepage-theme.author-align$}{right}}{\raggedleft}{}
+\ifthenelse{\equal{$titlepage-theme.author-align$}{center}}{\centering}{}
+\ifthenelse{\equal{$titlepage-theme.author-align$}{left}}{\raggedright}{}
+\ifthenelse{\equal{$titlepage-theme.author-align$}{spread}}{\makebox[\linewidth][s]}{}
+}
+$endif$
+$if(titlepage-theme.affiliation-align)$
+%Affiliation
+\newcommand{\titlepageaffiliationalign}{
+\ifthenelse{\equal{$titlepage-theme.affiliation-align$}{right}}{\raggedleft}{}
+\ifthenelse{\equal{$titlepage-theme.affiliation-align$}{center}}{\centering}{}
+\ifthenelse{\equal{$titlepage-theme.affiliation-align$}{left}}{\raggedright}{}
+\ifthenelse{\equal{$titlepage-theme.affiliation-align$}{spread}}{\makebox[\linewidth][s]}{}
+}
+$endif$
+$if(titlepage-theme.footer-align)$
+%Footer
+\newcommand{\titlepagefooteralign}{
+\ifthenelse{\equal{$titlepage-theme.footer-align$}{right}}{\raggedleft}{}
+\ifthenelse{\equal{$titlepage-theme.footer-align$}{center}}{\centering}{}
+\ifthenelse{\equal{$titlepage-theme.footer-align$}{left}}{\raggedright}{}
+\ifthenelse{\equal{$titlepage-theme.footer-align$}{spread}}{\makebox[\linewidth][s]}{}
+}
+$endif$
+$if(titlepage-theme.header-align)$
+%Header
+\newcommand{\titlepageheaderalign}{
+\ifthenelse{\equal{$titlepage-theme.header-align$}{right}}{\raggedleft}{}
+\ifthenelse{\equal{$titlepage-theme.header-align$}{center}}{\centering}{}
+\ifthenelse{\equal{$titlepage-theme.header-align$}{left}}{\raggedright}{}
+\ifthenelse{\equal{$titlepage-theme.header-align$}{spread}}{\makebox[\linewidth][s]}{}
+}
+$endif$
+$if(titlepage-theme.logo-align)$
+%Logo
+\newcommand{\titlepagelogoalign}{
+\ifthenelse{\equal{$titlepage-theme.logo-align$}{right}}{\raggedleft}{}
+\ifthenelse{\equal{$titlepage-theme.logo-align$}{center}}{\centering}{}
+\ifthenelse{\equal{$titlepage-theme.logo-align$}{left}}{\raggedright}{}
+}
+$endif$
+$if(titlepage-theme.date-align)$
+%% Titles
+\newcommand{\titlepagedatealign}{
+\ifthenelse{\equal{$titlepage-theme.title-align$}{right}}{\raggedleft}{}
+\ifthenelse{\equal{$titlepage-theme.title-align$}{center}}{\centering}{}
+\ifthenelse{\equal{$titlepage-theme.title-align$}{left}}{\raggedright}{}
+}
+$endif$
+
+$-- % Set up commands based on themes
 $_title-themes.tex()$
 $_author-affiliation-themes.tex()$
 $_header-footer-date-themes.tex()$
@@ -16,10 +86,8 @@ $endif$
 $if(titlepage-theme.title-fontfamily)$\titlepagetitlefont$endif$
 {\titlepagetitleblock}
 }
-\newlength{\aftertitle}
-\setlength{\aftertitle}{$if(titlepage-theme.title-space-after)$$titlepage-theme.title-space-after$$else$0pt$endif$}
 
-\vspace{\aftertitle}
+\vspace{$if(titlepage-theme.title-space-after)$$titlepage-theme.title-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\authorblock}{$if(author)$
@@ -27,10 +95,8 @@ $else$$endif$}
 $if(titlepage-theme.author-fontfamily)$\titlepageauthorfont$endif$
 \titlepageauthorblock
 }
-\newlength{\afterauthor}
-\setlength{\afterauthor}{$if(titlepage-theme.author-space-after)$$titlepage-theme.author-space-after$$else$0pt$endif$}
 
-\vspace{\afterauthor}
+\vspace{$if(titlepage-theme.author-space-after)$$titlepage-theme.author-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\affiliationblock}{$if(author)$
@@ -38,20 +104,16 @@ $else$$endif$}
 $if(titlepage-theme.affiliation-fontfamily)$\titlepageaffiliationfont$endif$
 \titlepageaffiliationblock
 }
-\newlength{\afteraffiliation}
-\setlength{\afteraffiliation}{$if(titlepage-theme.affiliation-space-after)$$titlepage-theme.affiliation-space-after$$else$0pt$endif$}
 
-\vspace{\afteraffiliation}
+\vspace{$if(titlepage-theme.affiliation-space-after)$$titlepage-theme.affiliation-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\logoblock}{$if(titlepage-logo)$
 {$if(titlepage-theme.logo-align)$\titlepagelogoalign$endif$
 \includegraphics[width=$if(titlepage-theme.logo-size)$$titlepage-theme.logo-size$$else$0.2\textwidth$endif$]{$titlepage-logo$}
 }
-\newlength{\afterlogo}
-\setlength{\afterlogo}{$if(titlepage-theme.logo-space-after)$$titlepage-theme.logo-space-after$$else$0pt$endif$}
 
-\vspace{\afterlogo}
+\vspace{$if(titlepage-theme.logo-space-after)$$titlepage-theme.logo-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\footerblock}{$if(titlepage-footer)$
@@ -59,10 +121,8 @@ $else$$endif$}
 $if(titlepage-theme.footer-fontfamily)$\titlepagefooterfont$endif$
 \titlepagefooterblock
 }
-\newlength{\afterfooter}
-\setlength{\afterfooter}{$if(titlepage-theme.footer-space-after)$$titlepage-theme.footer-space-after$$else$0pt$endif$}
 
-\vspace{\afterfooter}
+\vspace{$if(titlepage-theme.footer-space-after)$$titlepage-theme.footer-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\dateblock}{$if(date)$
@@ -78,10 +138,8 @@ $else$$endif$}
 $if(titlepage-theme.header-fontfamily)$\titlepageheaderfont$endif$
 \titlepageheaderblock
 }
-\newlength{\afterheader}
-\setlength{\afterheader}{$if(titlepage-theme.header-space-after)$$titlepage-theme.header-space-after$$else$0pt$endif$}
 
-\vspace{\afterheader}
+\vspace{$if(titlepage-theme.header-space-after)$$titlepage-theme.header-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 $if(titlepage-geometry)$
@@ -98,8 +156,8 @@ $if(titlepage-theme.page-color)$
 $endif$
 $endif$
 
-% background image
 $if(titlepage-bg-image)$
+% background image
 \newlength{\bgimagesize}
 \setlength{\bgimagesize}{$if(titlepage-theme.bg-image-size)$$titlepage-theme.bg-image-size$$else$\paperwidth$endif$}
 \LENGTHDIVIDE{\bgimagesize}{\paperwidth}{\theRatio} % from calculator pkg
@@ -150,6 +208,7 @@ $if(titlepage-theme.page-align)$\titlepagepagealign$endif$
 $for(titlepage-theme.elements)$
 $titlepage-theme.elements$
 $sep$
+
 $endfor$
 \end{minipage}
 \ifthenelse{\equal{$titlepage-theme.vrule-align$}{right} \OR \equal{$titlepage-theme.vrule-align$}{leftright} }%
@@ -162,4 +221,6 @@ $if(titlepage-geometry)$
 $endif$
 
 %%% TITLE PAGE END
+
+
 

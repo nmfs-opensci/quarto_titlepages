@@ -1,6 +1,7 @@
+$if(false)$
 % This sectrion defines the author block and affiliation blocks
 % based on the author and affiliation theme
-
+$endif$
 \newcommand{\authorstyle}[1]{{$if(titlepage-theme.author-fontsize)$\fontsize{$titlepage-theme.author-fontsize$}{$titlepage-theme.author-spacing$}\selectfont
 $endif$$for(titlepage-theme.author-fontstyle)$\$titlepage-theme.author-fontstyle${$endfor$#1$for(titlepage-theme.author-fontstyle)$}$endfor$}}
 
@@ -42,21 +43,14 @@ $if(titlepage-style-code.author.two-column)$
 \newcommand{\titlepageauthorblock}{
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft}
-\authorstyle{
-$for(by-author)$%
-{$by-author.name.literal$}%
-$sep$\\ %
-$endfor$%
-}
+\authorstyle{$for(by-author)$$by-author.name.literal$$sep$\\ $endfor$}
 \end{flushleft}
 \end{minipage}
 ~
 \begin{minipage}{0.4\textwidth}
 \begin{flushright}
-\affiliationstyle{
-$for(by-author)$
-$for(by-author.affiliations/first)$%
-{$by-author.affiliations.name$}%
+\affiliationstyle{$for(by-author)$
+$for(by-author.affiliations/first)$$by-author.affiliations.name$$sep$\\
 $endfor$
 $endfor$
 }

@@ -20,7 +20,6 @@ $if(titlepage-style-code.header.plain)$
 \headerstyled
 }
 $endif$
-
 $if(titlepage-style-code.header.colorbox)$
 \newcommand{\titlepageheaderblock}{
 {\setlength{\fboxrule}{$if(titlepage-theme.header-colorbox-borderwidth)$$titlepage-theme.header-colorbox-borderwidth$$else$0pt$endif$}
@@ -38,7 +37,6 @@ $if(titlepage-theme.header-align)$\titlepageheaderalign$else$$if(titlepage-theme
 } % ensure fbox set is restricted
 }
 $endif$
-
 $if(titlepage-style-code.header.doublelinewide)$
 \newcommand{\titlepageheaderblock}{
 \rule{\textwidth}{0.4pt} % Thin horizontal rule
@@ -50,7 +48,6 @@ $if(titlepage-style-code.header.doublelinewide)$
 \rule{0.3\textwidth}{0.4pt} % Short horizontal rule under the title
 }
 $endif$
-
 $if(titlepage-style-code.header.doublelinetight)$
 \newcommand{\titlepageheaderblock}{
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
@@ -66,13 +63,11 @@ $endif$
 $if(titlepage-style-code.footer.none)$
 \newcommand{\titlepagefooterblock}{}
 $endif$
-
 $if(titlepage-style-code.footer.plain)$
 \newcommand{\titlepagefooterblock}{
 \footerstyled
 }
 $endif$
-
 $if(titlepage-style-code.footer.colorbox)$
 \newcommand{\titlepagefooterblock}{
 {\setlength{\fboxrule}{$if(titlepage-theme.footer-colorbox-borderwidth)$$titlepage-theme.footer-colorbox-borderwidth$$else$0pt$endif$}
@@ -90,7 +85,6 @@ $if(titlepage-theme.footer-align)$\titlepagefooteralign$else$$if(titlepage-theme
 } % ensure fbox set is restricted
 }
 $endif$
-
 $if(titlepage-style-code.footer.doublelinewide)$
 \newcommand{\titlepagefooterblock}{
 \rule{\textwidth}{0.4pt} % Thin horizontal rule
@@ -102,7 +96,6 @@ $if(titlepage-style-code.footer.doublelinewide)$
 \rule{0.3\textwidth}{0.4pt} % Short horizontal rule under the title
 }
 $endif$
-
 $if(titlepage-style-code.footer.doublelinetight)$
 \newcommand{\titlepagefooterblock}{
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
@@ -118,13 +111,11 @@ $endif$
 $if(titlepage-style-code.date.none)$
 \newcommand{\titlepagedateblock}{}
 $endif$
-
 $if(titlepage-style-code.date.plain)$
 \newcommand{\titlepagedateblock}{
 \datestyled
 }
 $endif$
-
 $if(titlepage-style-code.date.colorbox)$
 \newcommand{\titlepagedateblock}{
 {\setlength{\fboxrule}{$if(titlepage-theme.date-colorbox-borderwidth)$$titlepage-theme.date-colorbox-borderwidth$$else$0pt$endif$}
@@ -142,7 +133,6 @@ $if(titlepage-theme.date-align)$\titlepagedatealign$else$$if(titlepage-theme.pag
 } % ensure fbox set is restricted
 }
 $endif$
-
 $if(titlepage-style-code.date.doublelinewide)$
 \newcommand{\titlepagedateblock}{
 \rule{\textwidth}{0.4pt} % Thin horizontal rule
@@ -154,7 +144,6 @@ $if(titlepage-style-code.date.doublelinewide)$
 \rule{0.3\textwidth}{0.4pt} % Short horizontal rule under the title
 }
 $endif$
-
 $if(titlepage-style-code.date.doublelinetight)$
 \newcommand{\titlepagedateblock}{
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
