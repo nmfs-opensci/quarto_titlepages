@@ -8,15 +8,7 @@ contributes:
         - titlepage-theme.lua
         - coverpage-theme.lua
       template-partials:
-        - "_academic_titlepage.tex"
-        - "_bg-image_titlepage.tex"
-        - "_classic-lined_titlepage.tex"
-        - "_multi-purpose_titlepage.tex"
-        - "_thesis_titlepage.tex"
-        - "_vline_titlepage.tex"
         - "_coverpage.tex"
-        - "_titleonly_coverpage.tex"
-        - "_authoronly_coverpage.tex"
         - "_author-affiliation-themes.tex"
         - "_header-footer-date-themes.tex"
         - "_title-themes.tex"
@@ -26,7 +18,6 @@ contributes:
         - "pandoc.tex"
       format-resources:
         - "images/TheGreatWaveoffKanagawa.jpeg"
-        - "images/otter-watercolor2.jpeg"
         - "images/corner-bg.png"
         - "images/logo.png"
         - "images/nmfs-opensci-logo.png"
