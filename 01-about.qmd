@@ -2,7 +2,7 @@
 
 This work is based on this section of the Quarto manual <https://quarto.org/docs/journals/templates.html#replacing-partials> To see the LaTeX templates that Quarto is using start here: <https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/template.tex>
 
-This template makes a custom title page using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a Quarto book). The default document classes in Quarto are `scrbook` and `srcartcl`, but these templates work for other document classes too. There are some other classes in the `cls` folder (krantz, svmono, elsevier). The static title pages are inspired from [Latex Templates](http://www.latextemplates.com/cat/title-pages#google_vignette). 
+This template makes a custom title page using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a Quarto book). The default document classes in Quarto are `scrbook` and `srcartcl`, but these templates work for other document classes too. There are some other classes in the `cls` folder (krantz, svmono, elsevier). The title pages were originally inspired from [Latex Templates](http://www.latextemplates.com/cat/title-pages#google_vignette), but templates since altered considerably.
 
 ## Audience
 
