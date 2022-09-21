@@ -49,8 +49,6 @@ $if(coverpage-author-fontfamily)$
 $endif$
 
 $if(titlepage)$
-%%%%% Set titlepage variables
-
 % Set the titlepage font families
 $if(titlepage-theme.page-fontfamily)$
 \usepackage{fontspec}
@@ -84,3 +82,31 @@ $endif$
 
 $endif$
 
+$if(coverpage)$
+% Set the coverpage font families
+$if(coverpage-theme.page-fontfamily)$
+\usepackage{fontspec}
+\newfontfamily{\coverpagefont}{$coverpage-theme.page-fontfamily$}
+$endif$
+
+$if(coverpage-theme.title-fontfamily)$
+\usepackage{fontspec}
+\newfontfamily{\coverpagetitlefont}{$coverpage-theme.title-fontfamily$}
+$endif$
+
+$if(coverpage-theme.author-fontfamily)$
+\usepackage{fontspec}
+\newfontfamily{\coverpageauthorfont}{$coverpage-theme.author-fontfamily$}
+$endif$
+
+$if(coverpage-theme.footer-fontfamily)$
+\usepackage{fontspec}
+\newfontfamily{\coverpagefooterfont}{$coverpage-theme.footer-fontfamily$}
+$endif$
+
+$if(coverpage-theme.header-fontfamily)$
+\usepackage{fontspec}
+\newfontfamily{\coverpageheaderfont}{$coverpage-theme.header-fontfamily$}
+$endif$
+
+$endif$
