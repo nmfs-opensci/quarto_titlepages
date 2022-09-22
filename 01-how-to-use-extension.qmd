@@ -1,6 +1,6 @@
 # How to use - Extension {#sec-howtouse}
 
-The extension provides a format `titlepage-pdf` where you can specify a variety of themes. [Here are the themes available](index.qmd).
+The extension provides a format `titlepage-pdf` where you can specify a variety of themes and customizations.
 
 ## Install the extension
 
@@ -24,13 +24,27 @@ quarto install extension nmfs-opensci/quarto_titlepages
 
 ## Usage
 
-In your document yaml add the format and a titlepage theme.
-
+In your document yaml add the format and a title page theme (or file). For example,
 ```yaml
 format: 
   titlepage-pdf:
-    titlepage: great-wave
+    titlepage: vline
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
 ```
+
+For a cover page, you would add something like
+```yaml
+format: 
+  titlepage-pdf:
+    coverpage: true
+    cover-bg-image: "myimage.jpeg"
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+```
+This would default to cover page with a full-page background image and the title at top and author at bottom, but all of that is customizable.
 
 Then render the document. *How?* That depends on the IDE you are using. There should be a render 'button' or drop-down or you can run this command from the shell.
 
@@ -39,37 +53,9 @@ quarto render article.qmd
 ```
 assuming your qmd file is named `article.qmd`.
 
-## YAML additions for themes
+## Customizing
 
-Some themes need some additional YAML information to work.
-
-### `bg-image`
-
-Needs info on the titlepage geometry so the title doesn't overlap the background image. Also you need to supply the background image and where to put it (UL, upperleft; UR, upperright; BL, bottomleft; BR, bottomright). Note, there are placeholders in the extension, but when you put your own image in, you will need to add the YAML information.
-
-```
-titlepage: bg-image
-titlepage-geometry: 
-  - top=3in
-  - bottom=1in
-  - right=1in
-  - left=1in
-title-bg-image: "img/corner-bg.png"
-title-bg-location: "UL"
-title-bg-size: 0.5
-```
-
-### `great-wave`
-
-Great wave theme creates a cover page with a background image that fills the width of the page at the bottom with a color above. You need to specify the image and the upper color (unless you want to use the default Great Wave off Kanagawa image).
-
-```
-documentclass: scrbook
-number-sections: true
-title-bg-image: "img/TheGreatWaveoffKanagawa.jpeg"
-title-page-color: "F6D5A8"
-```
-
+The all features of the text and placement of blocks (header, title, author, etc) is customizable. See the chapters on themes and customizing.
 
 ## Document classes
 
@@ -97,7 +83,6 @@ This document class is more for single documents with sections and the equation,
 ```yaml
 number-sections: true
 ```
-
 if you want numbers.
 
 ### Other classes

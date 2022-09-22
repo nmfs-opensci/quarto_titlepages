@@ -1,0 +1,113 @@
+# Title page themes
+
+Title page themes are pre-defined sets of `titlepage-theme` options. Themes can be used as a starting place and the page elements can be further customized by passing in `titlepage-theme` values.
+
+::: {.panel-tabset}
+
+### vline
+<span style="font-size:0.8em; color: grey">Double-click to see demo PDF in [scrbook](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [scrartcl](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [krantz](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-krantz.pdf) [svmono](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-svmono.pdf) [elsarticle](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-elsarticle.pdf)</span></br>
+[![](images/vline.png){.border fig-width="50%" fig-alt="Screenshot of vline title page. Page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf)
+
+### bg-image
+<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
+[![](images/bg-image.png){.border fig-alt="Screenshot of bg-image title page. Page has a background image in the top left with title, subtitle, authors and affiliations below. There is a logo towards the bottom followed by address."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/bg-image/article.pdf)
+
+### academic
+<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
+[![](images/academic-static.png){.border fig-alt="Screenshot of academic-static title page. Page has institution name centered at top with the title centered between two horizontal lines. The two authors are on the same level on left and right."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/academic-static/article.pdf)
+
+### classic-lined
+<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
+[![](images/classic-lined-static.png){.border fig-alt="Screenshot of classic-lined-static title page. Page has double horizontal lines at the top and bottom. The title is red, centered and at top. One author is in caps and below the title. There is a small logo at the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/classic-lined-static/article.pdf)
+
+### multi-purpose
+<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
+[![](images/multi-purpose-static.png){.border fig-alt="Screenshot of multi-purpose-static title page. Title has a cyan filled box around it. Author name is in bottom right corner."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/multi-purpose-static/article.pdf)
+
+### thesis
+<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
+[![](images/thesis-static.png){.border fig-alt="Screenshot of thesis-static title page. A fairly minimal thesis title page."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/thesis-static/article.pdf)
+
+:::
+
+## vline
+
+```
+    titlepage: vline 
+    titlepage-theme: 
+      elements: ["\\titleblock", "\\authorblock", "\\affiliationblock", "\\vfill", "\\logoblock", "\\footerblock"]
+      page-text-align: left
+      title-style: "plain"
+      title-fontstyle: "\\large\\bfseries"
+      title-space-after: "4\\baselineskip""
+      subtitle-fontstyle: "\\large\\textit"
+      author-style: "superscript-with-and"
+      author-fontstyle: "\\large"
+      author-space-after: "2\\baselineskip"
+      affiliation-style: "numberedlist-with-correspondence"
+      affiliation-space-after: 0in
+      footer-style: "plain"
+      footer-fontstyle: "\\large"
+      footer-space-after: 0in
+      logo-size: 0.25
+      logo-space-after: "0.1\\textheight"
+      vrule-width: 1pt
+      vrule-color: "black"
+      vrule-space-after: "0.05\\textwidth"
+```
+
+## vline text
+
+```
+    titlepage: vline 
+    titlepage-theme: 
+      elements: ["\\titleblock", "\\authorblock", "\\affiliationblock", "\\vfill", "\\logoblock", "\\footerblock"]
+      page-text-align: left
+      title-style: "plain"
+      title-fontstyle: "\\large\\bfseries"
+      title-space-after: "4\\baselineskip""
+      subtitle-fontstyle: "\\large\\textit"
+      author-style: "superscript-with-and"
+      author-fontstyle: "\\large"
+      author-space-after: "2\\baselineskip"
+      affiliation-style: "numberedlist-with-correspondence"
+      affiliation-space-after: 0in
+      footer-style: "plain"
+      footer-fontstyle: "\\large"
+      footer-space-after: 0in
+      logo-size: 0.25
+      logo-space-after: "0.1\\textheight"
+      vrule-width: 1pt
+      vrule-color: "black"
+      vrule-space-after: "0.05\\textwidth"
+      vrule-width: 25pt
+      vrule-text: "Set in titlepage-theme: vrule-text"
+      vrule-text-color: white
+```
+
+## colorbox
+
+```
+    titlepage: colorbox 
+    titlepage-theme: 
+      elements: ["\\titleblock", "\\vfill", "\\authorblock"]
+      title-style: "plain"
+      title-fontstyle: "\\large\\bfseries"
+      author-style: "superscript-with-and"
+      author-fontstyle: "\\large"
+      author-space-after: "2\\baselineskip"
+      affiliation-style: "numberedlist-with-correspondence"
+      affiliation-space-after: 0in
+      footer-style: "plain"
+      footer-fontstyle: "\\large"
+      footer-space-after: 0in
+      logo-size: 0.25
+      logo-space-after: "0.1\\textheight"
+      vrule-width: 1pt
+      vrule-color: "black"
+      vrule-space: "0.05\\textwidth"
+      vrule-align: "left", "right", "leftright"
+      colorbox-color: cyan
+```
+
+

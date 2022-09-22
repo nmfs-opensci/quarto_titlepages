@@ -1,18 +1,16 @@
----
-title: "quarto titlepages"
-subtitle: "LaTeX title and cover pages with Quarto"
-page-layout: full
----
+## Cover page themes
 
-[quarto titlepages](https://github.com/nmfs-opensci/quarto_titlepages) is a Quarto extension for creating custom cover pages and title pages for PDF output. A number of pre-defined themes are available, but all themes can be customized.
+Cover pages can have title, author, header, and footer in any place on the page. You specify the location on the page. Title, author, header and footer blocks can be customized: font, font size, color, text rotation and style (bold, italic, etc). Cover pages can have a background image and the location, size and transparency can be specified. In addition, image fading at the top, bottom or sides can be specified. The page color can also be specified.
+
+The following cover page demos are included. 
 
 ::: {.panel-tabset}
 
-### cover page
+### great-wave
 <span style="font-size:0.8em; color: grey">Template with a book cover. Double-click on image to see PDF</span>
 [![](images/great-wave.png){.border fig-alt="Screenshot of great-wave title page. This template has a cover page with a great wave image. Title page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/great-wave/article.pdf)
 
-### title page
+### otter
 <span style="font-size:0.8em; color: grey">Double-click to see demo PDF in [scrbook](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [scrartcl](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [krantz](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-krantz.pdf) [svmono](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-svmono.pdf) [elsarticle](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-elsarticle.pdf)</span></br>
 [![](images/vline.png){.border fig-width="50%" fig-alt="Screenshot of vline title page. Page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf)
 
