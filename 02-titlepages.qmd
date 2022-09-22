@@ -1,4 +1,4 @@
-# title page customization
+# Title page customization
 
 If you don't pass in any customization, the default is the `titlepage: simple` with no images or logo (or header or footer).
 

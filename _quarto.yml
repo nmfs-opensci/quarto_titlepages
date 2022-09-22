@@ -33,24 +33,16 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - href: 01-about.qmd
-        text: About
-      - href: 02-how-it-works.qmd
-        text: How it works
-      - href: 03-how-to-use-extension.qmd
-        text: How to use - Extension
-      - href: 03-how-to-use-diy.qmd
-        text: How to use - DIY
-      - href: 04-how-to-modify.qmd
-        text: How to modify
+      - href: 01-how-to-use-extension.qmd
+        text: How to use
       - href: 02-titlepages.qmd
-        text: Source code
-      - href: 05-pandoc-templates.qmd
-        text: Help with Pandoc
-      - href: 06-latex.qmd
-        text: LaTeX structure
-      - href: 07-notes.qmd
-        text: Notes
+        text: Title pages
+      - href: 03-titlepage-themes.qmd
+        text: Title page themes
+      - href: 04-coverpages.qmd
+        text: Cover pages
+      - href: 05-coverpage-themes.qmd
+        text: Cover page themes
       - href: 08-acknowledgements.qmd
         text: Acknowledgements
 
