@@ -122,8 +122,8 @@ This function assigns the themevals to the meta data
       return m
     end,
     ["bg-image"] = function (m)
-      if isEmpty(m['title-bg-image']) then
-        m['titlepage-image'] = "corner-bg.png"
+      if isEmpty(m['titlepage-bg-image']) then
+        m['titlepage-bg-image'] = "corner-bg.png"
       end
       if isEmpty(m['titlepage-geometry']) then
         m['titlepage-geometry'] = pandoc.List({"top=3in", "bottom=1in", "right=1in", "left=1in"})
@@ -246,7 +246,8 @@ This function assigns the themevals to the meta data
         ["title-space-after"] = "1.5cm",
         ["subtitle-fontstyle"] = {"LARGE"},
         ["title-subtitle-space-between"] = "0.5cm",
-        ["author-style"] = "plain-newline",
+        ["author-style"] = "plain",
+        ["author-sep"] = "newline",
         ["author-fontstyle"] = {"textbf"},
         ["author-space-after"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","2\\baselineskip")},
