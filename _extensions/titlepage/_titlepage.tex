@@ -204,17 +204,10 @@ $sep$
 
 $endfor$
 \par
-\end{minipage}
-\ifthenelse{\equal{$titlepage-theme.vrule-align$}{right} \OR \equal{$titlepage-theme.vrule-align$}{leftright} }%
-{% True case
+\end{minipage}\ifthenelse{\equal{$titlepage-theme.vrule-align$}{right} \OR \equal{$titlepage-theme.vrule-align$}{leftright} }{
 \hspace{\B}
-\vrulecode
-}{}
-$if(titlepage-geometry)$
-\restoregeometry
-$endif$
-
-%%% TITLE PAGE END
-
-
+\vrulecode}{}
+\clearpage
+$if(titlepage-geometry)$\restoregeometry
+$endif$%%% TITLE PAGE END
 
