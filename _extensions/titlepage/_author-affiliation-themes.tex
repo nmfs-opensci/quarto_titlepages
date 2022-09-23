@@ -13,7 +13,7 @@ $if(titlepage-style-code.author.none)$
 $endif$
 $if(titlepage-style-code.author.plain)$
 \newcommand{\titlepageauthorblock}{
-\authorstyle{$for(by-author)$$by-author.name.literal$$sep$$titlepage-theme.author-sep$ $endfor$}
+\authorstyle{$for(by-author)$$by-author.name.literal$$sep$$titlepage-theme.author-sep$$endfor$\par}
 }
 $endif$
 $if(titlepage-style-code.author.plain-with-and)$
