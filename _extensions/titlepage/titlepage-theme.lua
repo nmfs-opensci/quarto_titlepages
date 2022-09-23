@@ -210,18 +210,21 @@ This function assigns the themevals to the meta data
           },
         ["page-align"] = "left",
         ["title-style"] = "colorbox",
-        ["title-fontsize"] = 100,
+        ["title-fontsize"] = 40,
         ["title-space-after"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","2\\baselineskip")},
         ["subtitle-fontsize"] = 25,
         ["subtitle-fontstyle"] = {"bfseries"},
         ["title-subtitle-space-between"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","5\\baselineskip")},
-        ["author-style"] = "plain-newline",
+        ["author-style"] = "plain",
+        ["author-sep"] = "newline",
         ["author-fontstyle"] = {"Large"},
         ["author-align"] = "right",
         ["author-space-after"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","2\\baselineskip")},
+        ["title-colorbox-borderwidth"] = "2mm",
+        ["title-colorbox-bordercolor"] = "black",
         }
       assign_value(themevals)
         
