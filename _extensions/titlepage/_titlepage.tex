@@ -91,71 +91,64 @@ $if(titlepage-theme.title-fontfamily)$\titlepagetitlefont$endif$
 $else$$endif$}
 
 \newcommand{\authorblock}{$if(author)$
-{$if(titlepage-theme.author-align)$\titlepageauthoralign$endif$
-$if(titlepage-theme.author-fontfamily)$\titlepageauthorfont$endif$
-\titlepageauthorblock
-}
+{$if(titlepage-theme.author-align)$\titlepageauthoralign
+$endif$$if(titlepage-theme.author-fontfamily)$\titlepageauthorfont
+$endif$\titlepageauthorblock}
 
 \vspace{$if(titlepage-theme.author-space-after)$$titlepage-theme.author-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\affiliationblock}{$if(author)$
-{$if(titlepage-theme.afiliation-align)$\titlepageaffiliationalign$endif$
-$if(titlepage-theme.affiliation-fontfamily)$\titlepageaffiliationfont$endif$
-\titlepageaffiliationblock
-}
+{$if(titlepage-theme.afiliation-align)$\titlepageaffiliationalign
+$endif$$if(titlepage-theme.affiliation-fontfamily)$\titlepageaffiliationfont
+$endif$\titlepageaffiliationblock}
 
 \vspace{$if(titlepage-theme.affiliation-space-after)$$titlepage-theme.affiliation-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\logoblock}{$if(titlepage-logo)$
-{$if(titlepage-theme.logo-align)$\titlepagelogoalign$endif$
-\includegraphics[width=$if(titlepage-theme.logo-size)$$titlepage-theme.logo-size$$else$0.2\textwidth$endif$]{$titlepage-logo$}
-}
+{$if(titlepage-theme.logo-align)$\titlepagelogoalign
+$endif$\includegraphics[width=$if(titlepage-theme.logo-size)$$titlepage-theme.logo-size$$else$0.2\textwidth$endif$]{$titlepage-logo$}}
 
 \vspace{$if(titlepage-theme.logo-space-after)$$titlepage-theme.logo-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\footerblock}{$if(titlepage-footer)$
-{$if(titlepage-theme.footer-align)$\titlepagefooteralign$endif$
-$if(titlepage-theme.footer-fontfamily)$\titlepagefooterfont$endif$
-\titlepagefooterblock
-}
+{$if(titlepage-theme.footer-align)$\titlepagefooteralign
+$endif$$if(titlepage-theme.footer-fontfamily)$\titlepagefooterfont
+$endif$\titlepagefooterblock}
 
 \vspace{$if(titlepage-theme.footer-space-after)$$titlepage-theme.footer-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\dateblock}{$if(date)$
-{$if(titlepage-theme.date-align)$\titlepagedatealign$endif$
-$if(titlepage-theme.date-fontfamily)$\titlepagedatefont$endif$
-\titlepagedateblock
-}
+{$if(titlepage-theme.date-align)$\titlepagedatealign
+$endif$$if(titlepage-theme.date-fontfamily)$\titlepagedatefont
+$endif$\titlepagedateblock}
+
 \vspace{$if(titlepage-theme.date-space-after)$$titlepage-theme.date-space-after$$else$0pt$endif$}
 $else$$endif$}
 
 \newcommand{\headerblock}{$if(titlepage-header)$
-{$if(titlepage-theme.header-align)$\titlepageheaderalign$endif$
-$if(titlepage-theme.header-fontfamily)$\titlepageheaderfont$endif$
-\titlepageheaderblock
-}
+{$if(titlepage-theme.header-align)$\titlepageheaderalign
+$endif$$if(titlepage-theme.header-fontfamily)$\titlepageheaderfon
+t$endif$\titlepageheaderblock}
 
 \vspace{$if(titlepage-theme.header-space-after)$$titlepage-theme.header-space-after$$else$0pt$endif$}
 $else$$endif$}
-
+$--
 $if(titlepage-geometry)$
 \newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
 $endif$
-
+$--
 $if(titlepage-theme.page-html-color)$
 \definecolor{pgcolor}{HTML}{$titlepage-theme.page-html-color$}
 \pagecolor{pgcolor}\afterpage{\nopagecolor}
-$else$
-$if(titlepage-theme.page-color)$
+$else$$if(titlepage-theme.page-color)$
 \colorlet{pgcolor}{$titlepage-theme.page-color$}
 \pagecolor{pgcolor}\afterpage{\nopagecolor}
-$endif$
-$endif$
-
+$endif$$endif$
+$--
 $if(titlepage-bg-image)$
 % background image
 \newlength{\bgimagesize}
@@ -210,6 +203,7 @@ $titlepage-theme.elements$
 $sep$
 
 $endfor$
+\par
 \end{minipage}
 \ifthenelse{\equal{$titlepage-theme.vrule-align$}{right} \OR \equal{$titlepage-theme.vrule-align$}{leftright} }%
 {% True case
