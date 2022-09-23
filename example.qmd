@@ -1,6 +1,6 @@
 ---
 title: A Sample Title - The SocioEconomic Aspects of Stock Assessments
-subtitle: with non-English diacritics in the author names. see documentation.
+subtitle: with non-English diacritics in the author names. See documentation.
 author:
   - name: Jane Doe
     affiliations:
@@ -33,7 +33,7 @@ format:
     toc: true
     lof: true
     lot: true
-    titlepage: "vline"
+    titlepage: "colorbox"
     titlepage-logo: "img/logo.png"
     titlepage-header: "The Publisher"
     titlepage-footer: |
@@ -43,7 +43,8 @@ format:
       6950 Rindum Ringkøbing-Skjern\
       DENMARK
     titlepage-theme:
-      title-align: "right"
+      vrule-width: 1cm
+      vrule-align: leftright
     coverpage: default
     coverpage-bg-image: otter
     coverpage-title: "Otters"
