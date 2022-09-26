@@ -33,7 +33,7 @@ format:
     toc: true
     lof: true
     lot: true
-    titlepage: "colorbox"
+    titlepage: "academic"
     titlepage-logo: "img/logo.png"
     titlepage-header: "The Publisher"
     titlepage-footer: |
@@ -42,9 +42,6 @@ format:
       Amtmandens Allé 15\
       6950 Rindum Ringkøbing-Skjern\
       DENMARK
-    titlepage-theme:
-      vrule-width: 1cm
-      vrule-align: leftright
     coverpage: default
     coverpage-bg-image: otter
     coverpage-title: "Otters"
