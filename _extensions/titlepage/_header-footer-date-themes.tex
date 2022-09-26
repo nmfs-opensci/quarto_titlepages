@@ -1,14 +1,14 @@
 \newcommand{\headerstyled}{%
-{$if(titlepage-theme.header-fontsize)$\fontsize{$titlepage-theme.header-fontsize$}{$titlepage-theme.header-spacing$}\selectfont$endif$
-$for(titlepage-theme.header-fontstyle)$\$titlepage-theme.header-fontstyle${ $endfor$$titlepage-header$$for(titlepage-theme.header-fontstyle)$}$endfor$}
+{$if(titlepage-theme.header-fontsize)$\fontsize{$titlepage-theme.header-fontsize$}{$titlepage-theme.header-spacing$}\selectfont
+$endif$$for(titlepage-theme.header-fontstyle)$\$titlepage-theme.header-fontstyle${$endfor$$titlepage-header$$for(titlepage-theme.header-fontstyle)$}$endfor$}
 }
 \newcommand{\footerstyled}{%
-{$if(titlepage-theme.footer-fontsize)$\fontsize{$titlepage-theme.footer-fontsize$}{$titlepage-theme.footer-spacing$}\selectfont$endif$
-$for(titlepage-theme.footer-fontstyle)$\$titlepage-theme.footer-fontstyle${ $endfor$$titlepage-footer$$for(titlepage-theme.footer-fontstyle)$}$endfor$}
+{$if(titlepage-theme.footer-fontsize)$\fontsize{$titlepage-theme.footer-fontsize$}{$titlepage-theme.footer-spacing$}\selectfont
+$endif$$for(titlepage-theme.footer-fontstyle)$\$titlepage-theme.footer-fontstyle${$endfor$$titlepage-footer$$for(titlepage-theme.footer-fontstyle)$}$endfor$}
 }
 \newcommand{\datestyled}{%
-{$if(titlepage-theme.date-fontsize)$\fontsize{$titlepage-theme.date-fontsize$}{$titlepage-theme.date-spacing$}\selectfont$endif$
-$for(titlepage-theme.date-fontstyle)$\$titlepage-theme.date-fontstyle${ $endfor$$date$$for(titlepage-theme.date-fontstyle)$}$endfor$}
+{$if(titlepage-theme.date-fontsize)$\fontsize{$titlepage-theme.date-fontsize$}{$titlepage-theme.date-spacing$}\selectfont
+$endif$$for(titlepage-theme.date-fontstyle)$\$titlepage-theme.date-fontstyle${$endfor$$date$$for(titlepage-theme.date-fontstyle)$}$endfor$}
 }
 
 $if(titlepage-style-code.header.none)$
