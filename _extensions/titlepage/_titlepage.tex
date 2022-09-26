@@ -131,8 +131,7 @@ $else$$endif$}
 
 \newcommand{\headerblock}{$if(titlepage-header)$
 {$if(titlepage-theme.header-align)$\titlepageheaderalign
-$endif$$if(titlepage-theme.header-fontfamily)$\titlepageheaderfon
-t$endif$\titlepageheaderblock}
+$endif$$if(titlepage-theme.header-fontfamily)$\titlepageheaderfont$endif$\titlepageheaderblock}
 
 \vspace{$if(titlepage-theme.header-space-after)$$titlepage-theme.header-space-after$$else$0pt$endif$}
 $else$$endif$}
@@ -204,6 +203,7 @@ $sep$
 
 $endfor$
 \par
+
 \end{minipage}\ifthenelse{\equal{$titlepage-theme.vrule-align$}{right} \OR \equal{$titlepage-theme.vrule-align$}{leftright} }{
 \hspace{\B}
 \vrulecode}{}
