@@ -376,12 +376,14 @@ if page-fontsize was passed in or if fontsize passed in but not spacing
 Set author sep character
 --]]
   if isEmpty(m['titlepage-theme']["author-sep"]) then
-    m['titlepage-theme']["author-sep"] = ",  "
+    m['titlepage-theme']["author-sep"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex",", ")}
   end
   if getVal(m['titlepage-theme']["author-sep"]) == "newline" then
     m['titlepage-theme']["author-sep"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","\\\\")}
   end
+  
 --[[
 Set vrule defaults
 --]]
