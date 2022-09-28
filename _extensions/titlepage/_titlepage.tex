@@ -131,10 +131,10 @@ $else$$endif$}
 
 \newcommand{\headerblock}{$if(titlepage-header)$
 {$if(titlepage-theme.header-align)$\titlepageheaderalign
-$endif$$if(titlepage-theme.header-fontfamily)$\titlepageheaderfont$endif$\titlepageheaderblock}
+$endif$$if(titlepage-theme.header-fontfamily)$\titlepageheaderfont$endif$\titlepageheaderblock
 
 \vspace{$if(titlepage-theme.header-space-after)$$titlepage-theme.header-space-after$$else$0pt$endif$}
-$else$$endif$}
+}$else$$endif$}
 $--
 $if(titlepage-geometry)$
 \newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
