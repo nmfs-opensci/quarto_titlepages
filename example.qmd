@@ -33,7 +33,8 @@ format:
     toc: true
     lof: true
     lot: true
-    titlepage: "academic"
+    titlepage: "bg-image"
+    titlepage-bg-image: "img/corner-bg.png"
     titlepage-logo: "img/logo.png"
     titlepage-header: "The Publisher"
     titlepage-footer: |
