@@ -305,12 +305,50 @@ This function assigns the themevals to the meta data
       assign_value(themevals)
         
       return m
+    end,
+    ["plain"] = function (m)
+      themevals = {
+        ["elements"] = {
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\headerblock")}, 
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\affiliationblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\footerblock")}
+          },
+        ["page-align"] = "left",
+        ["title-style"] = "plain",
+        ["title-fontstyle"] = {"Large"},
+        ["title-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","4\\baselineskip")},
+        ["title-subtitle-space-between"] = "0pt",
+        ["subtitle-fontstyle"] = {"textit"},
+        ["author-style"] = "superscript-with-and",
+        ["author-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","2\\baselineskip")},
+        ["affiliation-style"] = "numbered-list-with-correspondence",
+        ["affiliation-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","2\\baselineskip")},
+        ["header-style"] = "plain",
+        ["header-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.2\\textheight")},
+        ["footer-style"] = "plain",
+        ["footer-space-after"] = "0pt",
+        ["logo-size"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.1\\textheight")},
+        ["logo-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","1\\baselineskip")},
+        }
+      assign_value(themevals)
+        
+      return m
     end
   }
   
   m['titlepage-file'] = false
   if not m.titlepage then
-    m['titlepage'] = "bg-image"
+    m['titlepage'] = "plain"
   end
   choice = pandoc.utils.stringify(m.titlepage)
   okvals = {"plain", "vline", "bg-image", "colorbox", "academic", "formal", "classic-lined"}
@@ -401,7 +439,8 @@ Set vrule defaults
   end
   if not isEmpty(m["titlepage-theme"]["vrule-align"]) then
     okvals = {"left", "right", "leftright"}
-    check_yaml (m["titlepage-theme"]["vrule-align"], "titlepage-theme: vrule-align", okvals)
+    ok = check_yaml (m["titlepage-theme"]["vrule-align"], "titlepage-theme: vrule-align", okvals)
+    if not ok then error("") end
   end
 
 --[[
@@ -429,8 +468,9 @@ Set bg-image defaults
           pandoc.RawInline("latex","\\paperwidth")}
     end
     if not isEmpty(m["titlepage-theme"]["bg-image-location"]) then
-      okvals = {"URCorner", "LLCorner", "LRCorner", "TileSquare", "Center"}
-      check_yaml (m["titlepage-theme"]["bg-image-location"], "titlepage-theme: bg-image-location", okvals)
+      okvals = {"ULCorner", "URCorner", "LLCorner", "LRCorner", "TileSquare", "Center"}
+      ok = check_yaml (m["titlepage-theme"]["bg-image-location"], "titlepage-theme: bg-image-location", okvals)
+      if not ok then error("") end
     end  
   end
 
