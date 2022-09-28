@@ -230,8 +230,21 @@ Error checking and setting the style codes
       if isEmpty(m['coverpage-theme']['bg-image-' .. key]) then
         m['coverpage-theme']['bg-image-' .. key] = val
       end
-    end -- bg-image attributes
-  end
+    end
+    if isEmpty(m['coverpage-theme']['bg-image-size']) then
+      m['coverpage-theme']['bg-image-size'] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","\\paperwidth")}
+    end
+    if not isEmpty(m['coverpage-theme']['bg-image-fading']) then
+      okvals = {"top", "bottom", "left", "right", "north", "south", "east", "west", "fadeout" }
+      ok = check_yaml (m["coverpage-theme"]["bg-image-fading"], "coverpage-theme: bg-image-fading", okvals)
+      if not ok then error("") end
+      if getVal(m['coverpage-theme']['bg-image-fading']) == "left" then m['coverpage-theme']['bg-image-fading'] = "west" end
+      if getVal(m['coverpage-theme']['bg-image-fading']) == "right" then m['coverpage-theme']['bg-image-fading'] = "east" end
+      if getVal(m['coverpage-theme']['bg-image-fading']) == "top" then m['coverpage-theme']['bg-image-fading'] = "north" end
+      if getVal(m['coverpage-theme']['bg-image-fading']) == "bottom" then m['coverpage-theme']['bg-image-fading'] = "south" end
+    end
+  end -- bg-image attributes
   -- Some demos
   if choice == "great-wave" then
     m['coverpage-bg-image'] = "TheGreatWaveoffKanagawa.jpeg"
@@ -292,7 +305,8 @@ if page-fontsize was passed in or if fontsize passed in but not spacing
 Set author sep character
 --]]
   if isEmpty(m['coverpage-theme']["author-sep"]) then
-    m['coverpage-theme']["author-sep"] = ",  "
+    m['coverpage-theme']["author-sep"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex",", ")}
   end
   if getVal(m['coverpage-theme']["author-sep"]) == "newline" then
     m['coverpage-theme']["author-sep"] = pandoc.MetaInlines{
