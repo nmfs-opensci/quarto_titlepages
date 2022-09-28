@@ -22,7 +22,7 @@ $if(coverpage-bg-image)$
 \tikzfading[name=fadeout, inner color=transparent!0,outer color=transparent!100]
 \tikzfading[name=fadein, inner color=transparent!100,outer color=transparent!0]
 \node[$if(coverpage-theme.bg-image-fading)$ scope fading=$coverpage-theme.bg-image-fading$, $endif$anchor=south west$if(coverpage-theme.bg-image-rotate)$, rotate=$coverpage-theme.bg-image-rotate$$endif$$if(coverpage-theme.bg-image-opacity)$, opacity=$coverpage-theme.bg-image-opacity$$endif$] at ($$(current page.south west)+($if(coverpage-theme.bg-image-left)$$coverpage-theme.bg-image-left$$else$0cm$endif$, $if(coverpage-theme.bg-image-bottom)$$coverpage-theme.bg-image-bottom$$else$0cm$endif$)$$) {
-\includegraphics[width=$if(coverpage-theme.bg-image-size)$$coverpage-theme.bg-image-size$$endif$\paperwidth, keepaspectratio]{$coverpage-bg-image$}};
+\includegraphics[width=$coverpage-theme.bg-image-size$, keepaspectratio]{$coverpage-bg-image$}};
 $endif$
 
 $if(coverpage-style-code.title.plain)$
