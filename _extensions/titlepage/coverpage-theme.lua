@@ -77,8 +77,6 @@ okvals: a text table of ok styles. e.g. {"plain", "two-column"}
         error()
       end
     else
---      print("\n\ntitlepage extension error: " .. yamltext .. " needs a value. Should have been set in coverpage-theme lua filter.\n\n")
---      error()
         m[page .. "-style-code"][styleelement] = {}
         m[page .. "-style-code"][styleelement]["plain"] = true
     end
@@ -150,17 +148,10 @@ This function assigns the themevals to the meta data
         
       return m
     end,
-    ["default"] = function (m)
+    ["true"] = function (m)
       themevals = {
         ["page-align"] = "left"
         }
-      for key, val in pairs({"title", "author", "footer", "header"}) do
-        if not isEmpty(m['coverpage-' .. val]) then
-          themevals[val .. "-style"] = "plain"
-        else
-          themevals[val .. "-style"] = "none"
-        end
-      end
       assign_value(themevals)
         
       return m
@@ -195,33 +186,40 @@ This function assigns the themevals to the meta data
   
   m['coverpage-file'] = false
   if m.coverpage then
-  choice = pandoc.utils.stringify(m.coverpage)
-  okvals = {"none", "default", "title", "author", "titleauthor", "otter", "great-wave"}
-  isatheme = has_value (okvals, choice)
-  if not isatheme then
-    if not file_exists(choice) then
-      error("titlepage extension error: coverpage can be a tex file or one of the themes: " .. pandoc.utils.stringify(table.concat(okvals, ", ")) .. ".")
+    choice = pandoc.utils.stringify(m.coverpage)
+    okvals = {"none", "true", "title", "author", "titleauthor", "otter", "great-wave"}
+    isatheme = has_value (okvals, choice)
+    if not isatheme then
+      if not file_exists(choice) then
+        error("titlepage extension error: coverpage can be a tex file or one of the themes: " .. pandoc.utils.stringify(table.concat(okvals, ", ")) .. ".")
+      else
+        m['coverpage-file'] = true
+        m['coverpage-filename'] = choice
+        m['coverpage'] = "file"
+      end
     else
-      m['coverpage-file'] = true
-      m['coverpage-filename'] = choice
-      m['coverpage'] = "file"
+      ok = check_yaml (m.coverpage, "coverpage", okvals)
+      if not ok then error("") end
     end
-  end
-  if not m['coverpage-file'] then
-    if isEmpty(m['coverpage-theme']) then
-      m['coverpage-theme'] = {}
+    if not m['coverpage-file'] then
+      if isEmpty(m['coverpage-theme']) then
+        m['coverpage-theme'] = {}
+      end
+      coverpage_table[choice](m) -- add the theme defaults
+    else
+      if not isEmpty(m['coverpage-theme']) then
+        print("\n\ntitlepage extension message: since you passed in a static coverpage file, coverpage-theme is ignored.n\n")
+      end
     end
-    coverpage_table[choice](m) -- add the theme defaults
+    m["coverpage-true"] = true
   else
-    if not isEmpty(m['coverpage-theme']) then
-      print("\n\ntitlepage extension message: since you passed in a static coverpage file, coverpage-theme is ignored.n\n")
-    end
-  end
+    m["coverpage-true"] = false
+    m.coverpage = "none"
   end
 
 -- Only for themes
 -- coverpage-theme will exist if using a theme
-if not m['coverpage-file'] then
+if not m['coverpage-file'] and m['coverpage-true'] then
   
 --[[
 Set up the demos
@@ -275,6 +273,18 @@ Set up the demos
      m['coverpage-author'][key] = getVal(m['coverpage-author'][key])
   end
 
+-- fix "true" to figure out what was passed in
+  if choice == "true" then
+    for key, val in pairs({"title", "author", "footer", "header"}) do
+      if not isEmpty(m['coverpage-' .. val]) then
+        m['coverpage-theme'][val .. "-style"] = "plain"
+      else
+        m['coverpage-theme'][val .. "-style"] = "none"
+      end
+    end
+  end
+
+  
 --[[
 Error checking and setting the style codes
 --]]
@@ -325,28 +335,19 @@ Error checking and setting the style codes
 Set the fontsize spacing defaults
 if page-fontsize was passed in or if fontsize passed in but not spacing
 --]]
-  if isEmpty(m["coverpage-theme"]["page-fontsize"]) then
-    m["coverpage-theme"]["page-fontsize"] = 100
-    m['coverpage-theme']["page-spacing"] = 120
-  end
 
   -- if not passed in then it will take page-fontsize and page-spacing
   for key, val in pairs({"title", "author", "footer", "header"}) do
-    if not getVal(m["coverpage-theme"][val .. "-style"]) ~= "none" then
-      if isEmpty(m["coverpage-theme"][val .. "-fontsize"]) then
-        if has_value ({"title", "author"}, val) then
+    if getVal(m["coverpage-theme"][val .. "-style"]) ~= "none" then
+      if not isEmpty(m["coverpage-theme"]["page-fontsize"]) then
+        if isEmpty(m["coverpage-theme"][val .. "-fontsize"]) then
           m["coverpage-theme"][val .. "-fontsize"] = getVal(m["coverpage-theme"]["page-fontsize"])
-        else
-          m["coverpage-theme"][val .. "-fontsize"] = 0.25*getVal(m["coverpage-theme"]["page-fontsize"])
-        end
-        if isEmpty(m['coverpage-theme'][val .. "-spacing"]) then
-          m['coverpage-theme'][val .. "-spacing"] = 1.2*getVal(m['coverpage-theme'][val .. "-fontsize"])
         end
       end
     end
   end
   -- make sure spacing is set if user passed in fontsize
-  for key, val in pairs({"title", "author", "footer", "header"}) do
+  for key, val in pairs({"page", "title", "author", "footer", "header"}) do
     if not isEmpty(m['coverpage-theme'][val .. "-fontsize"]) then
       if isEmpty(m['coverpage-theme'][val .. "-spacing"]) then
         m['coverpage-theme'][val .. "-spacing"] = 1.2*getVal(m['coverpage-theme'][val .. "-fontsize"])

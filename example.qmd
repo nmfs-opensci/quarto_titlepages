@@ -43,7 +43,7 @@ format:
       Amtmandens Allé 15\
       6950 Rindum Ringkøbing-Skjern\
       DENMARK
-    coverpage: otter
+    coverpage: false
     keep-tex: true
     include-in-header: |
       text:
