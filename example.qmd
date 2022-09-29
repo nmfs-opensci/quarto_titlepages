@@ -41,7 +41,7 @@ format:
       NOAA Fisheries OpenSci\
       Tools for Open Science\
       [https://github.com/nmfs-opensci](https://github.com/nmfs-opensci)\
-    coverpage: otter
+    coverpage: "great-wave"
     keep-tex: true
     include-in-header: |
       text:
