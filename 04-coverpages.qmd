@@ -16,13 +16,14 @@ Here are the available top-level elements:
 
 This is the overall theme. Default is `false`; no cover page. Note although `coverpage` specifies the overall theme, **all** features can be changed by passing a new value in `coverpage-theme`.
 
-* `false` no coverpage
-* `true` include everything that is in the `coverpage-...` yaml: title, author, header, footer, date.
+* `false` or `none` no coverpage
+* `true` include everything that is in the `coverpage-...` yaml: title, author, header, footer.
 * `title` only a title
 * `author` only an author
 * `titleauthor` only title and author
 * `otter` the otter demo coverpage
 * `great-wave` the great-wave demo coverpage
+* a file. You can pass in a static tex file for the cover page. Include only the tex, no `\begin{document}` or similar.
 
 ###`coverpage-title`
 

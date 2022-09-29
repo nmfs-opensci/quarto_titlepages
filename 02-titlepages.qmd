@@ -20,6 +20,7 @@ Here are the available top-level elements:
 
 This is the overall theme. Default is `true` (which is the same as `plain`). `false` (or `none`) would stop the title page being generated at all. Note although `titlepage` specifies the overall theme, **all** features can be changed by passing a new value in `titlepage-theme`; see below.
 
+* `none` or `false` no title page
 * `true` (or `plain`): minimal styling. Everything on the page is left-aligned, with title, subtitle, author with affiliation superscripts, and affiliations in a numbered list. Header and footer appear if `title-header` and/or `title-footer` are specified.
 * `vline`: a 1pt wide vertical line on the left.
 * `vline-text`: a 0.5 inch wide blue vertical line with test.
@@ -27,6 +28,8 @@ This is the overall theme. Default is `true` (which is the same as `plain`). `fa
 * `formal`: Looks a bit like a thesis title page
 * `classic-lined`: different sized horizontal lines around title.
 * `colorbox`: title in a colored box
+* a file. You can pass in a static tex file for the title page. Include only the tex, no `\begin{document}` or similar.
+
 
 ### `titlepage-logo`
 
