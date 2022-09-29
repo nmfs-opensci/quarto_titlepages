@@ -144,11 +144,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cover-page-themes" id="toc-cover-page-themes" class="nav-link active" data-scroll-target="#cover-page-themes">Cover page themes</a>
-  <ul class="collapse">
+  <li><a href="#cover-page-themes" id="toc-cover-page-themes" class="nav-link active" data-scroll-target="#cover-page-themes">Cover page themes</a></li>
   <li><a href="#otter-1" id="toc-otter-1" class="nav-link" data-scroll-target="#otter-1">otter</a></li>
   <li><a href="#great-wave-1" id="toc-great-wave-1" class="nav-link" data-scroll-target="#great-wave-1">great-wave</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/05-coverpage-themes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/05-coverpage-themes.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -165,16 +163,17 @@ ul.task-list li input[type="checkbox"] {
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">great-wave</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">otter</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><img src="images/great-wave.png" class="border img-fluid" alt="Screenshot of great-wave cover page. This cover page an image that fades to the top and a page color that matches the top of the image (a great wave). "></p>
+<p><span style="font-size:0.8em; color: grey"><a href="05-coverpage-themes.html#great-wave-1">coverpage-theme code</a></span><br><img src="images/great-wave.png" class="border img-fluid" alt="Screenshot of great-wave cover page. This cover page an image that fades to the top and a page color that matches the top of the image (a great wave). "></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><img src="images/otter.png" class="border img-fluid" alt="Screenshot of otter cover page. This cover page has a full page photo of an otter. The title has be changed to Otters and a custom font is used."></p>
+<p><span style="font-size:0.8em; color: grey"><a href="05-coverpage-themes.html#otter-1">coverpage-theme code</a></span><br><img src="images/otter.png" class="border img-fluid" alt="Screenshot of otter cover page. This cover page has a full page photo of an otter. The title has be changed to Otters and a custom font is used."></p>
 </div>
 </div>
 </div>
-<p>Demo metavalues</p>
-<section id="otter-1" class="level3">
-<h3 class="anchored" data-anchor-id="otter-1">otter</h3>
+<p>Demo theme values.</p>
+</section>
+<section id="otter-1" class="level2">
+<h2 class="anchored" data-anchor-id="otter-1">otter</h2>
 <p>This demo has a photo of an otter the some transparency added. The cover page specific title and author are specified in <code>coverpage-title</code> and <code>coverpage-author</code>.</p>
 <pre><code>  coverpage: otter
   coverpage-bg-image: "_extensions/nmfs-opensci/titlepage/images/otter.jpeg"
@@ -195,8 +194,8 @@ ul.task-list li input[type="checkbox"] {
     date-style: "none"
     bg-image-opacity: 0.5</code></pre>
 </section>
-<section id="great-wave-1" class="level3">
-<h3 class="anchored" data-anchor-id="great-wave-1">great-wave</h3>
+<section id="great-wave-1" class="level2">
+<h2 class="anchored" data-anchor-id="great-wave-1">great-wave</h2>
 <p>This demo has an image that fade to the top with a page color that matches the top of the image. The title is specified in <code>coverpage-title</code> and the subtitle is <code>coverpage-footer</code> moved to below the title. Only title and subtitle are shown; no author.</p>
 <pre><code>  coverpage: great-wave
   coverpage-bg-image: "_extensions/nmfs-opensci/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
@@ -220,7 +219,6 @@ ul.task-list li input[type="checkbox"] {
     bg-image-fading: "north"</code></pre>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
