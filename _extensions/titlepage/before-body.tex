@@ -1,35 +1,28 @@
-$if(academic-static)$
-$_academic-static_before-body.tex()$
+%%%%% begin titlepage extension code
+
+$if(has-frontmatter)$
+  \begin{frontmatter}
 $endif$
 
-$if(bg-image)$
-$_bg-image_before-body.tex()$
+\begin{titlepage}
+$-- % Coverpage
+$if(coverpage-true)$
+$_coverpage.tex()$
 $endif$
 
-$if(classic-lined-static)$
-$_classic-lined-static_before-body.tex()$
+$-- % Titlepage
+$if(titlepage-true)$
+$if(titlepage-file)$
+% Use the file
+\input{$titlepage-filename$}
+$else$
+$_titlepage.tex()$
+$endif$
+$endif$
+\end{titlepage}
+\setcounter{page}{1}
+$if(has-frontmatter)$
+\end{frontmatter}
 $endif$
 
-$if(great-wave)$
-$_great-wave_before-body.tex()$
-$endif$
-
-$if(multi-purpose-static)$
-$_multi-purpose-static_before-body.tex()$
-$endif$
-
-$if(multi-purpose)$
-$_multi-purpose_before-body.tex()$
-$endif$
-
-$if(thesis-static)$
-$_thesis-static_before-body.tex()$
-$endif$
-
-$if(vline)$
-$_vline_before-body.tex()$
-$endif$
-
-$if(vline-static)$
-$_vline-static_before-body.tex()$
-$endif$
+%%%%% end titlepage extension code

@@ -1,0 +1,763 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  oneside,
+  open=any]{scrbook}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+
+\usepackage{hyphenat}
+\usepackage{ifthen}
+\usepackage{calc}
+\usepackage{calculator}
+
+\usepackage{graphicx}
+\usepackage{wallpaper}
+
+\usepackage{geometry}
+
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{afterpage}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{fadings}
+\usepackage[pagecolor=none]{pagecolor}
+
+
+
+% Set the titlepage font families
+
+
+
+
+
+
+
+% Set the coverpage font families
+
+\usepackage{fontspec}
+\newfontfamily{\coverpagetitlefont}{Palatino}
+
+
+\usepackage{fontspec}
+\newfontfamily{\coverpagefooterfont}{Palatino}
+
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={A Sample Title - The SocioEconomic Aspects of Stock Assessments},
+  pdfauthor={Jane Doe; Eva Nováková; Matti Meikäläinen; Ashok Kumar},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{A Sample Title - The SocioEconomic Aspects of Stock Assessments}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{with non-English diacritics in the author names. See
+documentation.}
+\author{Jane Doe \and Eva Nováková \and Matti Meikäläinen \and Ashok
+Kumar}
+\date{}
+
+\begin{document}
+%%%%% begin titlepage extension code
+
+  \begin{frontmatter}
+
+\begin{titlepage}
+% This is a combination of Pandoc templating and LaTeX
+% Pandoc templating https://pandoc.org/MANUAL.html#templates
+% See the README for help
+
+\thispagestyle{empty}
+
+\newgeometry{top=-100in}
+
+% Page color
+\definecolor{pgcolor}{HTML}{F6D5A8}
+\pagecolor{pgcolor}\afterpage{\nopagecolor}
+
+\newcommand{\coverauthorstyle}[1]{{#1}}
+
+\begin{tikzpicture}[remember picture, overlay, inner sep=0pt, outer sep=0pt]
+
+\tikzfading[name=fadeout, inner color=transparent!0,outer color=transparent!100]
+\tikzfading[name=fadein, inner color=transparent!100,outer color=transparent!0]
+\node[ scope fading=north, anchor=south west, rotate=0.0, opacity=1.0] at ($(current page.south west)+(0.0, 0.0)$) {
+\includegraphics[width=\paperwidth, keepaspectratio]{\_extensions/titlepage/images/TheGreatWaveoffKanagawa.jpeg}};
+
+% Title
+\newcommand{\titlelocationleft}{0.8\paperwidth}
+\newcommand{\titlelocationbottom}{10in}
+\newcommand{\titlealign}{right}
+
+\begin{scope}
+{%
+\fontsize{30}{36.0}\selectfont
+\coverpagetitlefont
+\node[anchor=north
+east, align=right, rotate=0] (Title1) at ($(current page.south west)+(\titlelocationleft,\titlelocationbottom)$)  [text width = 0.7\paperwidth]  {{\textbf{\textit{\nohyphens{quarto\_titlepages}}}}};
+}
+\end{scope}
+
+% Footer
+\newcommand{\footerlocationleft}{0.8\paperwidth}
+\newcommand{\footerlocationbottom}{9.5in}
+\newcommand{\footerlocationalign}{right}
+
+\begin{scope}
+{%
+\fontsize{20}{24.0}\selectfont
+ \coverpagefooterfont
+\node[anchor=north east, align=right, rotate=0] (Footer1) at %
+($(current page.south west)+(\footerlocationleft,\footerlocationbottom)$)  [text width = 0.7\paperwidth]  {{\textit{\nohyphens{Templates
+for title pages and covers}}}};
+}
+\end{scope}
+
+\end{tikzpicture}
+\clearpage
+\restoregeometry
+%%% TITLE PAGE START
+
+% Set up alignment commands
+%Page
+\newcommand{\titlepagepagealign}{
+\ifthenelse{\equal{left}{right}}{\raggedleft}{}
+\ifthenelse{\equal{left}{center}}{\centering}{}
+\ifthenelse{\equal{left}{left}}{\raggedright}{}
+}
+
+
+\newcommand{\titleandsubtitle}{
+% Title and subtitle
+{{\large{\bfseries{\nohyphens{A Sample Title - The SocioEconomic Aspects
+of Stock Assessments}}}}\par
+}%
+
+\vspace{\betweentitlesubtitle}
+{
+{\large{\textit{\nohyphens{with non-English diacritics in the author
+names. See documentation.}}}}\par
+}}
+\newcommand{\titlepagetitleblock}{
+\titleandsubtitle
+}
+
+\newcommand{\authorstyle}[1]{{\large{#1}}}
+
+\newcommand{\affiliationstyle}[1]{{\large{#1}}}
+
+\newcommand{\titlepageauthorblock}{
+\authorstyle{Jane
+Doe{\textsuperscript{1}}\textsuperscript{,}{\textsuperscript{2}},  Eva
+Nováková{\textsuperscript{3}},  Matti
+Meikäläinen{\textsuperscript{4}}\textsuperscript{,}{\textsuperscript{*}} and Ashok
+Kumar{\textsuperscript{2}}\textsuperscript{,}{\textsuperscript{5}}%
+
+}}
+
+\newcommand{\titlepageaffiliationblock}{
+\hangindent=1em
+\hangafter=1
+\affiliationstyle{
+{1}.~Minnesota Department of Natural Resources,  500 Lafayette Road
+Saint Paul, MN 55155
+\par\hangindent=1em\hangafter=1%
+{2}.~University of Minnesota, Department of Mathematics
+\par\hangindent=1em\hangafter=1%
+{3}.~Czech University of Life Sciences,  Družstevní 666, Vikýřovice,
+Czechia
+\par\hangindent=1em\hangafter=1%
+{4}.~University of Kemijärvi, Department of Biological and Environmental
+Science,  Kylmäniementie 79, 98120, KEMIJÄRVI, Finland
+\par\hangindent=1em\hangafter=1%
+{5}.~HØnefoss Institute,  R Tradição 35, Portugal 2950-726
+
+
+\vspace{1\baselineskip} 
+* \textit{Correspondence:}~Matti Meikäläinen~matti@jy.fi
+}
+}
+\newcommand{\headerstyled}{%
+{The Publisher}
+}
+\newcommand{\footerstyled}{%
+{\large{NOAA Fisheries OpenSci\\
+Tools for Open Science\\
+\url{https://github.com/nmfs-opensci}\strut \\}}
+}
+\newcommand{\datestyled}{%
+{}
+}
+
+
+\newcommand{\titlepageheaderblock}{\headerstyled}
+
+\newcommand{\titlepagefooterblock}{
+\footerstyled
+}
+
+\newcommand{\titlepagedateblock}{
+\datestyled
+}
+
+%set up blocks so user can specify order
+\newcommand{\titleblock}{\newlength{\betweentitlesubtitle}
+\setlength{\betweentitlesubtitle}{\baselineskip}
+{
+
+{\titlepagetitleblock}
+}
+
+\vspace{4\baselineskip}
+}
+
+\newcommand{\authorblock}{{\titlepageauthorblock}
+
+\vspace{2\baselineskip}
+}
+
+\newcommand{\affiliationblock}{{\titlepageaffiliationblock}
+
+\vspace{1pt}
+}
+
+\newcommand{\logoblock}{{\includegraphics[width=0.25\textheight]{img/logo.png}}
+
+\vspace{2\baselineskip}
+}
+
+\newcommand{\footerblock}{{\titlepagefooterblock}
+
+\vspace{1pt}
+}
+
+\newcommand{\dateblock}{}
+
+\newcommand{\headerblock}{{\titlepageheaderblock
+
+\vspace{0pt}
+}}
+\newgeometry{top=3in,bottom=1in,right=1in,left=1in}
+% background image
+\newlength{\bgimagesize}
+\setlength{\bgimagesize}{0.5\paperwidth}
+\LENGTHDIVIDE{\bgimagesize}{\paperwidth}{\theRatio} % from calculator pkg
+\ThisULCornerWallPaper{\theRatio}{img/corner-bg.png}
+
+\thispagestyle{empty} % no page numbers on titlepages
+
+
+\newcommand{\vrulecode}{\rule{\vrulewidth}{\textheight}}
+\newlength{\vrulewidth}
+\setlength{\vrulewidth}{1pt}
+\newlength{\B}
+\setlength{\B}{\ifdim\vrulewidth > 0pt 0.05\textwidth\else 0pt\fi}
+\newlength{\minipagewidth}
+\ifthenelse{\equal{left}{left} \OR \equal{left}{right} }
+{% True case
+\setlength{\minipagewidth}{\textwidth - \vrulewidth - \B - 0.1\textwidth}
+}{
+\setlength{\minipagewidth}{\textwidth - 2\vrulewidth - 2\B - 0.1\textwidth}
+}
+\ifthenelse{\equal{left}{left} \OR \equal{left}{leftright}}
+{% True case
+\raggedleft % needed for the minipage to work
+\vrulecode
+\hspace{\B}
+}{%
+\raggedright % else it is right only and width is not 0
+}
+% [position of box][box height][inner position]{width}
+% [s] means stretch out vertically; assuming there is a vfill
+\begin{minipage}[b][\textheight][s]{\minipagewidth}
+\titlepagepagealign
+\titleblock
+
+\authorblock
+
+\affiliationblock
+
+\vfill
+
+\logoblock
+
+\footerblock
+\par
+
+\end{minipage}\ifthenelse{\equal{left}{right} \OR \equal{left}{leftright} }{
+\hspace{\B}
+\vrulecode}{}
+\clearpage
+\restoregeometry
+%%% TITLE PAGE END
+\end{titlepage}
+\setcounter{page}{1}
+\end{frontmatter}
+
+%%%%% end titlepage extension code\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, sharp corners, frame hidden, breakable, enhanced]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\listoffigures
+\listoftables
+\mainmatter
+\hypertarget{yaml-additions-for-themes}{%
+\section{YAML additions for themes}\label{yaml-additions-for-themes}}
+
+Some themes need some additional YAML information to work.
+
+\hypertarget{bg-image}{%
+\subsection{\texorpdfstring{\texttt{bg-image}}{bg-image}}\label{bg-image}}
+
+Needs info on the title page geometry so the title doesn't overlap the
+background image. Also you need to supply the background image and where
+to put it (UL, upperleft; UR, upperright; BL, bottomleft; BR,
+bottomright). Note, there are placeholders in the extension, but when
+you put your own image in, you'll need to add the YAML information.
+
+\begin{verbatim}
+format: 
+  titlepage-pdf:
+    titlepage: bg-image
+    titlepage-geometry: 
+     - top=3in
+     - bottom=1in
+     - right=1in
+     - left=1in
+    titlepage-bg-image: "img/corner-bg.png"
+    titlepage-theme:
+      bg-image-location: "UL"
+      bg-image-size: 0.5
+\end{verbatim}
+
+\hypertarget{document-classes}{%
+\section{Document classes}\label{document-classes}}
+
+The document class changes the look of your document. For the book
+document classes, you will need to pass in
+
+\begin{verbatim}
+number-sections: true
+\end{verbatim}
+
+in your YAML because Quarto sets \texttt{number-sections:\ false} by
+default and that will mess up all your equation, figure and table
+numbers. It simple will not number them correctly at all.
+
+For book document classes (like \texttt{scrbook}), if you want chapters
+to be allowed to start on even or odd pages and the left and right
+margins on even and odd pages to be the same, use
+
+\begin{verbatim}
+classoption: ["oneside", "open=any"]
+\end{verbatim}
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor
+velit. Fusce accumsan ultrices fringilla. Praesent sed odio mi. Mauris
+non ligula turpis. Duis posuere lacus nec diam interdum dictum suscipit
+magna molestie. Vestibulum nibh dolor, interdum eget rhoncus ut, sodales
+eget justo. Morbi blandit lorem sit amet nulla egestas aliquam. Nunc
+pharetra est at nibh ullamcorper in commodo erat dignissim. Cras et
+suscipit enim.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque
+ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
+quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
+primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
+bibendum placerat tellus, ac finibus lectus euismod eget.
+
+Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique,
+porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et
+dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod,
+hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras
+fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel
+egestas nisi. Curabitur vitae imperdiet justo.
+
+\begin{quote}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat.\\
+\end{quote}
+
+\hypertarget{supporting-theory}{%
+\section{Supporting theory}\label{supporting-theory}}
+
+Let \(X_1, X_2, \ldots, X_n\) be a sequence of independent and
+identically distributed random variables with \(\text{E}[X_i] = \mu\)
+and \(\text{Var}[X_i] = \sigma^2 < \infty\), and let
+
+\begin{equation}\protect\hypertarget{eq-clt}{}{
+S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+}\label{eq-clt}\end{equation}
+
+denote their mean. Then as \(n\) approaches infinity, the random
+variables \(\sqrt{n}(S_n - \mu)\) converge in distribution to a normal
+\(\mathcal{N}(0, \sigma^2)\). Thus concludes the explanation about
+Equation~\ref{eq-clt}.
+
+\hypertarget{materials-and-methods}{%
+\chapter{Materials and Methods}\label{materials-and-methods}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque
+ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
+quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
+primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
+bibendum placerat tellus, ac finibus lectus euismod eget.
+
+\hypertarget{study-area}{%
+\section{Study area}\label{study-area}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque
+ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
+quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
+primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
+bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis
+diam vitae bibendum consequat.
+
+\begin{figure}
+
+{\centering \includegraphics{img/logo.png}
+
+}
+
+\caption{\label{fig-logo}the study area}
+
+\end{figure}
+
+See Figure~\ref{fig-logo} for a picture of the study area. Etiam vitae
+eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi
+nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio
+euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo.
+Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel
+egestas nisi. Curabitur vitae imperdiet justo.
+
+Curabitur efficitur in risus quis egestas. Suspendisse porta interdum
+leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend,
+nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus.
+Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed
+lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla
+tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit
+amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies
+ante accumsan lectus rhoncus, vel pharetra sem convallis.
+
+\hypertarget{results}{%
+\chapter{Results}\label{results}}
+
+See Table~\ref{tbl-numbers} for the table of results. Phasellus quis
+orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante
+convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna.
+Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies
+pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam
+sit amet tellus ut, pellentesque porttitor orci. Integer quis mi
+pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat
+facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu,
+fermentum sem.
+
+\hypertarget{tbl-numbers}{}
+\begin{longtable}[]{@{}lr@{}}
+\caption{\label{tbl-numbers}Table of numbers.}\tabularnewline
+\toprule()
+Thing & Value \\
+\midrule()
+\endfirsthead
+\toprule()
+Thing & Value \\
+\midrule()
+\endhead
+A 42 & 18 \\
+B 15 & 18 \\
+C 34 & 17 \\
+D 99 & 24 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{discussion}{%
+\chapter{Discussion}\label{discussion}}
+
+Lorem ipsum dolor sit amet, Table~\ref{tbl-numbers}, consectetur
+adipiscing elit. Knuth (1984) and all things LaTeX. Phasellus neque ex,
+vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
+quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
+primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
+bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis
+diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien
+a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla
+mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis
+risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac
+convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae
+imperdiet justo.
+
+Curabitur efficitur in risus quis egestas. Suspendisse porta interdum
+leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend,
+nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus.
+Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed
+lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla
+tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit
+amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies
+ante accumsan lectus rhoncus, vel pharetra sem convallis.
+
+Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut
+ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper
+urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec
+ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex
+purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer
+quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in
+erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu,
+fermentum sem.
+
+Quisque congue, ligula et mattis vulputate, arcu risus facilisis mauris,
+a feugiat mi mi et magna. Aliquam id malesuada neque. Sed dapibus justo
+mauris, sed mattis nibh sodales sit amet. Donec nec faucibus magna.
+Curabitur tincidunt porta egestas. In eleifend sed enim ac varius.
+Vivamus tempus ultrices vehicula. Vestibulum iaculis eleifend mattis.
+Quisque euismod dui et velit facilisis dapibus. Ut in mauris porttitor,
+congue orci et, sodales turpis. Pellentesque porttitor volutpat sapien
+vel pretium.
+
+Aliquam ante diam, euismod in nisi sed, iaculis tincidunt lacus. Cras
+pellentesque magna id enim pulvinar porta. Proin quis feugiat quam. Nunc
+vitae ultricies nulla, a facilisis tortor. Aliquam semper mi et libero
+tincidunt, nec iaculis erat pharetra. Duis ac pharetra purus. Nunc
+condimentum ex massa, a vestibulum risus bibendum in. Suspendisse
+suscipit, lectus pharetra vulputate fringilla, ligula sem condimentum
+purus, eget dapibus diam libero vitae lorem. Nam blandit pulvinar augue,
+non gravida risus rhoncus sed.
+
+\hypertarget{conclusion}{%
+\chapter{Conclusion}\label{conclusion}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque
+ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus
+quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum
+primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
+bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis
+diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien
+a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla
+mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis
+risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac
+convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae
+imperdiet justo.
+
+Curabitur efficitur in risus quis egestas. Suspendisse porta interdum
+leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend,
+nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus.
+Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed
+lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla
+tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit
+amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies
+ante accumsan lectus rhoncus, vel pharetra sem convallis.
+
+Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut
+ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper
+urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec
+ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex
+purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer
+quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in
+erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu,
+fermentum sem.
+
+Quisque congue, ligula et mattis vulputate, arcu risus facilisis mauris,
+a feugiat mi mi et magna. Aliquam id malesuada neque. Sed dapibus justo
+mauris, sed mattis nibh sodales sit amet. Donec nec faucibus magna.
+Curabitur tincidunt porta egestas. In eleifend sed enim ac varius.
+Vivamus tempus ultrices vehicula. Vestibulum iaculis eleifend mattis.
+Quisque euismod dui et velit facilisis dapibus. Ut in mauris porttitor,
+congue orci et, sodales turpis. Pellentesque porttitor volutpat sapien
+vel pretium.
+
+Aliquam ante diam, euismod in nisi sed, iaculis tincidunt lacus. Cras
+pellentesque magna id enim pulvinar porta. Proin quis feugiat quam. Nunc
+vitae ultricies nulla, a facilisis tortor. Aliquam semper mi et libero
+tincidunt, nec iaculis erat pharetra. Duis ac pharetra purus. Nunc
+condimentum ex massa, a vestibulum risus bibendum in. Suspendisse
+suscipit, lectus pharetra vulputate fringilla, ligula sem condimentum
+purus, eget dapibus diam libero vitae lorem. Nam blandit pulvinar augue,
+non gravida risus rhoncus sed.
+
+\hypertarget{author-contributions}{%
+\chapter{Author Contributions}\label{author-contributions}}
+
+Author1 designed the research. Author2 carried out all simulations,
+analyzed the data. Author1 and Author2 wrote the article.
+
+\hypertarget{acknowledgments}{%
+\chapter{Acknowledgments}\label{acknowledgments}}
+
+We thank G. Harrison, B. Harper, and J. Doe for their help.
+
+\hypertarget{references}{%
+\chapter{References}\label{references}}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-knuth84}{}}%
+Knuth, Donald E. 1984. {``Literate Programming.''} \emph{Comput. J.} 27
+(2): 97--111. \url{https://doi.org/10.1093/comjnl/27.2.97}.
+
+\end{CSLReferences}
+
+
+\backmatter
+
+\end{document}

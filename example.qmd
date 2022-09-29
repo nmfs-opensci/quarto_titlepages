@@ -1,6 +1,6 @@
 ---
 title: A Sample Title - The SocioEconomic Aspects of Stock Assessments
-subtitle: with non-English diacritics in the author names. see documentation.
+subtitle: with non-English diacritics in the author names. See documentation.
 author:
   - name: Jane Doe
     affiliations:
@@ -27,22 +27,30 @@ author:
 bibliography: references.bib
 format: 
   titlepage-pdf:
-    titlepage: vline
     documentclass: scrbook
+    classoption: ["oneside", "open=any"]
     number-sections: true
     toc: true
     lof: true
     lot: true
-    classoption: ["oneside", "open=any"]
+    titlepage: "bg-image"
+    titlepage-bg-image: "img/corner-bg.png"
+    titlepage-logo: "img/logo.png"
+    titlepage-header: "The Publisher"
+    titlepage-footer: |
+      NOAA Fisheries OpenSci\
+      Tools for Open Science\
+      [https://github.com/nmfs-opensci](https://github.com/nmfs-opensci)\
+    coverpage: "great-wave"
+    keep-tex: true
     include-in-header: |
       text:
         % delete. this is for the example w CZ diacritics
         \usepackage{babel}
         \babelprovide[import]{czech}
-
 ---
 
-# Usage notes
+
 
 ## YAML additions for themes
 
@@ -50,29 +58,21 @@ Some themes need some additional YAML information to work.
 
 ### `bg-image`
 
-Needs info on the titlepage geometry so the title doesn't overlap the background image. Also you need to supply the background image and where to put it (UL, upperleft; UR, upperright; BL, bottomleft; BR, bottomright). Note, there are placeholders in the extension, but when you put your own image in, you'll need to add the YAML information.
+Needs info on the title page geometry so the title doesn't overlap the background image. Also you need to supply the background image and where to put it (UL, upperleft; UR, upperright; BL, bottomleft; BR, bottomright). Note, there are placeholders in the extension, but when you put your own image in, you'll need to add the YAML information.
 
 ```
-titlepage: bg-image
-titlepage-geometry: 
-  - top=3in
-  - bottom=1in
-  - right=1in
-  - left=1in
-title-bg-image: "img/corner-bg.png"
-title-bg-location: "UL"
-title-bg-size: 0.5
-```
-
-### `great-wave`
-
-Great wave theme creates a cover page with a background image that fills the width of the page at the bottom with a color above. You need to specify the image and the upper color (unless you want to use the default Great Wave off Kanagawa image).
-
-```
-documentclass: scrbook
-number-sections: true
-title-bg-image: "img/TheGreatWaveoffKanagawa.jpeg"
-title-page-color: "F6D5A8"
+format: 
+  titlepage-pdf:
+    titlepage: bg-image
+    titlepage-geometry: 
+     - top=3in
+     - bottom=1in
+     - right=1in
+     - left=1in
+    titlepage-bg-image: "img/corner-bg.png"
+    titlepage-theme:
+      bg-image-location: "UL"
+      bg-image-size: 0.5
 ```
 
 
@@ -89,12 +89,6 @@ For book document classes (like `scrbook`), if you want chapters to be allowed t
 ```
 classoption: ["oneside", "open=any"]
 ```
-
-## Static versus dynamic themes
-
-`vline-static`, `thesis-static`, `multi-purpose-static`, `classic-lined-static` and `academic-static` use a title page that is defined in the `_extensions/titlepage` folder. You will need to edit the `_xyz-static_titlepage.tex` file.
-
-The other themes use the YAML for the title page info and you do not need to edit the `...-titlepage.tex` files unless you want to customize the pages.
 
 # Introduction
 
@@ -125,7 +119,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, veh
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat.
 
-![the study area](logo.png){#fig-logo}
+![the study area](img/logo.png){#fig-logo}
 
 See @fig-logo for a picture of the study area. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
 
