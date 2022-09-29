@@ -18,13 +18,13 @@ Here are the available top-level elements:
 
 ### `titlepage:`
 
-This is the overall theme. Default is `simple` and `none` would stop the title page being generated at all. Note although `titlepage` specifies the overall theme, **all** features can be changed by passing a new value in `titlepage-theme`; see below.
+This is the overall theme. Default is `true` (which is the same as `plain`). `false` (or `none`) would stop the title page being generated at all. Note although `titlepage` specifies the overall theme, **all** features can be changed by passing a new value in `titlepage-theme`; see below.
 
-* `simple`: left-aligned, with title, subtitle, author with affiliation superscripts, and affiliations in a numbered list.
+* `true` (or `plain`): minimal styling. Everything on the page is left-aligned, with title, subtitle, author with affiliation superscripts, and affiliations in a numbered list. Header and footer appear if `title-header` and/or `title-footer` are specified.
 * `vline`: a 1pt wide vertical line on the left.
 * `vline-text`: a 0.5 inch wide blue vertical line with test.
 * `academic`: A title and subtitle with horizontal lines.
-* `thesis`: Looks like a thesis
+* `formal`: Looks a bit like a thesis title page
 * `classic-lined`: different sized horizontal lines around title.
 * `colorbox`: title in a colored box
 
@@ -38,7 +38,7 @@ The background image file. Default is to make this fill the whole page.  See the
 
 ### `titlepage-header`
 
-Some text for the header. Note "header" doesn't mean it has to be at the top. You can order your elements however you want.
+Some text for the header. Note "header" doesn't mean it has to be at the top. You can order your elements however you want using the `elements` in `titlepage-theme`.
 
 ### `titlepage-footer`
 
@@ -46,18 +46,42 @@ Some text for the footer. Note "footer" doesn't mean it has to be at the bottom.
 
 ## Title page element customiation
 
-The title page has the following elements: page, title, subtitle, author, header, footer, logo, vline, bg-image. Each of these can be customized via the `titlepage-theme`.
+The title page has the following elements: page, title, subtitle, author, header, footer, logo, vline, bg-image. Each of these can be customized via `titlepage-theme`.
 
 Example:
 ```
     titlepage-theme: 
-      page-html-color: "c4c4c4" # html color
+      page-html-color: "c4c4c4" 
       title-style: "plain"
       title-fontfamily: "Palatino"
       title-fontstyle: ["Huge", "bfseries"]
       title-align: left
       title-space-after: 1in
 ```
+
+### `elements`
+
+What elements do you want to appear and in what order? You can also add text to add between the elements. The element names are `\\titleblock`, `\\authorblock`, `\\affiliationblock`, `\\headerblock`, `\\footerblock`, `\\dateblock`, `\\logoblock`.
+
+An example specification would be
+
+```
+    titlepage-theme: 
+      elements: ["\\logoblock", "\\authorblock", "\\vfill", "\\titleblock", "Some text at the bottom"] 
+```
+This puts the logo at the top, followed by the author block, then some stretchable space followed by the title and some text. Basically in the tex file this will appear like
+```
+\logoblock
+\vspace{logo-space-after}
+\authorblock
+\vspace{author-space-after}
+\vfill
+\titleblock
+\vspace{title-space-after}
+Some text at the bottom
+```
+Knowing this, you can see how you might include things like horizontal lines and any text with TeX formatting in your title page. The alignment of `Some text at the bottom` will be governed by `page-align` in this case.
+
 
 ### `page-html-color`
 
@@ -87,7 +111,6 @@ For `affiliation-style`, these can be
 * `numbered-list` each affiliation gets a number on a new line
 * `numbered-list-with-correspondence` add a line for the corresponding author.
 
-
 ### `-color`
 
 Available for page, title, subtitle, author, affiliation, header, footer, date.
@@ -100,9 +123,9 @@ Available for page, title, subtitle, author, affiliation, header, footer, date.
 
 The fontfamily can be specified for the page and will be used for all the elements unless you pass in an element specific font family, like `title-fontfamily`. The font family can be a name that you have in your font library or it can be a font file. You can download lots of different font files. The is the most surefire way to get your fonts to work.
 
-The extension has an example font file that you can use `QTDublinIrish.otf`. To use other font files, you can download a font file from the [LaTeX Font Catalogue](https://tug.org/FontCatalogue/). The otf (opentype) and ttf files should work fine. Some fonts will have font styling like "bold" so you will need to use the font file with the styling you want. Or you probably can download the folder with regular, italic etc files and pass in the font directory name. Note not all fonts have all styling. For example, small caps (`textsc`) is only available for some fonts.
+The extension has an example font file: `QTDublinIrish.otf`. To use other font files, you can download a font file from the [LaTeX Font Catalogue](https://tug.org/FontCatalogue/). The otf (opentype) and ttf files should work. Some fonts will have font styling like "bold" so you will need to use the font file with the styling you want. Or you probably can download the folder with regular, italic etc files and pass in the font directory name. Note not all fonts have all styling. For example, small caps (`textsc`) is only available for some fonts.
 
-*I have fonts on my machine but Quarto can't find them!* Good luck. Stackoverflow will hopefully help.
+*I have fonts on my machine but Quarto can't find them!* Good luck. Stackoverflow will hopefully help you. Fonts that cannot be found is a source of much TeX misery. Using font files that you specify directly avoids this problem.
 
 ### `-fontstyle`
 
@@ -114,13 +137,13 @@ This is a list of styles to add. `["tiny", "textit"]` would be tiny size italic 
 
 Available for page, title, subtitle, author, affiliation, header, footer, date. Note, this will be ignored if you pass in a font size (like `"large"`) in `-fontfamily`.
 
-The font size in points. Leave off "pt"; just specify this as a number.
+The font size in points. Leave off "pt"; just specify this as a number, like `title-fontsize: 20`.
 
 ### `-spacing`
 
 Available for page, title, subtitle, author, affiliation, header, footer, date.
 
-The spacing between lines if text runs into multiple lines. Specify in points. Leave off "pt"; just specify this as a number. If you only specify fontsize, it will use 1.2 fontsize as the spacing.
+The spacing between lines if text runs into multiple lines. Specify in points. Leave off "pt"; just specify this as a number like `title-spacing: 24`. If you only specify fontsize, it will use 1.2 fontsize as the spacing.
 
 ### `-align`
 
@@ -132,7 +155,12 @@ The page alignment: left, right or center. For title, subtitle, author, header, 
 
 Available for title, author, affiliation, header, footer, date, logo.
 
-How much space to add after the element. Can be in, cm, mm, pt or percent of paper or text, e.g. `0.5\\textheight`. Note, in `elements`, you can have a `\\vfill` somewhere if you want the text spread fully from top to bottom.
+How much space to add after the element. Can be in, cm, mm, pt or percent of paper or text, e.g. `0.5\\textheight`. Note, in `elements`, you can have a `\\vfill` somewhere if you want the text spread fully from top to bottom. Like so
+```
+titlepage-theme:
+  elements: ["\\titleblock", "\\vfill", "\\logoblock"]
+```
+Note that you need `title-space-after` to not be set to 0 for `\vfill` to work here. It's a quirk of LaTeX that for `\vfill` to work, you have to have a `\vspace{}` line and `title-space-after` will be translated to `\vspace{title-space-after}` in the TeX file. By default, all the elements have a non-zero `space-after`, so you shouldn't run into trouble unless you were to set `title-space-after: 0` here.
 
 ### `title-subtitle-space-between`
 
@@ -180,7 +208,7 @@ The vertical rule specifications are
 * `vrule-color` names of colors. It's the xcolors.
 * `vrule-align` left, right, leftright. The latter makes a rule on both sides.
 * `vrule-space-after` the gap between the vertical rule and the text
-* `vrule-text` text to put in the verticle rule
+* `vrule-text` text to put in the vertical rule
 * `vrule-text-color` color of the text
 * `vrule-text-style` text styles. See above on what styles are possible.
 
