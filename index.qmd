@@ -1,45 +1,21 @@
 ---
 title: "quarto titlepages"
-subtitle: "LaTeX title pages with Quarto"
+subtitle: "LaTeX title and cover pages with Quarto"
 page-layout: full
 ---
 
-[quarto titlepages](https://github.com/nmfs-opensci/quarto_titlepages) is a collection of Pandoc template partials (Pandoc template + LaTeX) and LaTeX header files to create custom title pages for PDF. It does not require installation of anything. Download (or copy) the `before-body.tex`, `_titlepage.tex`, and `in-header.tex` files for one of the title pages and add them to the pdf format portion of your YAML. See [How to use](03-how-to-use.html)
+[quarto_titlepages](https://github.com/nmfs-opensci/quarto_titlepages) is a Quarto extension for creating custom cover pages and title pages for PDF output. Pre-defined themes are available, but all themes can be customized.
 
-There are two types of title pages. Static does not use the YAML. Modify these if you have a title page written in LaTeX that you want to use. The template title pages (no `-static` at end) will use the YAML variables (authors, affiliations, cover image, etc).
+LaTeX users who want to pass in their own title page or cover page files should see [quarto_titlepages_v1](https://github.com/nmfs-opensci/quarto_titlepages_v1) which shows how to use Pandoc template files. Alternatively, see the [page](06-static-files.qmd) on passing in static title or cover page files.
 
 ::: {.panel-tabset}
 
-### great-wave
+### cover page
 <span style="font-size:0.8em; color: grey">Template with a book cover. Double-click on image to see PDF</span>
 [![](images/great-wave.png){.border fig-alt="Screenshot of great-wave title page. This template has a cover page with a great wave image. Title page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/great-wave/article.pdf)
 
-### vline
-<span style="font-size:0.8em; color: grey">Double-click to see demo PDF in [scrbook](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [scrartcl](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [krantz](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-krantz.pdf) [svmono](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-svmono.pdf) [elsarticle](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-elsarticle.pdf)</span></br>
+### title page
+<span style="font-size:0.8em; color: grey">Double-click to see demo PDF in [scrbook](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [scrartcl](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-srcartcl.pdf) [krantz](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-krantz.pdf) [svmono](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-svmono.pdf) [elsarticle](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-elsarticle.pdf)</span></br>
 [![](images/vline.png){.border fig-width="50%" fig-alt="Screenshot of vline title page. Page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf)
-
-### bg-image
-<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
-[![](images/bg-image.png){.border fig-alt="Screenshot of bg-image title page. Page has a background image in the top left with title, subtitle, authors and affiliations below. There is a logo towards the bottom followed by address."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/bg-image/article.pdf)
-
-### academic-static
-<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
-[![](images/academic-static.png){.border fig-alt="Screenshot of academic-static title page. Page has institution name centered at top with the title centered between two horizontal lines. The two authors are on the same level on left and right."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/academic-static/article.pdf)
-
-### classic-lined-static
-<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
-[![](images/classic-lined-static.png){.border fig-alt="Screenshot of classic-lined-static title page. Page has double horizontal lines at the top and bottom. The title is red, centered and at top. One author is in caps and below the title. There is a small logo at the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/classic-lined-static/article.pdf)
-
-### multi-purpose-static
-<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
-[![](images/multi-purpose-static.png){.border fig-alt="Screenshot of multi-purpose-static title page. Title has a cyan filled box around it. Author name is in bottom right corner."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/multi-purpose-static/article.pdf)
-
-### thesis-static
-<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
-[![](images/thesis-static.png){.border fig-alt="Screenshot of thesis-static title page. A fairly minimal thesis title page."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/thesis-static/article.pdf)
-
-### thesis2-static
-<span style="font-size:0.8em; color: grey">Double-click on image to see PDF</span></br>
-[![](images/thesis2-static.png){.border fig-alt="Screenshot of thesis2-static title page."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/thesis2-static/article.pdf)
 
 :::
