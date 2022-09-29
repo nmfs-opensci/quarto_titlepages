@@ -182,8 +182,8 @@ This function assigns the themevals to the meta data
       themevals = {
         ["page-align"] = "left",
         ["title-style"] = "plain",
-        ["author-style"] = "none",
-        ["footer-style"] = "plain",
+        ["author-style"] = "plain",
+        ["footer-style"] = "none",
         ["header-style"] = "none",
         ["date-style"] = "none",
         }
@@ -237,7 +237,7 @@ Set up the demos
     if isEmpty(m['coverpage-footer']) then
       m['coverpage-footer'] = "Templates for title pages and covers"
     end
-    demovals = {["title-align"] = "right", ["title-fontsize"] = 30, ["title-fontfamily"] = "QTDublinIrish.otf", ["title-fontstyle"] = {"textbf"}, ["title-bottom"] = "10in", ["author-style"] = "none", ["footer-fontsize"] = 20, ["footer-fontfamily"] = "Palatino", ["footer-fontstyle"] = {"textit"}, ["footer-align"] = "right", ["footer-bottom"] = "9.5in", ["page-html-color"] = "F6D5A8", ["bg-image-fading"] = "north"}
+    demovals = {["title-align"] = "right", ["title-fontsize"] = 30, ["title-fontfamily"] = "Palatino", ["title-fontstyle"] = {"textbf", "textit"}, ["title-bottom"] = "10in", ["author-style"] = "none", ["footer-fontsize"] = 20, ["footer-fontfamily"] = "Palatino", ["footer-fontstyle"] = {"textit"}, ["footer-align"] = "right", ["footer-bottom"] = "9.5in", ["page-html-color"] = "F6D5A8", ["bg-image-fading"] = "north"}
     for dkey, val in pairs(demovals) do
       if isEmpty(m['coverpage-theme'][dkey]) then
         m['coverpage-theme'][dkey] = val
@@ -251,10 +251,10 @@ Set up the demos
     if isEmpty(m['coverpage-title']) then
       m['coverpage-title'] = "Otters"
     end
-    if isEmpty(m['coverpage-footer']) then
-      m['coverpage-footer'] = "otter demo"
+    if isEmpty(m['coverpage-author']) then
+      m['coverpage-author'] = {"EE", "Holmes"}
     end
-    demovals = {["title-color"] = "white", ["title-fontfamily"] = "QTDublinIrish.otf", ["author-style"] = "none", ["footer-align"] = "right"}
+    demovals = {["title-color"] = "white", ["title-fontfamily"] = "QTDublinIrish.otf", ["title-fontsize"] = 100, ["author-fontstyle"] = {"textsc"}, ["author-sep"] = "newline", ["author-align"] = "right", ["author-fontsize"] = 30, ["author-bottom"] = "2in"}
     for dkey, val in pairs(demovals) do
       if isEmpty(m['coverpage-theme'][dkey]) then
         m['coverpage-theme'][dkey] = val
@@ -266,9 +266,13 @@ Set up the demos
   for key, val in pairs({"title", "author"}) do
     if isEmpty(m['coverpage-' .. val]) then
       if not isEmpty(m[val]) then
-        m['coverpage-' .. val] = getVal(m[val])
+        m['coverpage-' .. val] = m[val]
       end
     end
+  end
+-- make a bit more robust to whatever user passes in for coverpage-author
+  for key, val in pairs(m['coverpage-author']) do
+     m['coverpage-author'][key] = getVal(m['coverpage-author'][key])
   end
 
 --[[
@@ -318,7 +322,7 @@ Error checking and setting the style codes
   end
 
 --[[
-Set the fontsize defaults
+Set the fontsize spacing defaults
 if page-fontsize was passed in or if fontsize passed in but not spacing
 --]]
   if isEmpty(m["coverpage-theme"]["page-fontsize"]) then
