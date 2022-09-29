@@ -23,14 +23,18 @@ This demo has a photo of an otter the some transparency added. The title and foo
   coverpage: otter
   coverpage-bg-image: "_extensions/titlepage/images/otter.jpeg"
   coverpage-title: "Otters"
-  coverpage-footer: "A demo coverpage"
+  coverpage-footer: "otter demo"
   coverpage-theme:
     title-color: "white"
     title-fontfamily: "QTDublinIrish.otf"
     author-style: "none"
+    footer-style: "plain"
     footer-align: "right"
+    header-style: "none"
+    date-style: "none"
     bg-image-opacity: 0.5
 ```
+
 
 ### great-wave
 
@@ -44,27 +48,17 @@ This demo has an image that fade to the top with a page color that matches the t
   coverpage-theme:
     page-html-color: "F6D5A8"
     title-fontfamily: "QTDublinIrish.otf"
-    author-style: "none"
+    title-fontsize: 30
+    title-fontstyle: "textbf"
     title-align: "right"
+    title-bottom: "10in"
+    header-style: "none"
+    author-style: "none"
+    footer-fontsize: 20
+    footer-fontfamily: "Palatino"
+    footer-fontstyle: "textit"
     footer-align: "right"
+    footer-bottom: "9.5in"
+    date-style: "none"
     bg-image-fading: "north"
 ```
-
-
-
-### great-wave
-
-```
-    coverpage: great-wave 
-    titlepage-bg-image: "bg-image.png"
-    titlepage-logo: "logo.png"
-    titlepage-theme:
-      elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
-      page-align: "left"
-      title-style: "plain"
-      title-fontstyle: ["large", "bfseries"]
-      title-space-after: "4\\baselineskip"
-      subtitle-fontstyle: ["large", "textit"]
-      author-style: "superscript-with-and"
-      author-fontstyle: "large"
-
