@@ -29,7 +29,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./07-notes.html" rel="prev">
+<link href="./05-coverpage-themes.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -106,47 +106,27 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-about.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="./01-how-to-use-extension.html" class="sidebar-item-text sidebar-link">How to use</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-how-it-works.html" class="sidebar-item-text sidebar-link">How it works</a>
+  <a href="./02-titlepages.html" class="sidebar-item-text sidebar-link">Title pages</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-how-to-use-extension.html" class="sidebar-item-text sidebar-link">How to use - Extension</a>
+  <a href="./03-titlepage-themes.html" class="sidebar-item-text sidebar-link">Title page themes</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-how-to-use-diy.html" class="sidebar-item-text sidebar-link">How to use - DIY</a>
+  <a href="./04-coverpages.html" class="sidebar-item-text sidebar-link">Cover pages</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-how-to-modify.html" class="sidebar-item-text sidebar-link">How to modify</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02-titlepages.html" class="sidebar-item-text sidebar-link">Source code</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05-pandoc-templates.html" class="sidebar-item-text sidebar-link">Help with Pandoc</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06-latex.html" class="sidebar-item-text sidebar-link">LaTeX structure</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07-notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  <a href="./05-coverpage-themes.html" class="sidebar-item-text sidebar-link">Cover page themes</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -166,11 +146,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link active" data-scroll-target="#acknowledgements">Acknowledgements</a>
   <ul class="collapse">
   <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#latex-templates" id="toc-latex-templates" class="nav-link" data-scroll-target="#latex-templates">LaTeX templates</a>
-  <ul class="collapse">
-  <li><a href="#dyanamic" id="toc-dyanamic" class="nav-link" data-scroll-target="#dyanamic">Dyanamic</a></li>
-  <li><a href="#static" id="toc-static" class="nav-link" data-scroll-target="#static">Static</a></li>
-  </ul></li>
+  <li><a href="#title-pages" id="toc-title-pages" class="nav-link" data-scroll-target="#title-pages">Title pages</a></li>
+  <li><a href="#cover-pages" id="toc-cover-pages" class="nav-link" data-scroll-target="#cover-pages">Cover pages</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/08-acknowledgements.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/08-acknowledgements.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -182,33 +159,31 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="acknowledgements" class="level1">
 <h1>Acknowledgements</h1>
-<p>The tex templates were written by <a href="https://github.com/eeholmes">Eli Holmes</a> and the lua filter along with changes to the Pandoc templates to allow themes was written by <a href="https://github.com/mcanouil">Mickaël Canouil</a>.</p>
+<ul>
+<li>version 2.0: The tex templates were written by <a href="https://github.com/eeholmes">Eli Holmes</a> and the lua filter along with changes to the Pandoc templates to allow themes was written by <a href="https://github.com/mcanouil">Mickaël Canouil</a>.</li>
+<li>version 3.0: Using Mickaël’s initial lua filter as inspiration, Eli revamped the lua filters so that themes were specified with a uniform set of metadata attributes. Many Stackoverflow help pages were used in this process.</li>
+</ul>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
 <p><a href="https://github.com/quarto-dev/quarto-cli">quarto-cli</a>: Allaire, J., Teague, C., Scheidegger, C., Xie, Y., &amp; Dervieux, C. (2022). Quarto (Version 0.3) [Computer software]. https://doi.org/10.5281/zenodo.5960048</p>
 <p><a href="https://quarto.org/docs/guide/">Quarto manual</a></p>
 </section>
-<section id="latex-templates" class="level2">
-<h2 class="anchored" data-anchor-id="latex-templates">LaTeX templates</h2>
-<section id="dyanamic" class="level3">
-<h3 class="anchored" data-anchor-id="dyanamic">Dyanamic</h3>
+<section id="title-pages" class="level2">
+<h2 class="anchored" data-anchor-id="title-pages">Title pages</h2>
 <ul>
-<li>vline: Based off vline-static (see below). Coverted to Pandoc template and further modified by EE Holmes (eli.holmes@noaa.gov)</li>
-<li>bg-image: EE Holmes (eli.holmes@noaa.gov)</li>
-<li>great-wave: This template is based on a post by Arun Debray to tex.stackoverflow: https://tex.stackexchange.com/posts/554962/revisions. Coverted to Pandoc template and further modified by EE Holmes (eli.holmes@noaa.gov)</li>
+<li>vline: Based off off a static title page downloaded from http://www.LaTeXTemplates.com. Original author: Peter Wilson (herries.press@earthlink.net) with modifications by Vel (vel@latextemplates.com). Coverted to a Pandoc template and further modified by EE Holmes</li>
+<li>bg-image: EE Holmes</li>
+<li>classic-lined: Based off a static title page downloaded from http://www.LaTeXTemplates.com. Original author: WikiBooks (LaTeX - Title Creation) with modifications by Vel (vel@latextemplates.com)</li>
+<li>academic: Based off a static title page downloaded from http://www.LaTeXTemplates.com.</li>
+<li>colorbox: Inspired by a static title page called multi-purpose and downloaded from http://www.LaTeXTemplates.com. Original author: WikiBooks (LaTeX - Title Creation) with modifications by Vel (vel@latextemplates.com)</li>
+<li>formal: Inspriredby a static thesis title page downloaded from http://www.LaTeXTemplates.com.</li>
 </ul>
 </section>
-<section id="static" class="level3">
-<h3 class="anchored" data-anchor-id="static">Static</h3>
-<ul>
-<li>vline-static: Downloaded from http://www.LaTeXTemplates.com. Original author: Peter Wilson (herries.press@earthlink.net) with modifications by Vel (vel@latextemplates.com)</li>
-<li>classic-lined-static: Downloaded from http://www.LaTeXTemplates.com. Original author: WikiBooks (LaTeX - Title Creation) with modifications by Vel (vel@latextemplates.com)</li>
-<li>academic-static: Downloaded from http://www.LaTeXTemplates.com. Original author: Peter Wilson (herries.press@earthlink.net) with modifications by Vel (vel@latextemplates.com)</li>
-<li>multi-purpose-static: Downloaded from http://www.LaTeXTemplates.com. Original author: WikiBooks (LaTeX - Title Creation) with modifications by Vel (vel@latextemplates.com)</li>
-</ul>
+<section id="cover-pages" class="level2">
+<h2 class="anchored" data-anchor-id="cover-pages">Cover pages</h2>
+<p>The cover page template was created by EE Holmes. The great-wave demo is based on a post by Arun Debray to tex.stackoverflow: https://tex.stackexchange.com/posts/554962/revisions. Converted to Pandoc template and further modified by EE Holmes</p>
 
 
-</section>
 </section>
 </section>
 
@@ -426,8 +401,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-notes.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Notes</span>
+      <a href="./05-coverpage-themes.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Cover page themes</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

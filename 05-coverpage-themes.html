@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages – contributing</title>
+<title>quarto titlepages – coverpage-themes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,6 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./08-acknowledgements.html" rel="next">
+<link href="./04-coverpages.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -125,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-coverpage-themes.html" class="sidebar-item-text sidebar-link">Cover page themes</a>
+  <a href="./05-coverpage-themes.html" class="sidebar-item-text sidebar-link active">Cover page themes</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,40 +144,80 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link active" data-scroll-target="#contributing">Contributing</a>
+  <li><a href="#cover-page-themes" id="toc-cover-page-themes" class="nav-link active" data-scroll-target="#cover-page-themes">Cover page themes</a>
   <ul class="collapse">
-  <li><a href="#adding-a-new-template." id="toc-adding-a-new-template." class="nav-link" data-scroll-target="#adding-a-new-template.">Adding a new template.</a></li>
-  <li><a href="#extra-stuff" id="toc-extra-stuff" class="nav-link" data-scroll-target="#extra-stuff">Extra stuff</a></li>
+  <li><a href="#otter-1" id="toc-otter-1" class="nav-link" data-scroll-target="#otter-1">otter</a></li>
+  <li><a href="#great-wave-1" id="toc-great-wave-1" class="nav-link" data-scroll-target="#great-wave-1">great-wave</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/contributing.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/contributing.md" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/05-coverpage-themes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/05-coverpage-themes.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="contributing" class="level1">
-<h1>Contributing</h1>
-<p>Contribution of more templates welcome! Just post a pull request.</p>
-<section id="adding-a-new-template." class="level2">
-<h2 class="anchored" data-anchor-id="adding-a-new-template.">Adding a new template.</h2>
-<ol type="1">
-<li>Make a new folder in <code>titlepages</code>.</li>
-<li>Add your files there.</li>
-</ol>
-<p>For quarto_titlepages, I want to stick to just 4 files: <code>_titlepage.tex</code>, <code>before-body.tex</code>, <code>title.tex</code> and <code>in-header.tex</code>. See the <a href="https://nmfs-opensci.github.io/quarto_titlepages/06-latex.html">LaTeX structure</a> chapter for where these end up in the LaTeX document.</p>
-<p>The YAML should have this, but leave off <code>title.tex</code> if it is not used.</p>
-<pre><code>    template-partials:
-      - "before-body.tex"
-      - "title.tex"
-      - "_titlepage.tex" 
-    include-in-header: 
-      - "in-header.tex"</code></pre>
+<section id="cover-page-themes" class="level2">
+<h2 class="anchored" data-anchor-id="cover-page-themes">Cover page themes</h2>
+<p>Cover pages can have title, author, header, and footer in any place on the page. You specify the location on the page. Title, author, header and footer blocks can be customized: font, font size, color, text rotation and style (bold, italic, etc). Cover pages can have a background image and the location, size and transparency can be specified. In addition, image fading at the top, bottom or sides can be specified. The page color can also be specified.</p>
+<p>The following cover page demos are included.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">great-wave</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">otter</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><img src="images/great-wave.png" class="border img-fluid" alt="Screenshot of great-wave cover page. This cover page an image that fades to the top and a page color that matches the top of the image (a great wave). "></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><img src="images/otter.png" class="border img-fluid" alt="Screenshot of otter cover page. This cover page has a full page photo of an otter. The title has be changed to Otters and a custom font is used."></p>
+</div>
+</div>
+</div>
+<p>Demo metavalues</p>
+<section id="otter-1" class="level3">
+<h3 class="anchored" data-anchor-id="otter-1">otter</h3>
+<p>This demo has a photo of an otter the some transparency added. The cover page specific title and author are specified in <code>coverpage-title</code> and <code>coverpage-author</code>.</p>
+<pre><code>  coverpage: otter
+  coverpage-bg-image: "_extensions/nmfs-opensci/titlepage/images/otter.jpeg"
+  coverpage-title: "Otters"
+  coverpage-author: ["EE", "Holmes"]
+  coverpage-theme:
+    title-color: "white"
+    title-fontfamily: "QTDublinIrish.otf"
+    title-fontsize: 100
+    author-style: "plain"
+    author-sep: "newline"
+    author-fontstyle: "textsc"
+    author-fontsize: 30
+    author-align: "right"
+    author-bottom: "2in"
+    footer-style: "none"
+    header-style: "none"
+    date-style: "none"
+    bg-image-opacity: 0.5</code></pre>
 </section>
-<section id="extra-stuff" class="level2">
-<h2 class="anchored" data-anchor-id="extra-stuff">Extra stuff</h2>
-<p>Add images to a <code>images</code> folder in your <code>titlepages</code> folder.</p>
+<section id="great-wave-1" class="level3">
+<h3 class="anchored" data-anchor-id="great-wave-1">great-wave</h3>
+<p>This demo has an image that fade to the top with a page color that matches the top of the image. The title is specified in <code>coverpage-title</code> and the subtitle is <code>coverpage-footer</code> moved to below the title. Only title and subtitle are shown; no author.</p>
+<pre><code>  coverpage: great-wave
+  coverpage-bg-image: "_extensions/nmfs-opensci/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
+  coverpage-title: "quarto_titlepages"
+  coverpage-footer: "Templates for title pages and covers"
+  coverpage-theme:
+    page-html-color: "F6D5A8"
+    title-fontfamily: "Palatino"
+    title-fontsize: 30
+    title-fontstyle: ["textbf", "textit"]
+    title-align: "right"
+    title-bottom: "10in"
+    header-style: "none"
+    author-style: "none"
+    footer-fontsize: 20
+    footer-fontfamily: "Palatino"
+    footer-fontstyle: "textit"
+    footer-align: "right"
+    footer-bottom: "9.5in"
+    date-style: "none"
+    bg-image-fading: "north"</code></pre>
 
 
 </section>
@@ -393,6 +435,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04-coverpages.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Cover pages</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./08-acknowledgements.html" class="pagination-link">
+        <span class="nav-page-text">Acknowledgements</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

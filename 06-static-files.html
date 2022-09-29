@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages – contributing</title>
+<title>quarto titlepages – static-files</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,40 +142,41 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link active" data-scroll-target="#contributing">Contributing</a>
+  <li><a href="#using-static-title-and-cover-pages" id="toc-using-static-title-and-cover-pages" class="nav-link active" data-scroll-target="#using-static-title-and-cover-pages">Using static title and cover pages</a>
   <ul class="collapse">
-  <li><a href="#adding-a-new-template." id="toc-adding-a-new-template." class="nav-link" data-scroll-target="#adding-a-new-template.">Adding a new template.</a></li>
-  <li><a href="#extra-stuff" id="toc-extra-stuff" class="nav-link" data-scroll-target="#extra-stuff">Extra stuff</a></li>
+  <li><a href="#title-page" id="toc-title-page" class="nav-link" data-scroll-target="#title-page">title page</a></li>
+  <li><a href="#cover-page" id="toc-cover-page" class="nav-link" data-scroll-target="#cover-page">Cover page</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/contributing.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/contributing.md" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/06-static-files.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/06-static-files.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="contributing" class="level1">
-<h1>Contributing</h1>
-<p>Contribution of more templates welcome! Just post a pull request.</p>
-<section id="adding-a-new-template." class="level2">
-<h2 class="anchored" data-anchor-id="adding-a-new-template.">Adding a new template.</h2>
-<ol type="1">
-<li>Make a new folder in <code>titlepages</code>.</li>
-<li>Add your files there.</li>
-</ol>
-<p>For quarto_titlepages, I want to stick to just 4 files: <code>_titlepage.tex</code>, <code>before-body.tex</code>, <code>title.tex</code> and <code>in-header.tex</code>. See the <a href="https://nmfs-opensci.github.io/quarto_titlepages/06-latex.html">LaTeX structure</a> chapter for where these end up in the LaTeX document.</p>
-<p>The YAML should have this, but leave off <code>title.tex</code> if it is not used.</p>
-<pre><code>    template-partials:
-      - "before-body.tex"
-      - "title.tex"
-      - "_titlepage.tex" 
-    include-in-header: 
-      - "in-header.tex"</code></pre>
+<section id="using-static-title-and-cover-pages" class="level1">
+<h1>Using static title and cover pages</h1>
+<section id="title-page" class="level2">
+<h2 class="anchored" data-anchor-id="title-page">title page</h2>
+<p>If you have a static LaTeX title page, then pass in</p>
+<pre><code>titlepage: your_titlepage.tex</code></pre>
+<p>The file should contain only the TeX for the title page. Its contents will be input as follows</p>
+<pre><code>\begin{titlepage}
+\input{your_titlepage.tex}
+\end{titlepage}</code></pre>
+<p>Note because the <code>\input{}</code> call happens after the Pandoc template code is evaluated, this file must be a static tex file with no Pandoc meta variables.</p>
 </section>
-<section id="extra-stuff" class="level2">
-<h2 class="anchored" data-anchor-id="extra-stuff">Extra stuff</h2>
-<p>Add images to a <code>images</code> folder in your <code>titlepages</code> folder.</p>
+<section id="cover-page" class="level2">
+<h2 class="anchored" data-anchor-id="cover-page">Cover page</h2>
+<p>Similarly, if you have a static LaTeX cover page, then pass in</p>
+<pre><code>coverpage: your_coverpage.tex</code></pre>
+<p>The file should contain only the TeX for the title page. Its contents will be input as</p>
+<pre><code>\begin{titlepage}
+\input{your_coverpage.tex}
+\clearpage
+... 
+\end{titlepage}</code></pre>
 
 
 </section>

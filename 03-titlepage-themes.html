@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages – contributing</title>
+<title>quarto titlepages – titlepage-themes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,6 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./04-coverpages.html" rel="next">
+<link href="./02-titlepages.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -115,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-titlepage-themes.html" class="sidebar-item-text sidebar-link">Title page themes</a>
+  <a href="./03-titlepage-themes.html" class="sidebar-item-text sidebar-link active">Title page themes</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,42 +144,204 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link active" data-scroll-target="#contributing">Contributing</a>
+  <li><a href="#title-page-themes" id="toc-title-page-themes" class="nav-link active" data-scroll-target="#title-page-themes">Title page themes</a>
   <ul class="collapse">
-  <li><a href="#adding-a-new-template." id="toc-adding-a-new-template." class="nav-link" data-scroll-target="#adding-a-new-template.">Adding a new template.</a></li>
-  <li><a href="#extra-stuff" id="toc-extra-stuff" class="nav-link" data-scroll-target="#extra-stuff">Extra stuff</a></li>
+  <li><a href="#a-static-latex-file" id="toc-a-static-latex-file" class="nav-link" data-scroll-target="#a-static-latex-file">a static LaTeX file</a></li>
+  <li><a href="#vline-1" id="toc-vline-1" class="nav-link" data-scroll-target="#vline-1">vline</a></li>
+  <li><a href="#colorbox-1" id="toc-colorbox-1" class="nav-link" data-scroll-target="#colorbox-1">colorbox</a>
+  <ul class="collapse">
+  <li><a href="#academic-1" id="toc-academic-1" class="nav-link" data-scroll-target="#academic-1"><code>academic</code></a></li>
+  <li><a href="#bg-image-1" id="toc-bg-image-1" class="nav-link" data-scroll-target="#bg-image-1"><code>bg-image</code></a></li>
+  <li><a href="#formal-1" id="toc-formal-1" class="nav-link" data-scroll-target="#formal-1"><code>formal</code></a></li>
+  <li><a href="#classic-lined-1" id="toc-classic-lined-1" class="nav-link" data-scroll-target="#classic-lined-1"><code>classic-lined</code></a></li>
+  </ul></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/contributing.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/contributing.md" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/03-titlepage-themes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/03-titlepage-themes.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="contributing" class="level1">
-<h1>Contributing</h1>
-<p>Contribution of more templates welcome! Just post a pull request.</p>
-<section id="adding-a-new-template." class="level2">
-<h2 class="anchored" data-anchor-id="adding-a-new-template.">Adding a new template.</h2>
-<ol type="1">
-<li>Make a new folder in <code>titlepages</code>.</li>
-<li>Add your files there.</li>
-</ol>
-<p>For quarto_titlepages, I want to stick to just 4 files: <code>_titlepage.tex</code>, <code>before-body.tex</code>, <code>title.tex</code> and <code>in-header.tex</code>. See the <a href="https://nmfs-opensci.github.io/quarto_titlepages/06-latex.html">LaTeX structure</a> chapter for where these end up in the LaTeX document.</p>
-<p>The YAML should have this, but leave off <code>title.tex</code> if it is not used.</p>
-<pre><code>    template-partials:
-      - "before-body.tex"
-      - "title.tex"
-      - "_titlepage.tex" 
-    include-in-header: 
-      - "in-header.tex"</code></pre>
+<section id="title-page-themes" class="level1">
+<h1>Title page themes</h1>
+<p>Title page themes are pre-defined sets of <code>titlepage-theme</code> options. Themes can be used as a starting place and the page elements can be further customized by passing in <code>titlepage-theme</code> values.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">vline</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">bg-image</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">academic</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">classic-lined</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">colorbox</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">formal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false">plain</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><span style="font-size:0.8em; color: grey">Double-click to see demo PDF in <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf">scrbook</a> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-scrartcl.pdf">scrartcl</a> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-krantz.pdf">krantz</a> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-svmono.pdf">svmono</a> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-elsarticle.pdf">elsarticle</a></span><br> <a href="https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf"><img src="images/vline.png" class="border img-fluid" data-fig-width="50%" alt="Screenshot of vline theme. Page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."></a></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><img src="images/bg-image.png" class="border img-fluid" alt="Screenshot of bg-image theme. Page has a background image in the top left with title, subtitle, authors and affiliations below. There is a logo towards the bottom followed by a footer."></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><img src="images/academic.png" class="border img-fluid" alt="Screenshot of academic theme. Page has header centered at top with the title centered between two horizontal lines. The authors and affiliations are in two columns with names on left and first affiliation on right."></p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p><img src="images/classic-lined.png" class="border img-fluid" alt="Screenshot of classic-lined theme. Page has double horizontal lines at the top and bottom. The title is in all caps, centered and at top. Authors are on one line below the title. There is a logo and footer at the bottom."></p>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<p><img src="images/colorbox.png" class="border img-fluid" alt="Screenshot of colorbox theme. Title has a cyan filled box around it. Author names are in bottom right corner."></p>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<p><img src="images/formal.png" class="border img-fluid" alt="Screenshot of formal theme. Centered text with a large title at the top. No author affiliation information."></p>
+</div>
+<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
+<p><img src="images/plain.png" class="border img-fluid" alt="Screenshot of plain theme. A fairly minimal title page with no styling."></p>
+</div>
+</div>
+</div>
+<section id="a-static-latex-file" class="level2">
+<h2 class="anchored" data-anchor-id="a-static-latex-file">a static LaTeX file</h2>
+<p>You can pass in a static file. If you do so, this will be used as the title page and the <code>titlepage-theme</code> will be ignored.</p>
+<pre><code>    titlepage: yourtexfile.tex</code></pre>
 </section>
-<section id="extra-stuff" class="level2">
-<h2 class="anchored" data-anchor-id="extra-stuff">Extra stuff</h2>
-<p>Add images to a <code>images</code> folder in your <code>titlepages</code> folder.</p>
+<section id="vline-1" class="level2">
+<h2 class="anchored" data-anchor-id="vline-1">vline</h2>
+<pre><code>    titlepage: vline 
+    titlepage-logo: "logo.png"
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
+      page-align: "left"
+      title-style: "plain"
+      title-fontstyle: ["large", "bfseries"]
+      title-space-after: "4\\baselineskip"
+      subtitle-fontstyle: ["large", "textit"]
+      author-style: "superscript-with-and"
+      author-fontstyle: "large"
+      affiliation-style: "numbered-list-with-correspondence"
+      affiliation-fontstyle: "large"
+      affiliation-space-after: "0pt"
+      footer-style: plain"
+      footer-fontstyle: "large"
+      logo-size: "0.15\\textheight"
+      logo-space-after: "1\\baselineskip"
+      vrule-width: "0.5in"
+      vrule-align: "left"
+      vrule-color: "blue"
+      vrule-text-color: "white"
+      vrule-text-fontstyle: ["bfseries", "Large"]
+      vrule-text: "Add your text in vrule-text"</code></pre>
+</section>
+<section id="colorbox-1" class="level2">
+<h2 class="anchored" data-anchor-id="colorbox-1">colorbox</h2>
+<pre><code>    titlepage: colorbox 
+    titlepage-theme: 
+      elements: ["\\titleblock", "\\vfill", "\\authorblock"]
+      page-align: "left"
+      title-style: "colorbox"
+      title-fontsize: 100
+      title-space-after: "2\\baselineskip"
+      subtitle-fontsize: 25
+      subtitle-fontstyle: "bfseries"
+      title-subtitle-space-between: "5\\baselineskip"
+      author-style: "plain",
+      author-sep: "newline",
+      author-fontstyle: "Large"
+      author-align: "right"
+      author-space-after: "2\\baselineskip"
+      colorbox-borderwidth: "0.5cm"
+      colorbox-bordercolor: "black"
+      colorbox-fill: "cyan"</code></pre>
+<section id="academic-1" class="level3">
+<h3 class="anchored" data-anchor-id="academic-1"><code>academic</code></h3>
+<pre><code>    titlepage: academic
+    titlepage-logo: "logo.png"
+    titlepage-theme:
+      elements: ["\\headerblock", "\\logoblock", "\\titleblock", "\\authorblock", "\\vfill", "\\dateblock"]
+      page-align: "center"
+      title-style: "doublelinetight"
+      title-fontstyle: ["huge", "bfseries"]
+      title-space-after: "1.5cm"
+      subtitle-fontstyle: "Large"
+      author-style: "two-column"
+      affiliation-style: "none"
+      author-fontstyle: "textsc"
+      affiliation-fontstyle: "large"
+      logo-space-after: "2\\baselineskip"
+      header-fontstyle: ["textsc", "LARGE"]
+      header-space-after: "1.5cm"
+      date-fontstyle: "large"</code></pre>
+</section>
+<section id="bg-image-1" class="level3">
+<h3 class="anchored" data-anchor-id="bg-image-1"><code>bg-image</code></h3>
+<pre><code>    titlepage: bg-image 
+    titlepage-bg-image: "bg-image.png"
+    titlepage-logo: "logo.png"
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
+      page-align: "left"
+      title-style: "plain"
+      title-fontstyle: ["large", "bfseries"]
+      title-space-after: "4\\baselineskip"
+      subtitle-fontstyle: ["large", "textit"]
+      author-style: "superscript-with-and"
+      author-fontstyle: "large"
+      affiliation-style: "numbered-list-with-correspondence"
+      affiliation-fontstyle: "large"
+      affiliation-space-after: "0pt"
+      footer-style: plain"
+      footer-fontstyle: "large"
+      logo-size: "0.25\\textheight"
+      logo-space-after: "2\\baselineskip"
+      vrule-width: "1pt"
+      bg-image-size: "0.5\\paperwidth"
+      bg-image-location: "ULCorner"</code></pre>
+</section>
+<section id="formal-1" class="level3">
+<h3 class="anchored" data-anchor-id="formal-1"><code>formal</code></h3>
+<pre><code>    titlepage: formal 
+    titlepage-logo: "logo.png"
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "A report presented at the annual\\\\meeting on 10 August 2025\\\\ \\vspace{0.8cm}",  "\\logoblock", "\\footerblock"]
+      page-align: "center"
+      title-style: "plain"
+      title-fontstyle: ["Huge", "textbf"]
+      title-space-after: "1.5cm"
+      subtitle-fontstyle: "LARGE"
+      title-subtitle-space-between: "0.5cm"
+      author-style: "plain"
+      author-sep: "newline"
+      author-fontstyle: "textbf"
+      author-space-after: "2\\baselineskip"
+      affiliation-style: "numbered-list-with-correspondence"
+      affiliation-fontstyle: "large"
+      affiliation-space-after: "0pt"
+      footer-style: "plain"
+      footer-fontstyle: ["Large", "textsc"]
+      footer-space-after: "0pt"
+      logo-size: "0.4\\textwidth"
+      logo-space-after: "1cm"</code></pre>
+</section>
+<section id="classic-lined-1" class="level3">
+<h3 class="anchored" data-anchor-id="classic-lined-1"><code>classic-lined</code></h3>
+<pre><code>    titlepage: classic-lined 
+    titlepage-logo: "logo.png"
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\logoblock", "\\footerblock"]
+      page-align: "center"
+      title-style: "doublelinewide"
+      title-fontsize: 30
+      title-fontstyle: "uppercase"
+      title-space-after: "0.1\\textheight"
+      subtitle-fontstyle: ]"Large", "textit"]
+      author-style: "plain"
+      author-sep: "\\hskip1em"
+      author-fontstyle: "Large"
+      author-space-after: "2\\baselineskip"
+      affiliation-style: "numbered-list-with-correspondence"
+      affiliation-fontstyle: "large"
+      affiliation-space-after: "0pt"
+      footer-style: "plain"
+      footer-fontstyle: ["large", "textsc"]
+      footer-space-after: "0pt"
+      logo-size: "0.25\\textheight"
+      logo-space-after: "1cm"</code></pre>
 
 
+</section>
 </section>
 </section>
 
@@ -393,6 +557,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-titlepages.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Title pages</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-coverpages.html" class="pagination-link">
+        <span class="nav-page-text">Cover pages</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

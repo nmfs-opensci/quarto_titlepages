@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages – titlepages</title>
+<title>quarto titlepages – coverpages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-titlepage-themes.html" rel="next">
-<link href="./01-how-to-use-extension.html" rel="prev">
+<link href="./05-coverpage-themes.html" rel="next">
+<link href="./03-titlepage-themes.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-titlepages.html" class="sidebar-item-text sidebar-link active">Title pages</a>
+  <a href="./02-titlepages.html" class="sidebar-item-text sidebar-link">Title pages</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -122,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-coverpages.html" class="sidebar-item-text sidebar-link">Cover pages</a>
+  <a href="./04-coverpages.html" class="sidebar-item-text sidebar-link active">Cover pages</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -144,18 +144,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#title-page-customization" id="toc-title-page-customization" class="nav-link active" data-scroll-target="#title-page-customization">Title page customization</a>
+  <li><a href="#cover-page-customization" id="toc-cover-page-customization" class="nav-link active" data-scroll-target="#cover-page-customization">Cover page customization</a>
   <ul class="collapse">
   <li><a href="#top-level-specifications" id="toc-top-level-specifications" class="nav-link" data-scroll-target="#top-level-specifications">Top level specifications</a>
   <ul class="collapse">
-  <li><a href="#titlepage" id="toc-titlepage" class="nav-link" data-scroll-target="#titlepage"><code>titlepage:</code></a></li>
-  <li><a href="#titlepage-logo" id="toc-titlepage-logo" class="nav-link" data-scroll-target="#titlepage-logo"><code>titlepage-logo</code></a></li>
-  <li><a href="#titlepage-header" id="toc-titlepage-header" class="nav-link" data-scroll-target="#titlepage-header"><code>titlepage-header</code></a></li>
-  <li><a href="#titlepage-footer" id="toc-titlepage-footer" class="nav-link" data-scroll-target="#titlepage-footer"><code>titlepage-footer</code></a></li>
+  <li><a href="#coverpage" id="toc-coverpage" class="nav-link" data-scroll-target="#coverpage"><code>coverpage</code></a></li>
+  <li><a href="#coverpage-header" id="toc-coverpage-header" class="nav-link" data-scroll-target="#coverpage-header"><code>coverpage-header</code></a></li>
+  <li><a href="#coverpage-footer" id="toc-coverpage-footer" class="nav-link" data-scroll-target="#coverpage-footer"><code>coverpage-footer</code></a></li>
   </ul></li>
-  <li><a href="#title-page-element-customiation" id="toc-title-page-element-customiation" class="nav-link" data-scroll-target="#title-page-element-customiation">Title page element customiation</a>
+  <li><a href="#cover-page-element-customiation" id="toc-cover-page-element-customiation" class="nav-link" data-scroll-target="#cover-page-element-customiation">Cover page element customiation</a>
   <ul class="collapse">
-  <li><a href="#elements" id="toc-elements" class="nav-link" data-scroll-target="#elements"><code>elements</code></a></li>
   <li><a href="#page-html-color" id="toc-page-html-color" class="nav-link" data-scroll-target="#page-html-color"><code>page-html-color</code></a></li>
   <li><a href="#style" id="toc-style" class="nav-link" data-scroll-target="#style"><code>-style</code></a></li>
   <li><a href="#color" id="toc-color" class="nav-link" data-scroll-target="#color"><code>-color</code></a></li>
@@ -164,223 +162,172 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#fontsize" id="toc-fontsize" class="nav-link" data-scroll-target="#fontsize"><code>-fontsize</code></a></li>
   <li><a href="#spacing" id="toc-spacing" class="nav-link" data-scroll-target="#spacing"><code>-spacing</code></a></li>
   <li><a href="#align" id="toc-align" class="nav-link" data-scroll-target="#align"><code>-align</code></a></li>
-  <li><a href="#space-after" id="toc-space-after" class="nav-link" data-scroll-target="#space-after"><code>-space-after</code></a></li>
-  <li><a href="#title-subtitle-space-between" id="toc-title-subtitle-space-between" class="nav-link" data-scroll-target="#title-subtitle-space-between"><code>title-subtitle-space-between</code></a></li>
-  <li><a href="#colorbox-..." id="toc-colorbox-..." class="nav-link" data-scroll-target="#colorbox-..."><code>-colorbox-...</code></a></li>
+  <li><a href="#rotate" id="toc-rotate" class="nav-link" data-scroll-target="#rotate"><code>-rotate</code></a></li>
+  <li><a href="#left" id="toc-left" class="nav-link" data-scroll-target="#left"><code>-left</code></a></li>
+  <li><a href="#bottom" id="toc-bottom" class="nav-link" data-scroll-target="#bottom"><code>-bottom</code></a></li>
+  <li><a href="#width" id="toc-width" class="nav-link" data-scroll-target="#width"><code>-width</code></a></li>
+  <li><a href="#bg-image-left" id="toc-bg-image-left" class="nav-link" data-scroll-target="#bg-image-left"><code>bg-image-left</code></a></li>
   <li><a href="#bg-image-size" id="toc-bg-image-size" class="nav-link" data-scroll-target="#bg-image-size"><code>bg-image-size</code></a></li>
-  <li><a href="#bg-image-location" id="toc-bg-image-location" class="nav-link" data-scroll-target="#bg-image-location"><code>bg-image-location</code></a></li>
+  <li><a href="#bg-image-opacity" id="toc-bg-image-opacity" class="nav-link" data-scroll-target="#bg-image-opacity"><code>bg-image-opacity</code></a></li>
   <li><a href="#bg-image-fading" id="toc-bg-image-fading" class="nav-link" data-scroll-target="#bg-image-fading"><code>bg-image-fading</code></a></li>
-  <li><a href="#vrule-..." id="toc-vrule-..." class="nav-link" data-scroll-target="#vrule-..."><code>vrule-...</code></a></li>
   </ul></li>
-  <li><a href="#all-possible-titlepage-theme-values" id="toc-all-possible-titlepage-theme-values" class="nav-link" data-scroll-target="#all-possible-titlepage-theme-values">All possible <code>titlepage-theme</code> values</a></li>
+  <li><a href="#all-possible-coverpage-theme-values" id="toc-all-possible-coverpage-theme-values" class="nav-link" data-scroll-target="#all-possible-coverpage-theme-values">All possible <code>coverpage-theme</code> values</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/02-titlepages.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/02-titlepages.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/04-coverpages.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/04-coverpages.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="title-page-customization" class="level1">
-<h1>Title page customization</h1>
-<p>If you don’t pass in any customization, the default is the <code>titlepage: plain</code> with all elements that you specify, like <code>titlepage-header</code> but minimal styling.</p>
+<section id="cover-page-customization" class="level1">
+<h1>Cover page customization</h1>
 <section id="top-level-specifications" class="level2">
 <h2 class="anchored" data-anchor-id="top-level-specifications">Top level specifications</h2>
 <p>Here are the available top-level elements:</p>
-<pre><code>    titlepage: plain
-    titlepage-logo: "img/logo.png"
-    titlepage-bg-image: "img/ringed-seal.png"
-    titlepage-header: "The Publisher"
-    titlepage-footer: | # text
-      University Technical Series\
-      Open Source Publication for All
-      December 2025</code></pre>
-<section id="titlepage" class="level3">
-<h3 class="anchored" data-anchor-id="titlepage"><code>titlepage:</code></h3>
-<p>This is the overall theme. Default is <code>true</code> (which is the same as <code>plain</code>). <code>false</code> (or <code>none</code>) would stop the title page being generated at all. Note although <code>titlepage</code> specifies the overall theme, <strong>all</strong> features can be changed by passing a new value in <code>titlepage-theme</code>; see below.</p>
+<pre><code>    coverpage: true
+    coverpage-bg-image: "img/otter.png"
+    coverpage-title: "My short title"
+    coverpage-author: "The author"
+    coverpage-header: "My header"
+    coverpage-footer: "My footer"</code></pre>
+<section id="coverpage" class="level3">
+<h3 class="anchored" data-anchor-id="coverpage"><code>coverpage</code></h3>
+<p>This is the overall theme. Default is <code>false</code>; no cover page. Note although <code>coverpage</code> specifies the overall theme, <strong>all</strong> features can be changed by passing a new value in <code>coverpage-theme</code>.</p>
 <ul>
-<li><code>none</code> or <code>false</code> no title page</li>
-<li><code>true</code> (or <code>plain</code>): minimal styling. Everything on the page is left-aligned, with title, subtitle, author with affiliation superscripts, and affiliations in a numbered list. Header and footer appear if <code>title-header</code> and/or <code>title-footer</code> are specified.</li>
-<li><code>vline</code>: a 1pt wide vertical line on the left.</li>
-<li><code>vline-text</code>: a 0.5 inch wide blue vertical line with test.</li>
-<li><code>academic</code>: A title and subtitle with horizontal lines.</li>
-<li><code>formal</code>: Looks a bit like a thesis title page</li>
-<li><code>classic-lined</code>: different sized horizontal lines around title.</li>
-<li><code>colorbox</code>: title in a colored box</li>
-<li>a file. You can pass in a static tex file for the title page. Include only the tex, no <code>\begin{document}</code> or similar.</li>
+<li><code>false</code> or <code>none</code> no coverpage</li>
+<li><code>true</code> include everything that is in the <code>coverpage-...</code> yaml: title, author, header, footer.</li>
+<li><code>title</code> only a title</li>
+<li><code>author</code> only an author</li>
+<li><code>titleauthor</code> only title and author</li>
+<li><code>otter</code> the otter demo coverpage</li>
+<li><code>great-wave</code> the great-wave demo coverpage</li>
+<li>a file. You can pass in a static tex file for the cover page. Include only the tex, no <code>\begin{document}</code> or similar.</li>
+</ul>
+<p>###<code>coverpage-title</code></p>
+<p>Pass this in if you want the title to be different than what is in the main yaml.</p>
+<p>###<code>coverpage-author</code></p>
+<p>Pass this in if you want the title to be different than what is in the main yaml. For example, just last names or initials plus last name.</p>
+<p>###<code>coverpage-bg-image</code></p>
+<p>The background image file. Default is to make this fill the whole page. You can change the size and place the image using <code>bg-image-left</code> and <code>bg-image-bottom</code> to specify distance from left and bottom of the page.</p>
+<ul>
+<li>An image file</li>
 </ul>
 </section>
-<section id="titlepage-logo" class="level3">
-<h3 class="anchored" data-anchor-id="titlepage-logo"><code>titlepage-logo</code></h3>
-<p>The logo for the title page. It doesn’t use <code>logo</code> from the main yaml.</p>
-<p>###<code>titlepage-bg-image</code></p>
-<p>The background image file. Default is to make this fill the whole page. See the <code>bg-image</code> theme for how to put this in the top-left corner and make smaller. You can tile the image too.</p>
+<section id="coverpage-header" class="level3">
+<h3 class="anchored" data-anchor-id="coverpage-header"><code>coverpage-header</code></h3>
+<p>Some text for the header. Note “header” doesn’t mean it has to be at the top. You can place your elements however you want using the distance from the bottom of the page, e.g.&nbsp;</p>
+<pre><code>  coverpage-theme:
+    header-left: 1in
+    header-bottom: 1in</code></pre>
+<p>puts the header in the lower left corner, 1 inch from the left and bottom.</p>
 </section>
-<section id="titlepage-header" class="level3">
-<h3 class="anchored" data-anchor-id="titlepage-header"><code>titlepage-header</code></h3>
-<p>Some text for the header. Note “header” doesn’t mean it has to be at the top. You can order your elements however you want using the <code>elements</code> in <code>titlepage-theme</code>.</p>
-</section>
-<section id="titlepage-footer" class="level3">
-<h3 class="anchored" data-anchor-id="titlepage-footer"><code>titlepage-footer</code></h3>
-<p>Some text for the footer. Note “footer” doesn’t mean it has to be at the bottom. That is just the default. You can order your elements however you want.</p>
+<section id="coverpage-footer" class="level3">
+<h3 class="anchored" data-anchor-id="coverpage-footer"><code>coverpage-footer</code></h3>
+<p>Some text for the footer. Note “footer” doesn’t mean it has to be at the bottom. That is just the default. You can place your elements however you want using the distance from the bottom of the page, e.g.&nbsp;</p>
+<pre><code>  coverpage-theme:
+    footer-bottom: 10in</code></pre>
 </section>
 </section>
-<section id="title-page-element-customiation" class="level2">
-<h2 class="anchored" data-anchor-id="title-page-element-customiation">Title page element customiation</h2>
-<p>The title page has the following elements: page, title, subtitle, author, header, footer, logo, vline, bg-image. Each of these can be customized via <code>titlepage-theme</code>.</p>
+<section id="cover-page-element-customiation" class="level2">
+<h2 class="anchored" data-anchor-id="cover-page-element-customiation">Cover page element customiation</h2>
+<p>The cover page has the following elements: page, title, author, header, footer, bg-image. Each of these can be customized via the <code>coverpage-theme</code>.</p>
 <p>Example:</p>
-<pre><code>    titlepage-theme: 
-      page-html-color: "c4c4c4" 
+<pre><code>    coverpage-theme: 
+      page-html-color: "c4c4c4" # html color
       title-style: "plain"
       title-fontfamily: "Palatino"
       title-fontstyle: ["Huge", "bfseries"]
       title-align: left
-      title-space-after: 1in</code></pre>
-<section id="elements" class="level3">
-<h3 class="anchored" data-anchor-id="elements"><code>elements</code></h3>
-<p>What elements do you want to appear and in what order? You can also add text to add between the elements. The element names are <code>\\titleblock</code>, <code>\\authorblock</code>, <code>\\affiliationblock</code>, <code>\\headerblock</code>, <code>\\footerblock</code>, <code>\\dateblock</code>, <code>\\logoblock</code>.</p>
-<p>An example specification would be</p>
-<pre><code>    titlepage-theme: 
-      elements: ["\\logoblock", "\\authorblock", "\\vfill", "\\titleblock", "Some text at the bottom"] </code></pre>
-<p>This puts the logo at the top, followed by the author block, then some stretchable space followed by the title and some text. Basically in the tex file this will appear like</p>
-<pre><code>\logoblock
-\vspace{logo-space-after}
-\authorblock
-\vspace{author-space-after}
-\vfill
-\titleblock
-\vspace{title-space-after}
-Some text at the bottom</code></pre>
-<p>Knowing this, you can see how you might include things like horizontal lines and any text with TeX formatting in your title page. The alignment of <code>Some text at the bottom</code> will be governed by <code>page-align</code> in this case.</p>
-</section>
+      title-location-bottom: "0.5\\paperheight"
+      title-location-left: 1in</code></pre>
 <section id="page-html-color" class="level3">
 <h3 class="anchored" data-anchor-id="page-html-color"><code>page-html-color</code></h3>
 <p>The page color as an html color; leave off the leading <code>#</code>.</p>
 </section>
 <section id="style" class="level3">
 <h3 class="anchored" data-anchor-id="style"><code>-style</code></h3>
-<p>For title, header, footer, date, these can be</p>
+<p>For title, author, header, footer, date, these can be</p>
 <ul>
-<li><code>plain</code> no lines or boxes around element</li>
-<li><code>doubleline</code> a line on the top and bottom</li>
-<li><code>colorbox</code> element in a a color filled box</li>
+<li><code>plain</code></li>
 <li><code>none</code> the element won’t be shown at all</li>
-</ul>
-<p>For <code>author-style</code>, these can be</p>
-<ul>
-<li><code>plain</code> authors listed with <code>author-sep</code> as separation.</li>
-<li><code>plain-with-and</code> same as <code>plain</code> but the last two authors will be separated with and</li>
-<li><code>superscript</code> like <code>plain</code> but superscripts for affiliations</li>
-<li><code>superscript-with-and</code> like <code>plain-with-and</code> but superscripts for affiliations</li>
-<li><code>author-address</code> each author on a separate line with address(es)</li>
-</ul>
-<p>Note <code>author-sep: "newline"</code> will give each author on a new line. If you want to specify the character separating authors in a list, keep in mind that Pandoc strips all preceeding and following whitespace. So to specify <code>" -- "</code> as the separation you need to use <code>"\ --\ "</code>.</p>
-<p>For <code>affiliation-style</code>, these can be</p>
-<ul>
-<li><code>numbered-list</code> each affiliation gets a number on a new line</li>
-<li><code>numbered-list-with-correspondence</code> add a line for the corresponding author.</li>
 </ul>
 </section>
 <section id="color" class="level3">
 <h3 class="anchored" data-anchor-id="color"><code>-color</code></h3>
-<p>Available for page, title, subtitle, author, affiliation, header, footer, date.</p>
+<p>Available for page, title, author, header, footer, date.</p>
 <p>Do not use both <code>page-html-color</code> and <code>page-color</code>. Choose one. <code>page-color</code> will use names. What names are available? Google <code>latex xcolor</code>. Standard color names.</p>
 </section>
 <section id="fontfamily" class="level3">
 <h3 class="anchored" data-anchor-id="fontfamily"><code>-fontfamily</code></h3>
-<p>Available for page, title, subtitle, author, affiliation, header, footer, date.</p>
+<p>Available for page, title, author, header, footer, date.</p>
 <p>The fontfamily can be specified for the page and will be used for all the elements unless you pass in an element specific font family, like <code>title-fontfamily</code>. The font family can be a name that you have in your font library or it can be a font file. You can download lots of different font files. The is the most surefire way to get your fonts to work.</p>
 <p>The extension has an example font file: <code>QTDublinIrish.otf</code> and the extension has the <a href="https://ctan.org/pkg/qualitype?lang=en">Qualitype fonts</a>. To use these, specify your font as <code>_extensions/nmfs-opensci/titlepage/fonts/qualitype/opentype/&lt;font-file-name&gt;</code>. To use other font files, you can download a font file from the <a href="https://tug.org/FontCatalogue/">LaTeX Font Catalogue</a>. The otf (opentype) and ttf files should work. Some fonts will have font styling like “bold” so you will need to use the font file with the styling you want. Or you probably can download the folder with regular, italic etc files and pass in the font directory name. Note not all fonts have all styling. For example, small caps (<code>textsc</code>) is only available for some fonts.</p>
 <p><em>I have fonts on my machine but Quarto can’t find them!</em> Good luck. Stackoverflow will hopefully help you. Fonts that cannot be found is a source of much TeX misery. Using font files that you specify directly avoids this problem.</p>
 </section>
 <section id="fontstyle" class="level3">
 <h3 class="anchored" data-anchor-id="fontstyle"><code>-fontstyle</code></h3>
-<p>Available for title, subtitle, author, affiliation, header, footer, date.</p>
+<p>Available for title, author, header, footer, date.</p>
 <p>This is a list of styles to add. <code>["tiny", "textit"]</code> would be tiny size italic text. It needs to be styles that LaTeX knows; don’t add <code>\</code> to the name. Sizes: tiny, small, normal, large, Large, LARGE, huge, Huge. Styles: “textsc”, “textit”, “textbf”, “uppercase”, “lowercase”, “bfseries”. Are common ones.</p>
 </section>
 <section id="fontsize" class="level3">
 <h3 class="anchored" data-anchor-id="fontsize"><code>-fontsize</code></h3>
-<p>Available for page, title, subtitle, author, affiliation, header, footer, date. Note, this will be ignored if you pass in a font size (like <code>"large"</code>) in <code>-fontfamily</code>.</p>
-<p>The font size in points. Leave off “pt”; just specify this as a number, like <code>title-fontsize: 20</code>.</p>
+<p>Available for page, title, author, header, footer, date. Note, this will be ignored if you pass in a font size (like <code>"large"</code>) in <code>-fontfamily</code>.</p>
+<p>The font size in points. Leave off “pt”; just specify this as a number.</p>
 </section>
 <section id="spacing" class="level3">
 <h3 class="anchored" data-anchor-id="spacing"><code>-spacing</code></h3>
-<p>Available for page, title, subtitle, author, affiliation, header, footer, date.</p>
-<p>The spacing between lines if text runs into multiple lines. Specify in points. Leave off “pt”; just specify this as a number like <code>title-spacing: 24</code>. If you only specify fontsize, it will use 1.2 fontsize as the spacing.</p>
+<p>Available for page, title, author, header, footer, date.</p>
+<p>The spacing between lines if text runs into multiple lines. Specify in points. Leave off “pt”; just specify this as a number. If you only specify fontsize, it will use 1.2 fontsize as the spacing.</p>
 </section>
 <section id="align" class="level3">
 <h3 class="anchored" data-anchor-id="align"><code>-align</code></h3>
-<p>Available for page, title, subtitle, author, affiliation, header, footer, date, logo.</p>
+<p>Available for page, title, author, header, footer, date, logo.</p>
 <p>The page alignment: left, right or center. For title, subtitle, author, header, and footer, you can also specify <code>spread</code> and it will spread the text across the whole page.</p>
 </section>
-<section id="space-after" class="level3">
-<h3 class="anchored" data-anchor-id="space-after"><code>-space-after</code></h3>
-<p>Available for title, author, affiliation, header, footer, date, logo.</p>
-<p>How much space to add after the element. Can be in, cm, mm, pt or percent of paper or text, e.g.&nbsp;<code>0.5\\textheight</code>. Note, in <code>elements</code>, you can have a <code>\\vfill</code> somewhere if you want the text spread fully from top to bottom. Like so</p>
-<pre><code>titlepage-theme:
-  elements: ["\\titleblock", "\\vfill", "\\logoblock"]</code></pre>
-<p>Note that you need <code>title-space-after</code> to not be set to 0 for <code>\vfill</code> to work here. It’s a quirk of LaTeX that for <code>\vfill</code> to work, you have to have a <code>\vspace{}</code> line and <code>title-space-after</code> will be translated to <code>\vspace{title-space-after}</code> in the TeX file. By default, all the elements have a non-zero <code>space-after</code>, so you shouldn’t run into trouble unless you were to set <code>title-space-after: 0</code> here.</p>
+<section id="rotate" class="level3">
+<h3 class="anchored" data-anchor-id="rotate"><code>-rotate</code></h3>
+<p>Available for bg-image, title, author, header, footer, date, logo.</p>
+<p>How much (in degrees) to rotate the element.</p>
 </section>
-<section id="title-subtitle-space-between" class="level3">
-<h3 class="anchored" data-anchor-id="title-subtitle-space-between"><code>title-subtitle-space-between</code></h3>
-<p>Space to add between the title and subtitle.</p>
+<section id="left" class="level3">
+<h3 class="anchored" data-anchor-id="left"><code>-left</code></h3>
+<p>For title, author, header, footer, date, logo.</p>
+<p>Distance from the left side of page to the left side of element (align = left) or right side of page to the right side of element (align = right). Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like <code>"0.5\\paperwidth"</code> or <code>"0.9\\textwidth"</code>.</p>
 </section>
-<section id="colorbox-..." class="level3">
-<h3 class="anchored" data-anchor-id="colorbox-..."><code>-colorbox-...</code></h3>
+<section id="bottom" class="level3">
+<h3 class="anchored" data-anchor-id="bottom"><code>-bottom</code></h3>
+<p>Available for bg-image, title, author, header, footer, date, logo.</p>
+<p>Distance from the bottom of page to the bottom of element. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like <code>"0.5\\paperheight"</code> or <code>"0.9\\textheight"</code>.</p>
+</section>
+<section id="width" class="level3">
+<h3 class="anchored" data-anchor-id="width"><code>-width</code></h3>
 <p>Available for title, author, header, footer, date.</p>
-<p>If <code>-style</code> is <code>colorbox</code>, you can specify the colorbox features:</p>
-<ul>
-<li><code>-colorbox-fill</code> fill color</li>
-<li><code>-colorbox-borderwidth</code> width of the border (in, cm, mm, pt)</li>
-<li><code>-colorbox-bordercolor</code> border color</li>
-</ul>
+<p>Width of the box that holds the text. Smaller will mean that the text is wrapped. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like <code>"0.5\\paperwidth"</code> or <code>"0.9\\textwidth"</code>.</p>
+<p>*If you pass in <code>-left</code> for an element, you must also pass in <code>-width</code> for that element. Since you can pass in widths in any units, there is no way to compute a width for you.</p>
+</section>
+<section id="bg-image-left" class="level3">
+<h3 class="anchored" data-anchor-id="bg-image-left"><code>bg-image-left</code></h3>
+<p>Distance from the left side of page to the left side of image. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like <code>"0.5\\paperwidth"</code> or <code>"0.9\\textwidth"</code>.</p>
 </section>
 <section id="bg-image-size" class="level3">
 <h3 class="anchored" data-anchor-id="bg-image-size"><code>bg-image-size</code></h3>
-<p>The background image size. Specify this with units like in, cm, mm, pt or as a fraction of the paper or text like <code>0.5\\paperwidth</code>.</p>
+<p>The background image width. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like <code>"0.5\\paperwidth"</code> or <code>"0.9\\textwidth"</code>.</p>
 </section>
-<section id="bg-image-location" class="level3">
-<h3 class="anchored" data-anchor-id="bg-image-location"><code>bg-image-location</code></h3>
-<p>Where to pin the image. Can be</p>
-<ul>
-<li><code>URCorner</code> upper right corner</li>
-<li><code>ULCorner</code> upper left corner`</li>
-<li><code>LRCorner</code> lower right corner</li>
-<li><code>LLCorner</code> lower left corner</li>
-<li><code>TileSquare</code> tile the image</li>
-</ul>
+<section id="bg-image-opacity" class="level3">
+<h3 class="anchored" data-anchor-id="bg-image-opacity"><code>bg-image-opacity</code></h3>
+<p>The transparency of the background image.</p>
 </section>
 <section id="bg-image-fading" class="level3">
 <h3 class="anchored" data-anchor-id="bg-image-fading"><code>bg-image-fading</code></h3>
-<p>Add a fade to the image. Can be</p>
-<ul>
-<li><code>top</code>, <code>north</code> top of image</li>
-<li><code>left</code>, <code>west</code> left side of image</li>
-<li><code>right</code>, <code>east</code> right side of image</li>
-<li><code>bottom</code>, <code>south</code> bottom of image</li>
-<li><code>fadeout</code> fade out in a circle starting from center</li>
-</ul>
-</section>
-<section id="vrule-..." class="level3">
-<h3 class="anchored" data-anchor-id="vrule-..."><code>vrule-...</code></h3>
-<p>The vertical rule specifications are</p>
-<ul>
-<li><code>vrule-width</code> the width as in, cm, mm, pt (e.g.&nbsp;“1cm”) or a fraction of the paper or text like <code>"0.1\\textwidth"</code>.</li>
-<li><code>vrule-color</code> names of colors. It’s the xcolors.</li>
-<li><code>vrule-align</code> left, right, leftright. The latter makes a rule on both sides.</li>
-<li><code>vrule-space-after</code> the gap between the vertical rule and the text</li>
-<li><code>vrule-text</code> text to put in the vertical rule</li>
-<li><code>vrule-text-color</code> color of the text</li>
-<li><code>vrule-text-style</code> text styles. See above on what styles are possible.</li>
-</ul>
+<p>Side to fade of the image. Can be “top”, “north”, “bottom”, “south”, “right”, “east”, “left”, “west”, “fadeout”</p>
 </section>
 </section>
-<section id="all-possible-titlepage-theme-values" class="level2">
-<h2 class="anchored" data-anchor-id="all-possible-titlepage-theme-values">All possible <code>titlepage-theme</code> values</h2>
+<section id="all-possible-coverpage-theme-values" class="level2">
+<h2 class="anchored" data-anchor-id="all-possible-coverpage-theme-values">All possible <code>coverpage-theme</code> values</h2>
 <p>These are features that you can customize. If you leave it out, it will either not set the value (so use whatever defaults LaTeX has) or will choose a theme specific default. See the themes.</p>
-<pre><code>    titlepage-theme: 
-      elements: ["\\titleblock", "Some text", "\\authorblock"]
+<pre><code>    coverpage-theme: 
       page-html-color: "c4c4c4"
       page-color: green # use either html-color or color
       page-text-align: center
@@ -393,79 +340,58 @@ Some text at the bottom</code></pre>
       title-fontsize: 14
       title-spacing: 16
       title-fontstyle: ["textit", "bfseries"]
+      title-rotate: 45
       title-align: spread
-      title-space-after: 1in
-      title-colorbox-fill: "cyan"
-      title-colorbox-borderwidth: 2pt
-      title-colorbox-bordercolor: "black"
-      title-subtitle-space-between: "0.1\\textheight"
-      subtitle-color: "white" 
-      subtitle-fontfamily: "Palatino"
-      subtitle-fontsize: 10
-      subtitle-spacing: 12
-      subtitle-fontstyle: ["textit", "bfseries"] 
-      subtitle-align: center
-      subtitle-space-after: "1cm" 
-      author-style: "superscript"
+      title-left: "0.1\\paperwidth"
+      title-bottom: "0.8\\paperwidth"
+      title-width: "0.7\\paperwidth"
+      author-style: "plain"
       author-sep: ",\ "
       author-color: "white" 
       author-fontfamily: "Palatino"
       author-fontsize: 14
       author-spacing: 16
       author-fontstyle: ["textsc"]
-      author-align: center
-      author-space-after: "0.1\\paperheight" 
-      affiliation-style: "numberedlist"
-      affiliation-fontfamily: "Palatino"
-      affiliation-fontsize: 12
-      affiliation-spacing: 16
-      affiliation-fontstyle: "large"
-      affiliation-align: left
-      affiliation-space-after: 1in
-      footer-style: "colorbox"
+      author-rotate: 0
+      author-align: right
+      author-left: 7in
+      author-bottom: 1in
+      author-width: 6in
+      footer-style: "plain"
       footer-fontfamily: "Palatino"
       footer-fontsize: 12
       footer-spacing: 16
       footer-fontstyle: "uppercase"
-      footer-align: left
-      footer-space-after: 1in
-      footer-colorbox-fill: "cyan"
-      footer-colorbox-borderwidth: 2pt
-      footer-colorbox-bordercolor: "black"
+      footer-rotate: 0
+      footer-align: right
+      footer-left: 2cm
+      footer-bottom: 1cm
+      footer-width: 10cm
       header-style: "plain"
       header-fontfamily: "Palatino"
       header-fontsize: 12
       header-spacing: 20
       header-fontstyle: "lowercase"
-      header-align: left
-      header-space-after: 1in
-      header-colorbox-fill: "cyan"
-      header-colorbox-borderwidth: 2pt
-      header-colorbox-bordercolor: "black"
-      date-style: "colorbox"
+      header-rotate: 0
+      header-align: center
+      header-left: "0.5\\paperwidth"
+      header-bottom: "0.9\\paperwidth"
+      date-style: "plain"
       date-fontfamily: "Palatino"
       date-fontsize: 12
       date-spacing: 20
       date-fontstyle: ["slseries"]
+      date-rotate: 90
       date-align: left
-      date-space-after: 1in
-      date-colorbox-fill: "cyan"
-      date-colorbox-borderwidth: 2pt
-      date-colorbox-bordercolor: "black"
-      logo-align: center
-      logo-size: 0.25
-      logo-space-after: 1in
-      bg-image-size: 0.25
-      bg-image-location: "URCorner"
-      bg-image-fading: "top"
-      bg-image-opacity: 0.5
-      vrule-width: 20pt
-      vrule-color: "blue"
-      vrule-align: left
-      vrule-space-after: 10pt
-      vrule-text: "Some text for inside vrule"
-      vrule-text-color: "white"
-      vrule-text-style: {"Huge", "textit"}</code></pre>
+      date-left: 100pt
+      date-bottom: 100pt
+      date-width: 300pt
+      bg-image-size: "0.25\\textwidth"
+      bg-image-left: "0.1\\paperwidth"
+      bg-image-bottom: 0
+      bg-image-fading: north
+      bg-image-rotate: 0
+      bg-image-opacity: 1.0</code></pre>
 
 
 </section>
@@ -685,13 +611,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-how-to-use-extension.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How to use</span>
+      <a href="./03-titlepage-themes.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Title page themes</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-titlepage-themes.html" class="pagination-link">
-        <span class="nav-page-text">Title page themes</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05-coverpage-themes.html" class="pagination-link">
+        <span class="nav-page-text">Cover page themes</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
