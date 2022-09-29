@@ -165,12 +165,38 @@ This function assigns the themevals to the meta data
         
       return m
     end,
+    ["great-wave"] = function (m)
+      themevals = {
+        ["page-align"] = "right",
+        ["title-style"] = "plain",
+        ["author-style"] = "none",
+        ["footer-style"] = "plain",
+        ["header-style"] = "none",
+        ["date-style"] = "none",
+        }
+      assign_value(themevals)
+        
+      return m
+    end,
+    ["otter"] = function (m)
+      themevals = {
+        ["page-align"] = "left",
+        ["title-style"] = "plain",
+        ["author-style"] = "none",
+        ["footer-style"] = "plain",
+        ["header-style"] = "none",
+        ["date-style"] = "none",
+        }
+      assign_value(themevals)
+        
+      return m
+    end,
   }
   
   m['coverpage-file'] = false
   if m.coverpage then
   choice = pandoc.utils.stringify(m.coverpage)
-  okvals = {"none", "default", "title", "author", "titleauthor"}
+  okvals = {"none", "default", "title", "author", "titleauthor", "otter", "great-wave"}
   isatheme = has_value (okvals, choice)
   if not isatheme then
     if not file_exists(choice) then
@@ -197,6 +223,45 @@ This function assigns the themevals to the meta data
 -- coverpage-theme will exist if using a theme
 if not m['coverpage-file'] then
   
+--[[
+Set up the demos
+--]]
+  choice = pandoc.utils.stringify(m.coverpage)
+  if choice == "great-wave" then
+    if isEmpty(m['coverpage-bg-image']) then
+      m['coverpage-bg-image'] = "_extensions/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
+    end
+    if isEmpty(m['coverpage-title']) then
+      m['coverpage-title'] = "quarto_titlepages"
+    end
+    if isEmpty(m['coverpage-footer']) then
+      m['coverpage-footer'] = "Templates for title pages and covers"
+    end
+    demovals = {["title-align"] = "right", ["title-fontsize"] = 30, ["title-fontfamily"] = "Palatino", ["title-fontstyle"] = {"textbf"}, ["title-bottom"] = "10in", ["author-style"] = "none", ["footer-fontsize"] = 20, ["footer-fontfamily"] = "Palatino", ["footer-fontstyle"] = {"textit"}, ["footer-align"] = "right", ["footer-bottom"] = "9.5in", ["page-html-color"] = "F6D5A8", ["bg-image-fading"] = "north"}
+    for dkey, val in pairs(demovals) do
+      if isEmpty(m['coverpage-theme'][dkey]) then
+        m['coverpage-theme'][dkey] = val
+      end
+    end
+  end
+  if choice == "otter" then
+    if isEmpty(m['coverpage-bg-image']) then
+      m['coverpage-bg-image'] = "_extensions/titlepage/images/otter-bar.jpeg"
+    end
+    if isEmpty(m['coverpage-title']) then
+      m['coverpage-title'] = "Otters"
+    end
+    if isEmpty(m['coverpage-footer']) then
+      m['coverpage-footer'] = "otter demo"
+    end
+    demovals = {["title-color"] = "white", ["title-fontfamily"] = "QTDublinIrish.otf", ["author-style"] = "none", ["footer-align"] = "right"}
+    for dkey, val in pairs(demovals) do
+      if isEmpty(m['coverpage-theme'][dkey]) then
+        m['coverpage-theme'][dkey] = val
+      end
+    end
+  end
+
 -- set the coverpage values unless user passed them in
   for key, val in pairs({"title", "author"}) do
     if isEmpty(m['coverpage-' .. val]) then
@@ -245,22 +310,6 @@ Error checking and setting the style codes
       if getVal(m['coverpage-theme']['bg-image-fading']) == "bottom" then m['coverpage-theme']['bg-image-fading'] = "south" end
     end
   end -- bg-image attributes
-  -- Some demos
-  if choice == "great-wave" then
-    m['coverpage-bg-image'] = "TheGreatWaveoffKanagawa.jpeg"
-    if isEmpty(m['coverpage-theme']['page-html-color']) then
-      m['coverpage-theme']['page-html-color'] = "F6D5A8"
-    end
-    if isEmpty(m['coverpage-theme']['bg-image-fading']) then
-      m['coverpage-theme']['bg-image-fading'] = "north"
-    end
-  end
-  if choice == "otter" then
-    m['coverpage-bg-image'] = "_extensions/titlepage/images/otter-bar.jpeg"
-    if isEmpty(m['coverpage-theme']['bg-image-opacity']) then
-      m['coverpage-theme']['bg-image-opacity'] = 0.5
-    end
-  end
   if m['coverpage-bg-image'] then -- not false
     choice = pandoc.utils.stringify(m['coverpage-bg-image'])
     if not file_exists(choice) then
@@ -340,32 +389,55 @@ Set left and width alignments, bottom distance and rotation
       if getVal(m['coverpage-theme'][val .. "-align"]) == "left" then
         m['coverpage-theme'][val .. "-anchor"] = "north west" -- not user controlled
         if isEmpty(m['coverpage-theme'][val .. "-left"]) then
-          m['coverpage-theme'][val .. '-left'] = 0.2
-        end
-        if isEmpty(m['coverpage-theme'][val .. '-width']) then
-          m['coverpage-theme'][val .. '-width'] = 1.0-getVal(m['coverpage-theme'][val .. '-left'])-0.1
+          m['coverpage-theme'][val .. '-left'] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.2\\paperwidth")}
+          if isEmpty(m['coverpage-theme'][val .. '-width']) then
+            m['coverpage-theme'][val .. '-width'] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.7\\paperwidth")}
+          end
+        else
+          if isEmpty(m['coverpage-theme'][val .. '-width']) then
+            error("titlepage extension error: if you specify coverpage-theme "..val.."-left, you must also specify "..val.."-width.")
+          end
         end
       end -- left
       if getVal(m['coverpage-theme'][val .. '-align']) == "right" then
         m['coverpage-theme'][val .. '-anchor'] = "north east" -- not user controlled
         if isEmpty(m['coverpage-theme'][val .. '-left']) then
-          m['coverpage-theme'][val .. '-left'] = 0.8
-        end
-        if isEmpty(m['coverpage-theme'][val .. '-width']) then
-          m['coverpage-theme'][val .. '-width'] = getVal(m['coverpage-theme'][val .. '-left'])-0.1
+          m['coverpage-theme'][val .. '-left'] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.8\\paperwidth")}
+          if isEmpty(m['coverpage-theme'][val .. '-width']) then
+            m['coverpage-theme'][val .. '-width'] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.7\\paperwidth")}
+          end
+        else
+          if isEmpty(m['coverpage-theme'][val .. '-width']) then
+            error("titlepage extension error: if you specify coverpage-theme "..val.."-left, you must also specify "..val.."-width.")
+          end
         end
       end -- right
       if getVal(m['coverpage-theme'][val .. '-align']) == "center" then
         m['coverpage-theme'][val .. '-anchor'] = "north" -- not user controlled
         if isEmpty(m['coverpage-theme'][val .. '-left']) then
-          m['coverpage-theme'][val .. '-left'] = 0.5
-        end
-        if isEmpty(m['coverpage-theme'][val .. '-width']) then
-          m['coverpage-theme'][val .. '-width'] = 0.8
+          m['coverpage-theme'][val .. '-left'] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.5\\paperwidth")}
+          if isEmpty(m['coverpage-theme'][val .. '-width']) then
+            m['coverpage-theme'][val .. '-width'] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.8\\paperwidth")}
+          end
+        else
+          if isEmpty(m['coverpage-theme'][val .. '-width']) then
+            error("titlepage extension error: if you specify coverpage-theme "..val.."-left, you must also specify "..val.."-width.")
+          end
         end
       end -- center
       -- Set the bottom distances
-      bottom_table = {["title"] = 0.8, ["author"] = 0.25, ["footer"] = 0.1, ["header"] = 0.9, ["date"] = 0.1}
+      bottom_table = {["title"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.8\\paperheight")}, ["author"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.25\\paperheight")}, ["footer"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.1\\paperheight")}, ["header"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.9\\paperheight")}, ["date"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex", "0.05\\paperheight")}}
       for bkey, bval in pairs(bottom_table) do
         if isEmpty(m['coverpage-theme'][bkey .. '-bottom']) then
           m['coverpage-theme'][bkey .. '-bottom'] = bval
