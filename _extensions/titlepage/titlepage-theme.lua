@@ -295,6 +295,44 @@ This function assigns the themevals to the meta data
           pandoc.RawInline("latex","0.15\\textheight")},
         ["logo-space-after"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","0.1\\textheight")},
+        ["vrule-width"] = "2pt",
+        ["vrule-align"] = "left",
+        ["vrule-color"] = "black",
+        }
+      assign_value(themevals)
+        
+      return m
+    end,
+    ["vline-text"] = function (m)
+      themevals = {
+        ["elements"] = {
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\titleblock")}, 
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\authorblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\affiliationblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\vfill")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\logoblock")},
+          pandoc.MetaInlines{pandoc.RawInline("latex","\\footerblock")}
+          },
+        ["page-align"] = "left",
+        ["title-style"] = "plain",
+        ["title-fontstyle"] = {"large", "bfseries"},
+        ["title-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","4\\baselineskip")},
+        ["subtitle-fontstyle"] = {"large", "textit"},
+        ["author-style"] = "superscript-with-and",
+        ["author-fontstyle"] = {"large"},
+        ["author-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","2\\baselineskip")},
+        ["affiliation-style"] = "numbered-list-with-correspondence",
+        ["affiliation-fontstyle"] = {"large"},
+        ["affiliation-space-after"] = "1pt",
+        ["footer-style"] = "plain",
+        ["footer-fontstyle"] = {"large"},
+        ["footer-space-after"] = "1pt",
+        ["logo-size"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.15\\textheight")},
+        ["logo-space-after"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","0.1\\textheight")},
         ["vrule-width"] = "0.5in",
         ["vrule-align"] = "left",
         ["vrule-color"] = "blue",
@@ -357,7 +395,7 @@ This function assigns the themevals to the meta data
     m['titlepage-true'] = true 
   end
   choice = pandoc.utils.stringify(m.titlepage)
-  okvals = {"plain", "vline", "bg-image", "colorbox", "academic", "formal", "classic-lined"}
+  okvals = {"plain", "vline", "vline-text", "bg-image", "colorbox", "academic", "formal", "classic-lined"}
   isatheme = has_value (okvals, choice)
   if not isatheme and choice ~= "none" then
     if not file_exists(choice) then
