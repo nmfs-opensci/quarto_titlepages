@@ -17,23 +17,29 @@ Demo metavalues
 
 ### otter
 
-This demo has a photo of an otter the some transparency added. The title and footer are specified in `coverpage-title` and `coverpage-footer`.
+This demo has a photo of an otter the some transparency added. The cover page specific title and author are specified in `coverpage-title` and `coverpage-author`.
 
 ```
   coverpage: otter
   coverpage-bg-image: "_extensions/titlepage/images/otter.jpeg"
   coverpage-title: "Otters"
-  coverpage-footer: "otter demo"
+  coverpage-author: ["EE", "Holmes"]
   coverpage-theme:
     title-color: "white"
     title-fontfamily: "QTDublinIrish.otf"
-    author-style: "none"
-    footer-style: "plain"
-    footer-align: "right"
+    title-fontsize: 100
+    author-style: "plain"
+    author-sep: "newline"
+    author-fontstyle: "textsc"
+    author-fontsize: 30
+    author-align: "right"
+    author-bottom: "2in"
+    footer-style: "none"
     header-style: "none"
     date-style: "none"
     bg-image-opacity: 0.5
 ```
+
 
 
 ### great-wave
@@ -47,9 +53,9 @@ This demo has an image that fade to the top with a page color that matches the t
   coverpage-footer: "Templates for title pages and covers"
   coverpage-theme:
     page-html-color: "F6D5A8"
-    title-fontfamily: "QTDublinIrish.otf"
+    title-fontfamily: "Palatino"
     title-fontsize: 30
-    title-fontstyle: "textbf"
+    title-fontstyle: ["textbf", "textit"]
     title-align: "right"
     title-bottom: "10in"
     header-style: "none"
