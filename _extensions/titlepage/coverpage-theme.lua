@@ -96,19 +96,6 @@ This function assigns the themevals to the meta data
   end
 
   local coverpage_table = {
-    ["none"] = function (m)
-      themevals = {
-        ["page-align"] = "left",
-        ["title-style"] = "none",
-        ["author-style"] = "none",
-        ["footer-style"] = "none",
-        ["header-style"] = "none",
-        ["date-style"] = "none",
-        }
-      assign_value(themevals)
-        
-      return m
-    end,
     ["title"] = function (m)
       themevals = {
         ["page-align"] = "left",
@@ -201,18 +188,23 @@ This function assigns the themevals to the meta data
       ok = check_yaml (m.coverpage, "coverpage", okvals)
       if not ok then error("") end
     end
-    if not m['coverpage-file'] then
+    if not m['coverpage-file'] and choice ~= "none" then
+      m["coverpage-true"] = true
       if isEmpty(m['coverpage-theme']) then
         m['coverpage-theme'] = {}
       end
       coverpage_table[choice](m) -- add the theme defaults
-    else
+    end
+    if m['coverpage-file'] then
+      m["coverpage-true"] = true
       if not isEmpty(m['coverpage-theme']) then
         print("\n\ntitlepage extension message: since you passed in a static coverpage file, coverpage-theme is ignored.n\n")
       end
     end
-    m["coverpage-true"] = true
-  else
+    if choice == "none" then
+      m["coverpage-true"] = false
+    end
+  else -- coverpage is false or not passed in
     m["coverpage-true"] = false
     m.coverpage = "none"
   end

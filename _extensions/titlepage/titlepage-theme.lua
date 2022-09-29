@@ -357,9 +357,9 @@ This function assigns the themevals to the meta data
     m['titlepage-true'] = true 
   end
   choice = pandoc.utils.stringify(m.titlepage)
-  okvals = {"true", "false", "none", "plain", "vline", "bg-image", "colorbox", "academic", "formal", "classic-lined"}
+  okvals = {"plain", "vline", "bg-image", "colorbox", "academic", "formal", "classic-lined"}
   isatheme = has_value (okvals, choice)
-  if not isatheme then
+  if not isatheme and choice ~= "none" then
     if not file_exists(choice) then
       error("titlepage extension error: titlepage can be a tex file or one of the themes: " .. pandoc.utils.stringify(table.concat(okvals, ", ")) .. ".")
     else
@@ -368,20 +368,19 @@ This function assigns the themevals to the meta data
       m['titlepage'] = "file"
     end
   end
-  if not m['titlepage-file'] then
+  if m['titlepage-file'] and not isEmpty(m['titlepage-theme']) then
+    print("\n\ntitlepage extension message: since you passed in a static titlepage file, titlepage-theme is ignored.n\n")
+  end
+  if not m['titlepage-file'] and choice ~= "none" then
     if isEmpty(m['titlepage-theme']) then
       m['titlepage-theme'] = {}
     end
     titlepage_table[choice](m) -- add the theme defaults
-  else
-    if not isEmpty(m['titlepage-theme']) then
-      print("\n\ntitlepage extension message: since you passed in a static titlepage file, titlepage-theme is ignored.n\n")
-    end
   end
 
 -- Only for themes
 -- titlepage-theme will exist if using a theme
-if not m['titlepage-file'] then
+if not m['titlepage-file'] and m['titlepage-true'] then
 --[[
 Error checking and setting the style codes
 --]]
