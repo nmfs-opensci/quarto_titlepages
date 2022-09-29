@@ -35,14 +35,14 @@ website:
         text: Home
       - href: 01-how-to-use-extension.qmd
         text: How to use
-      - href: 02-titlepages.qmd
-        text: Title pages
       - href: 03-titlepage-themes.qmd
         text: Title page themes
-      - href: 04-coverpages.qmd
-        text: Cover pages
+      - href: 02-titlepages.qmd
+        text: titlepage-theme options
       - href: 05-coverpage-themes.qmd
         text: Cover page themes
+      - href: 04-coverpages.qmd
+        text: coverpage-theme options
       - href: 08-acknowledgements.qmd
         text: Acknowledgements
 

@@ -55,7 +55,7 @@ assuming your qmd file is named `article.qmd`.
 
 ## Customizing
 
-The all features of the text and placement of blocks (header, title, author, etc) is customizable. See the chapters on themes and customizing.
+All features of the text and placement of blocks (header, title, author, etc) are customizable. See the chapters on themes and customizing. Jump to the pages on the [title page themes](03-titlepage-themes.qmd) and [cover page themes](05-coverpage-themes.qmd) to see examples.
 
 ## Document classes
 
