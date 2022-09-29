@@ -60,7 +60,7 @@
     "href": "index.html",
     "title": "quarto titlepages",
     "section": "",
-    "text": "LaTeX users who want to pass in their own title page or cover page files should see quarto_titlepages_v1 which shows how to use Pandoc template files. Alternatively, see the page on passing in static title or cover page files.\n\ncover pagetitle page\n\n\nTemplate with a book cover. Double-click on image to see PDF \n\n\nDouble-click to see demo PDF in scrbook scrartcl krantz svmono elsarticle"
+    "text": "From command line, to install into a new directory:\nquarto use template nmfs-opensci/quarto_titlepages\nTo add to an existing directory, cd to the directory and then:\nquarto install extension nmfs-opensci/quarto_titlepages\n\ncover pagetitle page\n\n\nTemplate with a book cover. Double-click on image to see PDF \n\n\nDouble-click to see demo PDF in scrbook scrartcl krantz svmono elsarticle"
   },
   {
     "objectID": "02-titlepages.html",
