@@ -219,7 +219,7 @@ Set up the demos
   choice = pandoc.utils.stringify(m.coverpage)
   if choice == "great-wave" then
     if isEmpty(m['coverpage-bg-image']) then
-      m['coverpage-bg-image'] = "_extensions/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
+      m['coverpage-bg-image'] = "_extensions/nmfs-opensci/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
     end
     if isEmpty(m['coverpage-title']) then
       m['coverpage-title'] = "quarto_titlepages"
@@ -236,7 +236,7 @@ Set up the demos
   end
   if choice == "otter" then
     if isEmpty(m['coverpage-bg-image']) then
-      m['coverpage-bg-image'] = "_extensions/titlepage/images/otter-bar.jpeg"
+      m['coverpage-bg-image'] = "_extensions/nmfs-opensci/titlepage/images/otter-bar.jpeg"
     end
     if isEmpty(m['coverpage-title']) then
       m['coverpage-title'] = "Otters"
