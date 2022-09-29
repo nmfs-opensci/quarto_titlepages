@@ -21,7 +21,7 @@ This demo has a photo of an otter the some transparency added. The cover page sp
 
 ```
   coverpage: otter
-  coverpage-bg-image: "_extensions/titlepage/images/otter.jpeg"
+  coverpage-bg-image: "_extensions/nmfs-opensci/titlepage/images/otter.jpeg"
   coverpage-title: "Otters"
   coverpage-author: ["EE", "Holmes"]
   coverpage-theme:
@@ -48,7 +48,7 @@ This demo has an image that fade to the top with a page color that matches the t
 
 ```
   coverpage: great-wave
-  coverpage-bg-image: "_extensions/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
+  coverpage-bg-image: "_extensions/nmfs-opensci/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
   coverpage-title: "quarto_titlepages"
   coverpage-footer: "Templates for title pages and covers"
   coverpage-theme:
