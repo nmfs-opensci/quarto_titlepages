@@ -16,9 +16,8 @@ Here are the available top-level elements:
 
 ### `coverpage`
 
-This is the overall theme. Default is `simple` and `none` would stop the cover page being generated at all. Note although `overpage` specifies the overall theme, **all** features can be changed by passing a new value in `coverpage-theme`.
+This is the overall theme. Default is `default` and `none` would stop the cover page being generated at all. Note although `overpage` specifies the overall theme, **all** features can be changed by passing a new value in `coverpage-theme`.
 
-none", "default", "title", "author", "titleauthor"
 * `none` no coverpage
 * `default` include everything that is in the `coverpage-...` yaml: title, author, header, footer, date.
 * `title` only a title

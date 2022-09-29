@@ -7,11 +7,64 @@ The following cover page demos are included.
 ::: {.panel-tabset}
 
 ### great-wave
-<span style="font-size:0.8em; color: grey">Template with a book cover. Double-click on image to see PDF</span>
-[![](images/great-wave.png){.border fig-alt="Screenshot of great-wave title page. This template has a cover page with a great wave image. Title page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/great-wave/article.pdf)
+![](images/great-wave.png){.border fig-alt="Screenshot of great-wave cover page. This cover page an image that fades to the top and a page color that matches the top of the image (a great wave). "}
 
 ### otter
-<span style="font-size:0.8em; color: grey">Double-click to see demo PDF in [scrbook](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [scrartcl](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [krantz](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-krantz.pdf) [svmono](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-svmono.pdf) [elsarticle](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-elsarticle.pdf)</span></br>
-[![](images/vline.png){.border fig-width="50%" fig-alt="Screenshot of vline title page. Page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf)
-
+![](images/otter.png){.border fig-alt="Screenshot of otter cover page. This cover page has a full page photo of an otter. The title has be changed to Otters and a custom font is used."}
 :::
+
+Demo metavalues
+
+### otter
+
+This demo has a photo of an otter the some transparency added. The title and footer are specified in `coverpage-title` and `coverpage-footer`.
+
+```
+  coverpage: otter
+  coverpage-bg-image: "_extensions/titlepage/images/otter.jpeg"
+  coverpage-title: "Otters"
+  coverpage-footer: "A demo coverpage"
+  coverpage-theme:
+    title-color: "white"
+    title-fontfamily: "QTDublinIrish.otf"
+    author-style: "none"
+    footer-align: "right"
+    bg-image-opacity: 0.5
+```
+
+### great-wave
+
+This demo has an image that fade to the top with a page color that matches the top of the image. The title is specified in `coverpage-title` and the subtitle is `coverpage-footer` moved to below the title. Only title and subtitle are shown; no author.
+
+```
+  coverpage: great-wave
+  coverpage-bg-image: "_extensions/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
+  coverpage-title: "quarto_titlepages"
+  coverpage-footer: "Templates for title pages and covers"
+  coverpage-theme:
+    page-html-color: "F6D5A8"
+    title-fontfamily: "QTDublinIrish.otf"
+    author-style: "none"
+    title-align: "right"
+    footer-align: "right"
+    bg-image-fading: "north"
+```
+
+
+
+### great-wave
+
+```
+    coverpage: great-wave 
+    titlepage-bg-image: "bg-image.png"
+    titlepage-logo: "logo.png"
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
+      page-align: "left"
+      title-style: "plain"
+      title-fontstyle: ["large", "bfseries"]
+      title-space-after: "4\\baselineskip"
+      subtitle-fontstyle: ["large", "textit"]
+      author-style: "superscript-with-and"
+      author-fontstyle: "large"
+

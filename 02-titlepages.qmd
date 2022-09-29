@@ -1,12 +1,12 @@
 # Title page customization
 
-If you don't pass in any customization, the default is the `titlepage: simple` with no images or logo (or header or footer).
+If you don't pass in any customization, the default is the `titlepage: plain` with all elements that you specify, like `titlepage-header` but minimal styling.
 
 ## Top level specifications
 
 Here are the available top-level elements:
 ```
-    titlepage: simple
+    titlepage: plain
     titlepage-logo: "img/logo.png"
     titlepage-bg-image: "img/ringed-seal.png"
     titlepage-header: "The Publisher"
@@ -80,7 +80,7 @@ For `author-style`, these can be
 * `superscript-with-and` like `plain-with-and` but superscripts for affiliations
 * `author-address` each author on a separate line with address(es)
 
-Note `author-sep: newline` will give each author on a new line.
+Note `author-sep: "newline"` will give each author on a new line. If you want to specify the character separating authors in a list, keep in mind that Pandoc strips all preceeding and following whitespace. So to specify `" -- "` as the separation you need to use `"\ --\ "`.
 
 For `affiliation-style`, these can be
 
@@ -99,6 +99,10 @@ Do not use both `page-html-color` and `page-color`. Choose one. `page-color` wil
 Available for page, title, subtitle, author, affiliation, header, footer, date.
 
 The fontfamily can be specified for the page and will be used for all the elements unless you pass in an element specific font family, like `title-fontfamily`. The font family can be a name that you have in your font library or it can be a font file. You can download lots of different font files. The is the most surefire way to get your fonts to work.
+
+The extension has an example font file that you can use `QTDublinIrish.otf`. To use other font files, you can download a font file from the [LaTeX Font Catalogue](https://tug.org/FontCatalogue/). The otf (opentype) and ttf files should work fine. Some fonts will have font styling like "bold" so you will need to use the font file with the styling you want. Or you probably can download the folder with regular, italic etc files and pass in the font directory name. Note not all fonts have all styling. For example, small caps (`textsc`) is only available for some fonts.
+
+*I have fonts on my machine but Quarto can't find them!* Good luck. Stackoverflow will hopefully help.
 
 ### `-fontstyle`
 
@@ -130,15 +134,19 @@ Available for title, author, affiliation, header, footer, date, logo.
 
 How much space to add after the element. Can be in, cm, mm, pt or percent of paper or text, e.g. `0.5\\textheight`. Note, in `elements`, you can have a `\\vfill` somewhere if you want the text spread fully from top to bottom.
 
+### `title-subtitle-space-between`
+
+Space to add between the title and subtitle.
+
 ### `-colorbox-...`
 
 Available for title, author, header, footer, date.
 
 If `-style` is `colorbox`, you can specify the colorbox features:
 
-* `-colorbox-color` fill color
-* `-colorbox-border-width` width of the border (in, cm, mm, pt)
-* `-colorbox-border-color` border color
+* `-colorbox-fill` fill color
+* `-colorbox-borderwidth` width of the border (in, cm, mm, pt)
+* `-colorbox-bordercolor` border color
 
 ### `bg-image-size`
 
@@ -153,6 +161,16 @@ Where to pin the image. Can be
 * `LRCorner` lower right corner
 * `LLCorner` lower left corner
 * `TileSquare` tile the image
+
+### `bg-image-fading`
+
+Add a fade to the image. Can be
+
+* `top`, `north` top of image
+* `left`, `west` left side of image
+* `right`, `east` right side of image
+* `bottom`, `south` bottom of image
+* `fadeout` fade out in a circle starting from center
 
 ### `vrule-...`
 
@@ -186,9 +204,10 @@ These are features that you can customize. If you leave it out, it will either n
       title-fontstyle: ["textit", "bfseries"]
       title-align: spread
       title-space-after: 1in
-      title-colorbox-color: "cyan"
-      title-colorbox-border: 2pt
-      title-colorbox-border-color: "black"
+      title-colorbox-fill: "cyan"
+      title-colorbox-borderwidth: 2pt
+      title-colorbox-bordercolor: "black"
+      title-subtitle-space-between: "0.1\\textheight"
       subtitle-color: "white" 
       subtitle-fontfamily: "Palatino"
       subtitle-fontsize: 10
@@ -197,7 +216,7 @@ These are features that you can customize. If you leave it out, it will either n
       subtitle-align: center
       subtitle-space-after: "1cm" 
       author-style: "superscript"
-      author-sep: ", "
+      author-sep: ",\ "
       author-color: "white" 
       author-fontfamily: "Palatino"
       author-fontsize: 14
@@ -219,9 +238,9 @@ These are features that you can customize. If you leave it out, it will either n
       footer-fontstyle: "uppercase"
       footer-align: left
       footer-space-after: 1in
-      footer-colorbox-color: "cyan"
-      footer-colorbox-border: 2pt
-      footer-colorbox-border-color: "black"
+      footer-colorbox-fill: "cyan"
+      footer-colorbox-borderwidth: 2pt
+      footer-colorbox-bordercolor: "black"
       header-style: "plain"
       header-fontfamily: "Palatino"
       header-fontsize: 12
@@ -229,9 +248,9 @@ These are features that you can customize. If you leave it out, it will either n
       header-fontstyle: "lowercase"
       header-align: left
       header-space-after: 1in
-      header-colorbox-color: "cyan"
-      header-colorbox-border: 2pt
-      header-colorbox-border-color: "black"
+      header-colorbox-fill: "cyan"
+      header-colorbox-borderwidth: 2pt
+      header-colorbox-bordercolor: "black"
       date-style: "colorbox"
       date-fontfamily: "Palatino"
       date-fontsize: 12
@@ -239,14 +258,16 @@ These are features that you can customize. If you leave it out, it will either n
       date-fontstyle: ["slseries"]
       date-align: left
       date-space-after: 1in
-      date-colorbox-color: "cyan"
-      date-colorbox-border: 2pt
-      date-colorbox-border-color: "black"
+      date-colorbox-fill: "cyan"
+      date-colorbox-borderwidth: 2pt
+      date-colorbox-bordercolor: "black"
       logo-align: center
       logo-size: 0.25
       logo-space-after: 1in
       bg-image-size: 0.25
       bg-image-location: "URCorner"
+      bg-image-fading: "top"
+      bg-image-opacity: 0.5
       vrule-width: 20pt
       vrule-color: "blue"
       vrule-align: left
