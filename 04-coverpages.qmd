@@ -1,12 +1,10 @@
 # Cover page customization
 
-If you don't pass in any customization, the default is the `titlepage: simple` with no images or logo (or header or footer).
-
 ## Top level specifications
 
 Here are the available top-level elements:
 ```
-    coverpage: otter
+    coverpage: true
     coverpage-bg-image: "img/otter.png"
     coverpage-title: "My short title"
     coverpage-author: "The author"
@@ -16,13 +14,15 @@ Here are the available top-level elements:
 
 ### `coverpage`
 
-This is the overall theme. Default is `default` and `none` would stop the cover page being generated at all. Note although `overpage` specifies the overall theme, **all** features can be changed by passing a new value in `coverpage-theme`.
+This is the overall theme. Default is `false`; no cover page. Note although `coverpage` specifies the overall theme, **all** features can be changed by passing a new value in `coverpage-theme`.
 
-* `none` no coverpage
-* `default` include everything that is in the `coverpage-...` yaml: title, author, header, footer, date.
+* `false` no coverpage
+* `true` include everything that is in the `coverpage-...` yaml: title, author, header, footer, date.
 * `title` only a title
 * `author` only an author
 * `titleauthor` only title and author
+* `otter` the otter demo coverpage
+* `great-wave` the great-wave demo coverpage
 
 ###`coverpage-title`
 
@@ -34,18 +34,28 @@ Pass this in if you want the title to be different than what is in the main yaml
 
 ###`coverpage-bg-image`
 
-The background image file. Default is to make this fill the whole page.  You can change the size and put whereever you want.
+The background image file. Default is to make this fill the whole page.  You can change the size and place the image using `bg-image-left` and `bg-image-bottom` to specify distance from left and bottom of the page.
 
 * An image file
-* A demo: otter, great-wave
 
 ### `coverpage-header`
 
-Some text for the header. Note "header" doesn't mean it has to be at the top. You can order your elements however you want.
+Some text for the header. Note "header" doesn't mean it has to be at the top. You can place your elements however you want using the distance from the bottom of the page, e.g. 
+```
+  coverpage-theme:
+    header-left: 1in
+    header-bottom: 1in
+```
+puts the header in the lower left corner, 1 inch from the left and bottom.
 
 ### `coverpage-footer`
 
-Some text for the footer. Note "footer" doesn't mean it has to be at the bottom. That is just the default. You can order your elements however you want.
+Some text for the footer. Note "footer" doesn't mean it has to be at the bottom. That is just the default. You can place your elements however you want using the distance from the bottom of the page, e.g. 
+
+```
+  coverpage-theme:
+    footer-bottom: 10in
+```
 
 ## Cover page element customiation
 
@@ -121,27 +131,29 @@ How much (in degrees) to rotate the element.
 
 For title, author, header, footer, date, logo.
 
-Distance from the left side of page to the left side of element (align = left) or right side of page to the right side of element (align = right). Measurement is in fraction of the page width, so 0.1 is 0.1 x page width.
+Distance from the left side of page to the left side of element (align = left) or right side of page to the right side of element (align = right). Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperwidth"` or `"0.9\\textwidth"`.
 
 ### `-bottom`
 
 Available for bg-image, title, author, header, footer, date, logo.
 
-Distance from the bottom of page to the bottom of element. Measurement is in fraction of the page height, so 0.1 is 0.1 x page height.
+Distance from the bottom of page to the bottom of element. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperheight"` or `"0.9\\textheight"`.
 
 ### `-width`
 
 Available for title, author, header, footer, date.
 
-Width of the box that holds the text. Smaller will mean that the text is wrapped. Measurement is in fraction of the page width, so 0.1 is 0.1 x page width.
+Width of the box that holds the text. Smaller will mean that the text is wrapped. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperwidth"` or `"0.9\\textwidth"`.
+
+*If you pass in `-left` for an element, you must also pass in `-width` for that element. Since you can pass in widths in any units, there is no way to compute a width for you.
 
 ### `bg-image-left`
 
-Distance from the left side of page to the left side of image. Measurement is in fraction of the page width, so 0.1 is 0.1 x page width.
+Distance from the left side of page to the left side of image. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperwidth"` or `"0.9\\textwidth"`.
 
 ### `bg-image-size`
 
-The background image width as a fraction of the page width, so 0.1 is 0.1 x page width.
+The background image width. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperwidth"` or `"0.9\\textwidth"`.
 
 ### `bg-image-opacity`
 
@@ -149,7 +161,7 @@ The transparency of the background image.
 
 ### `bg-image-fading`
 
-Side to fade of the image. Can be "north", "south", "east", "west", "fadeout"
+Side to fade of the image. Can be "top", "north", "bottom", "south", "right", "east", "left", "west", "fadeout"
 
 ## All possible `coverpage-theme` values
 
@@ -171,11 +183,11 @@ These are features that you can customize. If you leave it out, it will either n
       title-fontstyle: ["textit", "bfseries"]
       title-rotate: 45
       title-align: spread
-      title-left: 0.1
-      title-bottom: 0.8
-      title-width: 0.7
+      title-left: "0.1\\paperwidth"
+      title-bottom: "0.8\\paperwidth"
+      title-width: "0.7\\paperwidth"
       author-style: "plain"
-      author-sep: ", "
+      author-sep: ",\ "
       author-color: "white" 
       author-fontfamily: "Palatino"
       author-fontsize: 14
@@ -183,9 +195,9 @@ These are features that you can customize. If you leave it out, it will either n
       author-fontstyle: ["textsc"]
       author-rotate: 0
       author-align: right
-      author-left: 0.8
-      author-bottom: 0.2
-      author-width: 0.7
+      author-left: 7in
+      author-bottom: 1in
+      author-width: 6in
       footer-style: "plain"
       footer-fontfamily: "Palatino"
       footer-fontsize: 12
@@ -193,9 +205,9 @@ These are features that you can customize. If you leave it out, it will either n
       footer-fontstyle: "uppercase"
       footer-rotate: 0
       footer-align: right
-      footer-left: 0.1
-      footer-bottom: 0.1
-      footer-width: 0.8
+      footer-left: 2cm
+      footer-bottom: 1cm
+      footer-width: 10cm
       header-style: "plain"
       header-fontfamily: "Palatino"
       header-fontsize: 12
@@ -203,8 +215,8 @@ These are features that you can customize. If you leave it out, it will either n
       header-fontstyle: "lowercase"
       header-rotate: 0
       header-align: center
-      header-left: 0.5
-      header-bottom: 0.9
+      header-left: "0.5\\paperwidth"
+      header-bottom: "0.9\\paperwidth"
       date-style: "plain"
       date-fontfamily: "Palatino"
       date-fontsize: 12
@@ -212,11 +224,11 @@ These are features that you can customize. If you leave it out, it will either n
       date-fontstyle: ["slseries"]
       date-rotate: 90
       date-align: left
-      date-left: 0.1
-      date-bottom: 0.1
-      date-width: 0.8
-      bg-image-size: 0.25
-      bg-image-left: 0.1
+      date-left: 100pt
+      date-bottom: 100pt
+      date-width: 300pt
+      bg-image-size: "0.25\\textwidth"
+      bg-image-left: "0.1\\paperwidth"
       bg-image-bottom: 0
       bg-image-fading: north
       bg-image-rotate: 0
