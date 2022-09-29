@@ -149,8 +149,8 @@ This function assigns the themevals to the meta data
           pandoc.RawInline("latex","2\\baselineskip")},
         ["affiliation-style"] = "numbered-list-with-correspondence",
         ["affiliation-fontstyle"] = {"large"},
-        ["footer-space-after"] = "0pt",
-        ["affiliation-space-after"] = "0pt",
+        ["footer-space-after"] = "1pt",
+        ["affiliation-space-after"] = "1pt",
         ["footer-style"] = "plain",
         ["footer-fontstyle"] = {"large"},
         ["logo-size"] = pandoc.MetaInlines{
@@ -189,10 +189,10 @@ This function assigns the themevals to the meta data
           pandoc.RawInline("latex","2\\baselineskip")},
         ["affiliation-style"] = "numbered-list-with-correspondence",
         ["affiliation-fontstyle"] = {"large"},
-        ["affiliation-space-after"] = "0pt",
+        ["affiliation-space-after"] = "1pt",
         ["footer-style"] = "plain",
         ["footer-fontstyle"] = {"large", "textsc"},
-        ["footer-space-after"] = "0pt",
+        ["footer-space-after"] = "1pt",
         ["logo-size"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","0.25\\textheight")},
         ["logo-space-after"] = "1cm",
@@ -253,10 +253,10 @@ This function assigns the themevals to the meta data
           pandoc.RawInline("latex","2\\baselineskip")},
         ["affiliation-style"] = "numbered-list-with-correspondence",
         ["affiliation-fontstyle"] = {"large"},
-        ["affiliation-space-after"] = "0pt",
+        ["affiliation-space-after"] = "1pt",
         ["footer-style"] = "plain",
         ["footer-fontstyle"] = {"Large", "textsc"},
-        ["footer-space-after"] = "0pt",
+        ["footer-space-after"] = "1pt",
         ["logo-size"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","0.4\\textwidth")},
         ["logo-space-after"] = "1cm",
@@ -287,10 +287,10 @@ This function assigns the themevals to the meta data
           pandoc.RawInline("latex","2\\baselineskip")},
         ["affiliation-style"] = "numbered-list-with-correspondence",
         ["affiliation-fontstyle"] = {"large"},
-        ["affiliation-space-after"] = "0pt",
+        ["affiliation-space-after"] = "1pt",
         ["footer-style"] = "plain",
         ["footer-fontstyle"] = {"large"},
-        ["footer-space-after"] = "0pt",
+        ["footer-space-after"] = "1pt",
         ["logo-size"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","0.15\\textheight")},
         ["logo-space-after"] = pandoc.MetaInlines{
@@ -322,7 +322,7 @@ This function assigns the themevals to the meta data
         ["title-fontstyle"] = {"Large"},
         ["title-space-after"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","4\\baselineskip")},
-        ["title-subtitle-space-between"] = "0pt",
+        ["title-subtitle-space-between"] = "1pt",
         ["subtitle-fontstyle"] = {"textit"},
         ["author-style"] = "superscript-with-and",
         ["author-space-after"] = pandoc.MetaInlines{
@@ -334,7 +334,7 @@ This function assigns the themevals to the meta data
         ["header-space-after"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","0.2\\textheight")},
         ["footer-style"] = "plain",
-        ["footer-space-after"] = "0pt",
+        ["footer-space-after"] = "1pt",
         ["logo-size"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","0.1\\textheight")},
         ["logo-space-after"] = pandoc.MetaInlines{
@@ -343,15 +343,21 @@ This function assigns the themevals to the meta data
       assign_value(themevals)
         
       return m
-    end
+    end,
+    ["none"] = function (m) return m end
   }
   
   m['titlepage-file'] = false
-  if not m.titlepage then
-    m['titlepage'] = "plain"
+  if getVal(m.titlepage) == "false" then m['titlepage'] = "none" end
+  if isEmpty(m.titlepage) then mm['titlepage'] = "plain" end
+  if getVal(m.titlepage) == "true" then m['titlepage'] = "plain" end
+  if getVal(m.titlepage) == "none" then 
+    m['titlepage-true'] = false
+  else
+    m['titlepage-true'] = true 
   end
   choice = pandoc.utils.stringify(m.titlepage)
-  okvals = {"plain", "vline", "bg-image", "colorbox", "academic", "formal", "classic-lined"}
+  okvals = {"true", "false", "none", "plain", "vline", "bg-image", "colorbox", "academic", "formal", "classic-lined"}
   isatheme = has_value (okvals, choice)
   if not isatheme then
     if not file_exists(choice) then
