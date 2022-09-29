@@ -11,7 +11,7 @@
     "href": "05-coverpage-themes.html",
     "title": "quarto titlepages",
     "section": "",
-    "text": "Cover pages can have title, author, header, and footer in any place on the page. You specify the location on the page. Title, author, header and footer blocks can be customized: font, font size, color, text rotation and style (bold, italic, etc). Cover pages can have a background image and the location, size and transparency can be specified. In addition, image fading at the top, bottom or sides can be specified. The page color can also be specified.\nThe following cover page demos are included.\n\ngreat-waveotter\n\n\ncoverpage-theme code\n\n\ncoverpage-theme code\n\n\n\nDemo theme values."
+    "text": "Cover pages can have title, author, header, and footer in any place on the page. You specify the location on the page. Title, author, header and footer blocks can be customized: font, font size, color, text rotation and style (bold, italic, etc). Cover pages can have a background image and the location, size and transparency can be specified. In addition, image fading at the top, bottom or sides can be specified. The page color can also be specified.\nThe following cover page demos are included.\n\ngreat-waveotter\n\n\ncoverpage-theme code; Demo PDF in scrbook\n\n\ncoverpage-theme code\n\n\n\nDemo theme values."
   },
   {
     "objectID": "05-coverpage-themes.html#otter-1",
