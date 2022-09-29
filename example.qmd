@@ -43,16 +43,7 @@ format:
       Amtmandens Allé 15\
       6950 Rindum Ringkøbing-Skjern\
       DENMARK
-    coverpage: default
-    coverpage-bg-image: otter
-    coverpage-title: "Otters"
-    coverpage-footer: "Dec 2025"
-    coverpage-theme:
-      title-rotate: 0
-      title-color: "white"
-      title-fontfamily: "QTDublinIrish.otf"
-      author-style: "none"
-      footer-align: "right"
+    coverpage: great-wave
     keep-tex: true
     include-in-header: |
       text:
