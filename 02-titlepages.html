@@ -152,6 +152,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#titlepage-logo" id="toc-titlepage-logo" class="nav-link" data-scroll-target="#titlepage-logo"><code>titlepage-logo</code></a></li>
   <li><a href="#titlepage-header" id="toc-titlepage-header" class="nav-link" data-scroll-target="#titlepage-header"><code>titlepage-header</code></a></li>
   <li><a href="#titlepage-footer" id="toc-titlepage-footer" class="nav-link" data-scroll-target="#titlepage-footer"><code>titlepage-footer</code></a></li>
+  <li><a href="#titlepage-geometry" id="toc-titlepage-geometry" class="nav-link" data-scroll-target="#titlepage-geometry"><code>titlepage-geometry</code></a></li>
   </ul></li>
   <li><a href="#title-page-element-customiation" id="toc-title-page-element-customiation" class="nav-link" data-scroll-target="#title-page-element-customiation">Title page element customiation</a>
   <ul class="collapse">
@@ -187,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 <p>If you don’t pass in any customization, the default is the <code>titlepage: plain</code> with all elements that you specify, like <code>titlepage-header</code> but minimal styling.</p>
 <section id="top-level-specifications" class="level2">
 <h2 class="anchored" data-anchor-id="top-level-specifications">Top level specifications</h2>
-<p>Here are the available top-level elements:</p>
+<p>Here are the available top-level elements with examples:</p>
 <pre><code>    titlepage: plain
     titlepage-logo: "img/logo.png"
     titlepage-bg-image: "img/ringed-seal.png"
@@ -195,7 +196,9 @@ ul.task-list li input[type="checkbox"] {
     titlepage-footer: | # text
       University Technical Series\
       Open Source Publication for All
-      December 2025</code></pre>
+      December 2025
+    titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1in"]
+</code></pre>
 <section id="titlepage" class="level3">
 <h3 class="anchored" data-anchor-id="titlepage"><code>titlepage:</code></h3>
 <p>This is the overall theme. Default is <code>true</code> (which is the same as <code>plain</code>). <code>false</code> (or <code>none</code>) would stop the title page being generated at all. Note although <code>titlepage</code> specifies the overall theme, <strong>all</strong> features can be changed by passing a new value in <code>titlepage-theme</code>; see below.</p>
@@ -224,6 +227,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="titlepage-footer" class="level3">
 <h3 class="anchored" data-anchor-id="titlepage-footer"><code>titlepage-footer</code></h3>
 <p>Some text for the footer. Note “footer” doesn’t mean it has to be at the bottom. That is just the default. You can order your elements however you want.</p>
+</section>
+<section id="titlepage-geometry" class="level3">
+<h3 class="anchored" data-anchor-id="titlepage-geometry"><code>titlepage-geometry</code></h3>
+<p>This sets the margins for the text area. If you have a background image in a top corner for example, you need to pass this in to shift the text area down so it doesn’t overlap your image.</p>
+<pre><code>titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1in"]</code></pre>
 </section>
 </section>
 <section id="title-page-element-customiation" class="level2">
