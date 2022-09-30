@@ -4,7 +4,7 @@ If you don't pass in any customization, the default is the `titlepage: plain` wi
 
 ## Top level specifications
 
-Here are the available top-level elements:
+Here are the available top-level elements with examples:
 ```
     titlepage: plain
     titlepage-logo: "img/logo.png"
@@ -14,6 +14,8 @@ Here are the available top-level elements:
       University Technical Series\
       Open Source Publication for All
       December 2025
+    titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1in"]
+
 ```
 
 ### `titlepage:`
@@ -46,6 +48,13 @@ Some text for the header. Note "header" doesn't mean it has to be at the top. Yo
 ### `titlepage-footer`
 
 Some text for the footer. Note "footer" doesn't mean it has to be at the bottom. That is just the default. You can order your elements however you want.
+
+### `titlepage-geometry`
+
+This sets the margins for the text area. If you have a background image in a top corner for example, you need to pass this in to shift the text area down so it doesn't overlap your image.
+```
+titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1in"]
+```
 
 ## Title page element customiation
 

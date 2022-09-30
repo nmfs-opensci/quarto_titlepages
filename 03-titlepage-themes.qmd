@@ -41,7 +41,7 @@ You can pass in a static file. If you do so, this will be used as the title page
 
 ```
     titlepage: vline 
-    titlepage-logo: "logo.png"
+    titlepage-logo: "img/logo.png"
     titlepage-theme:
       elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
       page-align: "left"
@@ -54,7 +54,7 @@ You can pass in a static file. If you do so, this will be used as the title page
       affiliation-style: "numbered-list-with-correspondence"
       affiliation-fontstyle: "large"
       affiliation-space-after: "0pt"
-      footer-style: plain"
+      footer-style: "plain"
       footer-fontstyle: "large"
       logo-size: "0.15\\textheight"
       logo-space-after: "1\\baselineskip"
@@ -67,7 +67,7 @@ You can pass in a static file. If you do so, this will be used as the title page
 
 ```
     titlepage: vline 
-    titlepage-logo: "logo.png"
+    titlepage-logo: "img/logo.png"
     titlepage-theme:
       elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
       page-align: "left"
@@ -119,7 +119,7 @@ You can pass in a static file. If you do so, this will be used as the title page
 
 ```
     titlepage: academic
-    titlepage-logo: "logo.png"
+    titlepage-logo: "img/logo.png"
     titlepage-theme:
       elements: ["\\headerblock", "\\logoblock", "\\titleblock", "\\authorblock", "\\vfill", "\\dateblock"]
       page-align: "center"
@@ -141,8 +141,9 @@ You can pass in a static file. If you do so, this will be used as the title page
 
 ```
     titlepage: bg-image 
-    titlepage-bg-image: "bg-image.png"
-    titlepage-logo: "logo.png"
+    titlepage-bg-image: "img/corner-bg.png"
+    titlepage-logo: "img/logo.png"
+    titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1in"]
     titlepage-theme:
       elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
       page-align: "left"
@@ -155,7 +156,7 @@ You can pass in a static file. If you do so, this will be used as the title page
       affiliation-style: "numbered-list-with-correspondence"
       affiliation-fontstyle: "large"
       affiliation-space-after: "0pt"
-      footer-style: plain"
+      footer-style: "plain"
       footer-fontstyle: "large"
       logo-size: "0.25\\textheight"
       logo-space-after: "2\\baselineskip"
@@ -168,7 +169,7 @@ You can pass in a static file. If you do so, this will be used as the title page
 
 ```
     titlepage: formal 
-    titlepage-logo: "logo.png"
+    titlepage-logo: "img/logo.png"
     titlepage-theme:
       elements: ["\\titleblock", "\\authorblock", "\\vfill", "A report presented at the annual\\\\meeting on 10 August 2025\\\\ \\vspace{0.8cm}",  "\\logoblock", "\\footerblock"]
       page-align: "center"
@@ -195,7 +196,7 @@ You can pass in a static file. If you do so, this will be used as the title page
 
 ```
     titlepage: classic-lined 
-    titlepage-logo: "logo.png"
+    titlepage-logo: "img/logo.png"
     titlepage-theme:
       elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\logoblock", "\\footerblock"]
       page-align: "center"
