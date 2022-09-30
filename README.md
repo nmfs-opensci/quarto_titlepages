@@ -1,3 +1,4 @@
+[![github](https://img.shields.io/github/v/release/nmfs-opensci/quarto_titlepages?color=brightgreen&label=GitHub)](https://github.com/nmfs-opensci/quarto_titlepages/releases/latest)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7131047.svg)](https://doi.org/10.5281/zenodo.7131047)
 
 # quarto_titlepages <a href="https://github.com/nmfs-opensci/quarto_titlepages"><img src="https://github.com/nmfs-opensci.png" align="right" width="120"/></a>
