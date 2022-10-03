@@ -19,6 +19,11 @@ $else$
 $_titlepage.tex()$
 $endif$
 $endif$
+
+$if(titlepage-include-file)$
+$for(titlepage-include-file)$\input{$titlepage-include-file$}
+\clearpage
+$endfor$$endif$
 \end{titlepage}
 \setcounter{page}{1}
 $if(has-frontmatter)$

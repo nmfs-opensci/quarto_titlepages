@@ -41,6 +41,9 @@ format:
       NOAA Fisheries OpenSci\
       Tools for Open Science\
       [https://github.com/nmfs-opensci](https://github.com/nmfs-opensci)\
+    titlepage-include-file:
+      - tex/copyright.tex
+      - tex/dedication.tex
     coverpage: "great-wave"
     keep-tex: true
     include-in-header: |
