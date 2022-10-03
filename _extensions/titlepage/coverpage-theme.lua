@@ -11,6 +11,11 @@ local function getVal(s)
   return pandoc.utils.stringify(s)
 end
 
+function script_path()
+   local str = debug.getinfo(2, "S").source:sub(2)
+   return str:match("(.*/)")
+end
+
 local function has_value (tab, val)
     for index, value in ipairs(tab) do
         if value == val then
@@ -219,7 +224,7 @@ Set up the demos
   choice = pandoc.utils.stringify(m.coverpage)
   if choice == "great-wave" then
     if isEmpty(m['coverpage-bg-image']) then
-      m['coverpage-bg-image'] = "_extensions/nmfs-opensci/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
+      m['coverpage-bg-image'] = script_path().."images/TheGreatWaveoffKanagawa.jpeg"
     end
     if isEmpty(m['coverpage-title']) then
       m['coverpage-title'] = "quarto_titlepages"
@@ -236,7 +241,7 @@ Set up the demos
   end
   if choice == "otter" then
     if isEmpty(m['coverpage-bg-image']) then
-      m['coverpage-bg-image'] = "_extensions/nmfs-opensci/titlepage/images/otter-bar.jpeg"
+      m['coverpage-bg-image'] = script_path().."images/otter-bar.jpeg"
     end
     if isEmpty(m['coverpage-title']) then
       m['coverpage-title'] = "Otters"
