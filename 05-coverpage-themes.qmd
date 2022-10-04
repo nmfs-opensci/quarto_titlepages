@@ -7,10 +7,10 @@ The following cover page demos are included.
 ::: {.panel-tabset}
 
 ### great-wave
-<span style="font-size:0.8em; color: grey">[coverpage-theme code](05-coverpage-themes.html#great-wave-1); Demo PDF in [scrbook](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/great-wave/article.pdf)</span></br>![](images/great-wave.png){.border fig-alt="Screenshot of great-wave cover page. This cover page an image that fades to the top and a page color that matches the top of the image (a great wave). "}
+<span style="font-size:0.8em; color: grey">[coverpage-theme code](05-coverpage-themes.html#great-wave-1); Demo PDF in [scrbook](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/great-wave/article.pdf)</span></br>![](images/great-wave.jpg){.border fig-alt="Screenshot of great-wave cover page. This cover page an image that fades to the top and a page color that matches the top of the image (a great wave). "}
 
 ### otter
-<span style="font-size:0.8em; color: grey">[coverpage-theme code](05-coverpage-themes.html#otter-1)</span></br>![](images/otter.png){.border fig-alt="Screenshot of otter cover page. This cover page has a full page photo of an otter. The title has be changed to Otters and a custom font is used."}
+<span style="font-size:0.8em; color: grey">[coverpage-theme code](05-coverpage-themes.html#otter-1)</span></br>![](images/otter.jpg){.border fig-alt="Screenshot of otter cover page. This cover page has a full page photo of an otter. The title has be changed to Otters and a custom font is used."}
 :::
 
 Demo theme values.

@@ -57,6 +57,8 @@ assuming your qmd file is named `article.qmd`.
 
 All features of the text and placement of blocks (header, title, author, etc) are customizable. See the chapters on themes and customizing. Jump to the pages on the [title page themes](03-titlepage-themes.qmd) and [cover page themes](05-coverpage-themes.qmd) to see examples.
 
+Need to add a copyright or dedication page after the title page? See section on [adding static files](06-static-files.qmd).
+
 ## Document classes
 
 The document class changes the look of your document. For the book document classes, you will need to pass in 

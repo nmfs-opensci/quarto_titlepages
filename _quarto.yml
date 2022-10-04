@@ -43,6 +43,8 @@ website:
         text: Cover page themes
       - href: 04-coverpages.qmd
         text: coverpage-theme options
+      - href: 06-static-files.qmd
+        text: Adding static files
       - href: 08-acknowledgements.qmd
         text: Acknowledgements
 
