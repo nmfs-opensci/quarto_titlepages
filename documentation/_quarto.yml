@@ -1,7 +1,6 @@
 project: 
   type: website
-  output-dir: docs
-  
+
 website: 
   page-navigation: true
   title: "quarto titlepages" 
