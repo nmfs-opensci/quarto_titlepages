@@ -56,7 +56,7 @@ This sets the margins for the text area. If you have a background image in a top
 titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1in"]
 ```
 
-## Title page element customiation
+## Title page element customization
 
 The title page has the following elements: page, title, subtitle, author, header, footer, logo, vline, bg-image. Each of these can be customized via `titlepage-theme`.
 

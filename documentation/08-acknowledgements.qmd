@@ -1,4 +1,4 @@
-# Acknowledgements
+# Acknowledgments
 
 * version 2.0: The tex templates were written by [Eli Holmes](https://github.com/eeholmes) and the lua filter along with changes to the Pandoc templates to allow themes was written by [Mickaël Canouil](https://github.com/mcanouil).
 * version 3.0: Using Mickaël's initial lua filter as inspiration, Eli revamped the lua filters so that themes were specified with a uniform set of metadata attributes. Many Stackoverflow help pages were used in this process.
@@ -11,14 +11,13 @@
 
 ## Title pages
 
-* vline: Based off off a static title page downloaded from http://www.LaTeXTemplates.com. Original author: Peter Wilson (herries.press@earthlink.net) with modifications by Vel (vel@latextemplates.com). Coverted to a Pandoc template and further modified by EE Holmes
+* vline: Based off off a static title page downloaded from http://www.LaTeXTemplates.com. Original author: Peter Wilson (herries.press@earthlink.net) with modifications by Vel (vel@latextemplates.com). Converted to a Pandoc template and further modified by EE Holmes
 * bg-image: EE Holmes
 * classic-lined: Based off a static title page downloaded from http://www.LaTeXTemplates.com. Original author: WikiBooks (LaTeX - Title Creation) with modifications by Vel (vel@latextemplates.com)
 * academic: Based off a static title page downloaded from http://www.LaTeXTemplates.com.
 * colorbox: Inspired by a static title page called multi-purpose and downloaded from http://www.LaTeXTemplates.com. Original author: WikiBooks (LaTeX - Title Creation) with modifications by Vel (vel@latextemplates.com)
-* formal: Inspriredby a static thesis title page downloaded from http://www.LaTeXTemplates.com.
+* formal: Insprired by a static thesis title page downloaded from http://www.LaTeXTemplates.com.
 
 ## Cover pages
 
-The cover page template was created by EE Holmes. The great-wave demo
- is based on a post by Arun Debray to tex.stackoverflow: https://tex.stackexchange.com/posts/554962/revisions. Converted to Pandoc template and further modified by EE Holmes
+The cover page template was created by EE Holmes. The great-wave demo is based on a post by Arun Debray: https://tex.stackexchange.com/posts/554962/revisions. Converted to Pandoc template and further modified by EE Holmes.
