@@ -7,7 +7,7 @@
 
 VERSION 3.0 RELEASED
 
-This repo includes a Quarto extension and templates for making a custom title page or book cover for PDF output using the information in the YAML (from the `xyz.qmd` for an single doc and from `index.qmd` for a [Quarto](https://quarto.org/) book). 
+A Quarto extension for adding a custom title page or book cover to your PDF output using the information in the YAML in your Quarto doc, i.e. from the `xyz.qmd` for an single doc and from `index.qmd` for a [Quarto](https://quarto.org/) book. 
 
 <img src="./img/example.png" width="200"/>
 
@@ -17,7 +17,7 @@ This repo includes a Quarto extension and templates for making a custom title pa
 quarto use template nmfs-opensci/quarto_titlepages
 ```
 
-This will install the extension in the `_extension` folder plus all the demo files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.
+This will install the extension plus all the demo files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.
 
 ## Install for an existing document
 
@@ -44,17 +44,11 @@ Then render the document. See the documentation for the possible themes.
 
 ## Customizing
 
-All aspects of the title and cover pages can be customized. [Read the documentation](https://nmfs-opensci.github.io/quarto_titlepages/). tldr; In your yaml, you pass in `titlepage-theme:` or `coverpage-theme:` with variables for things like font, fontstyle, position of elements, colors, background images, etc.
+All aspects of the title and cover pages can be customized and static pages (e.g. copyright) can be added after the title page. [Read the documentation](https://nmfs-opensci.github.io/quarto_titlepages/). tldr; In your yaml, you pass in `titlepage-theme:` or `coverpage-theme:` with variables for things like font, fontstyle, position of elements, colors, background images, etc.
 
 ## LaTeX users
 
-If you have a title page and/or cover page, that you want to use directly. You might want to look at [quarto_titlepages_v1](https://github.com/nmfs-opensci/quarto_titlepages). This shows you how to create your own Pandoc templates so you can get control of the title page in your tex files.
-
-Alternatively, if you have a static title or cover page, you can pass that in with
-```
-titlepage: titlefile.tex
-coverpage: coverfile.tex
-```
+If you have a title page and/or cover page, that you want to use directly. You might want to look at [quarto_titlepages_v1](https://github.com/nmfs-opensci/quarto_titlepages). This shows you how to create your own Pandoc templates so you can get control of the title page in your tex files. Alternatively, if you have a static title or cover page, see the documentation chapter on using static tex files in your frontmatter.
 
 ------
 This work is uses [Quarto](https://quarto.org/), [citation](https://github.com/quarto-dev/quarto-cli/blob/main/CITATION.cff). The default document classes for Quarto are scrbook and scrartcl. This repo also includes a copy of the Springer [svmono](https://www.springernature.com/gp/authors/campaigns/latex-author-support) document class, CRC/Chapman & Hall krantz document class, and the Elsevier elsarticle document class. The tex templates were written by [Eli Holmes](https://github.com/eeholmes) and the lua filter along with changes to the Pandoc templates to allow themes was written by [Mickaël Canouil](https://github.com/mcanouil).
