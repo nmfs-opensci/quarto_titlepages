@@ -224,7 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><a href="https://github.com/nmfs-opensci/quarto_titlepages">quarto_titlepages</a> is a Quarto extension for creating custom cover pages and title pages for PDF output. Pre-defined themes are available, but all themes can be customized. LaTeX users who want to pass in their own title page or cover page files should see <a href="https://github.com/nmfs-opensci/quarto_titlepages_v1">quarto_titlepages_v1</a>.</p>
+<p><a href="https://github.com/nmfs-opensci/quarto_titlepages">quarto_titlepages</a> is a Quarto extension for creating custom cover pages and title pages for PDF output. Pre-defined themes are available, but all themes can be customized. Static pages for copyright, dedication, etc. can be added after the title page. LaTeX users see footnote<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>From command line, to install into a new directory:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template nmfs-opensci/quarto_titlepages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To add to an existing directory, cd to the directory and then:</p>
@@ -243,7 +243,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>If you want to pass in your own title page or cover page files without using the extension framework see <a href="https://github.com/nmfs-opensci/quarto_titlepages_v1">quarto_titlepages_v1</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

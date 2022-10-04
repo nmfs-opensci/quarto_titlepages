@@ -142,10 +142,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#using-static-title-and-cover-pages" id="toc-using-static-title-and-cover-pages" class="nav-link active" data-scroll-target="#using-static-title-and-cover-pages">Using static title and cover pages</a>
+  <li><a href="#static-pages" id="toc-static-pages" class="nav-link active" data-scroll-target="#static-pages">Static pages</a>
   <ul class="collapse">
   <li><a href="#title-page" id="toc-title-page" class="nav-link" data-scroll-target="#title-page">title page</a></li>
   <li><a href="#cover-page" id="toc-cover-page" class="nav-link" data-scroll-target="#cover-page">Cover page</a></li>
+  <li><a href="#static-cover-page-and-title-page" id="toc-static-cover-page-and-title-page" class="nav-link" data-scroll-target="#static-cover-page-and-title-page">Static cover page and title page</a></li>
+  <li><a href="#copyright-and-dedication-pages" id="toc-copyright-and-dedication-pages" class="nav-link" data-scroll-target="#copyright-and-dedication-pages">Copyright and dedication pages</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/06-static-files.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/06-static-files.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -155,11 +157,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="using-static-title-and-cover-pages" class="level1">
-<h1>Using static title and cover pages</h1>
+<section id="static-pages" class="level1">
+<h1>Static pages</h1>
 <section id="title-page" class="level2">
 <h2 class="anchored" data-anchor-id="title-page">title page</h2>
-<p>If you have a static LaTeX title page, then pass in</p>
+<p>If you have a static LaTeX title page, you can pass in</p>
 <pre><code>titlepage: your_titlepage.tex</code></pre>
 <p>The file should contain only the TeX for the title page. Its contents will be input as follows</p>
 <pre><code>\begin{titlepage}
@@ -177,6 +179,21 @@ ul.task-list li input[type="checkbox"] {
 \clearpage
 ... 
 \end{titlepage}</code></pre>
+</section>
+<section id="static-cover-page-and-title-page" class="level2">
+<h2 class="anchored" data-anchor-id="static-cover-page-and-title-page">Static cover page and title page</h2>
+<p>In this case, another option is to pass in <code>none</code> for <code>titlepage</code> and <code>coverpage</code> and then pass in <code>titlepage-include.file</code>.</p>
+<pre><code>    titlepage-include-file:
+      - your_coverpage.tex
+      - your_titlepage.tex</code></pre>
+</section>
+<section id="copyright-and-dedication-pages" class="level2">
+<h2 class="anchored" data-anchor-id="copyright-and-dedication-pages">Copyright and dedication pages</h2>
+<p>You can include these as raw tex files. They appear after the title page. The quarto_titlepages repository has examples of these pages in the <code>tex</code> folder. You can include as many raw tex files for your frontmatter as you need.</p>
+<pre><code>    titlepage-include-file:
+      - tex/copyright.tex
+      - tex/dedication.tex</code></pre>
+<p>A <code>\clearpage</code> command is issued after each tex file is input. To prevent page numbers, use <code>\thispagestyle{empty}</code> in the tex file.</p>
 
 
 </section>

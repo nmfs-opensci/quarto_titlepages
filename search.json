@@ -32,7 +32,7 @@
     "href": "06-static-files.html",
     "title": "quarto titlepages",
     "section": "",
-    "text": "If you have a static LaTeX title page, then pass in\ntitlepage: your_titlepage.tex\nThe file should contain only the TeX for the title page. Its contents will be input as follows\n\\begin{titlepage}\n\\input{your_titlepage.tex}\n\\end{titlepage}\nNote because the \\input{} call happens after the Pandoc template code is evaluated, this file must be a static tex file with no Pandoc meta variables.\n\n\n\nSimilarly, if you have a static LaTeX cover page, then pass in\ncoverpage: your_coverpage.tex\nThe file should contain only the TeX for the title page. Its contents will be input as\n\\begin{titlepage}\n\\input{your_coverpage.tex}\n\\clearpage\n... \n\\end{titlepage}"
+    "text": "If you have a static LaTeX title page, you can pass in\ntitlepage: your_titlepage.tex\nThe file should contain only the TeX for the title page. Its contents will be input as follows\n\\begin{titlepage}\n\\input{your_titlepage.tex}\n\\end{titlepage}\nNote because the \\input{} call happens after the Pandoc template code is evaluated, this file must be a static tex file with no Pandoc meta variables.\n\n\n\nSimilarly, if you have a static LaTeX cover page, then pass in\ncoverpage: your_coverpage.tex\nThe file should contain only the TeX for the title page. Its contents will be input as\n\\begin{titlepage}\n\\input{your_coverpage.tex}\n\\clearpage\n... \n\\end{titlepage}\n\n\n\nIn this case, another option is to pass in none for titlepage and coverpage and then pass in titlepage-include.file.\n    titlepage-include-file:\n      - your_coverpage.tex\n      - your_titlepage.tex\n\n\n\nYou can include these as raw tex files. They appear after the title page. The quarto_titlepages repository has examples of these pages in the tex folder. You can include as many raw tex files for your frontmatter as you need.\n    titlepage-include-file:\n      - tex/copyright.tex\n      - tex/dedication.tex\nA \\clearpage command is issued after each tex file is input. To prevent page numbers, use \\thispagestyle{empty} in the tex file."
   },
   {
     "objectID": "01-how-to-use-extension.html",
@@ -60,7 +60,7 @@
     "href": "index.html",
     "title": "quarto titlepages",
     "section": "",
-    "text": "From command line, to install into a new directory:\nquarto use template nmfs-opensci/quarto_titlepages\nTo add to an existing directory, cd to the directory and then:\nquarto install extension nmfs-opensci/quarto_titlepages\n\ncover pagetitle page\n\n\nTemplate with a book cover. Double-click on image to see PDF \n\n\nDouble-click to see demo PDF in scrbook scrartcl krantz svmono elsarticle"
+    "text": "From command line, to install into a new directory:\nquarto use template nmfs-opensci/quarto_titlepages\nTo add to an existing directory, cd to the directory and then:\nquarto install extension nmfs-opensci/quarto_titlepages\n\ncover pagetitle page\n\n\nTemplate with a book cover. Double-click on image to see PDF \n\n\nDouble-click to see demo PDF in scrbook scrartcl krantz svmono elsarticle \n\n\n\n\n\n\n\nFootnotes\n\n\nIf you want to pass in your own title page or cover page files without using the extension framework see quarto_titlepages_v1.↩︎"
   },
   {
     "objectID": "02-titlepages.html",
