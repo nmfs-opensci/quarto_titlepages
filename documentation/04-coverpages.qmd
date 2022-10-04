@@ -1,0 +1,241 @@
+# Cover page customization
+
+## Top level specifications
+
+Here are the available top-level elements:
+```
+    coverpage: true
+    coverpage-bg-image: "img/otter.png"
+    coverpage-title: "My short title"
+    coverpage-author: "The author"
+    coverpage-header: "My header"
+    coverpage-footer: "My footer"
+```
+
+### `coverpage`
+
+This is the overall theme. Default is `false`; no cover page. Note although `coverpage` specifies the overall theme, **all** features can be changed by passing a new value in `coverpage-theme`.
+
+* `false` or `none` no coverpage
+* `true` include everything that is in the `coverpage-...` yaml: title, author, header, footer.
+* `title` only a title
+* `author` only an author
+* `titleauthor` only title and author
+* `otter` the otter demo coverpage
+* `great-wave` the great-wave demo coverpage
+* a file. You can pass in a static tex file for the cover page. Include only the tex, no `\begin{document}` or similar.
+
+###`coverpage-title`
+
+Pass this in if you want the title to be different than what is in the main yaml.
+
+###`coverpage-author`
+
+Pass this in if you want the title to be different than what is in the main yaml. For example, just last names or initials plus last name.
+
+###`coverpage-bg-image`
+
+The background image file. Default is to make this fill the whole page.  You can change the size and place the image using `bg-image-left` and `bg-image-bottom` to specify distance from left and bottom of the page.
+
+* An image file
+
+### `coverpage-header`
+
+Some text for the header. Note "header" doesn't mean it has to be at the top. You can place your elements however you want using the distance from the bottom of the page, e.g. 
+```
+  coverpage-theme:
+    header-left: 1in
+    header-bottom: 1in
+```
+puts the header in the lower left corner, 1 inch from the left and bottom.
+
+### `coverpage-footer`
+
+Some text for the footer. Note "footer" doesn't mean it has to be at the bottom. That is just the default. You can place your elements however you want using the distance from the bottom of the page, e.g. 
+
+```
+  coverpage-theme:
+    footer-bottom: 10in
+```
+
+## Cover page element customiation
+
+The cover page has the following elements: page, title, author, header, footer, bg-image. Each of these can be customized via the `coverpage-theme`.
+
+Example:
+```
+    coverpage-theme: 
+      page-html-color: "c4c4c4" # html color
+      title-style: "plain"
+      title-fontfamily: "Palatino"
+      title-fontstyle: ["Huge", "bfseries"]
+      title-align: left
+      title-location-bottom: "0.5\\paperheight"
+      title-location-left: 1in
+```
+
+### `page-html-color`
+
+The page color as an html color; leave off the leading `#`.
+
+### `-style`
+
+For title, author, header, footer, date, these can be 
+
+* `plain`
+* `none` the element won't be shown at all
+
+
+### `-color`
+
+Available for page, title, author, header, footer, date.
+
+Do not use both `page-html-color` and `page-color`. Choose one. `page-color` will use names. What names are available? Google `latex xcolor`. Standard color names.
+
+### `-fontfamily`
+
+Available for page, title, author, header, footer, date.
+
+The fontfamily can be specified for the page and will be used for all the elements unless you pass in an element specific font family, like `title-fontfamily`. The font family can be a name that you have in your font library or it can be a font file. You can download lots of different font files. The is the most surefire way to get your fonts to work.
+
+The extension has an example font file: `QTDublinIrish.otf` and the extension has the [Qualitype fonts](https://ctan.org/pkg/qualitype?lang=en). To use these, specify your font as `_extensions/nmfs-opensci/titlepage/fonts/qualitype/opentype/<font-file-name>`. To use other font files, you can download a font file from the [LaTeX Font Catalogue](https://tug.org/FontCatalogue/). The otf (opentype) and ttf files should work. Some fonts will have font styling like "bold" so you will need to use the font file with the styling you want. Or you probably can download the folder with regular, italic etc files and pass in the font directory name. Note not all fonts have all styling. For example, small caps (`textsc`) is only available for some fonts.
+
+*I have fonts on my machine but Quarto can't find them!* Good luck. Stackoverflow will hopefully help you. Fonts that cannot be found is a source of much TeX misery. Using font files that you specify directly avoids this problem.
+
+### `-fontstyle`
+
+Available for title, author, header, footer, date.
+
+This is a list of styles to add. `["tiny", "textit"]` would be tiny size italic text. It needs to be styles that LaTeX knows; don't add `\` to the name. Sizes: tiny, small, normal, large, Large, LARGE, huge, Huge. Styles: "textsc", "textit", "textbf", "uppercase", "lowercase", "bfseries". Are common ones.
+
+### `-fontsize`
+
+Available for page, title, author, header, footer, date. Note, this will be ignored if you pass in a font size (like `"large"`) in `-fontfamily`.
+
+The font size in points. Leave off "pt"; just specify this as a number.
+
+### `-spacing`
+
+Available for page, title, author, header, footer, date.
+
+The spacing between lines if text runs into multiple lines. Specify in points. Leave off "pt"; just specify this as a number. If you only specify fontsize, it will use 1.2 fontsize as the spacing.
+
+### `-align`
+
+Available for page, title, author, header, footer, date, logo.
+
+The page alignment: left, right or center. For title, subtitle, author, header, and footer, you can also specify `spread` and it will spread the text across the whole page.
+
+### `-rotate`
+
+Available for bg-image, title, author, header, footer, date, logo.
+
+How much (in degrees) to rotate the element.
+
+### `-left`
+
+For title, author, header, footer, date, logo.
+
+Distance from the left side of page to the left side of element (align = left) or right side of page to the right side of element (align = right). Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperwidth"` or `"0.9\\textwidth"`.
+
+### `-bottom`
+
+Available for bg-image, title, author, header, footer, date, logo.
+
+Distance from the bottom of page to the bottom of element. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperheight"` or `"0.9\\textheight"`.
+
+### `-width`
+
+Available for title, author, header, footer, date.
+
+Width of the box that holds the text. Smaller will mean that the text is wrapped. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperwidth"` or `"0.9\\textwidth"`.
+
+*If you pass in `-left` for an element, you must also pass in `-width` for that element. Since you can pass in widths in any units, there is no way to compute a width for you.
+
+### `bg-image-left`
+
+Distance from the left side of page to the left side of image. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperwidth"` or `"0.9\\textwidth"`.
+
+### `bg-image-size`
+
+The background image width. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperwidth"` or `"0.9\\textwidth"`.
+
+### `bg-image-opacity`
+
+The transparency of the background image.
+
+### `bg-image-fading`
+
+Side to fade of the image. Can be "top", "north", "bottom", "south", "right", "east", "left", "west", "fadeout"
+
+## All possible `coverpage-theme` values
+
+These are features that you can customize. If you leave it out, it will either not set the value (so use whatever defaults LaTeX has) or will choose a theme specific default. See the themes.
+
+```
+    coverpage-theme: 
+      page-html-color: "c4c4c4"
+      page-color: green # use either html-color or color
+      page-text-align: center
+      page-fontfamily: "Palatino"
+      page-fontsize: 40
+      page-spacing: 48
+      title-style: "plain"
+      title-color: "white"
+      title-fontfamily: "Palatino"
+      title-fontsize: 14
+      title-spacing: 16
+      title-fontstyle: ["textit", "bfseries"]
+      title-rotate: 45
+      title-align: spread
+      title-left: "0.1\\paperwidth"
+      title-bottom: "0.8\\paperwidth"
+      title-width: "0.7\\paperwidth"
+      author-style: "plain"
+      author-sep: ",\ "
+      author-color: "white" 
+      author-fontfamily: "Palatino"
+      author-fontsize: 14
+      author-spacing: 16
+      author-fontstyle: ["textsc"]
+      author-rotate: 0
+      author-align: right
+      author-left: 7in
+      author-bottom: 1in
+      author-width: 6in
+      footer-style: "plain"
+      footer-fontfamily: "Palatino"
+      footer-fontsize: 12
+      footer-spacing: 16
+      footer-fontstyle: "uppercase"
+      footer-rotate: 0
+      footer-align: right
+      footer-left: 2cm
+      footer-bottom: 1cm
+      footer-width: 10cm
+      header-style: "plain"
+      header-fontfamily: "Palatino"
+      header-fontsize: 12
+      header-spacing: 20
+      header-fontstyle: "lowercase"
+      header-rotate: 0
+      header-align: center
+      header-left: "0.5\\paperwidth"
+      header-bottom: "0.9\\paperwidth"
+      date-style: "plain"
+      date-fontfamily: "Palatino"
+      date-fontsize: 12
+      date-spacing: 20
+      date-fontstyle: ["slseries"]
+      date-rotate: 90
+      date-align: left
+      date-left: 100pt
+      date-bottom: 100pt
+      date-width: 300pt
+      bg-image-size: "0.25\\textwidth"
+      bg-image-left: "0.1\\paperwidth"
+      bg-image-bottom: 0
+      bg-image-fading: north
+      bg-image-rotate: 0
+      bg-image-opacity: 1.0
+```

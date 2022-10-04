@@ -1,0 +1,115 @@
+# How to use - Extension {#sec-howtouse}
+
+The extension provides a format `titlepage-pdf` where you can specify a variety of themes and customizations.
+
+## Install the extension
+
+### Install into new directory
+
+```bash
+quarto use template nmfs-opensci/quarto_titlepages
+```
+
+This will install the extension in the `_extension` folder plus all the demo files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.
+
+### Install for an existing directory
+
+You may also use this format with an existing Quarto project or document. This will install only the files in the `_extension` folder and will not install the files above that (the demo files).
+
+From the quarto project or document directory, run the following command:
+
+```bash
+quarto install extension nmfs-opensci/quarto_titlepages
+```
+
+## Usage
+
+In your document yaml add the format and a title page theme (or file). For example,
+```yaml
+format: 
+  titlepage-pdf:
+    titlepage: vline
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+```
+
+For a cover page, you would add something like
+```yaml
+format: 
+  titlepage-pdf:
+    coverpage: true
+    cover-bg-image: "myimage.jpeg"
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+```
+This would default to cover page with a full-page background image and the title at top and author at bottom, but all of that is customizable.
+
+Then render the document. *How?* That depends on the IDE you are using. There should be a render 'button' or drop-down or you can run this command from the shell.
+
+```bash
+quarto render article.qmd
+```
+assuming your qmd file is named `article.qmd`.
+
+## Customizing
+
+All features of the text and placement of blocks (header, title, author, etc) are customizable. See the chapters on themes and customizing. Jump to the pages on the [title page themes](03-titlepage-themes.qmd) and [cover page themes](05-coverpage-themes.qmd) to see examples.
+
+Need to add a copyright or dedication page after the title page? See section on [adding static files](06-static-files.qmd).
+
+## Document classes
+
+The document class changes the look of your document. For the book document classes, you will need to pass in 
+
+```
+number-sections: true
+```
+in your YAML because Quarto sets `number-sections: false` by default and that will mess up all your equation, figure and table numbers. It simple will not number them correctly at all.
+
+### `scrbook`
+
+The KOMA `scrbook` document class has many options that your can use to change the look of your book. [Read the documentation here](https://ctan.org/pkg/scrbook?lang=en).
+
+If you want chapters to be allowed to start on even or odd pages and the left and right margins on even and odd pages to be the same, use
+
+```
+classoption: ["oneside", "open=any"]
+```
+
+### `scrartcl`
+
+This document class is more for single documents with sections and the equation, figure and table numbering will be 1, 2, 3, ... as opposed to 1.1, 1.2, etc, with the chapter number included in the number. The default in Quarto is no section or chapter numbers. Use
+
+```yaml
+number-sections: true
+```
+if you want numbers.
+
+### Other classes
+
+The `cls` folder has some other document classes that you can use. Specify by providing the path to the document class file. For example,
+```yaml
+documentclass: cls/krantz.cls
+```
+
+The base TeX document classes are  `article`, `report`, and `book`. But there are many many more available to customize the look of your document. Here is a Stackoverflow post with a few discusssed [here](https://tex.stackexchange.com/questions/782/what-are-the-available-documentclass-types-and-their-uses). 
+
+## Table of contents
+
+You can add a table of contents (`toc: true`), list of figures (`lof: true`) and list of tables (`lot: true`). The depth of the TOC is specified with `toc-depth`. Example:
+
+```
+format:
+  titlepage-pdf:
+    titlepage: bg-image
+    documentclass: scrartcl
+    toc: true
+    toc-depth: 3
+    lof: true
+    lot: true
+```
+
+
+

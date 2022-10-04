@@ -1,0 +1,318 @@
+# Title page customization
+
+If you don't pass in any customization, the default is the `titlepage: plain` with all elements that you specify, like `titlepage-header` but minimal styling.
+
+## Top level specifications
+
+Here are the available top-level elements with examples:
+```
+    titlepage: plain
+    titlepage-logo: "img/logo.png"
+    titlepage-bg-image: "img/ringed-seal.png"
+    titlepage-header: "The Publisher"
+    titlepage-footer: | # text
+      University Technical Series\
+      Open Source Publication for All
+      December 2025
+    titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1in"]
+
+```
+
+### `titlepage:`
+
+This is the overall theme. Default is `true` (which is the same as `plain`). `false` (or `none`) would stop the title page being generated at all. Note although `titlepage` specifies the overall theme, **all** features can be changed by passing a new value in `titlepage-theme`; see below.
+
+* `none` or `false` no title page
+* `true` (or `plain`): minimal styling. Everything on the page is left-aligned, with title, subtitle, author with affiliation superscripts, and affiliations in a numbered list. Header and footer appear if `title-header` and/or `title-footer` are specified.
+* `vline`: a 1pt wide vertical line on the left.
+* `vline-text`: a 0.5 inch wide blue vertical line with test.
+* `academic`: A title and subtitle with horizontal lines.
+* `formal`: Looks a bit like a thesis title page
+* `classic-lined`: different sized horizontal lines around title.
+* `colorbox`: title in a colored box
+* a file. You can pass in a static tex file for the title page. Include only the tex, no `\begin{document}` or similar.
+
+
+### `titlepage-logo`
+
+The logo for the title page. It doesn't use `logo` from the main yaml.
+
+###`titlepage-bg-image`
+
+The background image file. Default is to make this fill the whole page.  See the `bg-image` theme for how to put this in the top-left corner and make smaller. You can tile the image too.
+
+### `titlepage-header`
+
+Some text for the header. Note "header" doesn't mean it has to be at the top. You can order your elements however you want using the `elements` in `titlepage-theme`.
+
+### `titlepage-footer`
+
+Some text for the footer. Note "footer" doesn't mean it has to be at the bottom. That is just the default. You can order your elements however you want.
+
+### `titlepage-geometry`
+
+This sets the margins for the text area. If you have a background image in a top corner for example, you need to pass this in to shift the text area down so it doesn't overlap your image.
+```
+titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1in"]
+```
+
+## Title page element customiation
+
+The title page has the following elements: page, title, subtitle, author, header, footer, logo, vline, bg-image. Each of these can be customized via `titlepage-theme`.
+
+Example:
+```
+    titlepage-theme: 
+      page-html-color: "c4c4c4" 
+      title-style: "plain"
+      title-fontfamily: "Palatino"
+      title-fontstyle: ["Huge", "bfseries"]
+      title-align: left
+      title-space-after: 1in
+```
+
+### `elements`
+
+What elements do you want to appear and in what order? You can also add text to add between the elements. The element names are `\\titleblock`, `\\authorblock`, `\\affiliationblock`, `\\headerblock`, `\\footerblock`, `\\dateblock`, `\\logoblock`.
+
+An example specification would be
+
+```
+    titlepage-theme: 
+      elements: ["\\logoblock", "\\authorblock", "\\vfill", "\\titleblock", "Some text at the bottom"] 
+```
+This puts the logo at the top, followed by the author block, then some stretchable space followed by the title and some text. Basically in the tex file this will appear like
+```
+\logoblock
+\vspace{logo-space-after}
+\authorblock
+\vspace{author-space-after}
+\vfill
+\titleblock
+\vspace{title-space-after}
+Some text at the bottom
+```
+Knowing this, you can see how you might include things like horizontal lines and any text with TeX formatting in your title page. The alignment of `Some text at the bottom` will be governed by `page-align` in this case.
+
+
+### `page-html-color`
+
+The page color as an html color; leave off the leading `#`.
+
+### `-style`
+
+For title, header, footer, date, these can be 
+
+* `plain` no lines or boxes around element
+* `doubleline` a line on the top and bottom
+* `colorbox` element in a a color filled box
+* `none` the element won't be shown at all
+
+For `author-style`, these can be
+
+* `plain` authors listed with `author-sep` as separation. 
+* `plain-with-and` same as `plain` but the last two authors will be separated with and
+* `superscript` like `plain` but superscripts for affiliations
+* `superscript-with-and` like `plain-with-and` but superscripts for affiliations
+* `author-address` each author on a separate line with address(es)
+
+Note `author-sep: "newline"` will give each author on a new line. If you want to specify the character separating authors in a list, keep in mind that Pandoc strips all preceeding and following whitespace. So to specify `" -- "` as the separation you need to use `"\ --\ "`.
+
+For `affiliation-style`, these can be
+
+* `numbered-list` each affiliation gets a number on a new line
+* `numbered-list-with-correspondence` add a line for the corresponding author.
+
+### `-color`
+
+Available for page, title, subtitle, author, affiliation, header, footer, date.
+
+Do not use both `page-html-color` and `page-color`. Choose one. `page-color` will use names. What names are available? Google `latex xcolor`. Standard color names.
+
+### `-fontfamily`
+
+Available for page, title, subtitle, author, affiliation, header, footer, date.
+
+The fontfamily can be specified for the page and will be used for all the elements unless you pass in an element specific font family, like `title-fontfamily`. The font family can be a name that you have in your font library or it can be a font file. You can download lots of different font files. The is the most surefire way to get your fonts to work.
+
+The extension has an example font file: `QTDublinIrish.otf` and the extension has the [Qualitype fonts](https://ctan.org/pkg/qualitype?lang=en). To use these, specify your font as `_extensions/nmfs-opensci/titlepage/fonts/qualitype/opentype/<font-file-name>`. To use other font files, you can download a font file from the [LaTeX Font Catalogue](https://tug.org/FontCatalogue/). The otf (opentype) and ttf files should work. Some fonts will have font styling like "bold" so you will need to use the font file with the styling you want. Or you probably can download the folder with regular, italic etc files and pass in the font directory name. Note not all fonts have all styling. For example, small caps (`textsc`) is only available for some fonts.
+
+*I have fonts on my machine but Quarto can't find them!* Good luck. Stackoverflow will hopefully help you. Fonts that cannot be found is a source of much TeX misery. Using font files that you specify directly avoids this problem.
+
+### `-fontstyle`
+
+Available for title, subtitle, author, affiliation, header, footer, date.
+
+This is a list of styles to add. `["tiny", "textit"]` would be tiny size italic text. It needs to be styles that LaTeX knows; don't add `\` to the name. Sizes: tiny, small, normal, large, Large, LARGE, huge, Huge. Styles: "textsc", "textit", "textbf", "uppercase", "lowercase", "bfseries". Are common ones.
+
+### `-fontsize`
+
+Available for page, title, subtitle, author, affiliation, header, footer, date. Note, this will be ignored if you pass in a font size (like `"large"`) in `-fontfamily`.
+
+The font size in points. Leave off "pt"; just specify this as a number, like `title-fontsize: 20`.
+
+### `-spacing`
+
+Available for page, title, subtitle, author, affiliation, header, footer, date.
+
+The spacing between lines if text runs into multiple lines. Specify in points. Leave off "pt"; just specify this as a number like `title-spacing: 24`. If you only specify fontsize, it will use 1.2 fontsize as the spacing.
+
+### `-align`
+
+Available for page, title, subtitle, author, affiliation, header, footer, date, logo.
+
+The page alignment: left, right or center. For title, subtitle, author, header, and footer, you can also specify `spread` and it will spread the text across the whole page.
+
+### `-space-after`
+
+Available for title, author, affiliation, header, footer, date, logo.
+
+How much space to add after the element. Can be in, cm, mm, pt or percent of paper or text, e.g. `0.5\\textheight`. Note, in `elements`, you can have a `\\vfill` somewhere if you want the text spread fully from top to bottom. Like so
+```
+titlepage-theme:
+  elements: ["\\titleblock", "\\vfill", "\\logoblock"]
+```
+Note that you need `title-space-after` to not be set to 0 for `\vfill` to work here. It's a quirk of LaTeX that for `\vfill` to work, you have to have a `\vspace{}` line and `title-space-after` will be translated to `\vspace{title-space-after}` in the TeX file. By default, all the elements have a non-zero `space-after`, so you shouldn't run into trouble unless you were to set `title-space-after: 0` here.
+
+### `title-subtitle-space-between`
+
+Space to add between the title and subtitle.
+
+### `-colorbox-...`
+
+Available for title, author, header, footer, date.
+
+If `-style` is `colorbox`, you can specify the colorbox features:
+
+* `-colorbox-fill` fill color
+* `-colorbox-borderwidth` width of the border (in, cm, mm, pt)
+* `-colorbox-bordercolor` border color
+
+### `bg-image-size`
+
+The background image size. Specify this with units like in, cm, mm, pt or as a fraction of the paper or text like `0.5\\paperwidth`.
+
+### `bg-image-location`
+
+Where to pin the image. Can be
+
+* `URCorner` upper right corner
+* `ULCorner` upper left corner`
+* `LRCorner` lower right corner
+* `LLCorner` lower left corner
+* `TileSquare` tile the image
+
+### `bg-image-fading`
+
+Add a fade to the image. Can be
+
+* `top`, `north` top of image
+* `left`, `west` left side of image
+* `right`, `east` right side of image
+* `bottom`, `south` bottom of image
+* `fadeout` fade out in a circle starting from center
+
+### `vrule-...`
+
+The vertical rule specifications are
+
+* `vrule-width` the width as in, cm, mm, pt (e.g. "1cm") or a fraction of the paper or text like `"0.1\\textwidth"`.
+* `vrule-color` names of colors. It's the xcolors.
+* `vrule-align` left, right, leftright. The latter makes a rule on both sides.
+* `vrule-space-after` the gap between the vertical rule and the text
+* `vrule-text` text to put in the vertical rule
+* `vrule-text-color` color of the text
+* `vrule-text-style` text styles. See above on what styles are possible.
+
+## All possible `titlepage-theme` values
+
+These are features that you can customize. If you leave it out, it will either not set the value (so use whatever defaults LaTeX has) or will choose a theme specific default. See the themes.
+```
+    titlepage-theme: 
+      elements: ["\\titleblock", "Some text", "\\authorblock"]
+      page-html-color: "c4c4c4"
+      page-color: green # use either html-color or color
+      page-text-align: center
+      page-fontfamily: "Palatino"
+      page-fontsize: 40
+      page-spacing: 48
+      title-style: "plain"
+      title-color: "white"
+      title-fontfamily: "Palatino"
+      title-fontsize: 14
+      title-spacing: 16
+      title-fontstyle: ["textit", "bfseries"]
+      title-align: spread
+      title-space-after: 1in
+      title-colorbox-fill: "cyan"
+      title-colorbox-borderwidth: 2pt
+      title-colorbox-bordercolor: "black"
+      title-subtitle-space-between: "0.1\\textheight"
+      subtitle-color: "white" 
+      subtitle-fontfamily: "Palatino"
+      subtitle-fontsize: 10
+      subtitle-spacing: 12
+      subtitle-fontstyle: ["textit", "bfseries"] 
+      subtitle-align: center
+      subtitle-space-after: "1cm" 
+      author-style: "superscript"
+      author-sep: ",\ "
+      author-color: "white" 
+      author-fontfamily: "Palatino"
+      author-fontsize: 14
+      author-spacing: 16
+      author-fontstyle: ["textsc"]
+      author-align: center
+      author-space-after: "0.1\\paperheight" 
+      affiliation-style: "numberedlist"
+      affiliation-fontfamily: "Palatino"
+      affiliation-fontsize: 12
+      affiliation-spacing: 16
+      affiliation-fontstyle: "large"
+      affiliation-align: left
+      affiliation-space-after: 1in
+      footer-style: "colorbox"
+      footer-fontfamily: "Palatino"
+      footer-fontsize: 12
+      footer-spacing: 16
+      footer-fontstyle: "uppercase"
+      footer-align: left
+      footer-space-after: 1in
+      footer-colorbox-fill: "cyan"
+      footer-colorbox-borderwidth: 2pt
+      footer-colorbox-bordercolor: "black"
+      header-style: "plain"
+      header-fontfamily: "Palatino"
+      header-fontsize: 12
+      header-spacing: 20
+      header-fontstyle: "lowercase"
+      header-align: left
+      header-space-after: 1in
+      header-colorbox-fill: "cyan"
+      header-colorbox-borderwidth: 2pt
+      header-colorbox-bordercolor: "black"
+      date-style: "colorbox"
+      date-fontfamily: "Palatino"
+      date-fontsize: 12
+      date-spacing: 20
+      date-fontstyle: ["slseries"]
+      date-align: left
+      date-space-after: 1in
+      date-colorbox-fill: "cyan"
+      date-colorbox-borderwidth: 2pt
+      date-colorbox-bordercolor: "black"
+      logo-align: center
+      logo-size: 0.25
+      logo-space-after: 1in
+      bg-image-size: 0.25
+      bg-image-location: "URCorner"
+      bg-image-fading: "top"
+      bg-image-opacity: 0.5
+      vrule-width: 20pt
+      vrule-color: "blue"
+      vrule-align: left
+      vrule-space-after: 10pt
+      vrule-text: "Some text for inside vrule"
+      vrule-text-color: "white"
+      vrule-text-style: {"Huge", "textit"}
+```

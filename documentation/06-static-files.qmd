@@ -1,0 +1,55 @@
+# Static pages
+
+## title page
+
+If you have a static LaTeX title page, you can pass in 
+
+```
+titlepage: your_titlepage.tex
+```
+The file should contain only the TeX for the title page. Its contents will be input as follows
+```
+\begin{titlepage}
+\input{your_titlepage.tex}
+\end{titlepage}
+```
+Note because the `\input{}` call happens after the Pandoc template code is evaluated, this file must be a static tex file with no Pandoc meta variables.
+
+## Cover page
+
+Similarly, if you have a static LaTeX cover page, then pass in 
+
+```
+coverpage: your_coverpage.tex
+```
+The file should contain only the TeX for the title page. Its contents will be input as
+```
+\begin{titlepage}
+\input{your_coverpage.tex}
+\clearpage
+... 
+\end{titlepage}
+```
+
+## Static cover page and title page
+
+In this case, another option is to pass in `none` for `titlepage` and `coverpage` and then pass in `titlepage-include.file`.
+
+```
+    titlepage-include-file:
+      - your_coverpage.tex
+      - your_titlepage.tex
+```
+
+## Copyright and dedication pages
+
+You can include these as raw tex files. They appear after the title page. The [quarto_titlepages repository](https://github.com/nmfs-opensci/quarto_titlepages) has examples of these pages in the `tex` folder. You can include as many raw tex files for your frontmatter as you need.
+
+```
+    titlepage-include-file:
+      - tex/copyright.tex
+      - tex/dedication.tex
+```
+
+A `\clearpage` command is issued after each tex file is input. To prevent page numbers, use `\thispagestyle{empty}` in the tex file.
+

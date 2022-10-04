@@ -1,0 +1,66 @@
+project: 
+  type: website
+  output-dir: docs
+  
+website: 
+  page-navigation: true
+  title: "quarto titlepages" 
+  site-url: "https://nmfs-opensci.github.io/quarto_titlepages" 
+  repo-url: "https://github.com/nmfs-opensci/quarto_titlepages"
+  repo-actions: [edit, source, issue]
+  favicon: images/favicon.ico
+  
+  page-footer:
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    left: "&copy; CC-1.0"
+  
+  sidebar:
+    background: "#D9E3E4"
+    logo: "https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/nmfs-opensci-logo3.png"
+    favicon: images/favicon.ico
+    pinned: true
+    align: center
+    tools: 
+      - icon: globe
+        href: https://nmfs-opensci.github.io
+        text: "NMFS Open Science"
+      - icon: github
+        href: https://github.com/nmfs-opensci
+        text: "NMFS OpenSci"
+
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: 01-how-to-use-extension.qmd
+        text: How to use
+      - href: 03-titlepage-themes.qmd
+        text: Title page themes
+      - href: 02-titlepages.qmd
+        text: titlepage-theme options
+      - href: 05-coverpage-themes.qmd
+        text: Cover page themes
+      - href: 04-coverpages.qmd
+        text: coverpage-theme options
+      - href: 06-static-files.qmd
+        text: Adding static files
+      - href: 08-acknowledgements.qmd
+        text: Acknowledgements
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss] 
+      dark: [cosmo, theme-dark.scss]
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+
+
+filters:
+  - include-files.lua
+  - quarto
+
+  

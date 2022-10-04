@@ -1,0 +1,220 @@
+# Title page themes
+
+Title page themes are pre-defined sets of `titlepage-theme` options. Themes can be used as a starting place and the page elements can be further customized by passing in `titlepage-theme` values.
+
+::: {.panel-tabset}
+
+### vline
+<span style="font-size:0.8em; color: grey">[titlepage-theme code](03-titlepage-themes.html#vline-1);
+Demo PDFs in [scrbook](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf) [scrartcl](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-scrartcl.pdf) [krantz](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-krantz.pdf) [svmono](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-svmono.pdf) [elsarticle](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article-elsarticle.pdf)</span></br>
+[![](images/vline.jpg){.border fig-width="50%" fig-alt="Screenshot of vline theme. Page has a vertical line on the left with title, subtitle, authors and affiliations on the right. There is a logo towards the bottom."}](https://nmfs-opensci.github.io/quarto_titlepages/titlepages/vline/article.pdf)
+
+### bg-image
+<span style="font-size:0.8em; color: grey">[titlepage-theme code](03-titlepage-themes.html#bg-image-1)</span></br>![](images/bg-image.jpg){.border fig-alt="Screenshot of bg-image theme. Page has a background image in the top left with title, subtitle, authors and affiliations below. There is a logo towards the bottom followed by a footer."}
+
+### academic
+<span style="font-size:0.8em; color: grey">[titlepage-theme code](03-titlepage-themes.html#academic-1)</span></br>![](images/academic.png){.border fig-alt="Screenshot of academic theme. Page has header centered at top with the title centered between two horizontal lines. The authors and affiliations are in two columns with names on left and first affiliation on right."}
+
+### classic-lined
+<span style="font-size:0.8em; color: grey">[titlepage-theme code](03-titlepage-themes.html#classic-lined-1)</span></br>![](images/classic-lined.jpg){.border fig-alt="Screenshot of classic-lined theme. Page has double horizontal lines at the top and bottom. The title is in all caps, centered and at top. Authors are on one line below the title. There is a logo and footer at the bottom."}
+
+### colorbox
+<span style="font-size:0.8em; color: grey">[titlepage-theme code](03-titlepage-themes.html#colorbox-1)</span></br>![](images/colorbox.jpg){.border fig-alt="Screenshot of colorbox theme. Title has a cyan filled box around it. Author names are in bottom right corner."}
+
+### formal
+<span style="font-size:0.8em; color: grey">[titlepage-theme code](03-titlepage-themes.html#formal-1)</span></br>![](images/formal.jpg){.border fig-alt="Screenshot of formal theme. Centered text with a large title at the top. No author affiliation information."}
+
+### plain
+<span style="font-size:0.8em; color: grey">[titlepage-theme code](03-titlepage-themes.html#plain-1)</span></br>![](images/plain.jpg){.border fig-alt="Screenshot of plain theme. A fairly minimal title page with no styling."}
+
+:::
+
+## a static LaTeX file
+
+You can pass in a static file. If you do so, this will be used as the title page and the `titlepage-theme` will be ignored.
+
+```
+    titlepage: yourtexfile.tex
+```
+
+## vline
+
+```
+    titlepage: vline 
+    titlepage-logo: "img/logo.png"
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
+      page-align: "left"
+      title-style: "plain"
+      title-fontstyle: ["large", "bfseries"]
+      title-space-after: "4\\baselineskip"
+      subtitle-fontstyle: ["large", "textit"]
+      author-style: "superscript-with-and"
+      author-fontstyle: "large"
+      affiliation-style: "numbered-list-with-correspondence"
+      affiliation-fontstyle: "large"
+      affiliation-space-after: "0pt"
+      footer-style: "plain"
+      footer-fontstyle: "large"
+      logo-size: "0.15\\textheight"
+      logo-space-after: "1\\baselineskip"
+      vrule-width: "2pt"
+      vrule-align: "left"
+      vrule-color: "black"
+```
+
+## vline-text
+
+```
+    titlepage: vline 
+    titlepage-logo: "img/logo.png"
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
+      page-align: "left"
+      title-style: "plain"
+      title-fontstyle: ["large", "bfseries"]
+      title-space-after: "4\\baselineskip"
+      subtitle-fontstyle: ["large", "textit"]
+      author-style: "superscript-with-and"
+      author-fontstyle: "large"
+      affiliation-style: "numbered-list-with-correspondence"
+      affiliation-fontstyle: "large"
+      affiliation-space-after: "0pt"
+      footer-style: plain"
+      footer-fontstyle: "large"
+      logo-size: "0.15\\textheight"
+      logo-space-after: "1\\baselineskip"
+      vrule-width: "0.5in"
+      vrule-align: "left"
+      vrule-color: "blue"
+      vrule-text-color: "white"
+      vrule-text-fontstyle: ["bfseries", "Large"]
+      vrule-text: "Add your text in vrule-text"
+```
+
+## colorbox
+
+```
+    titlepage: colorbox 
+    titlepage-theme: 
+      elements: ["\\titleblock", "\\vfill", "\\authorblock"]
+      page-align: "left"
+      title-style: "colorbox"
+      title-fontsize: 100
+      title-space-after: "2\\baselineskip"
+      subtitle-fontsize: 25
+      subtitle-fontstyle: "bfseries"
+      title-subtitle-space-between: "5\\baselineskip"
+      author-style: "plain",
+      author-sep: "newline",
+      author-fontstyle: "Large"
+      author-align: "right"
+      author-space-after: "2\\baselineskip"
+      colorbox-borderwidth: "0.5cm"
+      colorbox-bordercolor: "black"
+      colorbox-fill: "cyan"
+```
+
+## academic
+
+```
+    titlepage: academic
+    titlepage-logo: "img/logo.png"
+    titlepage-theme:
+      elements: ["\\headerblock", "\\logoblock", "\\titleblock", "\\authorblock", "\\vfill", "\\dateblock"]
+      page-align: "center"
+      title-style: "doublelinetight"
+      title-fontstyle: ["huge", "bfseries"]
+      title-space-after: "1.5cm"
+      subtitle-fontstyle: "Large"
+      author-style: "two-column"
+      affiliation-style: "none"
+      author-fontstyle: "textsc"
+      affiliation-fontstyle: "large"
+      logo-space-after: "2\\baselineskip"
+      header-fontstyle: ["textsc", "LARGE"]
+      header-space-after: "1.5cm"
+      date-fontstyle: "large"
+```
+
+## bg-image
+
+```
+    titlepage: bg-image 
+    titlepage-bg-image: "img/corner-bg.png"
+    titlepage-logo: "img/logo.png"
+    titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1in"]
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\affiliationblock",  "\\logoblock", "\\footerblock"]
+      page-align: "left"
+      title-style: "plain"
+      title-fontstyle: ["large", "bfseries"]
+      title-space-after: "4\\baselineskip"
+      subtitle-fontstyle: ["large", "textit"]
+      author-style: "superscript-with-and"
+      author-fontstyle: "large"
+      affiliation-style: "numbered-list-with-correspondence"
+      affiliation-fontstyle: "large"
+      affiliation-space-after: "0pt"
+      footer-style: "plain"
+      footer-fontstyle: "large"
+      logo-size: "0.25\\textheight"
+      logo-space-after: "2\\baselineskip"
+      vrule-width: "1pt"
+      bg-image-size: "0.5\\paperwidth"
+      bg-image-location: "ULCorner"
+```
+
+## formal
+
+```
+    titlepage: formal 
+    titlepage-logo: "img/logo.png"
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "A report presented at the annual\\\\meeting on 10 August 2025\\\\ \\vspace{0.8cm}",  "\\logoblock", "\\footerblock"]
+      page-align: "center"
+      title-style: "plain"
+      title-fontstyle: ["Huge", "textbf"]
+      title-space-after: "1.5cm"
+      subtitle-fontstyle: "LARGE"
+      title-subtitle-space-between: "0.5cm"
+      author-style: "plain"
+      author-sep: "newline"
+      author-fontstyle: "textbf"
+      author-space-after: "2\\baselineskip"
+      affiliation-style: "numbered-list-with-correspondence"
+      affiliation-fontstyle: "large"
+      affiliation-space-after: "0pt"
+      footer-style: "plain"
+      footer-fontstyle: ["Large", "textsc"]
+      footer-space-after: "0pt"
+      logo-size: "0.4\\textwidth"
+      logo-space-after: "1cm"
+```
+
+## classic-lined
+
+```
+    titlepage: classic-lined 
+    titlepage-logo: "img/logo.png"
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\vfill", "\\logoblock", "\\footerblock"]
+      page-align: "center"
+      title-style: "doublelinewide"
+      title-fontsize: 30
+      title-fontstyle: "uppercase"
+      title-space-after: "0.1\\textheight"
+      subtitle-fontstyle: ]"Large", "textit"]
+      author-style: "plain"
+      author-sep: "\\hskip1em"
+      author-fontstyle: "Large"
+      author-space-after: "2\\baselineskip"
+      affiliation-style: "numbered-list-with-correspondence"
+      affiliation-fontstyle: "large"
+      affiliation-space-after: "0pt"
+      footer-style: "plain"
+      footer-fontstyle: ["large", "textsc"]
+      footer-space-after: "0pt"
+      logo-size: "0.25\\textheight"
+      logo-space-after: "1cm"
+```

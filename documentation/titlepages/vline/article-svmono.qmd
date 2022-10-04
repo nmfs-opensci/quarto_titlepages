@@ -1,0 +1,123 @@
+---
+title: The SocioEconomic Aspects of Stock Assessments
+subtitle: Recommendations for Increasing Assessment Accuracy and Improving Management Advice
+author:
+  - name: Jane Doe
+    affiliations:
+      - name: Minnesota Department of Natural Resources
+        address: 500 Lafayette Road Saint Paul, MN 55155
+      - name: University of Minnesota
+        department: Department of Mathematics
+  - name: Eva Nováková
+    affiliations:
+      - name: Czech University of Life Sciences Prague
+        address: Kamýcká 129, 165 00 Praha-Suchdol, Czechia
+  - name: Matti Meikäläinen
+    email: matti@jy.fi
+    affiliations:
+      - name: University of Jyväskylä
+        department: Department of Biological and Environmental Science
+        address: P.O. Box 35, FI-40014 University of Jyväskylä, Finland
+  - name: Ashok Kumar
+    affiliations:
+      - name: University of Minnesota
+        department: Department of Mathematics
+cover: logo.png
+editor: source
+format:
+  pdf:
+    documentclass: ../../cls/svmono
+    template-partials:
+      - "before-body.tex"
+      - "_titlepage.tex" 
+    include-in-header: 
+      - "in-header.tex"
+    toc: true
+
+bibliography: references.bib
+---
+
+# Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu tempor velit. Fusce accumsan ultrices fringilla. Praesent sed odio mi. Mauris non ligula turpis. Duis posuere lacus nec diam interdum dictum suscipit magna molestie. Vestibulum nibh dolor, interdum eget rhoncus ut, sodales eget justo. Morbi blandit lorem sit amet nulla egestas aliquam. Nunc pharetra est at nibh ullamcorper in commodo erat dignissim. Cras et suscipit enim.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget.
+
+Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
+
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\
+
+## Supporting theory
+
+Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
+
+$$
+S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+$$ {#eq-clt}
+
+denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$. Thus concludes the explanation about @eq-clt.
+
+# Materials and Methods
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget.
+
+## Study area
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat.
+
+![the study area](logo.png){#fig-logo}
+
+See @fig-logo for a picture of the study area. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
+
+Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
+
+# Results
+
+See @tbl-numbers for the table of results. Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu, fermentum sem.
+
+| Thing | Value |
+|:------|------:|
+| A 42  |    18 |
+| B 15  |    18 |
+| C 34  |    17 |
+| D 99  |    24 |
+
+: Table of numbers. {#tbl-numbers}
+
+# Discussion
+
+Lorem ipsum dolor sit amet, @tbl-numbers, consectetur adipiscing elit. @knuth84 and all things LaTeX. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
+
+Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
+
+Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu, fermentum sem.
+
+Quisque congue, ligula et mattis vulputate, arcu risus facilisis mauris, a feugiat mi mi et magna. Aliquam id malesuada neque. Sed dapibus justo mauris, sed mattis nibh sodales sit amet. Donec nec faucibus magna. Curabitur tincidunt porta egestas. In eleifend sed enim ac varius. Vivamus tempus ultrices vehicula. Vestibulum iaculis eleifend mattis. Quisque euismod dui et velit facilisis dapibus. Ut in mauris porttitor, congue orci et, sodales turpis. Pellentesque porttitor volutpat sapien vel pretium.
+
+Aliquam ante diam, euismod in nisi sed, iaculis tincidunt lacus. Cras pellentesque magna id enim pulvinar porta. Proin quis feugiat quam. Nunc vitae ultricies nulla, a facilisis tortor. Aliquam semper mi et libero tincidunt, nec iaculis erat pharetra. Duis ac pharetra purus. Nunc condimentum ex massa, a vestibulum risus bibendum in. Suspendisse suscipit, lectus pharetra vulputate fringilla, ligula sem condimentum purus, eget dapibus diam libero vitae lorem. Nam blandit pulvinar augue, non gravida risus rhoncus sed.
+
+# Conclusion
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, vehicula dictum risus fermentum, feugiat faucibus neque. Etiam purus quam, lacinia vel porta in, malesuada ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed bibendum placerat tellus, ac finibus lectus euismod eget. Nulla mattis diam vitae bibendum consequat. Etiam vitae eros tristique, porta sapien a, aliquet mauris. Praesent ultricies mi nulla, et dignissim nulla mattis at. Fusce rhoncus leo quis odio euismod, hendrerit facilisis risus tincidunt. Aenean at lectus justo. Cras fringilla lacus nisl, ac convallis odio tincidunt vel. Integer vel egestas nisi. Curabitur vitae imperdiet justo.
+
+Curabitur efficitur in risus quis egestas. Suspendisse porta interdum leo ac ultricies. Pellentesque bibendum, felis vitae fermentum eleifend, nunc nunc fermentum nisi, ac maximus felis lacus lobortis risus. Suspendisse potenti. Nunc vitae consequat elit. Fusce id ligula sed lectus condimentum laoreet. Vestibulum faucibus commodo suscipit. Nulla tempor tellus vel massa efficitur euismod. Duis nec commodo mauris, sit amet tincidunt elit. Cras mollis non ante sed venenatis. In ultricies ante accumsan lectus rhoncus, vel pharetra sem convallis.
+
+Phasellus quis orci nec erat suscipit imperdiet. Aenean pulvinar enim ut ante convallis, vel sollicitudin purus malesuada. Sed sed ullamcorper urna. Morbi sed lobortis neque, sit amet hendrerit magna. Donec ultricies pretium lorem, eget sagittis metus posuere et. Aenean ex purus, aliquam sit amet tellus ut, pellentesque porttitor orci. Integer quis mi pharetra, bibendum neque nec, viverra nulla. Cras quis magna in erat facilisis consequat. Vivamus sed lectus iaculis, euismod ligula eu, fermentum sem.
+
+Quisque congue, ligula et mattis vulputate, arcu risus facilisis mauris, a feugiat mi mi et magna. Aliquam id malesuada neque. Sed dapibus justo mauris, sed mattis nibh sodales sit amet. Donec nec faucibus magna. Curabitur tincidunt porta egestas. In eleifend sed enim ac varius. Vivamus tempus ultrices vehicula. Vestibulum iaculis eleifend mattis. Quisque euismod dui et velit facilisis dapibus. Ut in mauris porttitor, congue orci et, sodales turpis. Pellentesque porttitor volutpat sapien vel pretium.
+
+Aliquam ante diam, euismod in nisi sed, iaculis tincidunt lacus. Cras pellentesque magna id enim pulvinar porta. Proin quis feugiat quam. Nunc vitae ultricies nulla, a facilisis tortor. Aliquam semper mi et libero tincidunt, nec iaculis erat pharetra. Duis ac pharetra purus. Nunc condimentum ex massa, a vestibulum risus bibendum in. Suspendisse suscipit, lectus pharetra vulputate fringilla, ligula sem condimentum purus, eget dapibus diam libero vitae lorem. Nam blandit pulvinar augue, non gravida risus rhoncus sed.
+
+# Author Contributions
+
+Author1 designed the research. Author2 carried out all simulations, analyzed the data. Author1 and Author2 wrote the article.
+
+# Acknowledgments
+
+We thank G. Harrison, B. Harper, and J. Doe for their help.
+
+# References
+
+::: {#refs}
+:::
