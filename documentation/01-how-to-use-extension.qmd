@@ -1,6 +1,9 @@
 # How to use - Extension {#sec-howtouse}
 
-The extension provides a format `titlepage-pdf` where you can specify a variety of themes and customizations.
+The extension provides a format `titlepage-pdf` where you can specify a variety of themes and customizations. The video gives a 10 minute tutorial on how to use the extension to create a custom title page.
+
+{{< video https://www.youtube.com/embed/SZ0WJMHGDps >}}
+
 
 ## Install the extension
 
