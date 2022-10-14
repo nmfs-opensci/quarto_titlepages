@@ -5,7 +5,7 @@ website:
   page-navigation: true
   title: "quarto titlepages" 
   site-url: "https://nmfs-opensci.github.io/quarto_titlepages" 
-  repo-url: "https://github.com/nmfs-opensci/quarto_titlepages"
+  repo-url: "https://github.com/nmfs-opensci/quarto_titlepages/documentation"
   repo-actions: [edit, source, issue]
   favicon: images/favicon.ico
   
@@ -24,8 +24,8 @@ website:
         href: https://nmfs-opensci.github.io
         text: "NMFS Open Science"
       - icon: github
-        href: https://github.com/nmfs-opensci
-        text: "NMFS OpenSci"
+        href: https://github.com/nmfs-opensci/quarto_titlepages
+        text: "quarto_titlepages repo"
 
     style: "docked"
     search: true
