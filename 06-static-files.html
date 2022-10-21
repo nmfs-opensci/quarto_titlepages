@@ -189,8 +189,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="static-cover-page-and-title-page" class="level2">
 <h2 class="anchored" data-anchor-id="static-cover-page-and-title-page">Static cover page and title page</h2>
-<p>In this case, another option is to pass in <code>none</code> for <code>titlepage</code> and <code>coverpage</code> and then pass in <code>titlepage-include.file</code>.</p>
-<pre><code>    titlepage-include-file:
+<p>In this case, another option is to pass in <code>none</code> for <code>titlepage</code> and <code>coverpage</code> and then pass in <code>titlepage-include.file</code>. The format section of your yaml will look like this:</p>
+<pre><code>format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+    titlepage: "none"
+    coverpage: "none"
+    titlepage-include-file:
       - your_coverpage.tex
       - your_titlepage.tex</code></pre>
 </section>
