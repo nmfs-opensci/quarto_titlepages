@@ -33,9 +33,16 @@ The file should contain only the TeX for the title page. Its contents will be in
 
 ## Static cover page and title page
 
-In this case, another option is to pass in `none` for `titlepage` and `coverpage` and then pass in `titlepage-include.file`.
+In this case, another option is to pass in `none` for `titlepage` and `coverpage` and then pass in `titlepage-include.file`. The format section of your yaml will look like this:
 
 ```
+format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+    titlepage: "none"
+    coverpage: "none"
     titlepage-include-file:
       - your_coverpage.tex
       - your_titlepage.tex
