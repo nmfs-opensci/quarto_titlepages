@@ -7,32 +7,21 @@ assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+quarto_titlepages relies on features of Quarto that are new. To help us out, 
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+* Please run `quarto --version` from a terminal (shell) and report the Quarto version you are using. 
+* Tell us what operating system you are on.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+Does the bug relate to PDF output? 
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+* How you are rendering Quarto docs (RStudio, VS Code, command line, etc)?
+* What TeX and version you are using? Run `tex --version` in a terminal (or shell).
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+### Description
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+<!-- Description of the issue -->
 
-**Additional context**
-Add any other context about the problem here.
+### Steps to Reproduce
+
+*if applicable*
+
