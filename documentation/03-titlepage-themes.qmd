@@ -204,7 +204,7 @@ You can pass in a static file. If you do so, this will be used as the title page
       title-fontsize: 30
       title-fontstyle: "uppercase"
       title-space-after: "0.1\\textheight"
-      subtitle-fontstyle: ]"Large", "textit"]
+      subtitle-fontstyle: ["Large", "textit"]
       author-style: "plain"
       author-sep: "\\hskip1em"
       author-fontstyle: "Large"
