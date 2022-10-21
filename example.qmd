@@ -46,8 +46,8 @@ format:
       - tex/dedication.tex
     coverpage: "great-wave"
     keep-tex: true
-    include-in-header: |
-      text:
+    include-in-header:
+      text: |
         % delete. this is for the example w CZ diacritics
         \usepackage{babel}
         \babelprovide[import]{czech}
