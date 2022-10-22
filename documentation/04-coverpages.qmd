@@ -25,15 +25,15 @@ This is the overall theme. Default is `false`; no cover page. Note although `cov
 * `great-wave` the great-wave demo coverpage
 * a file. You can pass in a static tex file for the cover page. Include only the tex, no `\begin{document}` or similar.
 
-###`coverpage-title`
+### `coverpage-title`
 
 Pass this in if you want the title to be different than what is in the main yaml.
 
-###`coverpage-author`
+### `coverpage-author`
 
 Pass this in if you want the title to be different than what is in the main yaml. For example, just last names or initials plus last name.
 
-###`coverpage-bg-image`
+### `coverpage-bg-image`
 
 The background image file. Default is to make this fill the whole page.  You can change the size and place the image using `bg-image-left` and `bg-image-bottom` to specify distance from left and bottom of the page.
 
@@ -58,7 +58,7 @@ Some text for the footer. Note "footer" doesn't mean it has to be at the bottom.
     footer-bottom: 10in
 ```
 
-## Cover page element customiation
+## Cover page element customization
 
 The cover page has the following elements: page, title, author, header, footer, bg-image. Each of these can be customized via the `coverpage-theme`.
 
