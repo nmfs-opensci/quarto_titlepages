@@ -154,10 +154,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#top-level-specifications" id="toc-top-level-specifications" class="nav-link" data-scroll-target="#top-level-specifications">Top level specifications</a>
   <ul class="collapse">
   <li><a href="#coverpage" id="toc-coverpage" class="nav-link" data-scroll-target="#coverpage"><code>coverpage</code></a></li>
+  <li><a href="#coverpage-title" id="toc-coverpage-title" class="nav-link" data-scroll-target="#coverpage-title"><code>coverpage-title</code></a></li>
+  <li><a href="#coverpage-author" id="toc-coverpage-author" class="nav-link" data-scroll-target="#coverpage-author"><code>coverpage-author</code></a></li>
+  <li><a href="#coverpage-bg-image" id="toc-coverpage-bg-image" class="nav-link" data-scroll-target="#coverpage-bg-image"><code>coverpage-bg-image</code></a></li>
   <li><a href="#coverpage-header" id="toc-coverpage-header" class="nav-link" data-scroll-target="#coverpage-header"><code>coverpage-header</code></a></li>
   <li><a href="#coverpage-footer" id="toc-coverpage-footer" class="nav-link" data-scroll-target="#coverpage-footer"><code>coverpage-footer</code></a></li>
   </ul></li>
-  <li><a href="#cover-page-element-customiation" id="toc-cover-page-element-customiation" class="nav-link" data-scroll-target="#cover-page-element-customiation">Cover page element customiation</a>
+  <li><a href="#cover-page-element-customization" id="toc-cover-page-element-customization" class="nav-link" data-scroll-target="#cover-page-element-customization">Cover page element customization</a>
   <ul class="collapse">
   <li><a href="#page-html-color" id="toc-page-html-color" class="nav-link" data-scroll-target="#page-html-color"><code>page-html-color</code></a></li>
   <li><a href="#style" id="toc-style" class="nav-link" data-scroll-target="#style"><code>-style</code></a></li>
@@ -210,11 +213,17 @@ ul.task-list li input[type="checkbox"] {
 <li><code>great-wave</code> the great-wave demo coverpage</li>
 <li>a file. You can pass in a static tex file for the cover page. Include only the tex, no <code>\begin{document}</code> or similar.</li>
 </ul>
-<p>###<code>coverpage-title</code></p>
+</section>
+<section id="coverpage-title" class="level3">
+<h3 class="anchored" data-anchor-id="coverpage-title"><code>coverpage-title</code></h3>
 <p>Pass this in if you want the title to be different than what is in the main yaml.</p>
-<p>###<code>coverpage-author</code></p>
+</section>
+<section id="coverpage-author" class="level3">
+<h3 class="anchored" data-anchor-id="coverpage-author"><code>coverpage-author</code></h3>
 <p>Pass this in if you want the title to be different than what is in the main yaml. For example, just last names or initials plus last name.</p>
-<p>###<code>coverpage-bg-image</code></p>
+</section>
+<section id="coverpage-bg-image" class="level3">
+<h3 class="anchored" data-anchor-id="coverpage-bg-image"><code>coverpage-bg-image</code></h3>
 <p>The background image file. Default is to make this fill the whole page. You can change the size and place the image using <code>bg-image-left</code> and <code>bg-image-bottom</code> to specify distance from left and bottom of the page.</p>
 <ul>
 <li>An image file</li>
@@ -235,8 +244,8 @@ ul.task-list li input[type="checkbox"] {
     footer-bottom: 10in</code></pre>
 </section>
 </section>
-<section id="cover-page-element-customiation" class="level2">
-<h2 class="anchored" data-anchor-id="cover-page-element-customiation">Cover page element customiation</h2>
+<section id="cover-page-element-customization" class="level2">
+<h2 class="anchored" data-anchor-id="cover-page-element-customization">Cover page element customization</h2>
 <p>The cover page has the following elements: page, title, author, header, footer, bg-image. Each of these can be customized via the <code>coverpage-theme</code>.</p>
 <p>Example:</p>
 <pre><code>    coverpage-theme: 

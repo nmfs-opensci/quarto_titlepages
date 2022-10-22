@@ -154,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#title-page" id="toc-title-page" class="nav-link" data-scroll-target="#title-page">title page</a></li>
   <li><a href="#cover-page" id="toc-cover-page" class="nav-link" data-scroll-target="#cover-page">Cover page</a></li>
   <li><a href="#static-cover-page-and-title-page" id="toc-static-cover-page-and-title-page" class="nav-link" data-scroll-target="#static-cover-page-and-title-page">Static cover page and title page</a></li>
-  <li><a href="#copyright-and-dedication-pages" id="toc-copyright-and-dedication-pages" class="nav-link" data-scroll-target="#copyright-and-dedication-pages">Copyright and dedication pages</a></li>
+  <li><a href="#copyright-dedication-and-other-static-pages" id="toc-copyright-dedication-and-other-static-pages" class="nav-link" data-scroll-target="#copyright-dedication-and-other-static-pages">Copyright, dedication and other static pages</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/documentation/06-static-files.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/documentation/06-static-files.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -201,13 +201,23 @@ ul.task-list li input[type="checkbox"] {
       - your_coverpage.tex
       - your_titlepage.tex</code></pre>
 </section>
-<section id="copyright-and-dedication-pages" class="level2">
-<h2 class="anchored" data-anchor-id="copyright-and-dedication-pages">Copyright and dedication pages</h2>
-<p>You can include these as raw tex files. They appear after the title page. The <a href="https://github.com/nmfs-opensci/quarto_titlepages">quarto_titlepages repository</a> has examples of these pages in the <code>tex</code> folder. You can include as many raw tex files for your frontmatter as you need.</p>
-<pre><code>    titlepage-include-file:
+<section id="copyright-dedication-and-other-static-pages" class="level2">
+<h2 class="anchored" data-anchor-id="copyright-dedication-and-other-static-pages">Copyright, dedication and other static pages</h2>
+<p>You can include the dynamically created title page and cover page along with static pages. In this case the static pages appear after the title page or after the cover page. The <a href="https://github.com/nmfs-opensci/quarto_titlepages">quarto_titlepages repository</a> has examples of these pages in the <code>tex</code> folder. You can include as many raw tex files for your frontmatter as you need.</p>
+<p>Here a copyright page appears after the cover page and the dedication and a picture appear after the title page.</p>
+<pre><code>format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+    titlepage: "vline"
+    coverpage: "otter"
+    coverpage-include-file:
       - tex/copyright.tex
-      - tex/dedication.tex</code></pre>
-<p>A <code>\clearpage</code> command is issued after each tex file is input. To prevent page numbers, use <code>\thispagestyle{empty}</code> in the tex file.</p>
+    titlepage-include-file:
+      - tex/dedication.tex
+      - tex/prettypicture.tex</code></pre>
+<p>A <code>\clearpage</code> command is issued after each tex file is input. To prevent page numbers, use <code>\thispagestyle{empty}</code> in the static tex files.</p>
 
 
 </section>
