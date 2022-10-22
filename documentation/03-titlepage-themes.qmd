@@ -110,9 +110,9 @@ You can pass in a static file. If you do so, this will be used as the title page
       author-fontstyle: "Large"
       author-align: "right"
       author-space-after: "2\\baselineskip"
-      colorbox-borderwidth: "0.5cm"
-      colorbox-bordercolor: "black"
-      colorbox-fill: "cyan"
+      title-colorbox-borderwidth: "0.5cm"
+      title-colorbox-bordercolor: "black"
+      title-colorbox-fill: "cyan"
 ```
 
 ## academic
