@@ -48,15 +48,25 @@ format:
       - your_titlepage.tex
 ```
 
-## Copyright and dedication pages
+## Copyright, dedication and other static pages
 
-You can include these as raw tex files. They appear after the title page. The [quarto_titlepages repository](https://github.com/nmfs-opensci/quarto_titlepages) has examples of these pages in the `tex` folder. You can include as many raw tex files for your frontmatter as you need.
+You can include the dynamically created title page and cover page along with static pages. In this case the static pages appear after the title page or after the cover page. The [quarto_titlepages repository](https://github.com/nmfs-opensci/quarto_titlepages) has examples of these pages in the `tex` folder. You can include as many raw tex files for your frontmatter as you need.
 
+Here a copyright page appears after the cover page and the dedication and a picture appear after the title page.
 ```
-    titlepage-include-file:
+format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+    titlepage: "vline"
+    coverpage: "otter"
+    coverpage-include-file:
       - tex/copyright.tex
+    titlepage-include-file:
       - tex/dedication.tex
+      - tex/prettypicture.tex
 ```
 
-A `\clearpage` command is issued after each tex file is input. To prevent page numbers, use `\thispagestyle{empty}` in the tex file.
+A `\clearpage` command is issued after each tex file is input. To prevent page numbers, use `\thispagestyle{empty}` in the static tex files.
 
