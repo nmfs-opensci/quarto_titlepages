@@ -9,6 +9,11 @@ $-- % Coverpage
 $if(coverpage-true)$
 $_coverpage.tex()$
 $endif$
+$if(coverpage-include-file)$
+
+$for(coverpage-include-file)$\input{$coverpage-include-file$}
+\clearpage
+$endfor$$endif$
 
 $-- % Titlepage
 $if(titlepage-true)$
@@ -19,8 +24,8 @@ $else$
 $_titlepage.tex()$
 $endif$
 $endif$
-
 $if(titlepage-include-file)$
+
 $for(titlepage-include-file)$\input{$titlepage-include-file$}
 \clearpage
 $endfor$$endif$
