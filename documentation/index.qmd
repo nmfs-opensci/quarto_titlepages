@@ -14,7 +14,7 @@ From command line, to install into a new directory:
 quarto use template nmfs-opensci/quarto_titlepages
 ```
 
-To add to an existing directory, cd to the directory and then:
+To add to an existing directory or update the extension if there have been new releases, cd to the directory and then:
 
 ``` bash
 quarto install extension nmfs-opensci/quarto_titlepages

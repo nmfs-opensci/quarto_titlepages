@@ -5,8 +5,6 @@
 
 [Read the documentation](https://nmfs-opensci.github.io/quarto_titlepages/)
 
-VERSION 3.0 RELEASED
-
 A Quarto extension for adding a custom title page or book cover to your PDF output using the information in the YAML in your Quarto doc, i.e. from the `xyz.qmd` for an single doc and from `index.qmd` for a [Quarto](https://quarto.org/) book. 
 
 <img src="./img/example.png" width="200"/>
@@ -19,9 +17,9 @@ quarto use template nmfs-opensci/quarto_titlepages
 
 This will install the extension plus all the demo files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.
 
-## Install for an existing document
+## Install or update for an existing document
 
-You may also use this format with an existing Quarto project or document. This will install only the files in the `_extension` folder and will not install the files above that (the demo files).
+You may also use this format with an existing Quarto project or document. This will install only the files in the `_extension` folder and will not install the files above that (the demo files). This is also how to update the extension if there have been changes.
 
 From the quarto project or document directory, run the following command:
 
