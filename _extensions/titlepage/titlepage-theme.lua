@@ -11,6 +11,13 @@ local function getVal(s)
   return pandoc.utils.stringify(s)
 end
 
+local function is_equal (s, val)
+  if isEmpty(s) then return false end
+  if getVal(s) == val then return true end
+
+  return false
+end
+
 local function has_value (tab, val)
     for index, value in ipairs(tab) do
         if value == val then
@@ -433,7 +440,7 @@ Error checking and setting the style codes
   set_style("titlepage", "author", okvals)
   okvals = {"none", "numbered-list", "numbered-list-with-correspondence"}
   set_style("titlepage", "affiliation", okvals)
-  if getVal(m['titlepage-theme']["author-style"]) == "author-address" and getVal(m['titlepage-theme']["author-align"]) == "spread" then
+  if is_equal(m['titlepage-theme']["author-style"], "author-address") and is_equal(m['titlepage-theme']["author-align"], "spread") then
     error("\n\nquarto_titlepages error: If author-style is two-column, then author-align cannot be spread.\n\n")
   end
 
