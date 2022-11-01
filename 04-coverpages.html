@@ -179,6 +179,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#left" id="toc-left" class="nav-link" data-scroll-target="#left"><code>-left</code></a></li>
   <li><a href="#bottom" id="toc-bottom" class="nav-link" data-scroll-target="#bottom"><code>-bottom</code></a></li>
   <li><a href="#width" id="toc-width" class="nav-link" data-scroll-target="#width"><code>-width</code></a></li>
+  <li><a href="#node-spec" id="toc-node-spec" class="nav-link" data-scroll-target="#node-spec"><code>-node-spec</code></a></li>
   <li><a href="#bg-image-left" id="toc-bg-image-left" class="nav-link" data-scroll-target="#bg-image-left"><code>bg-image-left</code></a></li>
   <li><a href="#bg-image-size" id="toc-bg-image-size" class="nav-link" data-scroll-target="#bg-image-size"><code>bg-image-size</code></a></li>
   <li><a href="#bg-image-opacity" id="toc-bg-image-opacity" class="nav-link" data-scroll-target="#bg-image-opacity"><code>bg-image-opacity</code></a></li>
@@ -251,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="cover-page-element-customization" class="level2">
 <h2 class="anchored" data-anchor-id="cover-page-element-customization">Cover page element customization</h2>
-<p>The cover page has the following elements: page, title, author, header, footer, bg-image. Each of these can be customized via the <code>coverpage-theme</code>.</p>
+<p>The cover page has the following elements: page, title, author, header, footer, date, bg-image. Each of these can be customized via the <code>coverpage-theme</code>.</p>
 <p>Example:</p>
 <pre><code>    coverpage-theme: 
       page-html-color: "c4c4c4" # html color
@@ -276,7 +277,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="color" class="level3">
 <h3 class="anchored" data-anchor-id="color"><code>-color</code></h3>
 <p>Available for page, title, author, header, footer, date.</p>
-<p>Do not use both <code>page-html-color</code> and <code>page-color</code>. Choose one. <code>page-color</code> will use names. What names are available? Google <code>latex xcolor</code>. Standard color names.</p>
+<p>Do not use both <code>page-html-color</code> and <code>page-color</code>. Choose one. <code>page-color</code> will use names.</p>
+<p>The <code>xcolor</code> LaTeX package is used so you can define any color you want in your LaTeX header. For example, define the color <code>mygreen</code> include this in your format yaml. Then you can use <code>mygreen</code> as a color name.</p>
+<pre><code>    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}</code></pre>
 </section>
 <section id="fontfamily" class="level3">
 <h3 class="anchored" data-anchor-id="fontfamily"><code>-fontfamily</code></h3>
@@ -325,6 +330,14 @@ ul.task-list li input[type="checkbox"] {
 <p>Available for title, author, header, footer, date.</p>
 <p>Width of the box that holds the text. Smaller will mean that the text is wrapped. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like <code>"0.5\\paperwidth"</code> or <code>"0.9\\textwidth"</code>.</p>
 <p>*If you pass in <code>-left</code> for an element, you must also pass in <code>-width</code> for that element. Since you can pass in widths in any units, there is no way to compute a width for you.</p>
+</section>
+<section id="node-spec" class="level3">
+<h3 class="anchored" data-anchor-id="node-spec"><code>-node-spec</code></h3>
+<p>Available for title, author, header, footer, date.</p>
+<p>These elements appear in the LaTeX file in tikz node. You can pass many different specifications to nodes. There are so many options. See https://tikz.dev/ or just try Googling tikz and what you want.</p>
+<p>Here is an example of putting the title in a red 4 cm high box with 10mm padding. Sadly, the width needs to be set by <code>title-width</code>. The other elements (footer, header, date) use the same format and will behave similarly.</p>
+<pre><code>      title-node-spec: "fill=red, inner sep=10mm, minimum height=4cm"
+      title-width: "8cm"</code></pre>
 </section>
 <section id="bg-image-left" class="level3">
 <h3 class="anchored" data-anchor-id="bg-image-left"><code>bg-image-left</code></h3>

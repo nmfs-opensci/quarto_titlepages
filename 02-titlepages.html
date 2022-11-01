@@ -304,6 +304,10 @@ Some text at the bottom</code></pre>
 <h3 class="anchored" data-anchor-id="color"><code>-color</code></h3>
 <p>Available for page, title, subtitle, author, affiliation, header, footer, date.</p>
 <p>Do not use both <code>page-html-color</code> and <code>page-color</code>. Choose one. <code>page-color</code> will use names. What names are available? Google <code>latex xcolor</code>. Standard color names.</p>
+<p>The <code>xcolor</code> LaTeX package is used so you can define any color you want with a <code>xcolor</code> command. Then you can refer to this color where you want to specify a color. You define the color in your LaTeX header. For example, define the color <code>mygreen</code> by including this in your format yaml and then you can use <code>mygreen</code> as a color name.</p>
+<pre><code>    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}</code></pre>
 </section>
 <section id="fontfamily" class="level3">
 <h3 class="anchored" data-anchor-id="fontfamily"><code>-fontfamily</code></h3>
@@ -353,6 +357,10 @@ Some text at the bottom</code></pre>
 <li><code>-colorbox-borderwidth</code> width of the border (in, cm, mm, pt)</li>
 <li><code>-colorbox-bordercolor</code> border color</li>
 </ul>
+<p>The <code>xcolor</code> LaTeX package is used so you can define any color you want in your LaTeX header. For example, define the color <code>mygreen</code> include this in your format yaml. Then you can use <code>mygreen</code> as a color name.</p>
+<pre><code>    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}</code></pre>
 </section>
 <section id="bg-image-size" class="level3">
 <h3 class="anchored" data-anchor-id="bg-image-size"><code>bg-image-size</code></h3>
@@ -385,13 +393,17 @@ Some text at the bottom</code></pre>
 <p>The vertical rule specifications are</p>
 <ul>
 <li><code>vrule-width</code> the width as in, cm, mm, pt (e.g.&nbsp;“1cm”) or a fraction of the paper or text like <code>"0.1\\textwidth"</code>.</li>
-<li><code>vrule-color</code> names of colors. It’s the xcolors.</li>
+<li><code>vrule-color</code> names of colors. It’s the xcolors and you can define colors.</li>
 <li><code>vrule-align</code> left, right, leftright. The latter makes a rule on both sides.</li>
 <li><code>vrule-space-after</code> the gap between the vertical rule and the text</li>
 <li><code>vrule-text</code> text to put in the vertical rule</li>
 <li><code>vrule-text-color</code> color of the text</li>
 <li><code>vrule-text-style</code> text styles. See above on what styles are possible.</li>
 </ul>
+<p>The <code>xcolor</code> LaTeX package is used so you can define any color you want in your LaTeX header. For example, define the color <code>mygreen</code> include this in your format yaml. Then you can use <code>mygreen</code> as a color name.</p>
+<pre><code>    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}</code></pre>
 </section>
 </section>
 <section id="all-possible-titlepage-theme-values" class="level2">

@@ -222,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#install-the-extension" id="toc-install-the-extension" class="nav-link" data-scroll-target="#install-the-extension">Install the extension</a>
   <ul class="collapse">
   <li><a href="#install-into-new-directory" id="toc-install-into-new-directory" class="nav-link" data-scroll-target="#install-into-new-directory">Install into new directory</a></li>
-  <li><a href="#install-for-an-existing-directory" id="toc-install-for-an-existing-directory" class="nav-link" data-scroll-target="#install-for-an-existing-directory">Install for an existing directory</a></li>
+  <li><a href="#install-or-update-for-an-existing-directory" id="toc-install-or-update-for-an-existing-directory" class="nav-link" data-scroll-target="#install-or-update-for-an-existing-directory">Install or update for an existing directory</a></li>
   </ul></li>
   <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
   <li><a href="#customizing" id="toc-customizing" class="nav-link" data-scroll-target="#customizing">Customizing</a></li>
@@ -233,6 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#other-classes" id="toc-other-classes" class="nav-link" data-scroll-target="#other-classes">Other classes</a></li>
   </ul></li>
   <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of contents</a></li>
+  <li><a href="#colors" id="toc-colors" class="nav-link" data-scroll-target="#colors">Colors</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/documentation/01-how-to-use-extension.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/documentation/01-how-to-use-extension.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -253,9 +254,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template nmfs-opensci/quarto_titlepages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will install the extension in the <code>_extension</code> folder plus all the demo files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.</p>
 </section>
-<section id="install-for-an-existing-directory" class="level3">
-<h3 class="anchored" data-anchor-id="install-for-an-existing-directory">Install for an existing directory</h3>
-<p>You may also use this format with an existing Quarto project or document. This will install only the files in the <code>_extension</code> folder and will not install the files above that (the demo files).</p>
+<section id="install-or-update-for-an-existing-directory" class="level3">
+<h3 class="anchored" data-anchor-id="install-or-update-for-an-existing-directory">Install or update for an existing directory</h3>
+<p>You may also use this format with an existing Quarto project or document. This will install only the files in the <code>_extension</code> folder and will not install the files above that (the demo files). Use the same command to update an existing extension.</p>
 <p>From the quarto project or document directory, run the following command:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install extension nmfs-opensci/quarto_titlepages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -322,6 +323,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     toc-depth: 3
     lof: true
     lot: true</code></pre>
+</section>
+<section id="colors" class="level2">
+<h2 class="anchored" data-anchor-id="colors">Colors</h2>
+<p>The <code>xcolor</code> LaTeX package is used so you can define any color you want with a <code>xcolor</code> command. Then you can refer to this color where you want to specify a color.</p>
+<pre><code>format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+    titlepage: "academic"
+    titlepage-footer: |
+      NOAA Fisheries OpenSci\
+      Tools for Open Science\
+      [https://github.com/nmfs-opensci](https://github.com/nmfs-opensci)\
+    coverpage: "great-wave"
+    coverpage-theme:
+      title-node-spec: "fill=mygreen, inner sep=10mm, minimum height=4cm"
+      title-width: "8cm"
+    titlepage-theme:
+      footer-color: mygreen
+    keep-tex: true
+    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}</code></pre>
 
 
 </section>
