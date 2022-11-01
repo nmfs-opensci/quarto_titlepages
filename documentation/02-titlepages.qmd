@@ -129,6 +129,15 @@ Available for page, title, subtitle, author, affiliation, header, footer, date.
 
 Do not use both `page-html-color` and `page-color`. Choose one. `page-color` will use names. What names are available? Google `latex xcolor`. Standard color names.
 
+The `xcolor` LaTeX package is used so you can define any color you want with a `xcolor` command. Then you can refer to this color where you want to specify a color. You define the color in your LaTeX header. For example, define the color `mygreen` by including this in your format yaml and then you can use `mygreen` as a color name.
+
+```
+    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}
+```
+
+
 ### `-fontfamily`
 
 Available for page, title, subtitle, author, affiliation, header, footer, date.
@@ -188,6 +197,14 @@ If `-style` is `colorbox`, you can specify the colorbox features:
 * `-colorbox-borderwidth` width of the border (in, cm, mm, pt)
 * `-colorbox-bordercolor` border color
 
+The `xcolor` LaTeX package is used so you can define any color you want in your LaTeX header. For example, define the color `mygreen` include this in your format yaml. Then you can use `mygreen` as a color name.
+
+```
+    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}
+```
+
 ### `bg-image-size`
 
 The background image size. Specify this with units like in, cm, mm, pt or as a fraction of the paper or text like `0.5\\paperwidth`.
@@ -217,12 +234,20 @@ Add a fade to the image. Can be
 The vertical rule specifications are
 
 * `vrule-width` the width as in, cm, mm, pt (e.g. "1cm") or a fraction of the paper or text like `"0.1\\textwidth"`.
-* `vrule-color` names of colors. It's the xcolors.
+* `vrule-color` names of colors. It's the xcolors and you can define colors.
 * `vrule-align` left, right, leftright. The latter makes a rule on both sides.
 * `vrule-space-after` the gap between the vertical rule and the text
 * `vrule-text` text to put in the vertical rule
 * `vrule-text-color` color of the text
 * `vrule-text-style` text styles. See above on what styles are possible.
+
+The `xcolor` LaTeX package is used so you can define any color you want in your LaTeX header. For example, define the color `mygreen` include this in your format yaml. Then you can use `mygreen` as a color name.
+
+```
+    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}
+```
 
 ## All possible `titlepage-theme` values
 

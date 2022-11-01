@@ -60,7 +60,7 @@ Some text for the footer. Note "footer" doesn't mean it has to be at the bottom.
 
 ## Cover page element customization
 
-The cover page has the following elements: page, title, author, header, footer, bg-image. Each of these can be customized via the `coverpage-theme`.
+The cover page has the following elements: page, title, author, header, footer, date, bg-image. Each of these can be customized via the `coverpage-theme`.
 
 Example:
 ```
@@ -90,7 +90,15 @@ For title, author, header, footer, date, these can be
 
 Available for page, title, author, header, footer, date.
 
-Do not use both `page-html-color` and `page-color`. Choose one. `page-color` will use names. What names are available? Google `latex xcolor`. Standard color names.
+Do not use both `page-html-color` and `page-color`. Choose one. `page-color` will use names. 
+
+The `xcolor` LaTeX package is used so you can define any color you want in your LaTeX header. For example, define the color `mygreen` include this in your format yaml. Then you can use `mygreen` as a color name. 
+
+```
+    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}
+```
 
 ### `-fontfamily`
 
@@ -151,6 +159,19 @@ Available for title, author, header, footer, date.
 Width of the box that holds the text. Smaller will mean that the text is wrapped. Measurement is in any units that LaTeX knows (in, cm, mm, pt) or something like `"0.5\\paperwidth"` or `"0.9\\textwidth"`.
 
 *If you pass in `-left` for an element, you must also pass in `-width` for that element. Since you can pass in widths in any units, there is no way to compute a width for you.
+
+### `-node-spec`
+
+Available for title, author, header, footer, date.
+
+These elements appear in the LaTeX file in tikz node. You can pass many different specifications to nodes. There are so many options. See https://tikz.dev/ or just try Googling tikz and what you want.
+
+Here is an example of putting the title in a red 4 cm high box with 10mm padding. Sadly, the width needs to be set by `title-width`. The other elements (footer, header, date) use the same format and will behave similarly.
+```
+      title-node-spec: "fill=red, inner sep=10mm, minimum height=4cm"
+      title-width: "8cm"
+```
+
 
 ### `bg-image-left`
 

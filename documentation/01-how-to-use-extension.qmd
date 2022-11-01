@@ -15,9 +15,9 @@ quarto use template nmfs-opensci/quarto_titlepages
 
 This will install the extension in the `_extension` folder plus all the demo files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.
 
-### Install for an existing directory
+### Install or update for an existing directory
 
-You may also use this format with an existing Quarto project or document. This will install only the files in the `_extension` folder and will not install the files above that (the demo files).
+You may also use this format with an existing Quarto project or document. This will install only the files in the `_extension` folder and will not install the files above that (the demo files). Use the same command to update an existing extension.
 
 From the quarto project or document directory, run the following command:
 
@@ -114,5 +114,31 @@ format:
     lot: true
 ```
 
+## Colors
+
+The `xcolor` LaTeX package is used so you can define any color you want with a `xcolor` command. Then you can refer to this color where you want to specify a color.
+
+```
+format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+    titlepage: "academic"
+    titlepage-footer: |
+      NOAA Fisheries OpenSci\
+      Tools for Open Science\
+      [https://github.com/nmfs-opensci](https://github.com/nmfs-opensci)\
+    coverpage: "great-wave"
+    coverpage-theme:
+      title-node-spec: "fill=mygreen, inner sep=10mm, minimum height=4cm"
+      title-width: "8cm"
+    titlepage-theme:
+      footer-color: mygreen
+    keep-tex: true
+    include-in-header:
+      text: |
+        \definecolor{mygreen}{HTML}{808000}
+```
 
 
