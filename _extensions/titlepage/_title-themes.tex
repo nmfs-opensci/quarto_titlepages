@@ -16,7 +16,7 @@ $if(subtitle)$
 \vspace{\betweentitlesubtitle}
 {
 $if(titlepage-theme.subtitle-fontsize)$\fontsize{$titlepage-theme.subtitle-fontsize$}{$titlepage-theme.subtitle-spacing$}\selectfont
-$endif${$for(titlepage-theme.subtitle-fontstyle)$\$titlepage-theme.subtitle-fontstyle${$endfor$\nohyphens{$subtitle$}$for(titlepage-theme.subtitle-fontstyle)$}$endfor$}\par
+$endif$$if(titlepage-theme.subtitle-color)$\textcolor{$titlepage-theme.subtitle-color$}$endif${$for(titlepage-theme.subtitle-fontstyle)$\$titlepage-theme.subtitle-fontstyle${$endfor$\nohyphens{$subtitle$}$for(titlepage-theme.subtitle-fontstyle)$}$endfor$}\par
 }$endif$}
 $--
 $if(titlepage-style-code.title.none)$
