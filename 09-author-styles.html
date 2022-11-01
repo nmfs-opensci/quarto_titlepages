@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages – static-files</title>
+<title>quarto titlepages – author-styles</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./08-acknowledgements.html" rel="next">
-<link href="./09-author-styles.html" rel="prev">
+<link href="./06-static-files.html" rel="next">
+<link href="./04-coverpages.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -63,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -132,12 +133,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-author-styles.html" class="sidebar-item-text sidebar-link">Author-Affiliation styles</a>
+  <a href="./09-author-styles.html" class="sidebar-item-text sidebar-link active">Author-Affiliation styles</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-static-files.html" class="sidebar-item-text sidebar-link active">Adding static files</a>
+  <a href="./06-static-files.html" class="sidebar-item-text sidebar-link">Adding static files</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -154,75 +155,171 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#static-pages" id="toc-static-pages" class="nav-link active" data-scroll-target="#static-pages">Static pages</a>
+  <li><a href="#author-and-affiliation-styles" id="toc-author-and-affiliation-styles" class="nav-link active" data-scroll-target="#author-and-affiliation-styles">Author and affiliation styles</a>
   <ul class="collapse">
-  <li><a href="#title-page" id="toc-title-page" class="nav-link" data-scroll-target="#title-page">title page</a></li>
-  <li><a href="#cover-page" id="toc-cover-page" class="nav-link" data-scroll-target="#cover-page">Cover page</a></li>
-  <li><a href="#static-cover-page-and-title-page" id="toc-static-cover-page-and-title-page" class="nav-link" data-scroll-target="#static-cover-page-and-title-page">Static cover page and title page</a></li>
-  <li><a href="#copyright-dedication-and-other-static-pages" id="toc-copyright-dedication-and-other-static-pages" class="nav-link" data-scroll-target="#copyright-dedication-and-other-static-pages">Copyright, dedication and other static pages</a></li>
+  <li><a href="#author-and-affiliation-yaml" id="toc-author-and-affiliation-yaml" class="nav-link" data-scroll-target="#author-and-affiliation-yaml">author and affiliation yaml</a></li>
+  <li><a href="#author-styles" id="toc-author-styles" class="nav-link" data-scroll-target="#author-styles">Author styles</a>
+  <ul class="collapse">
+  <li><a href="#author-sep" id="toc-author-sep" class="nav-link" data-scroll-target="#author-sep"><code>author-sep</code></a></li>
+  <li><a href="#author-space-after" id="toc-author-space-after" class="nav-link" data-scroll-target="#author-space-after"><code>author-space-after</code></a></li>
+  </ul></li>
+  <li><a href="#affiliation-styles" id="toc-affiliation-styles" class="nav-link" data-scroll-target="#affiliation-styles">Affiliation styles</a>
+  <ul class="collapse">
+  <li><a href="#affiliation-sep" id="toc-affiliation-sep" class="nav-link" data-scroll-target="#affiliation-sep"><code>affiliation-sep</code></a></li>
+  <li><a href="#affilitation-space-after" id="toc-affilitation-space-after" class="nav-link" data-scroll-target="#affilitation-space-after"><code>affilitation-space-after</code></a></li>
+  </ul></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/documentation/06-static-files.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/documentation/06-static-files.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/documentation/09-author-styles.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/documentation/09-author-styles.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="static-pages" class="level1">
-<h1>Static pages</h1>
-<section id="title-page" class="level2">
-<h2 class="anchored" data-anchor-id="title-page">title page</h2>
-<p>If you have a static LaTeX title page, you can pass in</p>
-<pre><code>titlepage: your_titlepage.tex</code></pre>
-<p>The file should contain only the TeX for the title page. Its contents will be input as follows</p>
-<pre><code>\begin{titlepage}
-\input{your_titlepage.tex}
-\end{titlepage}</code></pre>
-<p>Note because the <code>\input{}</code> call happens after the Pandoc template code is evaluated, this file must be a static tex file with no Pandoc meta variables.</p>
+<section id="author-and-affiliation-styles" class="level1">
+<h1>Author and affiliation styles</h1>
+<p>Below are shown the different formats for specifying the author affiliations.</p>
+<section id="author-and-affiliation-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="author-and-affiliation-yaml">author and affiliation yaml</h2>
+<p>Here is the basic format for author affiliations in quarto_titlepages. Notice how <code>ref:</code> can be used when authors share an affiliation.</p>
+<pre><code>  - name: Jane Doe
+    affiliations:
+      - id: mdnr
+        name: The 
+        department: Minnesota Department of Natural Resources
+        address: 500 Lafayette Road, Saint Paul, MN 55155
+      - id: uw-safs
+        name: University of Washington
+        department: School of Aquatic and Fisheries Sciences
+  - name: Eva Nováková
+    affiliations:
+      - ref: uw-safs
+  - name: Matti Meikäläinen
+    email: matti@jy.fi
+    affiliations:
+      - name: University of Kemijärvi
+        department: Department of Biological and Environmental Science
+        address: Kylmäniementie 79, 98120, KEMIJÄRVI, Finland
+  - name: Ashok Kumar
+    affiliations:
+      - ref: mdnr
+      - name: HØnefoss Institute
+        address: R Tradição 35, Portugal 2950-726</code></pre>
 </section>
-<section id="cover-page" class="level2">
-<h2 class="anchored" data-anchor-id="cover-page">Cover page</h2>
-<p>Similarly, if you have a static LaTeX cover page, then pass in</p>
-<pre><code>coverpage: your_coverpage.tex</code></pre>
-<p>The file should contain only the TeX for the title page. Its contents will be input as</p>
-<pre><code>\begin{titlepage}
-\input{your_coverpage.tex}
-\clearpage
-... 
-\end{titlepage}</code></pre>
+<section id="author-styles" class="level2">
+<h2 class="anchored" data-anchor-id="author-styles">Author styles</h2>
+<p>For <code>author-style</code>, these can be</p>
+<ul>
+<li><code>plain</code> authors listed with <code>author-sep</code> as separation.</li>
+</ul>
+<p>First Name, Second Name, Third Name</p>
+<ul>
+<li><code>plain-with-and</code> same as <code>plain</code> but the last two authors will be separated with and</li>
+</ul>
+<p>First Name, Second Name, and Third Name</p>
+<ul>
+<li><code>superscript</code> like <code>plain</code> but superscripts for affiliations</li>
+</ul>
+<p>First Name<span class="math inline">\(^1\)</span>, Second Name<span class="math inline">\(^2\)</span>, Third Name<span class="math inline">\(^1\)</span></p>
+<ul>
+<li><code>superscript-with-and</code> like <code>plain-with-and</code> but superscripts for affiliations</li>
+</ul>
+<p>First Name<span class="math inline">\(^1\)</span>, Second Name<span class="math inline">\(^2\)</span>, and Third Name<span class="math inline">\(^1\)</span></p>
+<ul>
+<li><code>author-address</code> each author on a separate line with address(es)</li>
+</ul>
+<p>First Name, Affiliation Name, Affiliation Department, Affiliation Address</p>
+<p>Second Name, Affiliation Name, Affiliation Department, Affiliation Address</p>
+<section id="author-sep" class="level3">
+<h3 class="anchored" data-anchor-id="author-sep"><code>author-sep</code></h3>
+<p>This is the character used between author names. Note <code>author-sep: "newline"</code> will put each author on a new line. If you want to specify the character separating authors in a list, keep in mind that Pandoc strips all preceeding and following whitespace. So to specify <code>" -- "</code> as the separation you need to use <code>"\ --\ "</code>.</p>
 </section>
-<section id="static-cover-page-and-title-page" class="level2">
-<h2 class="anchored" data-anchor-id="static-cover-page-and-title-page">Static cover page and title page</h2>
-<p>In this case, another option is to pass in <code>none</code> for <code>titlepage</code> and <code>coverpage</code> and then pass in <code>titlepage-include.file</code>. The format section of your yaml will look like this:</p>
-<pre><code>format: 
-  titlepage-pdf:
-    documentclass: scrbook
-    classoption: ["oneside", "open=any"]
-    number-sections: true
-    titlepage: "none"
-    coverpage: "none"
-    titlepage-include-file:
-      - your_coverpage.tex
-      - your_titlepage.tex</code></pre>
+<section id="author-space-after" class="level3">
+<h3 class="anchored" data-anchor-id="author-space-after"><code>author-space-after</code></h3>
+<p>The space between authors. Only used when <code>author-sep: "newline</code> is set.</p>
 </section>
-<section id="copyright-dedication-and-other-static-pages" class="level2">
-<h2 class="anchored" data-anchor-id="copyright-dedication-and-other-static-pages">Copyright, dedication and other static pages</h2>
-<p>You can include the dynamically created title page and cover page along with static pages. In this case the static pages appear after the title page or after the cover page. The <a href="https://github.com/nmfs-opensci/quarto_titlepages">quarto_titlepages repository</a> has examples of these pages in the <code>tex</code> folder. You can include as many raw tex files for your frontmatter as you need.</p>
-<p>Here a copyright page appears after the cover page and the dedication and a picture appear after the title page.</p>
-<pre><code>format: 
-  titlepage-pdf:
-    documentclass: scrbook
-    classoption: ["oneside", "open=any"]
-    number-sections: true
-    titlepage: "vline"
-    coverpage: "otter"
-    coverpage-include-file:
-      - tex/copyright.tex
-    titlepage-include-file:
-      - tex/dedication.tex
-      - tex/prettypicture.tex</code></pre>
-<p>A <code>\clearpage</code> command is issued after each tex file is input. To prevent page numbers, use <code>\thispagestyle{empty}</code> in the static tex files.</p>
+</section>
+<section id="affiliation-styles" class="level2">
+<h2 class="anchored" data-anchor-id="affiliation-styles">Affiliation styles</h2>
+<p>These can be</p>
+<ul>
+<li><code>numbered-list</code> each affiliation gets a number on a new line</li>
+<li><code>numbered-list-with-correspondence</code> add a line for the corresponding author.</li>
+</ul>
+<section id="affiliation-sep" class="level3">
+<h3 class="anchored" data-anchor-id="affiliation-sep"><code>affiliation-sep</code></h3>
+<p>This is the character used between affiliation parts. <code>affiliation-sep: "newline"</code> will put each part on a new line. See below for how to get each part of an <em>address</em> on a newline.</p>
+<p>This would appear as</p>
+<pre><code>    affiliations:
+      - name: University of Kemijärvi
+        department: Department of Biological and Environmental Science
+        address: 
+          - Kylmäniementie 79
+          - 98120
+          - KEMIJÄRVI, Finland
+    titlepage-theme:
+      affiliation-style: "numbered-list"
+      affiliation-sep: "newline"</code></pre>
+<p>would appear as</p>
+<ol type="1">
+<li>University of Kemijärvi<br>
+Department of Biological and Environmental Science<br>
+Kylmäniementie 79<br>
+98120<br>
+KEMIJÄRVI, Finland</li>
+</ol>
+</section>
+<section id="affilitation-space-after" class="level3">
+<h3 class="anchored" data-anchor-id="affilitation-space-after"><code>affilitation-space-after</code></h3>
+<p>The space after each affiliation in the numbered list.</p>
+</section>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<pre><code>    titlepage-theme:
+      author-style: author-address
+      author-space-after: "1cm"
+      affiliation-sep: "\ --\ "</code></pre>
+<p>First Name – Address Line 1 – Address Line 2</p>
+<p>Second Name – Address Line 1 – Address Line 2</p>
+<pre><code>    titlepage-theme:
+      author-style: author-address
+      author-space-between: "10pt"
+      affiliation-sep: "newline"
+      affiliation-style: "none"</code></pre>
+<p><em>The <code>affiliation-style: none</code> prevents the numbered affiliation block from being shown in case that is flowing from the titlepage theme.</em></p>
+<p>First Name<br>
+Address Line 1<br>
+Address Line 2</p>
+<p>1 cm gap</p>
+<p>Second Name<br>
+Address Line 1<br>
+Address Line 2</p>
+<pre><code>    titlepage-theme:
+      author-style: author-address
+      author-align: "spread"
+      author-space-after: "1cm"
+      affiliation-sep: "newline"</code></pre>
+<table class="table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>: :: {style=“text-align: center”} First Name<br>
+Address Line 1<br>
+Address Line 2 :::</td>
+<td><div style="text-align:  center">
+<p>Second Name<br>
+Address Line 1<br>
+Address Line 2</p>
+</div></td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
@@ -442,13 +539,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./09-author-styles.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Author-Affiliation styles</span>
+      <a href="./04-coverpages.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">coverpage-theme options</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./08-acknowledgements.html" class="pagination-link">
-        <span class="nav-page-text">Acknowledgements</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-static-files.html" class="pagination-link">
+        <span class="nav-page-text">Adding static files</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
