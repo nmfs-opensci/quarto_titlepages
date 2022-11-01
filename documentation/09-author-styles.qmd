@@ -1,0 +1,162 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Author and affiliation styles
+
+Below are  shown the different formats for specifying the author affiliations. 
+
+## author and affiliation yaml
+
+Here is the basic format for author affiliations in quarto_titlepages. Notice how `ref:` can be used when authors share an affiliation.
+
+      - name: Jane Doe
+        affiliations:
+          - id: mdnr
+            name: The 
+            department: Minnesota Department of Natural Resources
+            address: 500 Lafayette Road, Saint Paul, MN 55155
+          - id: uw-safs
+            name: University of Washington
+            department: School of Aquatic and Fisheries Sciences
+      - name: Eva Nováková
+        affiliations:
+          - ref: uw-safs
+      - name: Matti Meikäläinen
+        email: matti@jy.fi
+        affiliations:
+          - name: University of Kemijärvi
+            department: Department of Biological and Environmental Science
+            address: Kylmäniementie 79, 98120, KEMIJÄRVI, Finland
+      - name: Ashok Kumar
+        affiliations:
+          - ref: mdnr
+          - name: HØnefoss Institute
+            address: R Tradição 35, Portugal 2950-726
+
+## Author styles
+
+For `author-style`, these can be
+
+-   `plain` authors listed with `author-sep` as separation.
+
+First Name, Second Name, Third Name
+
+-   `plain-with-and` same as `plain` but the last two authors will be
+    separated with and
+
+First Name, Second Name, and Third Name
+
+-   `superscript` like `plain` but superscripts for affiliations
+
+First Name$^1$, Second Name$^2$, Third Name$^1$
+
+-   `superscript-with-and` like `plain-with-and` but superscripts for
+    affiliations
+
+First Name$^1$, Second Name$^2$, and Third Name$^1$
+
+-   `author-address` each author on a separate line with address(es)
+
+First Name, Affiliation Name, Affiliation Department, Affiliation
+Address
+
+Second Name, Affiliation Name, Affiliation Department, Affiliation
+Address
+
+### `author-sep`
+
+This is the character used between author names. Note
+`author-sep: "newline"` will put each author on a new line. If you want
+to specify the character separating authors in a list, keep in mind that
+Pandoc strips all preceeding and following whitespace. So to specify
+`" -- "` as the separation you need to use `"\ --\ "`.
+
+### `author-space-after`
+
+The space between authors. Only used when `author-sep: "newline` is set.
+
+## Affiliation styles
+
+These can be
+
+-   `numbered-list` each affiliation gets a number on a new line
+-   `numbered-list-with-correspondence` add a line for the corresponding
+    author.
+
+### `affiliation-sep`
+
+This is the character used between affiliation parts.
+`affiliation-sep: "newline"` will put each part on a new line. See below
+for how to get each part of an *address* on a newline.
+
+This would appear as
+
+        affiliations:
+          - name: University of Kemijärvi
+            department: Department of Biological and Environmental Science
+            address: 
+              - Kylmäniementie 79
+              - 98120
+              - KEMIJÄRVI, Finland
+        titlepage-theme:
+          affiliation-style: "numbered-list"
+          affiliation-sep: "newline"
+
+would appear as
+
+1.  University of Kemijärvi\
+    Department of Biological and Environmental Science\
+    Kylmäniementie 79\
+    98120\
+    KEMIJÄRVI, Finland
+
+### `affilitation-space-after`
+
+The space after each affiliation in the numbered list.
+
+## Examples
+
+        titlepage-theme:
+          author-style: author-address
+          author-space-after: "1cm"
+          affiliation-sep: "\ --\ "
+
+First Name -- Address Line 1 -- Address Line 2
+
+Second Name -- Address Line 1 -- Address Line 2
+
+        titlepage-theme:
+          author-style: author-address
+          author-space-between: "10pt"
+          affiliation-sep: "newline"
+          affiliation-style: "none"
+
+*The `affiliation-style: none` prevents the numbered affiliation block from being shown in case that is flowing from the titlepage theme.*
+
+First Name\
+Address Line 1\
+Address Line 2
+
+1 cm gap
+
+Second Name\
+Address Line 1\
+Address Line 2
+
+        titlepage-theme:
+          author-style: author-address
+          author-align: "spread"
+          author-space-after: "1cm"
+          affiliation-sep: "newline"
+
++---------------------------------+-----------------------------------+
+| :                               | ::: {style="text-align:  center"} |
+| :: {style="text-align: center"} | Second Name\                      |
+| First Name\                     | Address Line 1\                   |
+| Address Line 1\                 | Address Line 2                    |
+| Address Line 2                  | :::                               |
+| :::                             |                                   |
++---------------------------------+-----------------------------------+

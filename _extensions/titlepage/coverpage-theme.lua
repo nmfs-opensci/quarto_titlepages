@@ -365,6 +365,18 @@ Set author sep character
   end
 
 --[[
+Set affiliation sep character
+--]]
+  if isEmpty(m['coverpage-theme']["affiliation-sep"]) then
+    m['coverpage-theme']["affiliation-sep"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex",",~")}
+  end
+  if getVal(m['coverpage-theme']["affiliation-sep"]) == "newline" then
+    m['coverpage-theme']["affiliation-sep"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","\\\\")}
+  end
+
+--[[
 Set the defaults for the coverpage alignments
 default coverpage alignment is left
 because coverpage uses tikzpicture, the alignments of the elements must be set

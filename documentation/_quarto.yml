@@ -44,6 +44,8 @@ website:
         text: Cover page themes
       - href: 04-coverpages.qmd
         text: coverpage-theme options
+      - href: 09-author-styles.qmd
+        text: Author-Affiliation styles
       - href: 06-static-files.qmd
         text: Adding static files
       - href: 08-acknowledgements.qmd

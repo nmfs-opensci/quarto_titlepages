@@ -433,6 +433,9 @@ Error checking and setting the style codes
   set_style("titlepage", "author", okvals)
   okvals = {"none", "numbered-list", "numbered-list-with-correspondence"}
   set_style("titlepage", "affiliation", okvals)
+  if getVal(m['titlepage-theme']["author-style"]) == "author-address" and getVal(m['titlepage-theme']["author-align"]) == "spread" then
+    error("\n\nquarto_titlepages error: If author-style is two-column, then author-align cannot be spread.\n\n")
+  end
 
 --[[
 Set the fontsize defaults
@@ -462,6 +465,18 @@ Set author sep character
   end
   if getVal(m['titlepage-theme']["author-sep"]) == "newline" then
     m['titlepage-theme']["author-sep"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex","\\\\")}
+  end
+
+--[[
+Set affiliation sep character
+--]]
+  if isEmpty(m['titlepage-theme']["affiliation-sep"]) then
+    m['titlepage-theme']["affiliation-sep"] = pandoc.MetaInlines{
+          pandoc.RawInline("latex",",~")}
+  end
+  if getVal(m['titlepage-theme']["affiliation-sep"]) == "newline" then
+    m['titlepage-theme']["affiliation-sep"] = pandoc.MetaInlines{
           pandoc.RawInline("latex","\\\\")}
   end
   
