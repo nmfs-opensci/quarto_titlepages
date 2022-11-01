@@ -98,6 +98,24 @@ $endif$\node[anchor=$coverpage-theme.footer-anchor$, align=$coverpage-theme.foot
 \end{scope}
 $endif$
 $endif$
+$if(coverpage-style-code.date.plain)$
+$if(coverpage-date)$
+
+% Date
+\newcommand{\datelocationleft}{$coverpage-theme.date-left$}
+\newcommand{\datelocationbottom}{$coverpage-theme.date-bottom$}
+\newcommand{\datelocationalign}{$coverpage-theme.date-align$}
+
+\begin{scope}
+{%
+$if(coverpage-theme.date-fontsize)$\fontsize{$coverpage-theme.date-fontsize$}{$coverpage-theme.date-spacing$}\selectfont
+$endif$ $if(coverpage-theme.date-fontfamily)$\coverpagedatefont
+$endif$\node[anchor=$coverpage-theme.date-anchor$, align=$coverpage-theme.date-align$, rotate=$coverpage-theme.date-rotate$] (Date1) at %
+($$(current page.south west)+(\datelocationleft,\datelocationbottom)$$)  [text width = $coverpage-theme.date-width$]  {$if(coverpage-theme.date-color)$\textcolor{$coverpage-theme.date-color$}$endif${$for(coverpage-theme.date-fontstyle)$\$coverpage-theme.date-fontstyle${$endfor$\nohyphens{$coverpage-date$}$for(coverpage-theme.date-fontstyle)$}$endfor$}};
+}
+\end{scope}
+$endif$
+$endif$
 
 \end{tikzpicture}
 \clearpage

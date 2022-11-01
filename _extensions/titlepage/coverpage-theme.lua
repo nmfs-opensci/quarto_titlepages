@@ -258,7 +258,7 @@ Set up the demos
   end
 
 -- set the coverpage values unless user passed them in
-  for key, val in pairs({"title", "author"}) do
+  for key, val in pairs({"title", "author", "date"}) do
     if isEmpty(m['coverpage-' .. val]) then
       if not isEmpty(m[val]) then
         m['coverpage-' .. val] = m[val]
@@ -272,7 +272,7 @@ Set up the demos
 
 -- fix "true" to figure out what was passed in
   if choice == "true" then
-    for key, val in pairs({"title", "author", "footer", "header"}) do
+    for key, val in pairs({"title", "author", "footer", "header", "date"}) do
       if not isEmpty(m['coverpage-' .. val]) then
         m['coverpage-theme'][val .. "-style"] = "plain"
       else
@@ -292,6 +292,7 @@ Error checking and setting the style codes
   set_style("coverpage", "footer", okvals)
   set_style("coverpage", "header", okvals)
   set_style("coverpage", "author", okvals)
+  set_style("coverpage", "date", okvals)
 
   if isEmpty(m['coverpage-bg-image']) then
     m['coverpage-bg-image'] = "none" -- need for stringify to work
@@ -387,7 +388,7 @@ because coverpage uses tikzpicture, the alignments of the elements must be set
   for key, val in pairs({"page", "title", "author", "footer", "header", "logo", "date"}) do
     if not isEmpty(m["coverpage-theme"][val .. "-align"]) then
       okvals = {"right", "left", "center"}
-      if has_value({"title", "author", "footer", "header"}, val) then table.insert(okvals, "spread") end
+      if has_value({"title", "author", "footer", "header", "date"}, val) then table.insert(okvals, "spread") end
       ok = check_yaml (m["coverpage-theme"][val .. "-align"], "coverpage-theme: " .. val .. "-align", okvals)
       if not ok then error("") end
     else

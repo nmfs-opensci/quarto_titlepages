@@ -39,15 +39,6 @@ $if(titlepage-theme.page-color)$
 \usepackage[pagecolor=none]{pagecolor}
 $endif$
 
-$if(coverpage-title-fontfamily)$
-\usepackage{fontspec}
-\newfontfamily{\coverpagetitlefont}{$coverpage-title-fontfamily$}
-$endif$
-$if(coverpage-author-fontfamily)$
-\usepackage{fontspec}
-\newfontfamily{\coverpageauthorfont}{$coverpage-author-fontfamily$}
-$endif$
-
 $if(titlepage)$
 % Set the titlepage font families
 $if(titlepage-theme.page-fontfamily)$
@@ -88,25 +79,25 @@ $if(coverpage-theme.page-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\coverpagefont}{$coverpage-theme.page-fontfamily$}
 $endif$
-
 $if(coverpage-theme.title-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\coverpagetitlefont}{$coverpage-theme.title-fontfamily$}
 $endif$
-
 $if(coverpage-theme.author-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\coverpageauthorfont}{$coverpage-theme.author-fontfamily$}
 $endif$
-
 $if(coverpage-theme.footer-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\coverpagefooterfont}{$coverpage-theme.footer-fontfamily$}
 $endif$
-
 $if(coverpage-theme.header-fontfamily)$
 \usepackage{fontspec}
 \newfontfamily{\coverpageheaderfont}{$coverpage-theme.header-fontfamily$}
+$endif$
+$if(coverpage-theme.date-fontfamily)$
+\usepackage{fontspec}
+\newfontfamily{\coverpagedatefont}{$coverpage-theme.date-fontfamily$}
 $endif$
 
 $endif$
