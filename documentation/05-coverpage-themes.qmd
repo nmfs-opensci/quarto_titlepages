@@ -53,16 +53,14 @@ This demo has an image that fade to the top with a page color that matches the t
   coverpage-footer: "Templates for title pages and covers"
   coverpage-theme:
     page-html-color: "F6D5A8"
-    title-fontfamily: "Palatino"
-    title-fontsize: 30
-    title-fontstyle: ["textbf", "textit"]
+    title-fontfamily: "QTDublinIrish.otf"
+    title-fontsize: 40
     title-align: "right"
     title-bottom: "10in"
     header-style: "none"
     author-style: "none"
     footer-fontsize: 20
-    footer-fontfamily: "Palatino"
-    footer-fontstyle: "textit"
+    footer-fontfamily: "QTDublinIrish.otf"
     footer-align: "right"
     footer-bottom: "9.5in"
     date-style: "none"
