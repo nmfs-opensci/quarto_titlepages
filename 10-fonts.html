@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto titlepages – readme</title>
+<title>quarto titlepages – fonts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,6 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./08-acknowledgements.html" rel="next">
+<link href="./06-static-files.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -140,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-fonts.html" class="sidebar-item-text sidebar-link">Specifying fonts</a>
+  <a href="./10-fonts.html" class="sidebar-item-text sidebar-link active">Specifying fonts</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -157,19 +159,147 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#folder-for-documentation" id="toc-folder-for-documentation" class="nav-link active" data-scroll-target="#folder-for-documentation">Folder for documentation</a></li>
+  <li><a href="#fonts" id="toc-fonts" class="nav-link active" data-scroll-target="#fonts">Fonts</a>
+  <ul class="collapse">
+  <li><a href="#quarto-manual-on-fonts" id="toc-quarto-manual-on-fonts" class="nav-link" data-scroll-target="#quarto-manual-on-fonts">Quarto manual on fonts</a></li>
+  <li><a href="#koma-script-font-settings" id="toc-koma-script-font-settings" class="nav-link" data-scroll-target="#koma-script-font-settings">KOMA-Script font settings</a></li>
+  <li><a href="#how-to-specify-fonts" id="toc-how-to-specify-fonts" class="nav-link" data-scroll-target="#how-to-specify-fonts">How to specify fonts</a>
+  <ul class="collapse">
+  <li><a href="#font-name" id="toc-font-name" class="nav-link" data-scroll-target="#font-name">Font name</a></li>
+  <li><a href="#font-file" id="toc-font-file" class="nav-link" data-scroll-target="#font-file">Font file</a></li>
+  <li><a href="#font-packages" id="toc-font-packages" class="nav-link" data-scroll-target="#font-packages">Font packages</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/documentation/Readme.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/documentation/Readme.md" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/edit/main/documentation/10-fonts.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/blob/main/documentation/10-fonts.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/quarto_titlepages/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="folder-for-documentation" class="level1">
-<h1>Folder for documentation</h1>
+<section id="fonts" class="level1">
+<h1>Fonts</h1>
+<p>A nice aspect of LaTeX is all the custom font options that you have. However, specification of fonts can be frustrating because fonts are specific to your operating system and finding out what fonts you have and what they are called can be difficult. Fonts being specific to the computer you are on also interferes with cross-platform portability.</p>
+<p>tldr; Jump the section on using font packages.</p>
+<section id="quarto-manual-on-fonts" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-manual-on-fonts">Quarto manual on fonts</h2>
+<p>Start with the Quarto section on <a href="https://quarto.org/docs/reference/formats/pdf.html#fonts">specifying fonts</a> for PDF, but be aware that many of the commands will not work “out of the box”. As noted in the manual, yaml such as <code>mainfont</code> takes the name of any “system font”. Determining what system fonts you have can be a chore. So I do not use Quarto’s font specifications via say <code>mainfont</code>. LaTeX and fonts is just too finicky and I find it easier to specify my font directly. See section below on using a font file or font package to get fonts.</p>
+</section>
+<section id="koma-script-font-settings" class="level2">
+<h2 class="anchored" data-anchor-id="koma-script-font-settings">KOMA-Script font settings</h2>
+<p>If you are using the <code>scrbook</code> and <code>scrartcl</code> documentclasses that are default with Quarto, be aware that KOMA is a bit non-intuitive with font specification. Specifically, it does not use <code>mainfont</code> for the chapter, section, caption, caption labels…the list goes on and on. Getting all your documents in the same font can be a tedious process. You need to specify that separately. The default for KOMA-Script headers is sans serif and bold (<code>\sffamily\bfseries</code>) while the default for the main text is serif (<code>\rmfamily</code>).</p>
+<p>Note, if you don’t like these design choices then switching to another book document class would be wise. Because resetting all of these for KOMA-Script is going to be annoying.</p>
+<p>Here are some options for changing your header fonts.</p>
+<p>Default roman but still bold.</p>
+<pre><code>format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    include-in-header:
+      text: |
+        \addtokomafont{disposition}{\rmfamily}</code></pre>
+<p>Something like this should work too</p>
+<pre><code>\setkomafont{disposition}{\normalcolor\bfseries}</code></pre>
+<p>Exactly as in the text body (i.e., not bold)</p>
+<pre><code>format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    include-in-header:
+      text: |
+        \setkomafont{disposition}{\normalfont}</code></pre>
+<p>Only change the chapters to serif:</p>
+<pre><code>\addtokomafont{chapter}{\rmfamily}</code></pre>
+<p>Change the captions and caption labels</p>
+<pre><code>\setkomafont{caption}{\normalfont}
+\setkomafont{captionlabel}{\normalfont}</code></pre>
+</section>
+<section id="how-to-specify-fonts" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-specify-fonts">How to specify fonts</h2>
+<section id="font-name" class="level3">
+<h3 class="anchored" data-anchor-id="font-name">Font name</h3>
+<p>If you know the font is installed and you know its name, you can use that whenever you are asked for <code>font-family</code> in the yaml.</p>
+</section>
+<section id="font-file" class="level3">
+<h3 class="anchored" data-anchor-id="font-file">Font file</h3>
+<p>You can download an opentype font file (otf or ttf) and use that. Download from <a href="https://tug.org/FontCatalogue/opentypefonts.html">here</a>. Note, in the <code>_extensions/nmfs-opensci/titlepage</code> folder, you will find the QT opentype font files.</p>
+<p>You can use that font file as a font name anywhere you are asked for a font. For example:</p>
+<pre><code>mainfont: "QTDublinIrish.otf"
+titlepage-theme:
+  title-fontfamily: QTDublinIrish.otf</code></pre>
+<p>If however you are using a KOMA-Script document class and want to change the header to a different font (that is not the main font) then you need to do something different.</p>
+<pre><code>    include-in-header:
+      text: |
+        \newfontfamily\myFont{QTDublinIrish.otf}
+        \setkomafont{disposition}{\myFont}</code></pre>
+</section>
+<section id="font-packages" class="level3">
+<h3 class="anchored" data-anchor-id="font-packages">Font packages</h3>
+<p>The standard way to change all the fonts in a LaTeX document is to use a package in the header. <a href="http://latex.silmaril.ie/formattinginformation/fontuse.html#otfonts">Here is some help on packages</a>. Below I give a curated selection of font packages.</p>
+<p>How does a font package work? Different ones behave differently. Some just create a font-family and you have issue a command like</p>
+<pre><code>\fontfamily{&lt;fontname&gt;}\selectfont</code></pre>
+<p>Unfortunately the documentation doesn’t always tell you the font name. Instead sometimes they tell you a command you need to issue to “turn on” the font for a section of your document. I will not cover these types of packages.</p>
+<p>Other packages will redefine a serif font (<code>\rmfamily</code>), a sans serif font (<code>\sffamily</code>) and a tele-type family. When you load these packages, the font changes because the fonts for sections are defined using say <code>\rmfamily</code>. Below are some standard versions of these packages with the instructions that you need in your <code>include-in-header</code> section of your yaml.</p>
+<p>Change serif font to Times, sans serif to Helvetica, and tt to Courier. The <code>\renewcommand</code> bit is setting the default family to Times (named <code>ptm</code>).</p>
+<pre><code>    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{mathptmx}
+        \renewcommand{\familydefault}{ptm}
+        \setkomafont{disposition}{\normalfont}</code></pre>
+<p>The mathptmx page says it is obsolete. So you might use <a href="https://ctan.org/pkg/newtx">newtx</a> but I haven’t had 100 percent luck with this package. Particularly there seems to be some conflict with <code>\usepackage{newtxmath}</code> which you’d want for your math.</p>
+<pre><code>    include-in-header:
+      text: |
+        \usepackage[type1text]{newtxtext}
+        \usepackage{unicode-math} 
+        \setkomafont{disposition}{\normalfont}</code></pre>
+<p>Change all the text fonts to Palatino.</p>
+<pre><code>    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{mathpazo}
+        \renewcommand{\familydefault}{ppl} % Palatino is named ppl
+        \setkomafont{disposition}{\normalfont}</code></pre>
+<p>Change fonts to Helvetica</p>
+<pre><code>    include-in-header:
+      text: |
+        \usepackage{helvet}
+        \usepackage[T1]{fontenc}
+        \renewcommand{\familydefault}{phv}
+        \setkomafont{disposition}{\normalfont}</code></pre>
+<p>Change fonts to Avant Garde</p>
+<pre><code>    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{avant}
+        \renewcommand{\familydefault}{pag}
+        \setkomafont{disposition}{\normalfont}</code></pre>
+<p>Change fonts to Bookman</p>
+<pre><code>    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{bookman}
+        \renewcommand{\familydefault}{pbk}
+        \setkomafont{disposition}{\normalfont}</code></pre>
+<p>Change fonts to Courier</p>
+<pre><code>    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{courier}
+        \renewcommand{\familydefault}{pcr}
+        \setkomafont{disposition}{\normalfont}</code></pre>
+<p>Change fonts to Zaph Chancery</p>
+<pre><code>    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{chancery}
+        \renewcommand{\familydefault}{pzc}
+        \setkomafont{disposition}{\normalfont}</code></pre>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -384,6 +514,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06-static-files.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Adding static files</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./08-acknowledgements.html" class="pagination-link">
+        <span class="nav-page-text">Acknowledgements</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
