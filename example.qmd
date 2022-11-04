@@ -55,7 +55,6 @@ format:
 ---
 
 
-
 ## YAML additions for themes
 
 Some themes need some additional YAML information to work.

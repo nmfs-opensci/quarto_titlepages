@@ -146,7 +146,7 @@ The fontfamily can be specified for the page and will be used for all the elemen
 
 The extension has an example font file: `QTDublinIrish.otf` and the extension has the [Qualitype fonts](https://ctan.org/pkg/qualitype?lang=en). To use these, specify your font as `_extensions/nmfs-opensci/titlepage/fonts/qualitype/opentype/<font-file-name>`. To use other font files, you can download a font file from the [LaTeX Font Catalogue](https://tug.org/FontCatalogue/). The otf (opentype) and ttf files should work. Some fonts will have font styling like "bold" so you will need to use the font file with the styling you want. Or you probably can download the folder with regular, italic etc files and pass in the font directory name. Note not all fonts have all styling. For example, small caps (`textsc`) is only available for some fonts.
 
-*I have fonts on my machine but Quarto can't find them!* Good luck. Stackoverflow will hopefully help you. Fonts that cannot be found is a source of much TeX misery. Using font files that you specify directly avoids this problem.
+*I have fonts on my machine but Quarto can't find them!* Good luck. Stackoverflow will hopefully help you. Fonts that cannot be found is a source of much TeX misery. Using font files that you specify directly avoids this problem. You should also be aware that LaTeX uses packages to change the fonts, which will be surprising if you don't come from a LaTeX background.  See the chapter on [fonts](10-fonts.html).
 
 ### `-fontstyle`
 

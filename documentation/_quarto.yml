@@ -48,6 +48,8 @@ website:
         text: Author-Affiliation styles
       - href: 06-static-files.qmd
         text: Adding static files
+      - href: 10-fonts.qmd
+        text: Specifying fonts
       - href: 08-acknowledgements.qmd
         text: Acknowledgements
 

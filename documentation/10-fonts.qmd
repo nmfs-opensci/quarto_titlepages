@@ -1,0 +1,170 @@
+# Fonts
+
+A nice aspect of LaTeX is all the custom font options that you have. However, specification of fonts can be frustrating because fonts are specific to your operating system and finding out what fonts you have and what they are called can be difficult. Fonts being specific to the computer you are on also interferes with cross-platform portability.
+
+tldr; Jump the section on using font packages.
+
+## Quarto manual on fonts
+
+Start with the Quarto section on [specifying fonts](https://quarto.org/docs/reference/formats/pdf.html#fonts) for PDF, but be aware that many of the commands will not work "out of the box". As noted in the manual, yaml such as `mainfont` takes the name of any "system font". Determining what system fonts you have can be a chore. So I do not use Quarto's font specifications via say `mainfont`. LaTeX and fonts is just too finicky and I find it easier to specify my font directly. See section below on using a font file or font package to get fonts.
+
+## KOMA-Script font settings
+
+If you are using the `scrbook` and `scrartcl` documentclasses that are default with Quarto, be aware that KOMA is a bit non-intuitive with font specification. Specifically, it does not use `mainfont` for the chapter, section, caption, caption labels...the list goes on and on. Getting all your documents in the same font can be a tedious process. You need to specify that separately. The default for KOMA-Script headers is sans serif and bold (`\sffamily\bfseries`) while the default for the main text is serif (`\rmfamily`).
+
+Note, if you don't like these design choices then switching to another book document class would be wise. Because resetting all of these for KOMA-Script is going to be annoying.
+
+Here are some options for changing your header fonts.
+
+Default roman but still bold.
+```
+format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    include-in-header:
+      text: |
+        \addtokomafont{disposition}{\rmfamily}
+```
+Something like this should work too
+```
+\setkomafont{disposition}{\normalcolor\bfseries}
+```
+
+Exactly as in the text body (i.e., not bold)
+```
+format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    include-in-header:
+      text: |
+        \setkomafont{disposition}{\normalfont}
+```
+
+Only change the chapters to serif:
+```
+\addtokomafont{chapter}{\rmfamily}
+```
+Change the captions and caption labels
+```
+\setkomafont{caption}{\normalfont}
+\setkomafont{captionlabel}{\normalfont}
+```
+
+## How to specify fonts 
+
+### Font name
+
+If you know the font is installed and you know its name, you can use that whenever you are asked for `font-family` in the yaml.
+
+### Font file
+
+You can download an opentype font file (otf or ttf) and use that. Download from [here](https://tug.org/FontCatalogue/opentypefonts.html). Note, in the `_extensions/nmfs-opensci/titlepage` folder, you will find the QT opentype font files.
+
+You can use that font file as a font name anywhere you are asked for a font. For example:
+```
+mainfont: "QTDublinIrish.otf"
+titlepage-theme:
+  title-fontfamily: QTDublinIrish.otf
+```
+
+If however you are using a KOMA-Script document class and want to change the header to a different font (that is not the main font) then you need to do something different.
+
+```
+    include-in-header:
+      text: |
+        \newfontfamily\myFont{QTDublinIrish.otf}
+        \setkomafont{disposition}{\myFont}
+```
+
+### Font packages
+
+The standard way to change all the fonts in a LaTeX document is to use a package in the header. [Here is some help on packages](http://latex.silmaril.ie/formattinginformation/fontuse.html#otfonts). Below I give a curated selection of font packages. 
+
+How does a font package work? Different ones behave differently. Some just create a font-family and you have issue a command like
+```
+\fontfamily{<fontname>}\selectfont
+```
+Unfortunately the documentation doesn't always tell you the font name. Instead sometimes they tell you a command you need to issue to "turn on" the font for a section of your document. I will not cover these types of packages.
+
+Other packages will redefine a serif font (`\rmfamily`), a sans serif font (`\sffamily`) and a tele-type family. When you load these packages, the font changes because the fonts for sections are defined using say `\rmfamily`. Below are some standard versions of these packages with the instructions that you need in your `include-in-header` section of your yaml.
+
+Change serif font to Times, sans serif to Helvetica, and tt to Courier. The `\renewcommand` bit is setting the default family to Times (named `ptm`).
+```
+    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{mathptmx}
+        \renewcommand{\familydefault}{ptm}
+        \setkomafont{disposition}{\normalfont}
+```
+
+The mathptmx page says it is obsolete. So you might use  [newtx](https://ctan.org/pkg/newtx) but I haven't had 100 percent luck with this package. Particularly there seems to be some conflict with `\usepackage{newtxmath}` which you'd want for your math.
+```
+    include-in-header:
+      text: |
+        \usepackage[type1text]{newtxtext}
+        \usepackage{unicode-math} 
+        \setkomafont{disposition}{\normalfont}
+```
+
+Change all the text fonts to Palatino.
+```
+    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{mathpazo}
+        \renewcommand{\familydefault}{ppl} % Palatino is named ppl
+        \setkomafont{disposition}{\normalfont}
+```
+
+Change fonts to Helvetica
+```
+    include-in-header:
+      text: |
+        \usepackage{helvet}
+        \usepackage[T1]{fontenc}
+        \renewcommand{\familydefault}{phv}
+        \setkomafont{disposition}{\normalfont}
+```
+
+Change fonts to Avant Garde
+```
+    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{avant}
+        \renewcommand{\familydefault}{pag}
+        \setkomafont{disposition}{\normalfont}
+```
+
+Change fonts to Bookman
+```
+    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{bookman}
+        \renewcommand{\familydefault}{pbk}
+        \setkomafont{disposition}{\normalfont}
+```
+
+Change fonts to Courier
+```
+    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{courier}
+        \renewcommand{\familydefault}{pcr}
+        \setkomafont{disposition}{\normalfont}
+```
+
+Change fonts to Zaph Chancery
+```
+    include-in-header:
+      text: |
+        \usepackage[T1]{fontenc}
+        \usepackage{chancery}
+        \renewcommand{\familydefault}{pzc}
+        \setkomafont{disposition}{\normalfont}
+```
