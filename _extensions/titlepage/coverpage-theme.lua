@@ -232,7 +232,7 @@ Set up the demos
     if isEmpty(m['coverpage-footer']) then
       m['coverpage-footer'] = "Templates for title pages and covers"
     end
-    demovals = {["title-align"] = "right", ["title-fontsize"] = 30, ["title-fontfamily"] = "Palatino", ["title-fontstyle"] = {"textbf", "textit"}, ["title-bottom"] = "10in", ["author-style"] = "none", ["footer-fontsize"] = 20, ["footer-fontfamily"] = "Palatino", ["footer-fontstyle"] = {"textit"}, ["footer-align"] = "right", ["footer-bottom"] = "9.5in", ["page-html-color"] = "F6D5A8", ["bg-image-fading"] = "north"}
+    demovals = {["title-align"] = "right", ["title-fontsize"] = 40, ["title-fontfamily"] = "QTDublinIrish.otf", ["title-bottom"] = "10in", ["author-style"] = "none", ["footer-fontsize"] = 20, ["footer-fontfamily"] = "QTDublinIrish.otf", ["footer-align"] = "right", ["footer-bottom"] = "9.5in", ["page-html-color"] = "F6D5A8", ["bg-image-fading"] = "north"}
     for dkey, val in pairs(demovals) do
       if isEmpty(m['coverpage-theme'][dkey]) then
         m['coverpage-theme'][dkey] = val

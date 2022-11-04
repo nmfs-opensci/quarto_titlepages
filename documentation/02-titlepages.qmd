@@ -65,7 +65,7 @@ Example:
     titlepage-theme: 
       page-html-color: "c4c4c4" 
       title-style: "plain"
-      title-fontfamily: "Palatino"
+      title-fontfamily: "Arial"
       title-fontstyle: ["Huge", "bfseries"]
       title-align: left
       title-space-after: 1in
@@ -258,12 +258,12 @@ These are features that you can customize. If you leave it out, it will either n
       page-html-color: "c4c4c4"
       page-color: green # use either html-color or color
       page-text-align: center
-      page-fontfamily: "Palatino"
+      page-fontfamily: "Arial"
       page-fontsize: 40
       page-spacing: 48
       title-style: "plain"
       title-color: "white"
-      title-fontfamily: "Palatino"
+      title-fontfamily: "Arial"
       title-fontsize: 14
       title-spacing: 16
       title-fontstyle: ["textit", "bfseries"]
@@ -274,7 +274,7 @@ These are features that you can customize. If you leave it out, it will either n
       title-colorbox-bordercolor: "black"
       title-subtitle-space-between: "0.1\\textheight"
       subtitle-color: "white" 
-      subtitle-fontfamily: "Palatino"
+      subtitle-fontfamily: "Arial"
       subtitle-fontsize: 10
       subtitle-spacing: 12
       subtitle-fontstyle: ["textit", "bfseries"] 
@@ -283,21 +283,21 @@ These are features that you can customize. If you leave it out, it will either n
       author-style: "superscript"
       author-sep: ",\ "
       author-color: "white" 
-      author-fontfamily: "Palatino"
+      author-fontfamily: "Arial"
       author-fontsize: 14
       author-spacing: 16
       author-fontstyle: ["textsc"]
       author-align: center
       author-space-after: "0.1\\paperheight" 
       affiliation-style: "numberedlist"
-      affiliation-fontfamily: "Palatino"
+      affiliation-fontfamily: "Arial"
       affiliation-fontsize: 12
       affiliation-spacing: 16
       affiliation-fontstyle: "large"
       affiliation-align: left
       affiliation-space-after: 1in
       footer-style: "colorbox"
-      footer-fontfamily: "Palatino"
+      footer-fontfamily: "Arial"
       footer-fontsize: 12
       footer-spacing: 16
       footer-fontstyle: "uppercase"
@@ -307,7 +307,7 @@ These are features that you can customize. If you leave it out, it will either n
       footer-colorbox-borderwidth: 2pt
       footer-colorbox-bordercolor: "black"
       header-style: "plain"
-      header-fontfamily: "Palatino"
+      header-fontfamily: "Arial"
       header-fontsize: 12
       header-spacing: 20
       header-fontstyle: "lowercase"
@@ -317,7 +317,7 @@ These are features that you can customize. If you leave it out, it will either n
       header-colorbox-borderwidth: 2pt
       header-colorbox-bordercolor: "black"
       date-style: "colorbox"
-      date-fontfamily: "Palatino"
+      date-fontfamily: "Arial"
       date-fontsize: 12
       date-spacing: 20
       date-fontstyle: ["slseries"]

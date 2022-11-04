@@ -67,7 +67,7 @@ Example:
     coverpage-theme: 
       page-html-color: "c4c4c4" # html color
       title-style: "plain"
-      title-fontfamily: "Palatino"
+      title-fontfamily: "Arial"
       title-fontstyle: ["Huge", "bfseries"]
       title-align: left
       title-location-bottom: "0.5\\paperheight"
@@ -198,12 +198,12 @@ These are features that you can customize. If you leave it out, it will either n
       page-html-color: "c4c4c4"
       page-color: green # use either html-color or color
       page-text-align: center
-      page-fontfamily: "Palatino"
+      page-fontfamily: "Arial"
       page-fontsize: 40
       page-spacing: 48
       title-style: "plain"
       title-color: "white"
-      title-fontfamily: "Palatino"
+      title-fontfamily: "Arial"
       title-fontsize: 14
       title-spacing: 16
       title-fontstyle: ["textit", "bfseries"]
@@ -215,7 +215,7 @@ These are features that you can customize. If you leave it out, it will either n
       author-style: "plain"
       author-sep: ",\ "
       author-color: "white" 
-      author-fontfamily: "Palatino"
+      author-fontfamily: "Arial"
       author-fontsize: 14
       author-spacing: 16
       author-fontstyle: ["textsc"]
@@ -225,7 +225,7 @@ These are features that you can customize. If you leave it out, it will either n
       author-bottom: 1in
       author-width: 6in
       footer-style: "plain"
-      footer-fontfamily: "Palatino"
+      footer-fontfamily: "Arial"
       footer-fontsize: 12
       footer-spacing: 16
       footer-fontstyle: "uppercase"
@@ -235,7 +235,7 @@ These are features that you can customize. If you leave it out, it will either n
       footer-bottom: 1cm
       footer-width: 10cm
       header-style: "plain"
-      header-fontfamily: "Palatino"
+      header-fontfamily: "Arial"
       header-fontsize: 12
       header-spacing: 20
       header-fontstyle: "lowercase"
@@ -244,7 +244,7 @@ These are features that you can customize. If you leave it out, it will either n
       header-left: "0.5\\paperwidth"
       header-bottom: "0.9\\paperwidth"
       date-style: "plain"
-      date-fontfamily: "Palatino"
+      date-fontfamily: "Arial"
       date-fontsize: 12
       date-spacing: 20
       date-fontstyle: ["slseries"]
