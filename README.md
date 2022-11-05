@@ -1,9 +1,10 @@
 [![github](https://img.shields.io/github/v/release/nmfs-opensci/quarto_titlepages?color=brightgreen&label=GitHub)](https://github.com/nmfs-opensci/quarto_titlepages/releases/latest)
-[![DOI](https://zenodo.org/badge/521413662.svg)](https://zenodo.org/badge/latestdoi/521413662)
+[![DOI](https://zenodo.org/badge/521413662.svg)](https://zenodo.org/badge/latestdoi/521413662) [![](https://img.shields.io/badge/Open%20In-RStudio%20Cloud-green)](https://rstudio.cloud/content/4891671) <-- *Try it out!*
 
 # quarto_titlepages <a href="https://github.com/nmfs-opensci/quarto_titlepages"><img src="https://github.com/nmfs-opensci.png" align="right" width="120"/></a>
 
 [Read the documentation](https://nmfs-opensci.github.io/quarto_titlepages/)
+ 
 
 A Quarto extension for adding a custom title page or book cover to your PDF output using the information in the YAML in your Quarto doc, i.e. from the `xyz.qmd` for an single doc and from `index.qmd` for a [Quarto](https://quarto.org/) book. 
 
