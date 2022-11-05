@@ -15,7 +15,7 @@ A Quarto extension for adding a custom title page or book cover to your PDF outp
 quarto use template nmfs-opensci/quarto_titlepages
 ```
 
-This will install the extension plus all the demo files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.
+This will install the extension plus all the example files. Essentially, you will be cloning the repo into a new folder and you will be asked at installation for the name of the (empty) folder/directory that you want to install into.
 
 ## Install or update for an existing document
 
@@ -34,15 +34,28 @@ In your document yaml add the format and a titlepage theme.
 ```yaml
 format: 
   titlepage-pdf:
-    coverpage: great-wave
     titlepage: bg-image
 ```
 
 Then render the document. See the documentation for the possible themes.
 
+### Example files
+
+There are two example file. `example_1.qmd` shows an example with only a titlepage. `example_2.qmd` has a cover page, copyright page, title page and dedication page. The copyright and dedication pages are in the `tex` folder. This example will not run if you don't have those files. The examples also use images in the `img` folder. You will need those files or replace them with your own.
+
 ## Customizing
 
-All aspects of the title and cover pages can be customized and static pages (e.g. copyright) can be added after the title page. [Read the documentation](https://nmfs-opensci.github.io/quarto_titlepages/). tldr; In your yaml, you pass in `titlepage-theme:` or `coverpage-theme:` with variables for things like font, fontstyle, position of elements, colors, background images, etc.
+All aspects of the title and cover pages can be customized and static pages (e.g. copyright) can be added after the title page. [Read the documentation](https://nmfs-opensci.github.io/quarto_titlepages/). 
+
+tldr; In your yaml, you pass in `titlepage-theme:` or `coverpage-theme:` with variables for things like font, fontstyle, position of elements, colors, background images, etc.
+
+## Getting rid of the QTDublinIrish.otf file
+
+This is coming from the extension for the cover page demos. Find the `_extension.yml` file in the `_extensions` folder for the `titlepage` extension. Delete these lines
+```
+      format-resources:
+        - "fonts/qualitype/opentype/QTDublinIrish.otf"
+```
 
 ## LaTeX users
 
