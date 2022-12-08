@@ -393,8 +393,8 @@ This function assigns the themevals to the meta data
   }
   
   m['titlepage-file'] = false
+  if isEmpty(m.titlepage) then m['titlepage'] = "plain" end
   if getVal(m.titlepage) == "false" then m['titlepage'] = "none" end
-  if isEmpty(m.titlepage) then mm['titlepage'] = "plain" end
   if getVal(m.titlepage) == "true" then m['titlepage'] = "plain" end
   if getVal(m.titlepage) == "none" then 
     m['titlepage-true'] = false
