@@ -37,7 +37,7 @@ This is the overall theme. Default is `true` (which is the same as `plain`). `fa
 
 The logo for the title page. It doesn't use `logo` from the main yaml.
 
-###`titlepage-bg-image`
+### `titlepage-bg-image`
 
 The background image file. Default is to make this fill the whole page.  See the `bg-image` theme for how to put this in the top-left corner and make smaller. You can tile the image too.
 
