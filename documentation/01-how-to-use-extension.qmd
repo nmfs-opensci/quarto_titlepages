@@ -1,4 +1,4 @@
-# How to use - Extension {#sec-howtouse}
+# How to use {#sec-howtouse}
 
 The extension provides a format `titlepage-pdf` where you can specify a variety of themes and customizations. The video gives a 10 minute tutorial on how to use the extension to create a custom title page.
 
@@ -140,5 +140,10 @@ format:
       text: |
         \definecolor{mygreen}{HTML}{808000}
 ```
+
+## Abstract
+
+Currently none of the titlepage themes include an abstract. However you can include a static page after the title page and add your abstract (or executive summary) to that. See section on [adding static files](06-static-files.qmd) and the `example_2.qmd` example file.
+
 
 
