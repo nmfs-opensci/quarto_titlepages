@@ -69,7 +69,7 @@ The document class changes the look of your document. For the book document clas
 ```
 number-sections: true
 ```
-in your YAML because Quarto sets `number-sections: false` by default and that will mess up all your equation, figure and table numbers. It simple will not number them correctly at all.
+in your YAML because Quarto sets `number-sections: false` by default and that will mess up all your equation, figure and table numbers. It simply will not number them correctly at all.
 
 ### `scrbook`
 
