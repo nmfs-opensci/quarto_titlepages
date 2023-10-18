@@ -38,7 +38,13 @@ format:
     titlepage: bg-image
 ```
 
-Then render the document. See the documentation for the possible themes.
+Then render the document using either the 'render' button in your IDE or from the terminal with
+```
+quarto render article.qmd
+````
+Note if you add `--to` to the command, use `--to titlepage-pdf` not `--to pdf`.
+
+See the documentation for the possible themes.
 
 ### Example files
 

@@ -54,7 +54,7 @@ Then render the document. *How?* That depends on the IDE you are using. There sh
 ```bash
 quarto render article.qmd
 ```
-assuming your qmd file is named `article.qmd`.
+assuming your qmd file is named `article.qmd`. Note, if you add `--to` to your render command you need to use `--to titlepage-pdf` not `--to pdf`. The latter instructs Quart to render to a plain pdf format.
 
 ## Customizing
 
