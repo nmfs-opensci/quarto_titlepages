@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nmfs-opensci.github.io/quarto_titlepages/Readme.html</loc>
-    <lastmod>2022-12-13T18:29:23.014Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/quarto_titlepages/09-author-styles.html</loc>
-    <lastmod>2022-12-13T18:29:25.378Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/quarto_titlepages/05-coverpage-themes.html</loc>
-    <lastmod>2022-12-13T18:29:25.794Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/quarto_titlepages/index.html</loc>
-    <lastmod>2022-12-13T18:29:26.318Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/quarto_titlepages/08-acknowledgements.html</loc>
-    <lastmod>2022-12-13T18:29:26.766Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/quarto_titlepages/03-titlepage-themes.html</loc>
-    <lastmod>2022-12-13T18:29:27.214Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/quarto_titlepages/06-static-files.html</loc>
-    <lastmod>2022-12-13T18:29:27.630Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/quarto_titlepages/10-fonts.html</loc>
-    <lastmod>2022-12-13T18:29:28.110Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/quarto_titlepages/01-how-to-use-extension.html</loc>
-    <lastmod>2022-12-13T18:29:28.618Z</lastmod>
-  </url>
-  <url>
     <loc>https://nmfs-opensci.github.io/quarto_titlepages/02-titlepages.html</loc>
-    <lastmod>2022-12-13T18:29:29.246Z</lastmod>
+    <lastmod>2023-11-28T23:28:27.823Z</lastmod>
   </url>
   <url>
     <loc>https://nmfs-opensci.github.io/quarto_titlepages/04-coverpages.html</loc>
-    <lastmod>2022-12-13T18:30:15.442Z</lastmod>
+    <lastmod>2023-11-28T23:28:26.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/quarto_titlepages/08-acknowledgements.html</loc>
+    <lastmod>2023-11-28T23:28:26.083Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/quarto_titlepages/06-static-files.html</loc>
+    <lastmod>2023-11-28T23:27:18.847Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/quarto_titlepages/01-how-to-use-extension.html</loc>
+    <lastmod>2023-11-28T23:27:18.223Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/quarto_titlepages/03-titlepage-themes.html</loc>
+    <lastmod>2023-11-28T23:27:16.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/quarto_titlepages/05-coverpage-themes.html</loc>
+    <lastmod>2023-11-28T23:27:17.827Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/quarto_titlepages/index.html</loc>
+    <lastmod>2023-11-28T23:27:18.547Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/quarto_titlepages/09-author-styles.html</loc>
+    <lastmod>2023-11-28T23:27:19.183Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/quarto_titlepages/10-fonts.html</loc>
+    <lastmod>2023-11-28T23:28:26.459Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nmfs-opensci.github.io/quarto_titlepages/Readme.html</loc>
+    <lastmod>2023-11-28T23:28:27.211Z</lastmod>
   </url>
 </urlset>
