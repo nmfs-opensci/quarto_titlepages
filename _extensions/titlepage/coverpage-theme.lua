@@ -259,7 +259,7 @@ Set up the demos
     end
   end
 
--- set the coverpage values unless user passed them in
+-- set the coverpage values unless user passed them in as coverpage-key
   for key, val in pairs({"title", "author", "date"}) do
     if isEmpty(m['coverpage-' .. val]) then
       if not isEmpty(m[val]) then
@@ -276,7 +276,9 @@ Set up the demos
   if choice == "true" then
     for key, val in pairs({"title", "author", "footer", "header", "date"}) do
       if not isEmpty(m['coverpage-' .. val]) then
-        m['coverpage-theme'][val .. "-style"] = "plain"
+        if isEmpty(m['coverpage-theme'][val .. "-style"]) then
+          m['coverpage-theme'][val .. "-style"] = "plain"
+        end
       else
         m['coverpage-theme'][val .. "-style"] = "none"
       end
