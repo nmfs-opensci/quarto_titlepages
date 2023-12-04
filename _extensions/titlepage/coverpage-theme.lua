@@ -268,8 +268,10 @@ Set up the demos
     end
   end
 -- make a bit more robust to whatever user passes in for coverpage-author
-  for key, val in pairs(m['coverpage-author']) do
-     m['coverpage-author'][key] = getVal(m['coverpage-author'][key])
+  if not isEmpty(m['coverpage-author']) then
+    for key, val in pairs(m['coverpage-author']) do
+      m['coverpage-author'][key] = getVal(m['coverpage-author'][key])
+    end
   end
 
 -- fix "true" to figure out what was passed in
