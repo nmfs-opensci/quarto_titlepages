@@ -66,7 +66,7 @@ This is coming from the extension for the cover page demos. Find the `_extension
 
 ## LaTeX users
 
-If you have a title page and/or cover page, that you want to use directly. You might want to look at [quarto_titlepages_v1](https://github.com/nmfs-opensci/quarto_titlepages). This shows you how to create your own Pandoc templates so you can get control of the title page in your tex files. Alternatively, if you have a static title or cover page, see the documentation chapter on using static tex files in your frontmatter.
+If you have a title page and/or cover page, that you want to use directly. You might want to look at [quarto_titlepages_v1](https://github.com/nmfs-opensci/quarto_titlepages_v1). This shows you how to create your own Pandoc templates so you can get control of the title page in your tex files. Alternatively, if you have a static title or cover page, see the documentation chapter on using static tex files in your frontmatter.
 
 ------
 This work is uses [Quarto](https://quarto.org/), [citation](https://github.com/quarto-dev/quarto-cli/blob/main/CITATION.cff). The default document classes for Quarto are scrbook and scrartcl. This repo also includes a copy of the Springer [svmono](https://www.springernature.com/gp/authors/campaigns/latex-author-support) document class, CRC/Chapman & Hall krantz document class, and the Elsevier elsarticle document class. The tex templates were written by [Eli Holmes](https://github.com/eeholmes) and the lua filter along with changes to the Pandoc templates to allow themes was written by [Mickaël Canouil](https://github.com/mcanouil).
