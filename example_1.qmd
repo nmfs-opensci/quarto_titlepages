@@ -26,7 +26,6 @@ author:
         address: R Tradição 35, Portugal 2950-726
 bibliography: references.bib
 format: 
-  html: default
   titlepage-pdf:
     documentclass: scrbook
     classoption: ["oneside", "open=any"]

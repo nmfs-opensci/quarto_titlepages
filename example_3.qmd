@@ -30,6 +30,9 @@ format:
       - tex/copyright.tex
     titlepage-include-file:
       - tex/dedication.tex
+    titlepage-theme:
+      vrule-color: "green"
+      vrule-width: "10pt"
     coverpage: otter
     coverpage-bg-image: "img/otter-bar.jpeg"
     coverpage-title: "Otters"
