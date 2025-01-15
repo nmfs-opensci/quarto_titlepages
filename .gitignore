@@ -50,3 +50,8 @@ template.log
 template.tex
 template.pdf
 
+# Some testing examples
+example_4.*
+example_4_files/
+example_5.*
+example_5_files/

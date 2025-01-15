@@ -13,6 +13,7 @@ format:
   titlepage-pdf:
     documentclass: scrbook
     classoption: ["oneside", "open=any"]
+    link-citations: true
     number-sections: true
     toc: true
     lof: true
@@ -39,8 +40,9 @@ format:
       title-fontsize: 100
       author-style: "plain"
       author-sep: "newline"
-      author-fontstyle: "textsc"
+      author-fontstyle: ["textbf", "textsc"]
       author-fontsize: 30
+      author-color: green
       author-align: "right"
       author-bottom: "2in"
       footer-style: "none"
